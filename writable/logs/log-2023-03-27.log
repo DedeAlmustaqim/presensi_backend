@@ -1,0 +1,83 @@
+ERROR - 2023-03-27 12:23:27 --> mysqli_sql_exception: Unknown column 'tgl_in' in 'where clause' in C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `tbl_use...', 0)
+#1 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbl_use...')
+#2 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbl_use...')
+#3 C:\xampp_8.2\htdocs\presensi\system\Database\BaseBuilder.php(2461): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_use...', Array, false)
+#4 C:\xampp_8.2\htdocs\presensi\app\Models\UserModel.php(68): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 C:\xampp_8.2\htdocs\presensi\app\Controllers\AuthController.php(50): App\Models\UserModel->update_user(Array, 'ProgrammerHanin...')
+#6 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\AuthController->login()
+#7 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#8 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8.2\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-03-27 12:23:28 --> Unknown column 'tgl_in' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2461): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_user` SET `imeiNo` = :imeiNo:, `modelName` = :modelName:, `manufacturerName` = :manufacturerName:, `deviceName` = :deviceName:, `productName` = :productName:
+WHERE `tgl_in` = :tgl_in:', [...], false)
+ 2 APPPATH\Models\UserModel.php(68): CodeIgniter\Database\BaseBuilder->update([...])
+ 3 APPPATH\Controllers\AuthController.php(50): App\Models\UserModel->update_user([...], 'ProgrammerHaning')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AuthController->login()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-03-27 12:24:02 --> mysqli_sql_exception: Unknown column 'imeiNo' in 'field list' in C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `tbl_use...', 0)
+#1 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbl_use...')
+#2 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbl_use...')
+#3 C:\xampp_8.2\htdocs\presensi\system\Database\BaseBuilder.php(2461): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_use...', Array, false)
+#4 C:\xampp_8.2\htdocs\presensi\app\Models\UserModel.php(68): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 C:\xampp_8.2\htdocs\presensi\app\Controllers\AuthController.php(50): App\Models\UserModel->update_user(Array, 'ProgrammerHanin...')
+#6 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\AuthController->login()
+#7 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#8 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8.2\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-03-27 12:24:02 --> Unknown column 'imeiNo' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2461): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_user` SET `imeiNo` = :imeiNo:, `modelName` = :modelName:, `manufacturerName` = :manufacturerName:, `deviceName` = :deviceName:, `productName` = :productName:
+WHERE `username` = :username:', [...], false)
+ 2 APPPATH\Models\UserModel.php(68): CodeIgniter\Database\BaseBuilder->update([...])
+ 3 APPPATH\Controllers\AuthController.php(50): App\Models\UserModel->update_user([...], 'ProgrammerHaning')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AuthController->login()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-27 12:25:21 --> Undefined array key "imeiNo"
+in APPPATH\Controllers\AuthController.php on line 62.
+ 1 APPPATH\Controllers\AuthController.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imeiNo"', 'APPPATH\\Controllers\\AuthController.php', 62)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AuthController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-27 12:25:46 --> Undefined array key "imeiNo"
+in APPPATH\Controllers\AuthController.php on line 62.
+ 1 APPPATH\Controllers\AuthController.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imeiNo"', 'APPPATH\\Controllers\\AuthController.php', 62)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AuthController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-27 12:26:20 --> Undefined array key "imeiNo"
+in APPPATH\Controllers\AuthController.php on line 62.
+ 1 APPPATH\Controllers\AuthController.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imeiNo"', 'APPPATH\\Controllers\\AuthController.php', 62)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AuthController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-27 12:27:36 --> Undefined array key "imeiNo"
+in APPPATH\Controllers\AuthController.php on line 63.
+ 1 APPPATH\Controllers\AuthController.php(63): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imeiNo"', 'APPPATH\\Controllers\\AuthController.php', 63)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AuthController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-27 13:06:22 --> whereNotIn() expects $values to be of type array or closure
+in SYSTEMPATH\Database\BaseBuilder.php on line 926.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(839): CodeIgniter\Database\BaseBuilder->_whereIn('tbl_absen.id_ket_in', 0, true, 'AND ', null)
+ 2 APPPATH\Models\UserModel.php(73): CodeIgniter\Database\BaseBuilder->whereNotIn('tbl_absen.id_ket_in', 0)
+ 3 APPPATH\Controllers\User.php(106): App\Models\UserModel->get_ijin('qwqwqwqw32esaewesasad', '2023', 3)
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->get_ijin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

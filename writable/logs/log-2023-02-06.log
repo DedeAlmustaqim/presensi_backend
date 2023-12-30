@@ -1,0 +1,79 @@
+WARNING - 2023-02-06 14:34:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-02-06 14:49:05 --> mysqli_sql_exception: Unknown column 'id_unit' in 'where clause' in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\app\Models\UnitModel.php(48): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Resource.php(56): App\Models\UnitModel->get_unit('oysvxho19c0cbc3...')
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Resource->get_unit()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-02-06 14:49:05 --> Unknown column 'id_unit' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_absen_pagi`
+WHERE `id_unit` = :id_unit:', [...], false)
+ 2 APPPATH\Models\UnitModel.php(48): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Resource.php(56): App\Models\UnitModel->get_unit('oysvxho19c0cbc3le3lck6fvq')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Resource->get_unit()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-02-06 15:26:04 --> mysqli_sql_exception: Column 'id_unit' in where clause is ambiguous in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *, TIME_...', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, TIME_...')
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, TIME_...')
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *, TIME_...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\app\Models\ResourceModel.php(50): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Resource.php(21): App\Models\ResourceModel->get_jadwal('z1esx6y8dx2w3x5...')
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-02-06 15:26:04 --> Column 'id_unit' in where clause is ambiguous
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *, TIME_FORMAT(tbl_qr_scan.qr_time_pagi_start, "%H:%i") as qr_time_pagi_start, TIME_FORMAT(tbl_qr_scan.qr_time_pagi_end, "%H:%i") as qr_time_pagi_end
+FROM `tbl_qr_scan`
+LEFT JOIN `tbl_unit` ON `tbl_qr_scan`.`id_unit` = `tbl_unit`.`id_unit`
+WHERE `id_unit` = :id_unit:', [...], false)
+ 2 APPPATH\Models\ResourceModel.php(50): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Resource.php(21): App\Models\ResourceModel->get_jadwal('z1esx6y8dx2w3x50871zobvl6')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-02-06 15:26:22 --> mysqli_sql_exception: Column 'id_unit' in where clause is ambiguous in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `tbl_uni...', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_uni...')
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_uni...')
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_uni...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\app\Models\ResourceModel.php(50): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Resource.php(21): App\Models\ResourceModel->get_jadwal('z1esx6y8dx2w3x5...')
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-02-06 15:26:22 --> Column 'id_unit' in where clause is ambiguous
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_unit`.`id_unit`, TIME_FORMAT(tbl_qr_scan.qr_time_pagi_start, "%H:%i") as qr_time_pagi_start, TIME_FORMAT(tbl_qr_scan.qr_time_pagi_end, "%H:%i") as qr_time_pagi_end
+FROM `tbl_qr_scan`
+LEFT JOIN `tbl_unit` ON `tbl_qr_scan`.`id_unit` = `tbl_unit`.`id_unit`
+WHERE `id_unit` = :id_unit:', [...], false)
+ 2 APPPATH\Models\ResourceModel.php(50): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Resource.php(21): App\Models\ResourceModel->get_jadwal('z1esx6y8dx2w3x50871zobvl6')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

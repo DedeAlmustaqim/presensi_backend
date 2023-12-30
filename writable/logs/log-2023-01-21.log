@@ -1,0 +1,76 @@
+ERROR - 2023-01-21 13:52:21 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `qr_time...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\app\Models\QrScanModel.php(59): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Resource.php(17): App\Models\QrScanModel->get_jadwal()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `qr_time...', Array, false)
+#3 C:\xampp_8\htdocs\presensi\app\Models\QrScanModel.php(59): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_8\htdocs\presensi\app\Controllers\Resource.php(17): App\Models\QrScanModel->get_jadwal()
+#5 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-01-21 13:52:21 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `qr_time_pagi_start`, `qr_time_pagi_end`
+FROM `tbl_qr_scan`', [], false)
+ 3 APPPATH\Models\QrScanModel.php(59): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Resource.php(17): App\Models\QrScanModel->get_jadwal()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-21 13:52:21 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `qr_time...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\app\Models\QrScanModel.php(59): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Resource.php(17): App\Models\QrScanModel->get_jadwal()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `qr_time...', Array, false)
+#3 C:\xampp_8\htdocs\presensi\app\Models\QrScanModel.php(59): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_8\htdocs\presensi\app\Controllers\Resource.php(17): App\Models\QrScanModel->get_jadwal()
+#5 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-01-21 13:52:21 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `qr_time_pagi_start`, `qr_time_pagi_end`
+FROM `tbl_qr_scan`', [], false)
+ 3 APPPATH\Models\QrScanModel.php(59): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Resource.php(17): App\Models\QrScanModel->get_jadwal()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Resource->jadwal()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Resource))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

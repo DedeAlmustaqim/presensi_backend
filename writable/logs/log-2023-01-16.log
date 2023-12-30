@@ -1,0 +1,968 @@
+CRITICAL - 2023-01-16 01:15:10 --> Maximum execution time of 120 seconds exceeded
+in SYSTEMPATH\Debug\Exceptions.php on line 159.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2023-01-16 01:15:10 --> Error connecting to the database: ErrorException: mysqli::real_connect(): Error while reading greeting packet. PID=6728 in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp_8\\htdo...', 173)
+#1 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 C:\xampp_8\htdocs\presensi\app\Models\UserModel.php(45): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\xampp_8\htdocs\presensi\app\Controllers\User.php(16): App\Models\UserModel->get_user()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\User->get_user()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next mysqli_sql_exception: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\app\Models\UserModel.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\User.php(16): App\Models\UserModel->get_user()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\User->get_user()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_8\htdocs\presensi\app\Models\UserModel.php(45): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_8\htdocs\presensi\app\Controllers\User.php(16): App\Models\UserModel->get_user()
+#5 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\User->get_user()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-01-16 01:15:10 --> Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_user`
+JOIN `tbl_unit` ON `tbl_user`.`id_unit` = `tbl_unit`.`id_unit`', [], false)
+ 3 APPPATH\Models\UserModel.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\User.php(16): App\Models\UserModel->get_user()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->get_user()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-16 02:57:04 --> Error connecting to the database: ErrorException: mysqli::real_connect(): Error while reading greeting packet. PID=6728 in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp_8\\htdo...', 173)
+#1 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#7 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#10 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next mysqli_sql_exception: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-01-16 02:57:04 --> Error connecting to the database: ErrorException: mysqli::real_connect(): Error while reading greeting packet. PID=6728 in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp_8\\htdo...', 173)
+#1 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#7 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#10 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next mysqli_sql_exception: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-01-16 02:57:04 --> Error connecting to the database: ErrorException: mysqli::real_connect(): Error while reading greeting packet. PID=6728 in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp_8\\htdo...', 173)
+#1 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#7 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#10 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next mysqli_sql_exception: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-16 02:57:04 --> Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_qr_scan`
+ORDER BY `id` DESC
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 02:57:04 --> Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_qr_scan`
+ORDER BY `id` DESC
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 02:57:04 --> Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_qr_scan`
+ORDER BY `id` DESC
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-16 02:57:04 --> Error connecting to the database: ErrorException: mysqli::real_connect(): Error while reading greeting packet. PID=6728 in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp_8\\htdo...', 173)
+#1 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#7 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#10 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next mysqli_sql_exception: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-16 02:57:04 --> Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_qr_scan`
+ORDER BY `id` DESC
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-16 02:57:04 --> Error connecting to the database: ErrorException: mysqli::real_connect(): Error while reading greeting packet. PID=6728 in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp_8\\htdo...', 173)
+#1 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#7 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#10 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next mysqli_sql_exception: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-01-16 02:57:04 --> Error connecting to the database: ErrorException: mysqli::real_connect(): Error while reading greeting packet. PID=6728 in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp_8\\htdo...', 173)
+#1 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#7 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#10 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next mysqli_sql_exception: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_presensi', 3306, '', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#9 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_8\htdocs\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_8\htdocs\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-16 02:57:04 --> Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_qr_scan`
+ORDER BY `id` DESC
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 02:57:04 --> Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_qr_scan`
+ORDER BY `id` DESC
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Qrscan.php(13): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:09:42 --> Call to undefined method App\Models\QrScanModel::add
+in SYSTEMPATH\Model.php on line 840.
+ 1 APPPATH\Controllers\Qrscan.php(13): CodeIgniter\Model->__call('add', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qrscan->GetQr()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qrscan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:12:52 --> Object of class App\Models\Tbl_absen_pagi could not be converted to string
+in APPPATH\Controllers\QrScanApi.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:12:58 --> Object of class App\Models\Tbl_absen_pagi could not be converted to string
+in APPPATH\Controllers\QrScanApi.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:13:31 --> Object of class App\Models\Tbl_absen_pagi could not be converted to string
+in APPPATH\Controllers\QrScanApi.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:14:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_asbsen_apgo is deprecated in APPPATH\Controllers\QrScanApi.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:14:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_asbsen_apgo is deprecated in APPPATH\Controllers\QrScanApi.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:14:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_asbsen_apgo is deprecated in APPPATH\Controllers\QrScanApi.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:14:53 --> Undefined variable $tbl_absen_pagi
+in APPPATH\Controllers\QrScanApi.php on line 52.
+ 1 APPPATH\Controllers\QrScanApi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tbl_absen_pagi', 'APPPATH\\Controllers\\QrScanApi.php', 52)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:15:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_asbsen_apgo is deprecated in APPPATH\Controllers\QrScanApi.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:15:40 --> Undefined variable $tbl_absen_pagi
+in APPPATH\Controllers\QrScanApi.php on line 53.
+ 1 APPPATH\Controllers\QrScanApi.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tbl_absen_pagi', 'APPPATH\\Controllers\\QrScanApi.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:16:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:16:06 --> Undefined variable $tbl_absen_pagi
+in APPPATH\Controllers\QrScanApi.php on line 53.
+ 1 APPPATH\Controllers\QrScanApi.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tbl_absen_pagi', 'APPPATH\\Controllers\\QrScanApi.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:16:32 --> Undefined variable $tbl_absen_pagi
+in APPPATH\Controllers\QrScanApi.php on line 52.
+ 1 APPPATH\Controllers\QrScanApi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tbl_absen_pagi', 'APPPATH\\Controllers\\QrScanApi.php', 52)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:16:34 --> Undefined variable $tbl_absen_pagi
+in APPPATH\Controllers\QrScanApi.php on line 52.
+ 1 APPPATH\Controllers\QrScanApi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tbl_absen_pagi', 'APPPATH\\Controllers\\QrScanApi.php', 52)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:16:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:16:45 --> Undefined variable $tbl_absen_pagi
+in APPPATH\Controllers\QrScanApi.php on line 53.
+ 1 APPPATH\Controllers\QrScanApi.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tbl_absen_pagi', 'APPPATH\\Controllers\\QrScanApi.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:16:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:16:47 --> Undefined variable $tbl_absen_pagi
+in APPPATH\Controllers\QrScanApi.php on line 53.
+ 1 APPPATH\Controllers\QrScanApi.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tbl_absen_pagi', 'APPPATH\\Controllers\\QrScanApi.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:16:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 03:16:48 --> Undefined variable $tbl_absen_pagi
+in APPPATH\Controllers\QrScanApi.php on line 53.
+ 1 APPPATH\Controllers\QrScanApi.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tbl_absen_pagi', 'APPPATH\\Controllers\\QrScanApi.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:17:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:18:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-16 03:18:03 --> mysqli_sql_exception: Table 'db_presensi.user_info' doesn't exist in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\app\Models\Tbl_absen_pagi.php(16): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\QrScanApi.php(53): App\Models\Tbl_absen_pagi->add(Array)
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-16 03:18:03 --> Table 'db_presensi.user_info' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `user_info` (`tgl`, `jam`, `keterangan`) VALUES (:tgl:, :jam:, :keterangan:)', [...], false)
+ 2 APPPATH\Models\Tbl_absen_pagi.php(16): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\QrScanApi.php(53): App\Models\Tbl_absen_pagi->add([...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:18:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:18:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-16 03:18:41 --> mysqli_sql_exception: Unknown column 'jam' in 'field list' in C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp_8\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp_8\htdocs\presensi\system\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp_8\htdocs\presensi\app\Models\Tbl_absen_pagi.php(16): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp_8\htdocs\presensi\app\Controllers\QrScanApi.php(53): App\Models\Tbl_absen_pagi->add(Array)
+#6 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+#7 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+#8 C:\xampp_8\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-16 03:18:41 --> Unknown column 'jam' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_absen_pagi` (`tgl`, `jam`, `keterangan`) VALUES (:tgl:, :jam:, :keterangan:)', [...], false)
+ 2 APPPATH\Models\Tbl_absen_pagi.php(16): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\QrScanApi.php(53): App\Models\Tbl_absen_pagi->add([...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:19:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:19:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:20:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:21:04 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:21:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:21:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:21:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:21:56 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 03:22:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:05:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:05:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:05:37 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:06:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:34:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:34:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:34:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:35:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:35:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:35:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:35:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:36:00 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:36:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:36:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:37:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:38:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:39:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:39:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:39:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:39:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:39:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:39:37 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:39:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:40:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:41:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:43:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:44:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 04:44:46 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:16:56 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:17:04 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:18:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:18:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:18:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:18:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:18:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:19:04 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:19:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:19:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-01-16 05:27:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:39:53 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:39:54 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:39:55 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:39:56 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:39:57 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:39:58 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:39:59 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:00 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:01 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:02 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:03 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:04 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:05 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:06 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:07 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:08 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:09 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:10 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:11 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:12 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:13 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-16 07:40:14 --> syntax error, unexpected token "if"
+in APPPATH\Config\Routes.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

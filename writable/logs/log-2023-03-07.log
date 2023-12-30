@@ -1,0 +1,104 @@
+CRITICAL - 2023-03-07 08:29:41 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 882.
+ 1 SYSTEMPATH\Model.php(640): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(830): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\User.php(83): CodeIgniter\Model->__call('table', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-03-07 11:31:03 --> mysqli_sql_exception: Table 'db_presensi.tbl_ou' doesn't exist in C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp_8.2\htdocs\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp_8.2\htdocs\presensi\app\Controllers\User.php(192): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+#6 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#7 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp_8.2\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-03-07 11:31:03 --> Table 'db_presensi.tbl_ou' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_ou`
+WHERE `tgl` = :tgl:
+AND `id_user` = :id_user:', [...], false)
+ 2 APPPATH\Controllers\User.php(192): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-07 15:26:09 --> Undefined variable $id_ket_convert
+in APPPATH\Controllers\User.php on line 116.
+ 1 APPPATH\Controllers\User.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_ket_convert', 'APPPATH\\Controllers\\User.php', 116)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-07 15:26:25 --> Undefined variable $id_ket_convert
+in APPPATH\Controllers\User.php on line 116.
+ 1 APPPATH\Controllers\User.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_ket_convert', 'APPPATH\\Controllers\\User.php', 116)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-03-07 15:32:54 --> mysqli_sql_exception: Column 'id_user' in where clause is ambiguous in C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp_8.2\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8.2\htdocs\presensi\app\Models\UserModel.php(57): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8.2\htdocs\presensi\app\Controllers\User.php(68): App\Models\UserModel->get_rekap('qwqwqwqw32esaew...', '2023', 3)
+#6 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\User->get_rekap()
+#7 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#8 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8.2\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-03-07 15:32:54 --> Column 'id_user' in where clause is ambiguous
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_in`
+LEFT JOIN `tbl_out` ON `tbl_in`.`id_user` = `tbl_out`.`id_user`
+LEFT JOIN `tbl_ket` ON `tbl_in`.`id_ket` = `tbl_ket`.`id_ket`
+WHERE `id_user` = :id_user:
+AND YEAR(tgl) = :YEAR(tgl):
+AND MONTH(tgl) = :MONTH(tgl):
+ORDER BY `tgl` ASC', [...], false)
+ 2 APPPATH\Models\UserModel.php(57): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\User.php(68): App\Models\UserModel->get_rekap('qwqwqwqw32esaewesasad', '2023', 3)
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->get_rekap()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-03-07 15:34:34 --> mysqli_sql_exception: Column 'id_user' in where clause is ambiguous in C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `tbl_in`...', 0)
+#1 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_in`...')
+#2 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_in`...')
+#3 C:\xampp_8.2\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_in`...', Array, false)
+#4 C:\xampp_8.2\htdocs\presensi\app\Models\UserModel.php(73): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8.2\htdocs\presensi\app\Controllers\User.php(68): App\Models\UserModel->get_rekap('qwqwqwqw32esaew...', '2023', 3)
+#6 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\User->get_rekap()
+#7 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#8 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8.2\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-03-07 15:34:34 --> Column 'id_user' in where clause is ambiguous
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_in`.`id`, `tbl_in`.`tgl`, `tbl_in`.`id_ket`, `tbl_in`.`jam`, `tbl_in`.`id_user`, `tbl_in`.`ket_absen`, `tbl_in`.`bukti`, `tbl_in`.`id_unit`, `tbl_out`.`id`, `tbl_out`.`tgl`, `tbl_out`.`id_ket`, `tbl_out`.`jam`, `tbl_out`.`id_user`, `tbl_out`.`ket_absen`, `tbl_out`.`bukti`, `tbl_out`.`id_unit`
+FROM `tbl_in`
+LEFT JOIN `tbl_out` ON `tbl_in`.`id_user` = `tbl_out`.`id_user`
+LEFT JOIN `tbl_ket` ON `tbl_in`.`id_ket` = `tbl_ket`.`id_ket`
+WHERE `id_user` = :id_user:
+AND YEAR(tgl) = :YEAR(tgl):
+AND MONTH(tgl) = :MONTH(tgl):
+ORDER BY `tgl` ASC', [...], false)
+ 2 APPPATH\Models\UserModel.php(73): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\User.php(68): App\Models\UserModel->get_rekap('qwqwqwqw32esaewesasad', '2023', 3)
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->get_rekap()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

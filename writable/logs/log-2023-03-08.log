@@ -1,0 +1,80 @@
+ERROR - 2023-03-08 09:07:00 --> mysqli_sql_exception: Unknown column 'tbl_absen.tgl' in 'where clause' in C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp_8.2\htdocs\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_8.2\htdocs\presensi\app\Models\UserModel.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_8.2\htdocs\presensi\app\Controllers\User.php(68): App\Models\UserModel->get_rekap('qwqwqwqw32esaew...', '2023', 3)
+#6 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\User->get_rekap()
+#7 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#8 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8.2\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-03-08 09:07:01 --> Unknown column 'tbl_absen.tgl' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_absen`
+RIGHT JOIN `tbl_ket` ON `tbl_absen`.`id_ket_in` = `tbl_ket`.`id_ket_in` and `tbl_absen`.`id_ket_out` = `tbl_ket`.`id_ket_out`
+WHERE `tbl_absen`.`id_user` = :tbl_absen.id_user:
+AND YEAR(tbl_absen.tgl) = :YEAR(tbl_absen.tgl):
+AND MONTH(tbl_absen.tgl) = :MONTH(tbl_absen.tgl):
+ORDER BY `tbl_absen`.`tgl` ASC', [...], false)
+ 2 APPPATH\Models\UserModel.php(58): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\User.php(68): App\Models\UserModel->get_rekap('qwqwqwqw32esaewesasad', '2023', 3)
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->get_rekap()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-03-08 09:27:26 --> mysqli_sql_exception: Unknown column 'id_user_in' in 'where clause' in C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp_8.2\htdocs\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp_8.2\htdocs\presensi\app\Controllers\User.php(204): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+#6 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#7 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp_8.2\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-03-08 09:27:26 --> Unknown column 'id_user_in' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_absen`
+WHERE `tgl_in` = :tgl_in:
+AND `id_user_in` = :id_user_in:', [...], false)
+ 2 APPPATH\Controllers\User.php(204): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-08 09:29:36 --> Undefined variable $id_ket_convert
+in APPPATH\Controllers\User.php on line 231.
+ 1 APPPATH\Controllers\User.php(231): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_ket_convert', 'APPPATH\\Controllers\\User.php', 231)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-03-08 09:30:13 --> mysqli_sql_exception: Unknown column 'tgl_in' in 'field list' in C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp_8.2\htdocs\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp_8.2\htdocs\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp_8.2\htdocs\presensi\system\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp_8.2\htdocs\presensi\app\Models\AbsenModel.php(18): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp_8.2\htdocs\presensi\app\Controllers\User.php(239): App\Models\AbsenModel->add(Array)
+#6 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+#7 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#8 C:\xampp_8.2\htdocs\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_8.2\htdocs\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-03-08 09:30:13 --> Unknown column 'tgl_in' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_in` (`tgl_in`, `tgl_out`, `jam_in`, `jam_out`, `id_ket_in`, `id_ket_out`, `id_user`, `ket_absen_in`, `ket_absen_out`) VALUES (:tgl_in:, :tgl_out:, :jam_in:, :jam_out:, :id_ket_in:, :id_ket_out:, :id_user:, :ket_absen_in:, :ket_absen_out:)', [...], false)
+ 2 APPPATH\Models\AbsenModel.php(18): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\User.php(239): App\Models\AbsenModel->add([...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->post_ijin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

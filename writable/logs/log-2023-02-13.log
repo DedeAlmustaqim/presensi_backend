@@ -1,0 +1,55 @@
+WARNING - 2023-02-13 02:42:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 03:17:42 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 03:33:29 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 03:34:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 03:56:13 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 04:43:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 05:02:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 05:04:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 08:54:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 16:06:00 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-02-13 16:41:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\QrScanApi::$tbl_absen_pagi is deprecated in APPPATH\Controllers\QrScanApi.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\QrScanApi->post_qr()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QrScanApi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
