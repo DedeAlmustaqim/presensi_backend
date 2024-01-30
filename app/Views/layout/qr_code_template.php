@@ -59,7 +59,7 @@
     <script src="<?php echo base_url() ?>/public/assets/js/bundle.js?ver=3.1.3"></script>
     <script src="<?php echo base_url() ?>/public/assets/js/scripts.js?ver=3.1.3"></script>
     <script src="<?php echo base_url() ?>/public/assets/js/charts/gd-invest.js?ver=3.1.3"></script>
-    <script src="<?php echo base_url() ?>/public/assets/js/scan_absen.js"></script>
+    <script src="<?php echo base_url() ?>/public/assets/js/scan_absen.js?v=<?php echo time(); ?>"></script>
     <script src="<?php echo base_url() ?>/public/assets/qrcode/qrcode.js"></script>
 
 </body>

@@ -10,7 +10,7 @@ $(document).ready(function () {
     setInterval(() => {
         $.ajax({
             type: "get",
-            "url": "http://localhost:8000/api/scan/" + id,
+            "url": "https://api-absen.baritotimurkab.go.id/public/api/scan/" + id,
             dataType: "JSON",
             success: function (data) {
                 console.log(data);
