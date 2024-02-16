@@ -1,10 +1,141 @@
+
 $(document).ready(function () {
-
+    var table;
+    $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
+        return {
+            "iStart": oSettings._iDisplayStart,
+            "iEnd": oSettings.fnDisplayEnd(),
+            "iLength": oSettings._iDisplayLength,
+            "iTotal": oSettings.fnRecordsTotal(),
+            "iFilteredTotal": oSettings.fnRecordsDisplay(),
+            "iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+            "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+        };
+    };
     var id = $('#id_qr_scan').val()
+    table = initDatatable();
+    scrollDataTable();
+    function initDatatable() {
+        return $('#tableUserView').DataTable({
+            processing: true,
+            serverSide: true,
+
+            destroy: true,
+
+            "bPaginate": true,
+
+            "bLengthChange": false,
+            "bFilter": false,
+            "bInfo": false,
+
+            "scrollCollapse": true,
+            "columnDefs": [{
+                "visible": false,
+
+            }],
+            "order": [
+                [0, 'asc']
+            ],
+
+
+
+            "displayLength": 5,
+            "ajax": {
+                "url": BASE_URL + "/get_user/" + id,
+            },
+            "columns": [
+
+                {
+                    "orderable": false,
+                    "data": function (data) {
+                        // Get current date
+                        var currentDate = new Date();
+                
+                        // Format the date as needed (you can customize this part)
+                        var formattedDate = currentDate.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                        });
+                
+                        // Return the formatted date
+                        return '<div class="text-left">' + formattedDate + '</div>';
+                    }
+                },
+               
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="user-card user-card-s1">'+
+                        '<div class="user-avatar md bg-primary">'+
+                            '<img height="55" width="55" src="'+data[5]+'" alt="">'+
+                            
+                        '</div>'+
+                        '<div class="user-info">'+
+                            '<h6>'+data[1]+'</h6>'+
+                           
+                        '</div>'+
+                    '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[2] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "className":'bg-success',
+                    "data": function (data) {
+                        if (data[3] == null) {
+                            return '<div class="text-left">Belum Check IN</div>';
+                        } else {
+                            return '<div class="text-left">' + data[3] + '</div>';
+                        }
+                    }
+                },
+
+                {
+                    "orderable": false,
+                   "className":'bg-orange',
+                    "data": function (data) {
+                        if (data[4] == null) {
+                            return '<div class="text-left ">Belum Check Out</div>';
+                        } else {
+                            return '<div class="text-left">' + data[4] + '</div>';
+                        }
+                    }
+                },
+
+            ],
 
 
 
 
+        });
+    }
+
+
+    function scrollDataTable() {
+        var table = $('#tableUserView').DataTable();
+        var currentPage = 0;
+
+        var scrollInterval = setInterval(function () {
+            table.page(currentPage).draw('page');
+            currentPage++;
+
+            // Optional: Reset to the first page after reaching the last page
+            if (currentPage === table.page.info().pages) {
+                currentPage = 0;
+            }
+        }, 2500); // Adjust the interval as needed
+
+        // Optional: Stop scrolling after a certain time or condition
+       
+    }
 
 
     setInterval(() => {
@@ -93,17 +224,17 @@ $(document).ready(function () {
 
         if (formattedTime > startPagi && formattedTime <= endPagi) {
 
-            document.getElementById('qrid').innerHTML = 'Masuk'
+            document.getElementById('qrid').innerHTML = '<h6 class="text-success">Kode QR Check In dibuka</h6>'
             makeCodeP(qr_in)
             // makeCodeS(qr_out)
         } else if (formattedTime > endPagi) {
-            document.getElementById('qrid').innerHTML = 'Absen ditutup'
+            document.getElementById('qrid').innerHTML = '<h6 class="text-warning">Kode QR Check In ditutup</h6>'
 
 
 
             removeCodeIn()
         } else if (formattedTime < startPagi) {
-            document.getElementById('qrid').innerHTML = 'Absen ditutup'
+            document.getElementById('qrid').innerHTML = '<h6 class="text-warning">Kode QR Check In ditutup</h6>'
 
 
 
@@ -133,17 +264,17 @@ $(document).ready(function () {
 
         if (formattedTime > startOut && formattedTime <= endOut) {
 
-            document.getElementById('qrid_out').innerHTML = 'Keluar'
+            document.getElementById('qrid_out').innerHTML = '<h6 class="text-success">Kode QR Check Out dibuka</h6>'
             makeCodeS(qr_out)
             // makeCodeS(qr_out)
         } else if (formattedTime > endOut) {
-            document.getElementById('qrid_out').innerHTML = 'Absen ditutup'
+            document.getElementById('qrid_out').innerHTML = '<h6 class="text-warning">Kode QR Check Out ditutup</h6>'
 
 
 
             removeCodeOut()
         } else if (formattedTime < startOut) {
-            document.getElementById('qrid_out').innerHTML = 'Absen ditutup'
+            document.getElementById('qrid_out').innerHTML = '<h6 class="text-warning">Kode QR Check Out ditutup</h6>'
 
 
 

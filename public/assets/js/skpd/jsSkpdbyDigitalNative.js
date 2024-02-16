@@ -76,13 +76,7 @@ $(document).ready(function () {
 
                 }
             },
-            {
-                "orderable": false,
-                "data": function (data,) {
-                    return '<div class="text-left">' + data[7] + '</div>'
-
-                }
-            },
+            
             {
                 "orderable": false,
                 "data": function (data,) {
@@ -97,6 +91,18 @@ $(document).ready(function () {
 
                 }
             },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    if(data[8]==null){
+                        return '<div class="text-center">-</div>'
+                    }else{
+                        return '<div class="text-center">' + data[8] + '</div>'
+                    }
+                    
+
+                }
+            },
 
             {
 
@@ -105,8 +111,97 @@ $(document).ready(function () {
                     return '<div class="text-center">' +
                         '<a title="Edit"  onclick="editPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-edit-alt"></em></a>&nbsp;' +
                         '<a title="Reset Password" onclick="resPassPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-unlock-fill"></em></a>&nbsp;' +
-                        '<a title="Perangkat" onclick="devPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-mobile"></em></a>&nbsp;' +
-                        '<a  onclick="delPeg(this)" data-id="' + data[6] + '" class="btn btn-dim btn-outline-danger"><em class="icon ni ni-trash"></em></a>&nbsp;' +
+                        '<a title="Urutkan" onclick="sortPeg(this)" data-id="' + data[6] + '"  data-sort="' + data[8] + '" class="btn btn-outline-primary"><em class="icon ni ni-sort-line"></em></a>&nbsp;' +
+                        // '<a title="Laporan" onclick="lapPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-file-pdf"></em></a>&nbsp;' +
+                        // '<a  onclick="delPeg(this)" data-id="' + data[6] + '" class="btn btn-dim btn-outline-danger"><em class="icon ni ni-trash"></em></a>&nbsp;' +
+                        '</div>'
+                }
+            },
+
+
+        ],
+        rowCallback: function (row, data, iDisplayIndex) {
+            var info = this.fnPagingInfo();
+            var page = info.iPage;
+            var length = info.iLength;
+            var index = page * length + (iDisplayIndex + 1);
+            $('td:eq(0)', row).html(index);
+        },
+
+
+    });
+
+    //Tabel Rekap Pegawai
+    $('#tabelRekapPegawai').DataTable({
+        processing: true,
+        serverSide: true,
+
+        destroy: true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bInfo": true,
+        "bAutoWidth": true,
+        "columnDefs": [{
+            "visible": false,
+
+        }],
+        "order": [
+            [0, 'asc']
+        ],
+
+        "language": {
+            "lengthMenu": "Tampilkan _MENU_ item per halaman",
+            "zeroRecords": "Tidak ada data yang ditampilkan",
+            "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Tidak ada data yang ditampilkan",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "search": "Cari",
+            "paginate": {
+                "first": "Awal",
+                "last": "Akhir",
+                "next": "Selanjutnya",
+                "previous": "Sebelumnya"
+            },
+        },
+        "displayLength": 25,
+        "ajax": {
+            "url": BASE_URL + "skpd/json_pegawai",
+        },
+        "columns": [
+
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[0] + '</div>'
+
+                }
+            },
+           
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[2] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[4] + '</div>'
+
+                }
+            },
+            
+
+            {
+
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-center">' +
+                        '<a title="Laporan" onclick="lapRekapPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-eye"></em>&nbsp;Jam Kerja</a>&nbsp;' +
+                        '<a title="Laporan" onclick="lapPegTPP(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-eye"></em>&nbsp;TPP</a>&nbsp;' +
+                        // '<a  onclick="delPeg(this)" data-id="' + data[6] + '" class="btn btn-dim btn-outline-danger"><em class="icon ni ni-trash"></em></a>&nbsp;' +
                         '</div>'
                 }
             },
@@ -267,7 +362,10 @@ $('#formTambahPeg').on('submit', function (e) {
 
             if (data.success == false) {
                 toastr.clear();
-                if (data.username_peg_error) {
+                if (data.nik_unik_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.nik_unik_error + '</p>', 'error');
+                }
+                if (data.nik_peg_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.username_peg_error + '</p>', 'error');
                 }
 
@@ -284,6 +382,7 @@ $('#formTambahPeg').on('submit', function (e) {
 
                 Swal.fire('Berhasil Tambah Data!', 'Data telah ditambah.', 'success');
                 $('#modalTambahPeg').modal('hide');
+                $("#formTambahPeg")[0].reset();
                 $('#tabelPegawai').DataTable().ajax.reload(null, false);
             }
 
@@ -342,8 +441,9 @@ function editPeg(elem) {
         success: function (data) {
 
             $('#username_peg_edit').val(data.username)
-            $('#nama_peg_edit').val(data.nama)
+            $('#nama_peg_edit').val(data.name)
             $('#nip_peg_edit').val(data.nip)
+            $('#email_peg_edit').val(data.email)
             $('#jabatan_peg_edit').val(data.jabatan)
         },
     })
@@ -390,95 +490,88 @@ $('#formEditPeg').on('submit', function (e) {
     return false;
 });
 
-function resPassPeg(elem) {
+
+
+function sortPeg(elem) {
     var id = $(elem).data("id");
-    Swal.fire({
-        title: 'Apakah anda yakin??',
-        text: "Tanyakan kepada Developer untuk mengetahui Default Password Pegawai ",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Ya, Reset!'
-    }).then(function (result) {
-        if (result.value) {
-            $.ajax({
-                url: BASE_URL + 'skpd/ress_pass/' + id,
-                type: "POST",
-                data: {
-
-                    id: id,
-
-                },
-                success: function (data) {
-                    Swal.fire('Berhasil!', 'Password telah di reset.', 'success');
-                },
-                error: function () {
-
-                    Swal.fire('Gagal!', 'Terjadi kesalahan .', 'error');
-                }
-            });
-
-        }
-    });
-}
-
-function devPeg(elem) {
-    var id = $(elem).data("id");
+    var sort = $(elem).data("sort");
     // console.log(id)
-    $('#modalDevPeg').modal('show');
-    $('#id_user_dev_peg').val(id)
-    getDevPeg(id)
+    $('#modalSort').modal('show');
+    $('#id_user_sort_peg').val(id)
+    $('#sort_peg').val(sort)
+    
 
 }
-function getDevPeg(id) {
+
+$('#formSortPeg').on('submit', function (e) {
+
+    var postData = new FormData($("#formSortPeg")[0]);
     $.ajax({
-        type: "get",
-        "url": BASE_URL + "skpd/get_peg/" + id,
-
+        type: "POST",
+        "url": BASE_URL + "skpd/sort_peg",
+        processData: false,
         contentType: false,
+        data: postData,
         dataType: "JSON",
-        async: true,
-
         success: function (data) {
-            document.getElementById('nm_peg').innerHTML = data.nama
-            document.getElementById('modelName').innerHTML = data.modelName
-            document.getElementById('deviceName').innerHTML = data.deviceName
-            document.getElementById('manufacturerName').innerHTML = data.manufacturerName
-            document.getElementById('productName').innerHTML = data.productName
-            document.getElementById('btnResDev').innerHTML = '&nbsp;<a onclick="resDevPeg(this)" data-id="' + data.id_user + '" class="btn btn-primary">Reset Perangkat</a>&nbsp<a data-bs-dismiss="modal" class="btn btn-danger">Tutup</a>'
+
+
+            if (data.success == false) {
+                toastr.clear();
+                if (data.sort_peg_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.username_peg_error + '</p>', 'error');
+                }
+               
+
+            } else if (data.success == true) {
+                Swal.fire('Berhasil Ubah Data!', 'Data telah diubah.', 'success');
+                $('#tabelPegawai').DataTable().ajax.reload(null, false);
+                $('#modalSort').modal('hide');
+            }
 
         },
+
     })
     return false;
+});
+
+
+function lapRekapPeg(elem) {
+    var id = $(elem).data("id");
+
+    $('#id_user_lap_jam_kerja').val(id)
+    $('#modalRekapJamKerja').modal('show'); 
+
 }
 
-function resDevPeg(elem) {
+function lapPegTPP(elem) {
     var id = $(elem).data("id");
-    Swal.fire({
-        title: 'Apakah anda yakin??',
-        text: "Reset Data Perangkat Pegawai",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Ya, Reset!'
-    }).then(function (result) {
-        if (result.value) {
-            $.ajax({
-                url: BASE_URL + 'skpd/res_dev/' + id,
-                type: "POST",
-                data: {
 
-                    id: id,
+    $('#id_user_lap_tpp').val(id)
+    $('#modalRekapTPP').modal('show'); 
 
-                },
-                success: function (data) {
-                    Swal.fire('Berhasil!', 'Perangkat di reset.', 'success');
-                    getDevPeg(id)
-                },
-                error: function () {
+}
 
-                    Swal.fire('Gagal!', 'Terjadi kesalahan .', 'error');
-                }
-            });
+function cetakRekapPerPeg() {
+    // Mendapatkan nilai dari input tahun_lap dan bulan_lap
+    var tahun = document.getElementById("tahun_lap").value;
+    var bulan = document.getElementById("bulan_lap").value;
+    // Mendapatkan nilai dari input id_user_sort_peg
+    var id = document.getElementById("id_user_lap_jam_kerja").value;
+    // Membuka tautan baru dengan URL yang sesuai
+    window.open(BASE_URL + 'skpd/rekap/view_absen/'+ id + "/" + bulan + "/" + tahun);
+}
 
-        }
-    });
+function cetakRekapTPP() {
+    // Mendapatkan nilai dari input tahun_lap dan bulan_lap
+    var tahun = document.getElementById("tahun_tpp").value;
+    var bulan = document.getElementById("bulan_tpp").value;
+    // Mendapatkan nilai dari input id_user_sort_peg
+    var id = document.getElementById("id_user_lap_tpp").value;
+    // Membuka tautan baru dengan URL yang sesuai
+    window.open(BASE_URL + 'skpd/rekap/view_absen_tpp/'+ id + "/" + bulan + "/" + tahun);
+}
+
+function devPorgress(){
+    Swal.fire('Lagi dalam pengembangan!', '.', 'warning');
 }

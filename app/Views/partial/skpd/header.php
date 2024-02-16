@@ -40,21 +40,21 @@
                                 <a href="<?php echo base_url() ?>/skpd/unit" class="nk-menu-link"><span class="nk-menu-text">SKPD</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="<?php echo base_url()?>/skpd/jadwal" class="nk-menu-link"><span class="nk-menu-text">Jadwal Kode QR</span></a>
+                                <a href="<?php echo base_url()?>/skpd/pegawai" class="nk-menu-link"><span class="nk-menu-text">Pegawai</span></a>
                             </li>
-
-                            <li class="nk-menu-item has-sub">
-                                <a href="#" class="nk-menu-link nk-menu-toggle">
-                                    <span class="nk-menu-text">Pengguna</span>
-                                </a>
-                                <ul class="nk-menu-sub">
-                                    <li class="nk-menu-item">
-                                    </li>
-                                    <li class="nk-menu-item">
-                                        <a href="<?php echo base_url()?>/skpd/pegawai" class="nk-menu-link" ><span class="nk-menu-text">Pegawai</span></a>
-                                    </li>
-                                    
-                                </ul><!-- .nk-menu-sub -->
+                            
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-text">Rekapitulasi</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="<?php echo base_url() ?>/skpd/rekap/pegawai" class="nk-menu-link"><span class="nk-menu-text">Per Pegawai</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a onclick="devPorgress()" class="nk-menu-link"><span class="nk-menu-text">Per SKPD</span></a>
                             </li>
                             
                         </ul><!-- .nk-menu-sub -->

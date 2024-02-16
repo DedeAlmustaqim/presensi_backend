@@ -3,6 +3,7 @@
 namespace App\Controllers\Skpd;
 
 use App\Controllers\BaseController;
+use App\Models\AbsenModel;
 use App\Models\UnitModel;
 use App\Models\UserModel;
 use \Hermawan\DataTables\DataTable;
@@ -13,7 +14,7 @@ class Pegawai extends BaseController
     {
         if (session('akses') == 2) {
             $modelUnit = new UnitModel();
-            $unit = $modelUnit->where('id_unit', session('ses_id_unit'))->first();
+            $unit = $modelUnit->where('id', session('ses_id_unit'))->first();
 
             $data = array(
                 'judul' => 'Kelola Pegawai',
@@ -32,24 +33,22 @@ class Pegawai extends BaseController
             return redirect('login');
         } else {
             $db = db_connect();
-            $builder = $db->table('tbl_user')->select('tbl_user.id, 
-            tbl_user.nip, 
-            tbl_user.nama, 
-            tbl_user.id_unit, 
-            tbl_user.jabatan, 
-            tbl_user.img, 
-            tbl_user.id_user, 
-            tbl_user.username, 
-            tbl_user.`password`, 
-            tbl_user.imeiNo, 
-            tbl_user.modelName, 
-            tbl_user.manufacturerName, 
-            tbl_user.deviceName, 
-            tbl_user.productName, 
+            $builder = $db->table('users')->select('users.id, 
+            users.nip, 
+            users.name, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.id, 
+            users.nik, 
+            users.sort, 
+            
             tbl_unit.nm_unit',)
-                ->join('tbl_unit', 'tbl_user.id_unit = tbl_unit.id_unit', 'left')
-                ->where('tbl_user.id_unit', session('ses_id_unit'))
-                ->orderBy('id', 'asc');
+                ->join('tbl_unit', 'users.id_unit = tbl_unit.id', 'left')
+                ->where('users.id_unit', session('ses_id_unit'))
+                // ->orderBy('CASE WHEN users.sort IS NULL THEN 1 ELSE users.sort', 'asc')
+                ->orderBy('users.sort', 'asc')
+                ->orderBy('users.nip', 'asc');
 
             return DataTable::of($builder)->toJson();;
         }
@@ -57,71 +56,60 @@ class Pegawai extends BaseController
 
     public function tambah_peg()
     {
-        if (session('akses') == '2') {
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            $randomString = '';
+        $model = new UserModel();
 
-            for ($i = 0; $i < 25; $i++) {
-                $randomString .= $characters[rand(0, strlen($characters) - 1)];
-            }
-
-            $model = new UserModel();
-            if (!$this->validate([
-                'username_peg'     => ['label' => 'Username', 'rules' => 'required'],
-                'nama_peg'     => ['label' => 'Nama', 'rules' => 'required'],
-                'nip_peg'     => ['label' => 'NIP', 'rules' => 'required|integer|max_length[18]|min_length[18]'],
-                'jabatan_peg'     => ['label' => 'jabatan', 'rules' => 'required'],
-            ])) {
-
-                $respond = [
-                    'success' => false,
-                    'username_peg_error' => \Config\Services::validation()->getError('username_peg'),
-                    'nama_peg_error' => \Config\Services::validation()->getError('nama_peg'),
-                    'nip_peg_error' => \Config\Services::validation()->getError('nip_peg'),
-                    'jabatan_peg_error' => \Config\Services::validation()->getError('jabatan_peg'),
-                ];
-
-                return json_encode($respond);
-            }
-
-            $username = $this->request->getVar('username_peg');
-            $nama = $this->request->getVar('nama_peg');
-            $nip = $this->request->getVar('nip_peg');
-            $jabatan = $this->request->getVar('jabatan_peg');
-
-            $data = [
-                'id_user'           => $randomString,
-                'nip'           => $nip,
-                'nama'           => $nama,
-                'id_unit'           => session('ses_id_unit'),
-                'jabatan'           => $jabatan,
-                'img'           => 'presensi/public/images/user_img_def.png',
-                'username'           => $username,
-                'password'           => password_hash('PresensiOk', PASSWORD_DEFAULT),
-                'created_at'           => date('Y/m/d H:i:s'),
-            ];
+        // Ambil NIK dari inputan
+        $nik = $this->request->getPost('nik_peg');
 
 
 
-            $result = $model->add($data);
 
-
-            if ($result) {
-                $respond = [
-                    'success' => true,
-                ];
-                return json_encode($respond);
-            } else {
-                $respond = [
-                    'success' => false,
-                ];
-                return json_encode($respond);
-            }
-        } else {
+        if (!$this->validate([
+            'nik_peg'     => ['label' => 'NIK', 'rules' => 'required'],
+            'nama_peg'     => ['label' => 'Nama', 'rules' => 'required'],
+            'nip_peg'     => ['label' => 'NIP', 'rules' => 'required|max_length[18]|min_length[1]'],
+            'email_peg'     => ['label' => 'Email', 'rules' => 'required|email'],
+            'jabatan_peg'     => ['label' => 'Jabatan', 'rules' => 'required'],
+        ])) {
             $respond = [
                 'success' => false,
+                'nik_peg_error' => \Config\Services::validation()->getError('nik_peg'),
+                'nama_peg_error' => \Config\Services::validation()->getError('nama_peg'),
+                'nip_peg_error' => \Config\Services::validation()->getError('nip_peg'),
+                'email_peg_error' => \Config\Services::validation()->getError('email_peg'),
+                'jabatan_peg_error' => \Config\Services::validation()->getError('jabatan_peg'),
+            ];
+
+            return json_encode($respond);
+        }
+        $existingUser = $model->where('nik', $nik)->first();
+        if ($existingUser) {
+            $respond = [
+                'success' => false,
+                'nik_unik_error' => 'NIK sudah digunakan. Silakan masukkan NIK yang lain.'
             ];
             return json_encode($respond);
+        }
+
+
+        // Data valid, simpan ke database
+        $user = [
+            'nip'        => $this->request->getPost('nip_peg'),
+            'name'       => $this->request->getPost('nama_peg'),
+            'id_unit'    => session()->get('ses_id_unit'),
+            'jabatan'    => $this->request->getPost('jabatan_peg'),
+            'nik'    => $this->request->getPost('nik_peg'),
+            'email'    => $this->request->getPost('email'),
+            'password'   => password_hash('baritotimurkab', PASSWORD_DEFAULT),
+        ];
+
+        $result = $model->insert($user);
+
+        // Beri respons berdasarkan hasil penyimpanan data
+        if ($result) {
+            return json_encode(['success' => true]);
+        } else {
+            return json_encode(['success' => false, 'message' => 'Gagal menyimpan data.']);
         }
     }
 
@@ -140,7 +128,7 @@ class Pegawai extends BaseController
             return redirect('login');
         }
         $model = new UserModel();
-        $data = $model->where('id_user', $id)
+        $data = $model->where('id', $id)
             ->first();
 
         return json_encode($data);
@@ -155,6 +143,7 @@ class Pegawai extends BaseController
         if (!$this->validate([
             'username_peg_edit'     => ['label' => 'Username', 'rules' => 'required'],
             'nama_peg_edit'     => ['label' => 'Nama', 'rules' => 'required'],
+            'email_peg_edit'     => ['label' => 'Nama', 'rules' => 'required'],
             'nip_peg_edit'     => ['label' => 'NIP', 'rules' => 'required|integer|max_length[18]|min_length[18]'],
             'jabatan_peg_edit'     => ['label' => 'jabatan', 'rules' => 'required'],
 
@@ -165,6 +154,7 @@ class Pegawai extends BaseController
                 'success' => false,
                 'username_peg_error' => \Config\Services::validation()->getError('username_peg_edit'),
                 'nama_peg_error' => \Config\Services::validation()->getError('nama_peg_edit'),
+                'email_peg_error' => \Config\Services::validation()->getError('email_peg'),
                 'nip_peg_error' => \Config\Services::validation()->getError('nip_peg_edit'),
                 'jabatan_peg_error' => \Config\Services::validation()->getError('jabatan_peg_edit'),
             ];
@@ -178,13 +168,59 @@ class Pegawai extends BaseController
         $nama = $this->request->getVar('nama_peg_edit');
         $nip = $this->request->getVar('nip_peg_edit');
         $jabatan = $this->request->getVar('jabatan_peg_edit');
+        $email = $this->request->getVar('email_peg_edit');
         $data = [
 
             'nip'           => $nip,
-            'nama'           => $nama,
+            'name'           => $nama,
             'jabatan'           => $jabatan,
-            'img'           => 'public/assets/img/160x160/img3.jpg',
-            'username'           => $username,
+            'nik'           => $username,
+            'email'           => $email,
+        ];
+        $result = $model->update_peg($data, $id);
+        if ($result) {
+            $respond = [
+                'success'   => true,
+            ];
+            return json_encode($respond);
+        } else {
+            $respond = [
+                'success' => false,
+
+            ];
+            return json_encode($respond);
+        }
+    }
+
+    public function sort_peg()
+    {
+        if (session('akses') != '2') {
+            return redirect('login');
+        }
+        $model = new UserModel();
+        if (!$this->validate([
+            'sort_peg'     => ['label' => 'No urut', 'rules' => 'required|integer'],
+
+
+        ])) {
+
+            $respond = [
+                'success' => false,
+                'sort_peg_error' => \Config\Services::validation()->getError('sort'),
+
+            ];
+
+            return json_encode($respond);
+        }
+
+        $id = $this->request->getVar('id_user_sort_peg');
+
+        $sort = $this->request->getVar('sort_peg');
+
+        $data = [
+
+            'sort'           => $sort,
+
         ];
         $result = $model->update_peg($data, $id);
         if ($result) {
@@ -206,30 +242,11 @@ class Pegawai extends BaseController
         if (session('akses') != '2') {
             return redirect('login');
         }
-        $model = new UserModel();    
-   
-        $data = [
-            'password'           => password_hash('PresensiOk', PASSWORD_DEFAULT),
-            
-        ];
-        $result = $model->update_peg($data, $id);
-        return json_encode($result);
-    }
+        $model = new UserModel();
 
-    public function res_dev($id)
-    {
-        if (session('akses') != '2') {
-            return redirect('login');
-        }
-        $model = new UserModel();    
-   
         $data = [
-            'imeiNo'           => null,
-            'modelName'           => null,
-            'manufacturerName'           => null,
-            'deviceName'           => null,
-            'productName'           => null,
-            
+            'password'           => password_hash('baritotimurkab', PASSWORD_DEFAULT),
+
         ];
         $result = $model->update_peg($data, $id);
         return json_encode($result);

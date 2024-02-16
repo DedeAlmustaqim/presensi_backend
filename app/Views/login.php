@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="<?php echo base_url()?>/public/images/favicon.png">
+    <link rel="shortcut icon" href="<?php echo base_url()?>/public/images/logo-dark-small.png">
     <!-- Page Title  -->
     <title><?php echo $judul?></title>
     <!-- StyleSheets  -->
@@ -32,13 +32,13 @@
                             <div class="nk-block nk-block-middle nk-auth-body">
                                 <div class="brand-logo pb-5">
                                     <a href="html/index.html" class="logo-link">
-                                        <img class="logo-light logo-img logo-img-lg" src="<?php echo base_url()?>/public/images/logo-dark.png" srcset="<?php echo base_url()?>/public/images/logo2x.png 2x" alt="logo">
-                                        <img class="logo-dark logo-img logo-img-lg" src="<?php echo base_url()?>/public/images/logo-dark.png" srcset="<?php echo base_url()?>/public/images/logo-dark2x.png 2x" alt="logo-dark">
+                                        <img class="logo-light logo-img logo-img-lg" src="<?php echo base_url()?>/public/images/logo-bartim.png" srcset="<?php echo base_url()?>/public/images/logo2x.png 2x" alt="logo">
+                                        <img class="logo-dark logo-img logo-img-lg" src="<?php echo base_url()?>/public/images/logo-bartim.png" srcset="<?php echo base_url()?>/public/images/logo-dark2x.png 2x" alt="logo-dark">
                                     </a>
                                 </div>
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
-                                        <h5 class="nk-block-title">Presensi by Digital Native</h5>
+                                        <h5 class="nk-block-title">Presensi Elektronik Barito Timur</h5>
                                         <div class="nk-block-des">
                                             <p><?php echo $sub_judul?></p>
                                         </div>
@@ -75,20 +75,24 @@
                             <div class="nk-block nk-auth-footer">
                                 <div class="nk-block-between">
                                     <ul class="nav nav-sm">
+                                            
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Terms & Condition</a>
+                                            <a class="nav-link" href="https://wa.me/6282255446030" target="_blank">Narahubung</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Privacy Policy</a>
+                                            <a class="nav-link" href="https://drive.baritotimurkab.go.id/index.php/s/ZDQSLdwocKF5GoM" target="_blank">Petunjuk Pengguna</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Help</a>
+                                            <a class="nav-link" href="#">Petunjuk Admin</a>
+                                        </li>
+                                             <li class="nav-item">
+                                            <a class="nav-link" href="<?php echo base_url()?>/privacy_policy" target="">Privacy Policy</a>
                                         </li>
                                        
                                     </ul><!-- .nav -->
                                 </div>
                                 <div class="mt-3">
-                                    <p>&copy; 2023 Digital Native.</p>
+                                    <p>copyright &copy; Digital Native 2024 </p>
                                 </div>
                             </div><!-- .nk-block -->
                         </div><!-- .nk-split-content -->
@@ -98,11 +102,11 @@
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <img class="round text-center" src="<?php echo base_url()?>/public/images/slides/promo-a.png" width="100%" srcset="<?php echo base_url()?>/public/images/slides/promo-a2x.png 2x" alt="">
+                                                <img class="round text-center" src="<?php echo base_url()?>/public/images/slides/aplikasi-presensi-bartim.png" width="100%" src="<?php echo base_url()?>/public/images/slides/promo-a2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
                                                 <h4>Presensi</h4>
-                                                <p>Aplikasi Presensi by Digital Native</p>
+                                                <p>Aplikasi Presensi Elektronik Barito Timur &copy Digital Native</p>
                                             </div>
                                         </div>
                                     </div><!-- .slider-item -->

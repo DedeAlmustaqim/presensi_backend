@@ -23,7 +23,7 @@ class Auth extends BaseController
                     session()->set('login', true);
                     session()->set('akses', '1');
                     session()->set('hak_akses', $user['hak_akses']);
-                    session()->set('ses_id', $user['id_user']);
+                    session()->set('ses_id', $user['id']);
                     session()->set('ses_user', $user['username']);
                     session()->set('ses_nm', $user['nama']);
 
@@ -34,7 +34,7 @@ class Auth extends BaseController
 
                     session()->set('akses', '2');
                     session()->set('hak_akses', $user['hak_akses']);
-                    session()->set('ses_id', $user['id_user']);
+                    session()->set('ses_id', $user['id']);
                     session()->set('ses_user', $user['username']);
                     session()->set('ses_nm', $user['nama']);
                     session()->set('ses_id_unit', $user['id_unit']);
@@ -45,7 +45,7 @@ class Auth extends BaseController
 
                     session()->set('akses', '3');
                     session()->set('hak_akses', $user['hak_akses']);
-                    session()->set('ses_id', $user['id_user']);
+                    session()->set('ses_id', $user['id']);
                     session()->set('ses_user', $user['username']);
                     session()->set('ses_nm', $user['nama']);
                     session()->set('ses_id_unit', $user['id_unit']);

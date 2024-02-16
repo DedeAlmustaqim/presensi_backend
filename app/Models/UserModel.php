@@ -7,14 +7,14 @@ use CodeIgniter\Model;
 class UserModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tbl_user';
+    protected $table            = 'users';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = ['password'];
-    protected $allowedFields    = ['id', 'nip', 'nama', 'id_unit', 'jabatan'];
+    protected $allowedFields    = ['id', 'nip', 'name', 'id_unit', 'jabatan', 'email', 'nik'];
 
     // Dates
     protected $useTimestamps = false;
@@ -87,15 +87,15 @@ class UserModel extends Model
     function add($data)
     {
         return $this->db
-            ->table('tbl_user')
+            ->table('users')
             ->insert($data);
     }
 
     function update_peg($data, $id)
     {
         return $this->db
-            ->table('tbl_user')
-            ->where('id_user', $id)
+            ->table('users')
+            ->where('id', $id)
             ->update($data);
     }
 }

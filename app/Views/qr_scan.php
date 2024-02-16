@@ -11,7 +11,7 @@
 				<a href="#" class="btn btn-icon btn-trigger toggle-expand me-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
 				<div class="toggle-expand-content" data-content="pageMenu">
 					<ul class="nk-block-tools g-3">
-						<li><a href="<?php echo base_url()?>/auth/logout" class="btn btn-white btn-outline-light"><em class="icon ni ni-power"></em><span>Log Out</span></a></li>
+						<li><a href="<?php echo base_url() ?>/auth/logout" class="btn btn-white btn-outline-light"><em class="icon ni ni-power"></em><span>Log Out</span></a></li>
 					</ul>
 				</div>
 			</div><!-- .toggle-wrap -->
@@ -81,6 +81,24 @@
 
 		<!-- End Title -->
 	</div>
+	<div class="col-lg-12" style="margin-top: 20px;">
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="tableUserView" aria-describedby="DataTables_Table_0_info">
+                <thead>
+                    <tr class="bg-primary text-white text-center">
+                        <th>Hari ini</th>
+                       
+                        <th width="35%">Nama</th>
+                        <th width="20%">Jabatan</th>
+                        <th>Check IN</th>
+                        <th>Check Out</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
 </div>
 <!-- End Row -->
 <?= $this->endSection() ?>

@@ -1,0 +1,36 @@
+ERROR - 2024-02-07 09:03:10 --> mysqli_sql_exception: Unknown column 'users.users.jabatan' in 'field list' in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#6 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(41): Hermawan\DataTables\DataTable->toJson()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-02-07 09:03:10 --> Unknown column 'users.users.jabatan' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT `users`.`id`, `users`. `users`.`jabatan`, `tbl_absen`.`jam_in`, `tbl_absen`.`jam_out`, `users`.`name`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user`
+WHERE `users`.`id_unit` = :users.id_unit:
+AND   (
+`tbl_absen`.`id_user` IS NULL
+OR `tbl_absen`.`created_at` IS NULL
+OR DATE(tbl_absen.created_at) = :DATE(tbl_absen.created_at):
+ )
+GROUP BY `users`.`id`, `users`.`name`, `users`.`jabatan`, `tbl_absen`.`jam_in`, `tbl_absen`.`jam_out`
+) CI_count_all_results', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(41): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

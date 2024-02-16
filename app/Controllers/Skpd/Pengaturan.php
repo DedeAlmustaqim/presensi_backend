@@ -26,7 +26,7 @@ class Pengaturan extends BaseController
     {
         if (session('akses') == '2') {
             $model = new UnitModel();
-            $data = $model->where('id_unit', $id_unit)->first();
+            $data = $model->where('id', $id_unit)->first();
             return json_encode($data);
         } else {
             return redirect('login');

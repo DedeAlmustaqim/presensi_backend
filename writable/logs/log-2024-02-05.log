@@ -1,0 +1,26 @@
+INFO - 2024-02-05 15:22:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-02-05 15:30:13 --> Invalid file: "privacy_policy.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('privacy_policy.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('privacy_policy', [], true)
+ 3 APPPATH\Controllers\Privacy.php(573): view('privacy_policy', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Privacy->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Privacy))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-02-05 15:31:31 --> Undefined variable $data
+in APPPATH\Views\privacy_policy.php on line 31.
+ 1 APPPATH\Views\privacy_policy.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\privacy_policy.php', 31)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\privacy_policy.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('privacy_policy', [], true)
+ 5 APPPATH\Controllers\Privacy.php(573): view('privacy_policy', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Privacy->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Privacy))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-02-05 15:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-02-05 15:34:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-02-05 15:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-02-05 15:34:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-02-05 15:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

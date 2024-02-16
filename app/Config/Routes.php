@@ -31,7 +31,10 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/qrscan', 'Qr_code_scan::index');
+$routes->get('/get_user/(:alphanum)', 'Qr_code_scan::json_user/$1');
 $routes->get('/login', 'Login::index');
+$routes->get('/privacy_policy', 'Privacy::index');
+$routes->get('/delete_account', 'DeleteAccount::index');
 $routes->post('/auth/login', 'Auth::login');
 $routes->get('/auth/logout', 'Auth::logout');
 $routes->get('/', 'Auth::login');
@@ -55,10 +58,11 @@ $routes->post('admin/tambah_unit','Admin\Pengaturan::tambah_unit');
 $routes->get('admin/get_unit/(:alphanum)','Admin\Pengaturan::get_unit/$1');
 $routes->post('admin/update_unit','Admin\Pengaturan::update_unit');
 $routes->post('admin/del_unit/(:alphanum)','Admin\Pengaturan::del_unit/$1');
+$routes->get('admin/get_adm/(:alphanum)','Admin\Pengaturan::get_adm/$1');
+
 
 //SKPD
 $routes->get('skpd/dashboard','Skpd\Dashboard::index');
-$routes->get('admin/get_adm/(:alphanum)','Admin\Pengaturan::get_adm/$1');
 $routes->get('skpd/unit','Skpd\Pengaturan::unit');
 $routes->get('skpd/get_unit/(:alphanum)','Skpd\Pengaturan::get_unit/$1');
 $routes->post('skpd/update_unit','Skpd\Pengaturan::update_unit');
@@ -69,12 +73,22 @@ $routes->post('skpd/update_jadwal','Skpd\Pengaturan::update_jadwal');
 //PEGAWAI
 $routes->get('skpd/pegawai','Skpd\Pegawai::index');
 $routes->get('skpd/json_pegawai','Skpd\Pegawai::json_pegawai');
+$routes->post('skpd/show_user_report','Skpd\Pegawai::show_user_report');
 $routes->post('skpd/tambah_peg','Skpd\Pegawai::tambah_peg');
 $routes->post('skpd/del_peg/(:alphanum)','Skpd\Pegawai::del_peg/$1');
 $routes->get('skpd/get_peg/(:alphanum)','Skpd\Pegawai::get_peg/$1');
 $routes->post('skpd/update_peg','Skpd\Pegawai::update_peg');
+$routes->post('skpd/sort_peg','Skpd\Pegawai::sort_peg');
 $routes->post('skpd/ress_pass/(:alphanum)','Skpd\Pegawai::ress_pass/$1');
-$routes->post('skpd/res_dev/(:alphanum)','Skpd\Pegawai::res_dev/$1');
+
+
+//Rekap
+
+$routes->get('skpd/rekap/pegawai','Skpd\Rekap::rekap_pegawai');
+$routes->get('skpd/rekap/json_pegawai','Skpd\Rekap::json_pegawai');
+$routes->get('skpd/rekap/view_absen/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen/$1/$2/$3');
+$routes->get('skpd/rekap/view_absen_tpp/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen_tpp/$1/$2/$3');
+
 
 //API
 $routes->get('api/getqr/(:alphanum)','Api\Qrscan::GetQr/$1');
