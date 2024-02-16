@@ -88,6 +88,7 @@ $routes->get('skpd/rekap/pegawai','Skpd\Rekap::rekap_pegawai');
 $routes->get('skpd/rekap/json_pegawai','Skpd\Rekap::json_pegawai');
 $routes->get('skpd/rekap/view_absen/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen/$1/$2/$3');
 $routes->get('skpd/rekap/view_absen_tpp/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen_tpp/$1/$2/$3');
+$routes->get('skpd/rekap/view_absen_tpp_pdf/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen_tpp_pdf/$1/$2/$3');
 
 
 //API

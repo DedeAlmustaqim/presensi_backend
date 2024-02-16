@@ -9,8 +9,28 @@
 <?php setlocale(LC_TIME, 'id_ID'); ?>
 
 
+
 <div class="card card-bordered card-preview">
     <div class="card-inner">
+    <a target="_blank" href="<?php echo base_url()?>/skpd/rekap/view_absen_tpp_pdf/<?= $id?>/<?= $bulan?>/<?= $tahun?>" class="btn btn-secondary mb-1">Cetak PDF</a>
+<hr>
+<table width="100%" border="0" class="mb-2">
+        <tr>
+            <td width="10%">Nama</td>
+            <td width="2%">:</td>
+            <td  class="text_left"><?= $nama ?></td>
+        </tr>
+        <tr>
+            <td >NIP</td>
+            <td>:</td>
+            <td><?= $nip ?></td>
+        </tr>
+        <tr>
+            <td >Jabatan</td>
+            <td>:</td>
+            <td><?= $jabatan ?></td>
+        </tr>
+    </table>
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr class="text-center">

@@ -30,7 +30,7 @@ class Qr_code_scan extends BaseController
             ->select('users.id, users.name, users.jabatan, tbl_absen.jam_in, tbl_absen.jam_out, users.img,')
             ->where('users.id_unit', $id)
             ->join('tbl_absen', 'users.id = tbl_absen.id_user', 'left')
-            ->orderBy('users.id', 'asc')
+            ->orderBy('users.sort', 'asc')
             ->groupStart()
             ->orWhere('tbl_absen.id_user IS NULL')
             ->orWhere('tbl_absen.created_at IS NULL')

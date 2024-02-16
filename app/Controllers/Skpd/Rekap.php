@@ -7,6 +7,8 @@ use App\Models\AbsenModel;
 use App\Models\UnitModel;
 use App\Models\UserModel;
 use \Hermawan\DataTables\DataTable;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class Rekap extends BaseController
 {
@@ -117,18 +119,73 @@ class Rekap extends BaseController
 
     public function view_absen_tpp($id, $month, $year)
     {
+        $db = db_connect();
         helper(['time']);
         helper('tanggal_indo_helper');
         $user = new UserModel();
         // Panggil fungsi untuk mendapatkan data absen
         $data = $this->get_absen_user($id, $month, $year);
-        $name = $user->where('id', $id)->first();
+        $data = $this->get_absen_user($id, $month, $year);
+        $user = $db->table('users')->where('users.id', $id)->get()->getRow();
+        $unit = $db->table('tbl_unit')->where('id', $user->id_unit)->get()->getRow();
         // Load view dan kirimkan data absen ke dalam view
         return view('skpd/rekap/rekap_absen_tpp', [
             'data' => $data,
-            'judul' => $name['name'],
-            'sub_judul' => bulan($month)
-
+            'judul' => $user->name,
+            'nama' => $user->name,
+            'jabatan' => $user->jabatan,
+            'nip' => $user->nip,
+            'sub_judul' => bulan($month),
+            'bulan' => $month,
+            'tahun' => $year,
+            'id' => $id,
         ]);
+    }
+
+    public function view_absen_tpp_pdf($id, $month, $year)
+    {
+        $db = db_connect();
+        helper(['time']);
+        helper('tanggal_indo_helper');
+       
+        // Panggil fungsi untuk mendapatkan data absen
+        $data = $this->get_absen_user($id, $month, $year);
+        $user = $db->table('users')->where('users.id', $id)->get()->getRow();
+        $unit = $db->table('tbl_unit')->where('id', $user->id_unit)->get()->getRow();
+        // Load view dan kirimkan data absen ke dalam view
+        $dataPrint = [
+            'data' => $data,
+            'bulan' => bulan($month),
+            'tahun' => $year,
+            'nama' => $user->name,
+            'nip' => $user->nip,
+            'jabatan' => $user->jabatan,
+            'unit' => $unit->nm_unit,
+            'sub_judul' => bulan($month)
+        ];
+
+         // Membuat options untuk domPDF
+         $options = new Options();
+         $options->set('isHtml5ParserEnabled', true);
+ 
+         // Membuat instance dari Dompdf dengan options
+         $dompdf = new Dompdf($options);
+ 
+         // Render view ke dalam HTML
+         $html = view('skpd/rekap/rekap_absen_tpp_pdf', $dataPrint);
+ 
+         // Load HTML ke dalam Dompdf
+         $dompdf->loadHtml($html);
+ 
+         // Mengatur ukuran dan orientasi halaman
+         $dompdf->setPaper('A4', 'landscape');
+ 
+         // Render HTML ke dalam PDF
+         $dompdf->render();
+ 
+         // Mengirimkan output PDF ke browser
+         $dompdf->stream( $user->name.'_'.bulan($month).'_'.$year.'.pdf', [
+             'Attachment' => false
+         ]);
     }
 }
