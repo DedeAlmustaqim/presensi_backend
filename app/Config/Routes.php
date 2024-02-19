@@ -34,6 +34,7 @@ $routes->get('/qrscan', 'Qr_code_scan::index');
 $routes->get('/get_user/(:alphanum)', 'Qr_code_scan::json_user/$1');
 $routes->get('/login', 'Login::index');
 $routes->get('/privacy_policy', 'Privacy::index');
+$routes->get('/privacypolicy', 'Privacy::index');
 $routes->get('/delete_account', 'DeleteAccount::index');
 $routes->post('/auth/login', 'Auth::login');
 $routes->get('/auth/logout', 'Auth::logout');
@@ -54,12 +55,30 @@ $routes->post('admin/update_op_qr','Admin\Pengaturan::update_op_qr');
 $routes->post('admin/del_unit/(:alphanum)','Admin\Pengaturan::del_unit/$1');
 $routes->get('admin/unit','Admin\Pengaturan::unit');
 $routes->get('admin/json_unit','Admin\Pengaturan::json_unit');
+$routes->get('admin/json_user/(:alphanum)','Admin\Pengaturan::json_user/$1');
 $routes->post('admin/tambah_unit','Admin\Pengaturan::tambah_unit');
 $routes->get('admin/get_unit/(:alphanum)','Admin\Pengaturan::get_unit/$1');
 $routes->post('admin/update_unit','Admin\Pengaturan::update_unit');
 $routes->post('admin/del_unit/(:alphanum)','Admin\Pengaturan::del_unit/$1');
 $routes->get('admin/get_adm/(:alphanum)','Admin\Pengaturan::get_adm/$1');
+$routes->get('admin/config','Admin\Pengaturan::config');
+$routes->get('admin/user','Admin\Pengaturan::user');
+$routes->post('admin/update_config','Admin\Pengaturan::update_config');
+$routes->get('admin/get_config','Admin\Pengaturan::get_config');
 
+//Banner
+$routes->get('admin/banner','Admin\Banner::index');
+$routes->get('admin/json_banner','Admin\Banner::json_banner');
+$routes->post('admin/add_banner','Admin\Banner::add_banner');
+$routes->post('admin/del_banner/(:alphanum)','Admin\Banner::del_banner/$1');
+
+//Banner
+$routes->get('admin/notif','Admin\NotifController::index');
+$routes->get('admin/json_notif','Admin\NotifController::json_notif');
+$routes->post('admin/add_notif','Admin\NotifController::add_notif');
+$routes->post('admin/update_notif','Admin\NotifController::update_notif');
+$routes->get('admin/get_notif/(:alphanum)','Admin\NotifController::get_notif/$1');
+$routes->post('admin/del_notif/(:alphanum)','Admin\NotifController::del_notif/$1');
 
 //SKPD
 $routes->get('skpd/dashboard','Skpd\Dashboard::index');

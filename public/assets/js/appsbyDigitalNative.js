@@ -9,3 +9,6 @@ $(document).ready(function(){
         $(this).find('form')[0].reset();
     });
 })
+function devProgress(){
+    Swal.fire('Lagi dalam pengembangan!', '.', 'warning');
+}

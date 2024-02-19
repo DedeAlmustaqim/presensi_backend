@@ -51,7 +51,7 @@ class TblAdmin extends Model
     {
         return $this->db
             ->table('tbl_admin')
-            ->where('id_user', $id_user)
+            ->where('id', $id_user)
             ->update($data);
     }
 }

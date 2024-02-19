@@ -230,7 +230,7 @@
     <?php
     $segment = \Config\Services::request();
     if ($segment->uri->getSegment(1) == 'admin') { ?>
-        <script src="<?php echo base_url() ?>/public/assets/js/admin/jsAdminbyDigitalNative.js"></script>
+        <script src="<?php echo base_url() ?>/public/assets/js/admin/jsAdminbyDigitalNative.js?=<?php echo date('Y-m-d H:i:s')?>"></script>
     <?php }; ?>
     <script>
         var BASE_URL = "<?php echo base_url() ?>/"

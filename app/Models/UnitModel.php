@@ -8,7 +8,7 @@ class UnitModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'tbl_unit';
-    protected $primaryKey       = 'id_unit';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
@@ -66,7 +66,7 @@ class UnitModel extends Model
     {
         return $this->db
             ->table('tbl_unit')
-            ->where('id_unit', $id_unit)
+            ->where('id', $id_unit)
             ->update($data);
     }
 }

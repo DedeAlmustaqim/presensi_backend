@@ -22,7 +22,9 @@ class App extends BaseConfig
      * explicitly and never rely on auto-guessing, especially in production
      * environments.
      */
+    // https://presensi.baritotimurkab.go.id/
     public string $baseURL = 'http://localhost/presensi/';
+    // public string $baseURL = 'https://presensi.baritotimurkab.go.id/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

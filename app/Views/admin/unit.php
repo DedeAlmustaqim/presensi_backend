@@ -11,11 +11,10 @@
                 <thead>
                     <tr class="bg-primary text-white text-center">
                         <th width="5%">No</th>
-                        <th>SKPD</th>
+                        <th width="40%">SKPD</th>
                         <th>Latitude</th>
                         <th>Longitude</th>
-                        <th>Radius</th>
-                        <th width="15%"></th>
+                        <th ></th>
                     </tr>
                 </thead>
 
@@ -46,7 +45,7 @@
                     </div>
                     
                     <div class="row mb-2">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label class="form-label" for="email-address">Latitude</label>
                                 <div class="form-control-wrap">
@@ -54,7 +53,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label class="form-label" for="email-address">Longitude</label>
                                 <div class="form-control-wrap">
@@ -62,17 +61,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label class="form-label" for="email-address">Radius</label>
-                                <div class="form-control-wrap">
-                                <div class="form-text-hint">
-                                        <span class="overline-title">Meter</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="radius" name="radius" required>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
 
@@ -110,7 +99,7 @@
                     </div>
                     
                     <div class="row mb-2">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label class="form-label" for="email-address">Latitude</label>
                                 <div class="form-control-wrap">
@@ -118,7 +107,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label class="form-label" for="email-address">Longitude</label>
                                 <div class="form-control-wrap">
@@ -126,17 +115,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label class="form-label" for="email-address">Radius</label>
-                                <div class="form-control-wrap">
-                                <div class="form-text-hint">
-                                        <span class="overline-title">Meter</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="radius_edit" name="radius_edit" required>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
 

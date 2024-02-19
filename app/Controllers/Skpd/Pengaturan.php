@@ -42,9 +42,8 @@ class Pengaturan extends BaseController
             'pimpinan_skpd'     => ['label' => 'Nama Pimpinan', 'rules' => 'required'],
             'gol_skpd'     => ['label' => 'Golongan', 'rules' => 'required'],
             'jabatan_skpd'     => ['label' => 'Jabatan', 'rules' => 'required'],
-            'lat_skpd'     => ['label' => 'Latitude', 'rules' => 'required|decimal'],
-            'long_skpd'     => ['label' => 'Longitude', 'rules' => 'required|decimal'],
-            'radius_skpd'     => ['label' => 'Radius', 'rules' => 'required|decimal'],
+            'nip_skpd'     => ['label' => 'NIP', 'rules' => 'required|numeric|exact_length[18]'],
+
 
         ])) {
 
@@ -55,9 +54,8 @@ class Pengaturan extends BaseController
                 'pimpinan_skpd_error' => \Config\Services::validation()->getError('pimpinan_skpd'),
                 'gol_skpd_error' => \Config\Services::validation()->getError('gol_skpd'),
                 'jabatan_skpd_error' => \Config\Services::validation()->getError('jabatan_skpd'),
-                'lat_skpd_error' => \Config\Services::validation()->getError('lat_skpd'),
-                'long_skpd_error' => \Config\Services::validation()->getError('long_skpd'),
-                'radius_skpd_error' => \Config\Services::validation()->getError('radius_skpd'),
+                'nip_skpd_error' => \Config\Services::validation()->getError('nip_skpd'),
+
 
             ];
 
@@ -71,9 +69,7 @@ class Pengaturan extends BaseController
             'pimpinan'           => $this->request->getVar('pimpinan_skpd'),
             'gol'           => $this->request->getVar('gol_skpd'),
             'jabatan'           => $this->request->getVar('jabatan_skpd'),
-            'lat'           => $this->request->getVar('lat_skpd'),
-            'long'           => $this->request->getVar('long_skpd'),
-            'radius'           => $this->request->getVar('radius_skpd'),
+            'nip'           => $this->request->getVar('nip_skpd'),
             'updated_at'           => date('Y/m/d H:i:s'),
 
 
@@ -153,7 +149,7 @@ class Pengaturan extends BaseController
             'qr_time_in_end'           => $this->request->getVar('qr_time_in_end'),
             'qr_time_out_start'           => $this->request->getVar('qr_time_out_start'),
             'qr_time_out_end'           => $this->request->getVar('qr_time_out_end'),
-           
+
 
 
         ];

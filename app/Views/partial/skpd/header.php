@@ -93,13 +93,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown-inner">
-                                <ul class="link-list">
-                                    <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>Lihat Profile</span></a></li>
-                                    <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Pengaturan akun</span></a></li>
-                                    <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Aktifitas Masuk</span></a></li>
-                                </ul>
-                            </div>
+                           
                             <div class="dropdown-inner">
                                 <ul class="link-list">
                                     <li><a href="<?php echo base_url() ?>/auth/logout"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>

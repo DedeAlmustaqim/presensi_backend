@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\ConfigModel;
 use App\Models\QrScanModel;
 use App\Models\TblAdmin;
 use App\Models\UnitModel;
@@ -29,6 +30,56 @@ class Pengaturan extends BaseController
         }
     }
 
+    public function user()
+    {
+        if (($this->akses != '1')) {
+            return redirect('login');
+        } else {
+            $model = new UnitModel();
+            $skpd = $model->whereNotIn('id', [1])->findAll();
+
+            $data = array(
+                'judul' => 'Pengaturan - Pengguna',
+                'sub_judul' => session('ses_nm'),
+                'skpd' => $skpd
+            );
+            return view('admin/user', $data);
+        }
+    }
+    public function json_user($id)
+    {
+
+        if (($this->akses != '1')) {
+            return redirect('login');
+        } else {
+            $db = db_connect();
+            $builder = $db->table('users')->select('users.id, 
+            users.`name`, 
+            users.email, 
+            users.email_verified_at, 
+            users.nik, 
+            users.`password`, 
+            users.remember_token, 
+            users.created_at, 
+            users.updated_at, 
+            users.nip, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.username, 
+            users.current_login, 
+            users.sort, 
+            tbl_unit.nm_unit')
+                ->join('tbl_unit', 'users.id_unit = tbl_unit.id', 'left')
+                ->where('tbl_unit.id', $id)
+                ->whereNotIn('users.id', [1])
+                ->orderBy('tbl_unit.id', 'asc')
+                ->orderBy('users.sort', 'asc');
+
+            return DataTable::of($builder)->toJson();
+        }
+    }
+
     public function json_unit()
     {
 
@@ -36,7 +87,7 @@ class Pengaturan extends BaseController
             return redirect('login');
         } else {
             $db = db_connect();
-            $builder = $db->table('tbl_unit')->select('tbl_unit.id_unit, 
+            $builder = $db->table('tbl_unit')->select('tbl_unit.id, 
             tbl_unit.nm_unit, 
             tbl_unit.pimpinan, 
             tbl_unit.gol, 
@@ -45,9 +96,11 @@ class Pengaturan extends BaseController
             tbl_unit.`long`, 
             tbl_unit.radius, 
             tbl_unit.created_at, 
-            tbl_unit.updated_at')->orderBy('created_at', 'asc');
+            tbl_unit.updated_at')
+                ->whereNotIn('tbl_unit.id', [1])
+                ->orderBy('created_at', 'asc');
 
-            return DataTable::of($builder)->toJson();;
+            return DataTable::of($builder)->toJson();
         }
     }
 
@@ -98,12 +151,12 @@ class Pengaturan extends BaseController
 
             $data2 = [
                 'id_unit'           => $randomString,
-                
+
                 'qr_time_in_start'           => date('08:00:00'),
                 'qr_time_in_end'           => date('12:00:00'),
                 'qr_time_out_start'           => date('15:30:00'),
                 'qr_time_out_end'           => date('16:30:00'),
-             
+
             ];
 
             $result = $model->add($data);
@@ -127,7 +180,7 @@ class Pengaturan extends BaseController
     {
         $model = new UnitModel();
 
-        $data = $model->where('id_unit', $id_unit)->first();
+        $data = $model->where('id', $id_unit)->first();
 
         return json_encode($data);
     }
@@ -139,7 +192,6 @@ class Pengaturan extends BaseController
             'nm_unit_edit'     => ['label' => 'Nama Unit', 'rules' => 'required'],
             'lat_edit'     => ['label' => 'Latitude', 'rules' => 'required|decimal'],
             'long_edit'     => ['label' => 'Longitude', 'rules' => 'required|decimal'],
-            'radius_edit'     => ['label' => 'Radius', 'rules' => 'required|decimal'],
 
         ])) {
 
@@ -148,7 +200,6 @@ class Pengaturan extends BaseController
                 'nm_unit_error' => \Config\Services::validation()->getError('nm_unit_edit'),
                 'lat_edit_error' => \Config\Services::validation()->getError('lat_edit'),
                 'long_edit_error' => \Config\Services::validation()->getError('long_edit'),
-                'radius_edit_error' => \Config\Services::validation()->getError('radius_edit'),
 
             ];
 
@@ -215,7 +266,7 @@ class Pengaturan extends BaseController
             return redirect('login');
         } else {
             $db = db_connect();
-            $builder = $db->table('tbl_admin')->select('tbl_admin.id_user, 
+            $builder = $db->table('tbl_admin')->select('tbl_admin.id, 
             tbl_admin.username, 
             tbl_admin.nama, 
             tbl_admin.nip, 
@@ -225,10 +276,10 @@ class Pengaturan extends BaseController
             tbl_admin.last_login, 
             tbl_akses.hak_akses, 
             
-            tbl_unit.id_unit,
+            tbl_unit.id as id_unit,
             tbl_unit.nm_unit',)
                 ->join('tbl_akses', 'tbl_admin.id_akses = tbl_akses.id_akses', 'left')
-                ->join('tbl_unit', 'tbl_admin.id_unit = tbl_unit.id_unit', 'left')
+                ->join('tbl_unit', 'tbl_admin.id_unit = tbl_unit.id', 'left')
                 ->where('tbl_admin.id_akses', 2)
                 ->orderBy('created_at', 'asc');
 
@@ -238,12 +289,7 @@ class Pengaturan extends BaseController
 
     public function tambah_adm()
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randomString = '';
 
-        for ($i = 0; $i < 16; $i++) {
-            $randomString .= $characters[rand(0, strlen($characters) - 1)];
-        }
 
         $model = new TblAdmin();
         if (!$this->validate([
@@ -271,10 +317,10 @@ class Pengaturan extends BaseController
 
 
         $data = [
-            'id_user'           => $randomString,
+
             'id_akses'           => 2,
             'username'           => $username,
-            'password'           => password_hash('PresensiAdminSKPD', PASSWORD_DEFAULT),
+            'password'           => password_hash('adminpresensi12345', PASSWORD_DEFAULT),
             'nama'           => $nama,
             'id_unit'           => $id_unit,
             'created_at'           => date('Y/m/d H:i:s'),
@@ -299,7 +345,7 @@ class Pengaturan extends BaseController
     {
         $model = new TblAdmin();
 
-        $data = $model->where('id_user', $id_user)->first();
+        $data = $model->where('id', $id_user)->first();
 
         return json_encode($data);
     }
@@ -379,7 +425,7 @@ class Pengaturan extends BaseController
             return redirect('login');
         } else {
             $db = db_connect();
-            $builder = $db->table('tbl_admin')->select('tbl_admin.id_user, 
+            $builder = $db->table('tbl_admin')->select('tbl_admin.id, 
             tbl_admin.username, 
             tbl_admin.nama, 
             tbl_admin.nip, 
@@ -389,12 +435,12 @@ class Pengaturan extends BaseController
             tbl_admin.last_login, 
             tbl_akses.hak_akses, 
             
-            tbl_unit.id_unit,
+            tbl_unit.id as id_unit,
             tbl_unit.nm_unit',)
                 ->join('tbl_akses', 'tbl_admin.id_akses = tbl_akses.id_akses', 'left')
-                ->join('tbl_unit', 'tbl_admin.id_unit = tbl_unit.id_unit', 'left')
+                ->join('tbl_unit', 'tbl_admin.id_unit = tbl_unit.id', 'left')
                 ->where('tbl_admin.id_akses', 3)
-                ->orderBy('created_at', 'asc');
+                ->orderBy('tbl_unit.id', 'asc');
 
             return DataTable::of($builder)->toJson();;
         }
@@ -402,12 +448,7 @@ class Pengaturan extends BaseController
 
     public function tambah_op_qr()
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randomString = '';
 
-        for ($i = 0; $i < 16; $i++) {
-            $randomString .= $characters[rand(0, strlen($characters) - 1)];
-        }
 
         $model = new TblAdmin();
         if (!$this->validate([
@@ -435,10 +476,9 @@ class Pengaturan extends BaseController
 
 
         $data = [
-            'id_user'           => $randomString,
             'id_akses'           => 3,
             'username'           => $username,
-            'password'           => password_hash('PresensiOpQr', PASSWORD_DEFAULT),
+            'password'           => password_hash('operatorqr12345', PASSWORD_DEFAULT),
             'nama'           => $nama,
             'id_unit'           => $id_unit,
             'created_at'           => date('Y/m/d H:i:s'),
@@ -463,7 +503,7 @@ class Pengaturan extends BaseController
     {
         $model = new TblAdmin();
 
-        $data = $model->where('id_user', $id_user)->first();
+        $data = $model->where('id', $id_user)->first();
 
         return json_encode($data);
     }
@@ -506,6 +546,110 @@ class Pengaturan extends BaseController
         ];
 
         $result = $model->update_adm($data, $id_user);
+
+        if ($result) {
+            $respond = [
+                'success' => true,
+            ];
+            return json_encode($respond);
+        } else {
+            $respond = [
+                'success' => false,
+            ];
+            return json_encode($respond);
+        }
+    }
+
+    public function config()
+    {
+        if (($this->akses != '1')) {
+            return redirect('login');
+        } else {
+
+
+
+            $data = array(
+                'judul' => 'Pengaturan - Umum',
+                'sub_judul' => session('ses_nm'),
+
+
+            );
+            return view('admin/config', $data);
+        }
+    }
+
+    public function get_config()
+    {
+        if (session('akses') == '1') {
+            $db = db_connect();
+            $data = $db->table('tbl_config')->get()->getRowArray();
+            return json_encode($data);
+        } else {
+            return redirect('login');
+        }
+    }
+
+    public function update_config()
+    {
+        $model = new ConfigModel();
+        if (!$this->validate([
+            'nm_pemda'     => ['label' => 'Pemda', 'rules' => 'required'],
+            'jam_masuk'     => ['label' => 'Jam Masuk', 'rules' => 'required'],
+            'jam_pulang'     => ['label' => 'Jam Pulang', 'rules' => 'required'],
+            'qr_time_in_start'     => ['label' => 'QR IN Start', 'rules' => 'required'],
+            'qr_time_in_end'     => ['label' => 'QR Out End', 'rules' => 'required'],
+            'qr_time_out_start'     => ['label' => 'QR In Start', 'rules' => 'required'],
+            'qr_time_out_end'     => ['label' => 'QR Out End', 'rules' => 'required'],
+            'radius_config'     => ['label' => 'Radius', 'rules' => 'required'],
+            'versi_apk'     => ['label' => 'Versi APK', 'rules' => 'required'],
+
+        ])) {
+
+            $respond = [
+                'success_error' => false,
+                'nm_pemda_error' => \Config\Services::validation()->getError('nm_pemda'),
+                'jam_masuk_error' => \Config\Services::validation()->getError('jam_masuk'),
+                'jam_pulang_error' => \Config\Services::validation()->getError('jam_pulang'),
+                'qr_time_in_start_error' => \Config\Services::validation()->getError('qr_time_in_start'),
+                'qr_time_in_end_error' => \Config\Services::validation()->getError('qr_time_in_end'),
+                'qr_time_out_start_error' => \Config\Services::validation()->getError('qr_time_out_start'),
+                'qr_time_out_end_error' => \Config\Services::validation()->getError('qr_time_out_end'),
+                'radius_config_error' => \Config\Services::validation()->getError('radius_config'),
+                'versi_apk_error' => \Config\Services::validation()->getError('versi_apk'),
+
+
+            ];
+
+            return json_encode($respond);
+        }
+
+        $nm_pemda = $this->request->getVar('nm_pemda');
+        $jam_masuk = $this->request->getVar('jam_masuk');
+        $jam_pulang = $this->request->getVar('jam_pulang');
+        $qr_time_in_start = $this->request->getVar('qr_time_in_start');
+        $qr_time_in_end = $this->request->getVar('qr_time_in_end');
+        $qr_time_out_start = $this->request->getVar('qr_time_out_start');
+        $qr_time_out_end = $this->request->getVar('qr_time_out_end');
+        $radius_config = $this->request->getVar('radius_config');
+        $versi_apk = $this->request->getVar('versi_apk');
+
+
+        $data = [
+
+
+            'nm_pemda'                  => $nm_pemda,
+            'qr_time_in_start'          => $qr_time_in_start,
+            'qr_time_in_end'            => $qr_time_in_end,
+            'qr_time_out_start'         => $qr_time_out_start,
+            'qr_time_out_end'           => $qr_time_out_end,
+            'radius'                    => $radius_config,
+            'versi_apk'                 => $versi_apk,
+            'jam_masuk'                 => $jam_masuk,
+            'jam_pulang'                => $jam_pulang,
+
+        ];
+
+        $result = $model->update(1, $data);
 
         if ($result) {
             $respond = [

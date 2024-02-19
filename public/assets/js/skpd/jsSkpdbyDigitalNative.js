@@ -237,6 +237,7 @@ function getSkpd(id_unit_skpd) {
             $('#gol_skpd').val(data.gol)
             $('#radius_skpd').val(data.radius)
             $('#jabatan_skpd').val(data.jabatan)
+            $('#nip_skpd').val(data.nip)
         },
     })
 }
@@ -285,14 +286,8 @@ $('#formEditUnitSkpd').on('submit', function (e) {
                 if (data.jabatan_skpd_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.jabatan_skpd_error + '</p>', 'error');
                 }
-                if (data.lat_skpd_error) {
-                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.lat_skpd_error + '</p>', 'error');
-                }
-                if (data.long_skpd_error) {
-                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.long_skpd_error + '</p>', 'error');
-                }
-                if (data.radius_skpd_error) {
-                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.radius_skpd_error + '</p>', 'error');
+                if (data.nip_skpd_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.nip_skpd_error + '</p>', 'error');
                 }
             } else if (data.success == true) {
                 Swal.fire('Berhasil Ubah Data!', 'Data telah diubah.', 'success');

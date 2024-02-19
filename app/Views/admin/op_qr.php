@@ -58,7 +58,7 @@
                                 <option label="empty" value=""></option>
                                 <?php
                                 foreach ($skpd as $row) { ?>
-                                    <option  value="<?php echo $row['id_unit']?>"><?php echo $row['nm_unit']?></option>
+                                    <option  value="<?php echo $row['id']?>"><?php echo $row['nm_unit']?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -113,7 +113,7 @@
                              
                                 <?php
                                 foreach ($skpd as $row) { ?>
-                                    <option  value="<?php echo $row['id_unit']?>"><?php echo $row['nm_unit']?></option>
+                                    <option  value="<?php echo $row['id']?>"><?php echo $row['nm_unit']?></option>
                                 <?php } ?>
                             </select>
                         </div>

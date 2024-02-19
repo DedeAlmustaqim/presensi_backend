@@ -1,4 +1,15 @@
 $(document).ready(function () {
+
+    getConfig()
+
+
+
+    $('#id_unit_user').change(function () {
+        var id_unit = $(this).val();
+
+        show_tabel_user(id_unit)
+    });
+
     $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
         return {
             "iStart": oSettings._iDisplayStart,
@@ -10,6 +21,8 @@ $(document).ready(function () {
             "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
         };
     };
+
+
     $('#TabelUnit').DataTable({
         processing: true,
         serverSide: true,
@@ -79,13 +92,7 @@ $(document).ready(function () {
 
                 }
             },
-            {
-                "orderable": false,
-                "data": function (data,) {
-                    return '<div class="text-left">' + data[7] + ' Meter</div>'
 
-                }
-            },
 
             {
 
@@ -191,8 +198,8 @@ $(document).ready(function () {
                 "data": function (data,) {
                     return '<div class="text-center">' +
                         '<a  onclick="editAdm(this)" data-id="' + data[0] + '" class="btn  btn-primary">Edit</a>&nbsp;' +
-                        '<a  onclick="editAdm(this)" data-id="' + data[0] + '" class="btn  btn-secondary">Reset Password</a>&nbsp;' +
-                        '<a  onclick="delAdm(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger">Hapus</a>&nbsp;' +
+                        '<a  onclick="devPorgress(this)" data-id="' + data[0] + '" class="btn  btn-secondary">Reset Password</a>&nbsp;' +
+                        '<a  onclick="devPorgress(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger">Hapus</a>&nbsp;' +
                         '</div>'
                 }
             },
@@ -215,8 +222,8 @@ $(document).ready(function () {
         serverSide: true,
 
         destroy: true,
-        "bPaginate": false,
-        "bLengthChange": true,
+        "bPaginate": true,
+        "bLengthChange": false,
         "bFilter": true,
         "bInfo": true,
         "bAutoWidth": true,
@@ -286,8 +293,8 @@ $(document).ready(function () {
                 "data": function (data,) {
                     return '<div class="text-center">' +
                         '<a  onclick="editOpQr(this)" data-id="' + data[0] + '" class="btn  btn-outline-primary" title="Edit"><em class="icon ni ni-edit-alt"></em></a>&nbsp;' +
-                        '<a  onclick="resPassOpQr(this)" data-id="' + data[0] + '" class="btn  btn-outline-secondary" title="Reset Password"><em class="icon ni ni-lock"></em></a>&nbsp;' +
-                        '<a  onclick="delOpQr(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em></a>&nbsp;' +
+                        '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn  btn-outline-secondary" title="Reset Password"><em class="icon ni ni-lock"></em></a>&nbsp;' +
+                        '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em></a>&nbsp;' +
                         '</div>'
                 }
             },
@@ -304,12 +311,324 @@ $(document).ready(function () {
 
 
     });
+
+    $('#TabelBanner').DataTable({
+        processing: true,
+        serverSide: true,
+
+        destroy: true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bInfo": true,
+        "bAutoWidth": true,
+        "columnDefs": [{
+            "visible": false,
+
+        }],
+        "order": [
+            [0, 'asc']
+        ],
+
+        "language": {
+            "lengthMenu": "Tampilkan _MENU_ item per halaman",
+            "zeroRecords": "Tidak ada data yang ditampilkan",
+            "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Tidak ada data yang ditampilkan",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "search": "Cari ",
+            "paginate": {
+                "first": "Awal",
+                "last": "Akhir",
+                "next": "Selanjutnya",
+                "previous": "Sebelumnya"
+            },
+        },
+        "displayLength": 25,
+        "ajax": {
+
+            "url": BASE_URL + "admin/json_banner",
+            // "dataSrc": "data",
+            // "dataType": "json",
+        },
+        "columns": [
+
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[0] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[1] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left"><img height="150" src="' + data[2] + '"></div>'
+
+                }
+            },
+
+
+            {
+
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-center">' +
+                        '<a  onclick="delBanner(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em>Hapus</a>&nbsp;' +
+                        '</div>'
+                }
+            },
+
+
+        ],
+        rowCallback: function (row, data, iDisplayIndex) {
+            var info = this.fnPagingInfo();
+            var page = info.iPage;
+            var length = info.iLength;
+            var index = page * length + (iDisplayIndex + 1);
+            $('td:eq(0)', row).html(index);
+        },
+
+
+    });
+
+    $('#TabelNotif').DataTable({
+        processing: true,
+        serverSide: true,
+
+        destroy: true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bInfo": true,
+        "bAutoWidth": true,
+        "columnDefs": [{
+            "visible": false,
+
+        }],
+        "order": [
+            [0, 'asc']
+        ],
+
+        "language": {
+            "lengthMenu": "Tampilkan _MENU_ item per halaman",
+            "zeroRecords": "Tidak ada data yang ditampilkan",
+            "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Tidak ada data yang ditampilkan",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "search": "Cari ",
+            "paginate": {
+                "first": "Awal",
+                "last": "Akhir",
+                "next": "Selanjutnya",
+                "previous": "Sebelumnya"
+            },
+        },
+        "displayLength": 25,
+        "ajax": {
+
+            "url": BASE_URL + "admin/json_notif",
+            // "dataSrc": "data",
+            // "dataType": "json",
+        },
+        "columns": [
+
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[0] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[1] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[2] + '</div>'
+
+                }
+            },
+
+
+            {
+
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-center">' +
+                        '<a  onclick="editNotif(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-primary" title="Hapus"><em class="icon ni ni-edit-alt"></em> Edit</a>&nbsp;' +
+                        '<a  onclick="delNotif(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em> Hapus</a>&nbsp;' +
+                        '</div>'
+                }
+            },
+
+
+        ],
+        rowCallback: function (row, data, iDisplayIndex) {
+            var info = this.fnPagingInfo();
+            var page = info.iPage;
+            var length = info.iLength;
+            var index = page * length + (iDisplayIndex + 1);
+            $('td:eq(0)', row).html(index);
+        },
+
+
+    });
+
 })
 
+function show_tabel_user(id_unit) {
+    $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
+        return {
+            "iStart": oSettings._iDisplayStart,
+            "iEnd": oSettings.fnDisplayEnd(),
+            "iLength": oSettings._iDisplayLength,
+            "iTotal": oSettings.fnRecordsTotal(),
+            "iFilteredTotal": oSettings.fnRecordsDisplay(),
+            "iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+            "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+        };
+    };
+    $('#TabelUser').DataTable({
+        processing: true,
+        serverSide: true,
 
+        destroy: true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bInfo": true,
+        "bAutoWidth": true,
+        "columnDefs": [{
+            "visible": false,
+
+        }],
+        "order": [
+            [0, 'asc']
+        ],
+
+        "language": {
+            "lengthMenu": "Tampilkan _MENU_ item per halaman",
+            "zeroRecords": "Tidak ada data yang ditampilkan",
+            "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Tidak ada data yang ditampilkan",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "search": "Cari ",
+            "paginate": {
+                "first": "Awal",
+                "last": "Akhir",
+                "next": "Selanjutnya",
+                "previous": "Sebelumnya"
+            },
+        },
+        "displayLength": 25,
+        "ajax": {
+
+            "url": BASE_URL + "admin/json_user/" + id_unit,
+            // "dataSrc": "data",
+            // "dataType": "json",
+        },
+        "columns": [
+
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[0] + '</div>'
+
+                }
+            },
+
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[1] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[9] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[11] + '</div>'
+
+                }
+            },
+
+            {
+
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-center">' +
+                        '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn  btn-outline-primary" title="Edit"><em class="icon ni ni-edit-alt"></em></a>&nbsp;' +
+                        '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn  btn-outline-primary" title="Detail"><em class="icon ni ni-eye"></em></a>&nbsp;' +
+                        '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em></a>&nbsp;' +
+                        '</div>'
+                }
+            },
+
+
+
+        ],
+        rowCallback: function (row, data, iDisplayIndex) {
+            var info = this.fnPagingInfo();
+            var page = info.iPage;
+            var length = info.iLength;
+            var index = page * length + (iDisplayIndex + 1);
+            $('td:eq(0)', row).html(index);
+        },
+
+
+    });
+}
+
+function getConfig() {
+    $.ajax({
+        type: "get",
+        "url": BASE_URL + "admin/get_config/",
+
+        contentType: false,
+        dataType: "JSON",
+        async: true,
+
+        success: function (data) {
+            $('#nm_pemda').val(data.nm_pemda)
+            $('#jam_masuk').val(data.jam_masuk)
+            $('#jam_pulang').val(data.jam_pulang)
+            $('#qr_time_in_start').val(data.qr_time_in_start)
+            $('#qr_time_in_end').val(data.qr_time_in_end)
+            $('#qr_time_out_start').val(data.qr_time_out_start)
+            $('#qr_time_out_end').val(data.qr_time_out_end)
+            $('#radius_config').val(data.radius)
+            $('#versi_apk').val(data.versi_apk)
+
+        },
+    })
+}
 ///UNIT
 function tambahUnit() {
     $('#modalTambahUnit').modal('show');
+}
+
+function tambahBanner() {
+    $('#modalTambahBanner').modal('show');
 }
 
 $('#formTambahUnit').on('submit', function (e) {
@@ -368,7 +687,7 @@ function editUnit(elem) {
             $('#nm_unit_edit').val(data.nm_unit)
             $('#lat_edit').val(data.lat)
             $('#long_edit').val(data.long)
-            $('#radius_edit').val(data.radius)
+
         },
     })
     return false;
@@ -549,6 +868,7 @@ $('#formEditAdm').on('submit', function (e) {
 });
 
 
+
 //Operator QR
 function tambahOpQr() {
     $('#modalTambahOpQr').modal('show');
@@ -644,6 +964,382 @@ $('#formEditOpQr').on('submit', function (e) {
                 Swal.fire('Berhasil Ubah Data!', 'Data telah diubah.', 'success');
                 $('#modalEditOpQq').modal('hide');
                 $('#tabelOpQr').DataTable().ajax.reload(null, false);
+            }
+
+        },
+
+    })
+    return false;
+});
+
+function devProgress() {
+    Swal.fire('Lagi dalam pengembangan!', '.', 'warning');
+}
+
+
+//add Banner
+function addBanner() {
+    $('#modalTambahBanner').modal('show');
+}
+$('#formTambahBanner').on('submit', function (e) {
+    var postData = new FormData($("#formTambahBanner")[0]);
+
+    $.ajax({
+        type: "post",
+        "url": BASE_URL + "admin/add_banner",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.banner_title_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.banner_title_error + '</p>', 'error');
+                    }
+
+
+                }
+                if (data.status == 1) {
+                    toastr.clear();
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">Judul sudah ada', 'error');
+
+
+                } if (data.status == 2) {
+                    toastr.clear();
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">', 'error');
+
+
+                } if (data.status == 3) {
+                    toastr.clear();
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">Format File Salah', 'error');
+
+
+                }
+
+
+            } else if (data.success == true) {
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Data ditambahkan",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                $('#modalTambahBanner').modal('hide');
+                $('#TabelBanner').DataTable().ajax.reload(null, false);
+                $('#formTambahBanner')[0].reset();
+
+            }
+
+        },
+
+    })
+    return false;
+});
+function delBanner(elem) {
+    var id = $(elem).data("id");
+    Swal.fire({
+        title: 'Apakah anda yakin??',
+        text: "Anda tidak akan dapat mengembalikan ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Hapus!'
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: BASE_URL + 'admin/del_banner/' + id,
+                type: "POST",
+                data: {
+
+                    id: id,
+
+                },
+                success: function () {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Data dihapus",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }); $('#TabelBanner').DataTable().ajax.reload(null, false);
+                },
+                error: function () {
+                    Swal.fire('Gagal!', 'Data Anda gagal dihapus.', 'warning');
+
+                }
+            });
+
+        }
+    });
+}
+
+//notif
+function addNotif() {
+    $('#modalTambahNotif').modal('show');
+}
+
+$('#formTambahNotif').on('submit', function (e) {
+    var postData = new FormData($("#formTambahNotif")[0]);
+
+    $.ajax({
+        type: "post",
+        "url": BASE_URL + "admin/add_notif",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.notif_title_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.notif_title_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.notif_konten_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.notif_konten_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.notif_tag_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.notif_tag_error + '</p>', 'error');
+                    }
+                }
+
+
+
+
+            } else if (data.success == true) {
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Data ditambahkan",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                $('#modalTambahNotif').modal('hide');
+                $('#TabelNotif').DataTable().ajax.reload(null, false);
+                $('#formTambahNotif')[0].reset();
+
+            }
+
+        },
+
+    })
+    return false;
+});
+
+$('#formEditNotif').on('submit', function (e) {
+    var postData = new FormData($("#formEditNotif")[0]);
+
+    $.ajax({
+        type: "post",
+        "url": BASE_URL + "admin/update_notif",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.notif_title_edit_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.notif_title_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.notif_konten_edit_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.notif_konten_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.notif_tag_edit_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.notif_tag_error + '</p>', 'error');
+                    }
+                }
+            } else if (data.success == true) {
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Data ditambahkan",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                $('#modalEditNotif').modal('hide');
+                $('#TabelNotif').DataTable().ajax.reload(null, false);
+            }
+
+        },
+
+    })
+    return false;
+});
+
+
+function editNotif(elem) {
+    var id = $(elem).data("id");
+    // console.log(id)
+    $('#modalEditNotif').modal('show');
+    $('#id_notif').val(id)
+
+    $.ajax({
+        type: "get",
+        "url": BASE_URL + "admin/get_notif/" + id,
+
+        contentType: false,
+        dataType: "JSON",
+        async: true,
+
+        success: function (data) {
+
+            $('#notif_title_edit').val(data.title)
+            $('#notif_konten_edit').val(data.informasi)
+            $('#notif_tag_edit').val(data.tag)
+
+        },
+    })
+    return false;
+
+
+}
+
+
+
+function delNotif(elem) {
+    var id = $(elem).data("id");
+    Swal.fire({
+        title: 'Apakah anda yakin??',
+        text: "Anda tidak akan dapat mengembalikan ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Hapus!'
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: BASE_URL + 'admin/del_notif/' + id,
+                type: "POST",
+                data: {
+
+                    id: id,
+
+                },
+                success: function () {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Data dihapus",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }); $('#TabelNotif').DataTable().ajax.reload(null, false);
+                },
+                error: function () {
+                    Swal.fire('Gagal!', 'Data Anda gagal dihapus.', 'warning');
+
+                }
+            });
+
+        }
+    });
+}
+
+$('#formConfig').on('submit', function (e) {
+    var postData = new FormData($("#formConfig")[0]);
+
+    $.ajax({
+        type: "post",
+        "url": BASE_URL + "admin/update_config",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.nm_pemda_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.nm_pemda_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.jam_masuk_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.jam_masuk_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.jam_pulang_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.jam_pulang_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.qr_time_in_start_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.qr_time_in_start_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.qr_time_in_end_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.qr_time_in_end_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.qr_time_out_start_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.qr_time_out_start_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.qr_time_out_end_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.qr_time_out_end_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.radius_config_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.radius_config_error + '</p>', 'error');
+                    }
+                }
+
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.versi_apk_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.versi_apk_error + '</p>', 'error');
+                    }
+                }
+
+
+
+
+
+
+            } else if (data.success == true) {
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Data diupdate",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+              
+                getConfig()
+                
+
             }
 
         },

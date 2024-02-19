@@ -88,6 +88,22 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label class="form-label" for="fv-email">NIP</label>
+                            <div class="form-control-wrap">
+
+                                <input type="text" class="form-control" id="nip_skpd" name="nip_skpd" required="" maxlength="18" minlength="18">
+                                <small class="">* jangan gunakan spasi</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-4">
+                            
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label class="form-label" for="fv-email">Jabatan</label>
                             <div class="form-control-wrap">
 

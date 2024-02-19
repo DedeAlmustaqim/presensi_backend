@@ -5,7 +5,7 @@
                 <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-menu"></em></a>
             </div>
             <div class="nk-header-brand">
-                <a href="<?php echo base_url()?>" class="logo-link">
+                <a href="<?php echo base_url() ?>" class="logo-link">
 
                     <img class="logo-light logo-img" src="<?php echo base_url() ?>/public/images/logo.png" srcset="<?php echo base_url() ?>/public/images/logo2x.png 2x" alt="logo">
                     <img class="logo-dark logo-img" src="<?php echo base_url() ?>/public/images/logo-dark.png" srcset="<?php echo base_url() ?>/public/images/logo-dark2x.png 2x" alt="logo-dark">
@@ -14,7 +14,7 @@
             <div class="nk-header-menu" data-content="headerNav">
                 <div class="nk-header-mobile">
                     <div class="nk-header-brand">
-                        <a href="<?php echo base_url()?>" class="logo-link">
+                        <a href="<?php echo base_url() ?>" class="logo-link">
                             <img class="logo-light logo-img" src="<?php echo base_url() ?>/public/images/logo.png" srcset="<?php echo base_url() ?>/public/images/logo2x.png 2x" alt="logo">
                             <img class="logo-dark logo-img" src="<?php echo base_url() ?>/public/images/logo-dark.png" srcset="<?php echo base_url() ?>/public/images/logo-dark2x.png 2x" alt="logo-dark">
                         </a>
@@ -37,6 +37,7 @@
                             <span class="nk-menu-text">Pengaturan</span>
                         </a>
                         <ul class="nk-menu-sub">
+
                             <li class="nk-menu-item">
                                 <a href="<?php echo base_url() ?>/admin/unit" class="nk-menu-link"><span class="nk-menu-text">SKPD</span></a>
                             </li>
@@ -47,18 +48,44 @@
                                 </a>
                                 <ul class="nk-menu-sub">
                                     <li class="nk-menu-item">
+                                        <a href="<?php echo base_url() ?>/admin/user" class="nk-menu-link"><span class="nk-menu-text">Pegawai</span></a>
                                         <a href="<?php echo base_url() ?>/admin/administrator" class="nk-menu-link"><span class="nk-menu-text">Admin SKPD</span></a>
                                         <a href="<?php echo base_url() ?>/admin/op_qr" class="nk-menu-link"><span class="nk-menu-text">Operator Kode QR</span></a>
 
                                     </li>
                                 </ul><!-- .nk-menu-sub -->
-                               
+
                             </li>
-                            <!-- <li class="nk-menu-item">
-                                <a href="html/apps-file-manager.html" class="nk-menu-link"><span class="nk-menu-text">Jadwal Kode QR</span></a>
-                            </li> -->
+                            <li class="nk-menu-item">
+                                <a href="<?php echo base_url() ?>/admin/config" class="nk-menu-link"><span class="nk-menu-text">Umum</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="<?php echo base_url() ?>/admin/date_to_skip" class="nk-menu-link"><span class="nk-menu-text">Hari Libur</span></a>
+                            </li>
 
                         </ul><!-- .nk-menu-sub -->
+
+                    </li><!-- .nk-menu-item -->
+
+
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-text">ATEI Utility</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+
+                            <li class="nk-menu-item">
+                                <a href="<?php echo base_url() ?>/admin/banner" class="nk-menu-link"><span class="nk-menu-text">Banner</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="<?php echo base_url() ?>/admin/notif" class="nk-menu-link"><span class="nk-menu-text">Pengumuman</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="<?php echo base_url() ?>/admin/news" class="nk-menu-link"><span class="nk-menu-text">Berita</span></a>
+                            </li>
+
+                        </ul><!-- .nk-menu-sub -->
+
                     </li><!-- .nk-menu-item -->
 
                 </ul><!-- .nk-menu -->
