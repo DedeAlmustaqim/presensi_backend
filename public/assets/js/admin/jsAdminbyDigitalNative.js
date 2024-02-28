@@ -92,8 +92,27 @@ $(document).ready(function () {
 
                 }
             },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[8] + '</div>'
 
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[9] + '</div>'
 
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[10] + '</div>'
+
+                }
+            },
             {
 
                 "orderable": false,
@@ -487,6 +506,94 @@ $(document).ready(function () {
 
     });
 
+    $('#TabelDatetoSkip').DataTable({
+        processing: true,
+        serverSide: true,
+
+        destroy: true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bInfo": true,
+        "bAutoWidth": true,
+        "columnDefs": [{
+            "visible": false,
+
+        }],
+        "order": [
+            [0, 'asc']
+        ],
+
+        "language": {
+            "lengthMenu": "Tampilkan _MENU_ item per halaman",
+            "zeroRecords": "Tidak ada data yang ditampilkan",
+            "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Tidak ada data yang ditampilkan",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "search": "Cari ",
+            "paginate": {
+                "first": "Awal",
+                "last": "Akhir",
+                "next": "Selanjutnya",
+                "previous": "Sebelumnya"
+            },
+        },
+        "displayLength": 25,
+        "ajax": {
+
+            "url": BASE_URL + "admin/json_date_to_skip",
+            // "dataSrc": "data",
+            // "dataType": "json",
+        },
+        "columns": [
+
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[0] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[1] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[2] + '</div>'
+
+                }
+            },
+
+
+            {
+
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-center">' +
+                        '<a  onclick="editDatetoSkip(this)" data-id="' + data[0] + '" data-tlg='+data[1]+' data-ket='+data[2]+' class="btn btn-dim  btn-outline-primary" title="Hapus"><em class="icon ni ni-edit-alt"></em> Edit</a>&nbsp;' +
+                        '<a  onclick="delDatetoSkip(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em> Hapus</a>&nbsp;' +
+                        '</div>'
+                }
+            },
+
+
+        ],
+        rowCallback: function (row, data, iDisplayIndex) {
+            var info = this.fnPagingInfo();
+            var page = info.iPage;
+            var length = info.iLength;
+            var index = page * length + (iDisplayIndex + 1);
+            $('td:eq(0)', row).html(index);
+        },
+
+
+    });
+
 })
 
 function show_tabel_user(id_unit) {
@@ -672,7 +779,7 @@ function editUnit(elem) {
     var id = $(elem).data("id");
     // console.log(id)
     $('#modalEditUnit').modal('show');
-    $('#id_unit').val(id)
+    $('#id_unit_skpd_edit').val(id)
 
     $.ajax({
         type: "get",
@@ -687,6 +794,9 @@ function editUnit(elem) {
             $('#nm_unit_edit').val(data.nm_unit)
             $('#lat_edit').val(data.lat)
             $('#long_edit').val(data.long)
+            $('#jam_masuk_edit').val(data.jam_masuk)
+            $('#jam_pulang_edit').val(data.jam_pulang)
+            $('#h_kerja_edit').val(data.hari_kerja)
 
         },
     })
@@ -713,11 +823,19 @@ $('#formEditUnit').on('submit', function (e) {
                 if (data.nm_unit_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.nm_unit_error + '</p>', 'error');
                 }
-                if (data.latt_error) {
-                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.latt_error + '</p>', 'error');
+                if (data.lat_edit_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.lat_edit_error + '</p>', 'error');
                 }
                 if (data.long_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.long_error + '</p>', 'error');
+                } 
+                if (data.jam_masuk_edit_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.jam_masuk_edit_error + '</p>', 'error');
+                }
+                if (data.jam_pulang_edit_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.jam_pulang_edit_error + '</p>', 'error');
+                } if (data.h_kerja_edit_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.h_kerja_edit_error + '</p>', 'error');
                 }
             } else if (data.success == true) {
                 toastr.clear();
@@ -736,7 +854,7 @@ function delUnit(elem) {
     var id = $(elem).data("id");
     Swal.fire({
         title: 'Apakah anda yakin??',
-        text: "Anda tidak akan dapat mengembalikan ini!",
+        text: "Anda tidak akan dapat mengembalikan ini!, Menghapus SKPD juga akan menghapus semua Pegawainya",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Ya, Hapus!'
@@ -1336,10 +1454,151 @@ $('#formConfig').on('submit', function (e) {
                     showConfirmButton: false,
                     timer: 1500
                 });
-              
-                getConfig()
-                
 
+                getConfig()
+
+
+            }
+
+        },
+
+    })
+    return false;
+});
+
+//date to skip
+function addDateToSkip() {
+    $('#modaladdDateToSkip').modal('show');
+}
+
+function editNotif(elem) {
+    var id = $(elem).data("id");
+    // console.log(id)
+    $('#modalEditNotif').modal('show');
+    $('#id_notif').val(id)
+
+    $.ajax({
+        type: "get",
+        "url": BASE_URL + "admin/get_notif/" + id,
+
+        contentType: false,
+        dataType: "JSON",
+        async: true,
+
+        success: function (data) {
+
+            $('#notif_title_edit').val(data.title)
+            $('#notif_konten_edit').val(data.informasi)
+            $('#notif_tag_edit').val(data.tag)
+
+        },
+    })
+    return false;
+
+
+}
+
+
+$('#formaddDateToSkip').on('submit', function (e) {
+    var postData = new FormData($("#formaddDateToSkip")[0]);
+
+    $.ajax({
+        type: "post",
+        "url": BASE_URL + "admin/add_date_to_skip",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.date_to_skip_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.date_to_skip_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.ket_date_to_skip_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.ket_date_to_skip_error + '</p>', 'error');
+                    }
+                }
+                
+            } else if (data.success == true) {
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Data diupdate",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                $('#modaladdDateToSkip').modal('hide');
+                $('#TabelDatetoSkip').DataTable().ajax.reload(null, false);
+                $('#formaddDateToSkip')[0].reset();
+            }
+
+        },
+
+    })
+    return false;
+});
+
+function editDatetoSkip(elem){
+    var id = $(elem).data("id");
+    var tgl = $(elem).data("tgl");
+    var ket = $(elem).data("ket");
+    $('#modalEditDate').modal('show');
+    $('#id_date').val(id)
+    $('#date_to_skip_edit').val(tgl)
+    $('#ket_date_to_skip_edit').val(ket)
+
+}
+
+$('#formEditNotif').on('submit', function (e) {
+    var postData = new FormData($("#formEditNotif")[0]);
+
+    $.ajax({
+        type: "post",
+        "url": BASE_URL + "admin/update_notif",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.notif_title_edit_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.notif_title_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.notif_konten_edit_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.notif_konten_error + '</p>', 'error');
+                    }
+                }
+                if (data.status == 0) {
+                    toastr.clear();
+                    if (data.notif_tag_edit_error) {
+                        NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.notif_tag_error + '</p>', 'error');
+                    }
+                }
+            } else if (data.success == true) {
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Data ditambahkan",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                $('#modalEditNotif').modal('hide');
+                $('#TabelNotif').DataTable().ajax.reload(null, false);
             }
 
         },

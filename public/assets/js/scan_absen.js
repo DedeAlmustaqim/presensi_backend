@@ -1,5 +1,8 @@
 
 $(document).ready(function () {
+
+
+    
     var table;
     $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
         return {
@@ -50,32 +53,32 @@ $(document).ready(function () {
                     "data": function (data) {
                         // Get current date
                         var currentDate = new Date();
-                
+
                         // Format the date as needed (you can customize this part)
                         var formattedDate = currentDate.toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: '2-digit',
                             day: '2-digit',
                         });
-                
+
                         // Return the formatted date
                         return '<div class="text-left">' + formattedDate + '</div>';
                     }
                 },
-               
+
                 {
                     "orderable": false,
                     "data": function (data,) {
-                        return '<div class="user-card user-card-s1">'+
-                        '<div class="user-avatar md bg-primary">'+
-                            '<img height="55" width="55" src="'+data[5]+'" alt="">'+
-                            
-                        '</div>'+
-                        '<div class="user-info">'+
-                            '<h6>'+data[1]+'</h6>'+
-                           
-                        '</div>'+
-                    '</div>'
+                        return '<div class="user-card user-card-s1">' +
+                            '<div class="user-avatar md bg-primary">' +
+                            '<img height="55" width="55" src="' + data[5] + '" alt="">' +
+
+                            '</div>' +
+                            '<div class="user-info">' +
+                            '<h6>' + data[1] + '</h6>' +
+
+                            '</div>' +
+                            '</div>'
 
                     }
                 },
@@ -88,7 +91,7 @@ $(document).ready(function () {
                 },
                 {
                     "orderable": false,
-                    "className":'bg-success',
+                    "className": 'bg-success',
                     "data": function (data) {
                         if (data[3] == null) {
                             return '<div class="text-left">Belum Check IN</div>';
@@ -100,7 +103,7 @@ $(document).ready(function () {
 
                 {
                     "orderable": false,
-                   "className":'bg-orange',
+                    "className": 'bg-orange',
                     "data": function (data) {
                         if (data[4] == null) {
                             return '<div class="text-left ">Belum Check Out</div>';
@@ -118,6 +121,7 @@ $(document).ready(function () {
         });
     }
 
+    
 
     function scrollDataTable() {
         var table = $('#tableUserView').DataTable();
@@ -134,11 +138,25 @@ $(document).ready(function () {
         }, 2500); // Adjust the interval as needed
 
         // Optional: Stop scrolling after a certain time or condition
-       
+
     }
 
 
-    setInterval(() => {
+
+
+
+    function displayCountdown(seconds) {
+        console.log(`Next update in ${seconds} seconds`);
+        document.getElementById('countdown').innerHTML='Kode QR akan di refresh dalam '+seconds+' detik'
+        // document.getElementById('countdownOut').innerHTML='QR akan di refresh dalam '+seconds+' detik'
+    }
+
+    // Set up the initial countdown
+    let countdown = 10; // Initial countdown value in seconds
+    displayCountdown(countdown);
+
+    // Function to perform AJAX request
+    function performAjaxRequest() {
         $.ajax({
             type: "get",
             "url": "https://api-absen.baritotimurkab.go.id/public/api/scan/" + id,
@@ -157,8 +175,22 @@ $(document).ready(function () {
             },
 
         })
+    }
 
-    }, 2000);
+    // Set up the initial AJAX request
+    performAjaxRequest();
+
+    // Set up the interval to run every 10 seconds
+    setInterval(() => {
+        countdown -= 1; // Subtract 1 second for each interval
+        if (countdown <= 0) {
+            countdown = 10; // Reset the countdown to 10 seconds if it reaches 0 or below
+            // Perform AJAX request after every 10 seconds
+            performAjaxRequest();
+        }
+        displayCountdown(countdown);
+    }, 1000); // Run the interval every second (1000 milliseconds)
+
     var qrcode = new QRCode(document.getElementById("qrcode_pagi"), {
         width: 200,
         height: 200

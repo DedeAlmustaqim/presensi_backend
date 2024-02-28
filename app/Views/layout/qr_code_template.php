@@ -4,13 +4,24 @@
 <head>
     <base href=".<?php echo base_url() ?>/public/">
     <meta charset="utf-8">
-    <meta name="author" content="Softnio">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="<?php echo base_url() ?>/public/images/favicon.png">
     <!-- Page Title  -->
     <title><?php echo $judul ?></title>
+    <style>
+        .running-text-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .running-text {
+            white-space: nowrap;
+            position: absolute;
+            left: 100%;
+            /* Mulai dari posisi yang tepat di luar elemen induk */
+        }
+    </style>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/assets/css/dashlite.css?ver=3.1.3">
     <link id="skin-default" rel="stylesheet" href="<?php echo base_url() ?>/public/assets/css/theme.css?ver=3.1.3">

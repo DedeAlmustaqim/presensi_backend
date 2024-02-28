@@ -252,3 +252,4 @@ class Pegawai extends BaseController
         return json_encode($result);
     }
 }
+

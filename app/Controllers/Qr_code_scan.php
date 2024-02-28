@@ -13,6 +13,9 @@ class Qr_code_scan extends BaseController
             $modelUnit = new UnitModel();
             $unit = $modelUnit->where('id', session('ses_id_unit'))->first();
             $data['skpd'] = $unit['nm_unit'];
+            $data['masuk'] = $unit['jam_masuk'];
+            $data['pulang'] = $unit['jam_pulang'];
+            $data['hari_kerja'] = $unit['hari_kerja'];
             $data['judul'] = "Absensi QR Code";
             $data['sub_judul'] = "Scan QR Code untuk melakukan absensi";
 

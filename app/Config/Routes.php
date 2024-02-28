@@ -80,6 +80,10 @@ $routes->post('admin/update_notif','Admin\NotifController::update_notif');
 $routes->get('admin/get_notif/(:alphanum)','Admin\NotifController::get_notif/$1');
 $routes->post('admin/del_notif/(:alphanum)','Admin\NotifController::del_notif/$1');
 
+//Date to Skip
+$routes->get('admin/date_to_skip','Admin\DatetoSkipController::index');
+$routes->get('admin/json_date_to_skip','Admin\DatetoSkipController::json_date_to_skip');
+$routes->post('admin/add_date_to_skip','Admin\DatetoSkipController::add_date_to_skip');
 //SKPD
 $routes->get('skpd/dashboard','Skpd\Dashboard::index');
 $routes->get('skpd/unit','Skpd\Pengaturan::unit');

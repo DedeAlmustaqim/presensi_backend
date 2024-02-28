@@ -16,36 +16,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="form-label" for="fv-phone">Jam Kerja Pemda</label>
-                            <div class="form-control-wrap">
-                                <ul class="custom-control-group">
-                                    <li>
-                                        <div class="form-control-wrap">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="fv-phone">Masuk</span>
-                                                </div>
-                                                <input type="time" class="form-control" name="jam_masuk" id="jam_masuk" required="">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-control-wrap">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="fv-phone">Pulang</span>
-                                                </div>
-                                                <input type="time" class="form-control" name="jam_pulang" id="jam_pulang" required="">
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label" for="fv-phone">Jadwal Kode QR Masuk</label>
@@ -57,7 +28,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="fv-phone">Mulai</span>
                                                 </div>
-                                                <input type="time" class="form-control" name="qr_time_in_start" id="qr_time_in_start" required="">
+                                                <input type="time"  class="form-control" name="qr_time_in_start" id="qr_time_in_start" required="">
                                             </div>
                                         </div>
                                     </li>

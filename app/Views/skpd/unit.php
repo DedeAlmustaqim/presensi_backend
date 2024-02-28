@@ -16,6 +16,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label" for="fv-email">Nama Pimpinan</label>
@@ -74,7 +75,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="form-label" for="radius_skpd">Radius Titik Absensi</label>
-                                
+
                                 <div class="form-control-wrap">
                                     <div class="form-text-hint">
                                         <span class="overline-title">Meter</span>
@@ -96,12 +97,43 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            
-                        </div>
 
-                    </div>
+                    <dvi class="col-md-6">
+                    <label class="form-label" for="fv-email">Jam Kerja</label>
+                        <div class="row gy-4 align-center">
+                            <div class="col-lg-4">
+                                <div class="form-control-wrap">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="fv-phone">Masuk</span>
+                                        </div>
+                                        <input type="time" class="form-control" readonly disabled name="jam_masuk_skpd" id="jam_masuk_skpd" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-control-wrap">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="fv-phone">Pulang</span>
+                                        </div>
+                                        <input type="time" class="form-control" readonly disabled name="jam_pulang_skpd" id="jam_pulang_skpd" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-control-wrap">
+                                    <div class="input-group">
+                                        <input type="text" readonly disabled id="h_kerja" name="h_kerja" class="form-control" placeholder="">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"   >Hari Kerja</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </dvi>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label" for="fv-email">Jabatan</label>

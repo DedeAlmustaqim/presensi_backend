@@ -238,6 +238,9 @@ function getSkpd(id_unit_skpd) {
             $('#radius_skpd').val(data.radius)
             $('#jabatan_skpd').val(data.jabatan)
             $('#nip_skpd').val(data.nip)
+            $('#jam_masuk_skpd').val(data.jam_masuk)
+            $('#jam_pulang_skpd').val(data.jam_pulang)
+            $('#h_kerja').val(data.hari_kerja)
         },
     })
 }

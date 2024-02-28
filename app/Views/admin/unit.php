@@ -11,10 +11,13 @@
                 <thead>
                     <tr class="bg-primary text-white text-center">
                         <th width="5%">No</th>
-                        <th width="40%">SKPD</th>
+                        <th>SKPD</th>
                         <th>Latitude</th>
                         <th>Longitude</th>
-                        <th ></th>
+                        <th>Jam Masuk</th>
+                        <th>Jam Pulang</th>
+                        <th>Hari Kerja</th>
+                        <th width="20%"></th>
                     </tr>
                 </thead>
 
@@ -36,14 +39,15 @@
                 </a>
             </div>
             <div class="modal-body">
-                <form class="form-validate is-alter" id="formTambahUnit" method="post">
+            <form class="form-validate is-alter" id="formTambahUnit" method="post">
+                   
                     <div class="form-group">
                         <label class="form-label" for="full-name">Nama Unit</label>
                         <div class="form-control-wrap">
                             <input type="text" class="form-control" id="nm_unit" name="nm_unit" required>
                         </div>
                     </div>
-                    
+
                     <div class="row mb-2">
                         <div class="col-6">
                             <div class="form-group">
@@ -61,7 +65,43 @@
                                 </div>
                             </div>
                         </div>
-                        
+
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="form-label" for="email-address">Jam Masuk</label>
+                                <div class="form-control-wrap">
+                                    <input type="time" class="form-control" id="jam_masuk" name="jam_masuk" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="form-label" for="email-address">Jam Pulang</label>
+                                <div class="form-control-wrap">
+                                    <input type="time" class="form-control" id="jam_pulang" name="jam_pulang" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="form-label" for="email-address">Hari Kerja</label>
+                                <div class="form-control-wrap">
+                                    <select class="form-select " id="h_kerja" name="h_kerja" data-placeholder="Pilih SKPD" required>
+                                        <option selected value="">Pilih</option>
+                                        <option selected value="5">5 Hari</option>
+                                        <option selected value="6">6 Hari</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
 
@@ -72,7 +112,7 @@
                     </div>
                 </form>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -88,16 +128,16 @@
                 </a>
             </div>
             <div class="modal-body">
-                
+
                 <form class="form-validate is-alter" id="formEditUnit" method="post">
-                <input type="text" hidden id="id_unit" name="id_unit">
+                    <input type="text" hidden id="id_unit_skpd_edit" name="id_unit_skpd_edit">
                     <div class="form-group">
                         <label class="form-label" for="full-name">Nama Unit</label>
                         <div class="form-control-wrap">
                             <input type="text" class="form-control" id="nm_unit_edit" name="nm_unit_edit" required>
                         </div>
                     </div>
-                    
+
                     <div class="row mb-2">
                         <div class="col-6">
                             <div class="form-group">
@@ -115,7 +155,43 @@
                                 </div>
                             </div>
                         </div>
-                        
+
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="form-label" for="email-address">Jam Masuk</label>
+                                <div class="form-control-wrap">
+                                    <input type="time" class="form-control" id="jam_masuk_edit" name="jam_masuk_edit" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="form-label" for="email-address">Jam Pulang</label>
+                                <div class="form-control-wrap">
+                                    <input type="time" class="form-control" id="jam_pulang_edit" name="jam_pulang_edit" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="form-label" for="email-address">Hari Kerja</label>
+                                <div class="form-control-wrap">
+                                    <select class="form-select " id="h_kerja_edit" name="h_kerja_edit" data-placeholder="Pilih SKPD" required>
+                                        <option selected value="">Pilih</option>
+                                        <option selected value="5">5 Hari</option>
+                                        <option selected value="6">6 Hari</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
 
@@ -126,7 +202,7 @@
                     </div>
                 </form>
             </div>
-            
+
         </div>
     </div>
 </div>

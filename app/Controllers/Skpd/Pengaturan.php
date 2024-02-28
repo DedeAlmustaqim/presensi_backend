@@ -45,6 +45,7 @@ class Pengaturan extends BaseController
             'nip_skpd'     => ['label' => 'NIP', 'rules' => 'required|numeric|exact_length[18]'],
 
 
+
         ])) {
 
             $respond = [
@@ -55,6 +56,7 @@ class Pengaturan extends BaseController
                 'gol_skpd_error' => \Config\Services::validation()->getError('gol_skpd'),
                 'jabatan_skpd_error' => \Config\Services::validation()->getError('jabatan_skpd'),
                 'nip_skpd_error' => \Config\Services::validation()->getError('nip_skpd'),
+
 
 
             ];

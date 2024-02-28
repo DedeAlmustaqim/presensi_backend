@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UnitModel extends Model
+class DatetoSkipModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tbl_unit';
+    protected $table            = 'date_to_skip';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -40,33 +40,5 @@ class UnitModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function get_unit($idUnit,)
-    {
-        return $this->db->table('tbl_unit')
-            ->select('*')
-            ->where('id_unit', $idUnit)
-            ->get()->getFirstRow();
-    }
-
-    function add($data)
-    {
-        return $this->db
-            ->table('tbl_unit')
-            ->insert($data);
-    }
-
-    function add_qr($data)
-    {
-        return $this->db
-            ->table('tbl_qr_scan')
-            ->insert($data);
-    }
-
-    function update_unit($data, $id_unit)
-    {
-        return $this->db
-            ->table('tbl_unit')
-            ->where('id', $id_unit)
-            ->update($data);
-    }
+   
 }

@@ -72,7 +72,7 @@
                 </form>
                 <hr>
                 <div class="modal-footer bg-light text-left">
-                    <span class="sub-text">Password dibuat secara otomatis<br>Password Default : <b> PresensibyDN </b></span>
+                    <span class="sub-text">Password dibuat secara otomatis<br>Password Default : <b> operatorQR6213 </b></span>
                 </div>
             </div>
 
@@ -126,9 +126,7 @@
                     </div>
                 </form>
                 <hr>
-                <div class="modal-footer bg-light text-left">
-                    <span class="sub-text">Password dibuat secara otomatis<br>Hubungi Developer untuk mengetahui Default Password untuk Administrator</span>
-                </div>
+               
             </div>
 
         </div>

@@ -34,7 +34,8 @@ class Rekap extends BaseController
     {
         $db = db_connect();
         $model = new AbsenModel();
-
+        $user = $db->table('users')->where('users.id', $id)->get()->getRow();
+        $unit = $db->table('tbl_unit')->where('id', $user->id_unit)->get()->getRow();
         // Mendapatkan jumlah hari dalam bulan
         $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
@@ -59,11 +60,21 @@ class Rekap extends BaseController
                 continue;
             }
 
-            // Periksa apakah hari adalah Sabtu atau Minggu
-            $dayOfWeek = date('N', strtotime($date)); // 1 (for Monday) through 7 (for Sunday)
-            if ($dayOfWeek == 6 || $dayOfWeek == 7) {
-                // Jika hari adalah Sabtu atau Minggu, lewati dan lanjutkan ke tanggal berikutnya
-                continue;
+            if ($unit->hari_kerja == 5) {
+                // Periksa apakah hari adalah Sabtu 
+                $dayOfWeek = date('N', strtotime($date)); // 1 (for Monday) through 7 (for Sunday)
+                if ($dayOfWeek == 6 || $dayOfWeek == 7) {
+                    // Jika hari adalah Sabtu, lewati dan lanjutkan ke tanggal berikutnya
+                    continue;
+                }
+            }
+
+            if ($unit->hari_kerja == 6) {
+                $dayOfSunday = date('N', strtotime($date)); // 1 (for Monday) through 7 (for Sunday)
+                if ($dayOfSunday == 7) {
+                    // Jika hari adalah  Minggu, lewati dan lanjutkan ke tanggal berikutnya
+                    continue;
+                }
             }
 
             // Query untuk tanggal tertentu
@@ -139,6 +150,9 @@ class Rekap extends BaseController
             'bulan' => $month,
             'tahun' => $year,
             'id' => $id,
+            'jam_masuk' => $unit->jam_masuk,
+            'jam_pulang' => $unit->jam_pulang,
+            'hari_kerja' => $unit->hari_kerja,
         ]);
     }
 
@@ -147,7 +161,7 @@ class Rekap extends BaseController
         $db = db_connect();
         helper(['time']);
         helper('tanggal_indo_helper');
-       
+
         // Panggil fungsi untuk mendapatkan data absen
         $data = $this->get_absen_user($id, $month, $year);
         $user = $db->table('users')->where('users.id', $id)->get()->getRow();
@@ -161,31 +175,34 @@ class Rekap extends BaseController
             'nip' => $user->nip,
             'jabatan' => $user->jabatan,
             'unit' => $unit->nm_unit,
-            'sub_judul' => bulan($month)
+            'sub_judul' => bulan($month),
+            'jam_masuk' => $unit->jam_masuk,
+            'jam_pulang' => $unit->jam_pulang,
+            'hari_kerja' => $unit->hari_kerja,
         ];
 
-         // Membuat options untuk domPDF
-         $options = new Options();
-         $options->set('isHtml5ParserEnabled', true);
- 
-         // Membuat instance dari Dompdf dengan options
-         $dompdf = new Dompdf($options);
- 
-         // Render view ke dalam HTML
-         $html = view('skpd/rekap/rekap_absen_tpp_pdf', $dataPrint);
- 
-         // Load HTML ke dalam Dompdf
-         $dompdf->loadHtml($html);
- 
-         // Mengatur ukuran dan orientasi halaman
-         $dompdf->setPaper('A4', 'landscape');
- 
-         // Render HTML ke dalam PDF
-         $dompdf->render();
- 
-         // Mengirimkan output PDF ke browser
-         $dompdf->stream( $user->name.'_'.bulan($month).'_'.$year.'.pdf', [
-             'Attachment' => false
-         ]);
+        // Membuat options untuk domPDF
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+
+        // Membuat instance dari Dompdf dengan options
+        $dompdf = new Dompdf($options);
+
+        // Render view ke dalam HTML
+        $html = view('skpd/rekap/rekap_absen_tpp_pdf', $dataPrint);
+
+        // Load HTML ke dalam Dompdf
+        $dompdf->loadHtml($html);
+
+        // Mengatur ukuran dan orientasi halaman
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render HTML ke dalam PDF
+        $dompdf->render();
+
+        // Mengirimkan output PDF ke browser
+        $dompdf->stream($user->name . '_' . bulan($month) . '_' . $year . '.pdf', [
+            'Attachment' => false
+        ]);
     }
 }

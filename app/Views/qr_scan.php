@@ -5,6 +5,7 @@
 	<div class="nk-block-between">
 		<div class="nk-block-head-content">
 			<h3 class="nk-block-title page-title"><?php echo $skpd ?></h3>
+			
 		</div><!-- .nk-block-head-content -->
 		<div class="nk-block-head-content">
 			<div class="toggle-wrap nk-block-tools-toggle">
@@ -19,13 +20,18 @@
 	</div><!-- .nk-block-between -->
 </div>
 <div class="row justify-content-lg-center ">
+	
+
+<h6 id="countdown" class="center m-1 "></h6>
 	<div class="col-lg-6">
 		<div class="card">
 			<input type="text" hidden id="id_qr_scan" value="<?php echo session('ses_id_unit') ?>">
 
 			<div class="row h-250px">
 				<div class="col-5">
-					<div id="qrcode_pagi" class="m-5"></div>
+				
+					<div id="qrcode_pagi" class="m-4 center"></div>
+					
 				</div>
 				<div class="col-md-7 bg-primary h-250px">
 					<div class="card-body">
@@ -56,7 +62,8 @@
 
 			<div class="row h-250px">
 				<div class="col-5">
-					<div id="qrcode_out" class="m-5"></div>
+				
+					<div id="qrcode_out" class="m-4"></div>
 				</div>
 				<div class="col-md-7 bg-warning h-250px">
 					<div class="card-body">
@@ -81,9 +88,11 @@
 
 		<!-- End Title -->
 	</div>
-	<div class="col-lg-12" style="margin-top: 20px;">
+	<div class="col-lg-12" style="">
     <div class="card">
-        <div class="table-responsive">
+	<h6 class="center mt-2" >Jam Masuk <?= $masuk ?> --------------- Jam Pulang <?= $pulang ?> --------------- <?= $hari_kerja ?> Hari Kerja --------------- Tips* Tekan F11 untuk Layar Fullscreen</h6>
+     
+	<div class="table-responsive">
             <table class="table table-bordered" id="tableUserView" aria-describedby="DataTables_Table_0_info">
                 <thead>
                     <tr class="bg-primary text-white text-center">

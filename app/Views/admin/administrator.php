@@ -4,7 +4,7 @@
 <div class="card card-bordered">
 
     <div class="card-inner">
-        <a onclick="tambahAdminSkpd()" class="btn btn-primary mb-1">Tambah Administrator</a>
+        <a onclick="tambahAdminSkpd()" class="btn btn-primary mb-1">Tambah Administrator SKPD</a>
         <hr>
         <div class="table-responsive">
             <table class="table table-bordered" id="tabelAdministrator">
@@ -72,7 +72,7 @@
                 </form>
                 <hr>
                 <div class="modal-footer bg-light text-left">
-                    <span class="sub-text">Password dibuat secara otomatis<br>Password Default : <b> PresensibyDN </b></span>
+                    <span class="sub-text">Password dibuat secara otomatis<br>Password Default : <b> adminSKPD6213 </b></span>
                 </div>
             </div>
 
@@ -125,10 +125,8 @@
                         <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
                     </div>
                 </form>
-                <hr>
-                <div class="modal-footer bg-light text-left">
-                    <span class="sub-text">Password dibuat secara otomatis<br>Hubungi Developer untuk mengetahui Default Password untuk Administrator</span>
-                </div>
+                
+               
             </div>
 
         </div>

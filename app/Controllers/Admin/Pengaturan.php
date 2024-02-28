@@ -95,6 +95,9 @@ class Pengaturan extends BaseController
             tbl_unit.lat, 
             tbl_unit.`long`, 
             tbl_unit.radius, 
+            tbl_unit.jam_masuk, 
+            tbl_unit.jam_pulang, 
+            tbl_unit.hari_kerja, 
             tbl_unit.created_at, 
             tbl_unit.updated_at')
                 ->whereNotIn('tbl_unit.id', [1])
@@ -109,26 +112,26 @@ class Pengaturan extends BaseController
         if (($this->akses != '1')) {
             return redirect('login');
         } else {
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            $randomString = '';
-
-            for ($i = 0; $i < 25; $i++) {
-                $randomString .= $characters[rand(0, strlen($characters) - 1)];
-            }
 
             $model = new UnitModel();
             if (!$this->validate([
                 'nm_unit'     => ['label' => 'Nama Unit', 'rules' => 'required'],
                 'lat'     => ['label' => 'Latitude', 'rules' => 'required|decimal'],
                 'long'     => ['label' => 'Longitude', 'rules' => 'required|decimal'],
+                'jam_masuk'     => ['label' => 'Jam Masuk', 'rules' => 'required'],
+                'jam_pulang'     => ['label' => 'Jam Pulang', 'rules' => 'required'],
+                'h_kerja'     => ['label' => 'Hari Kerja', 'rules' => 'required'],
 
             ])) {
 
                 $respond = [
                     'success' => false,
                     'nm_unit_error' => \Config\Services::validation()->getError('nm_unit'),
-                    'latt_error' => \Config\Services::validation()->getError('lat'),
+                    'lat_error' => \Config\Services::validation()->getError('lat'),
                     'long_error' => \Config\Services::validation()->getError('long'),
+                    'jam_masuk_error' => \Config\Services::validation()->getError('jam_masuk'),
+                    'jam_pulang_error' => \Config\Services::validation()->getError('jam_pulang'),
+                    'h_kerja_error' => \Config\Services::validation()->getError('h_kerja'),
 
                 ];
 
@@ -138,29 +141,27 @@ class Pengaturan extends BaseController
             $nm_unit = $this->request->getVar('nm_unit');
             $lat = $this->request->getVar('lat');
             $long = $this->request->getVar('long');
-            $radius = $this->request->getVar('radius');
+            $jam_masuk = $this->request->getVar('jam_masuk');
+            $jam_pulang = $this->request->getVar('jam_pulang');
+            $hari_kerja = $this->request->getVar('hari_kerja');
+
 
             $data = [
-                'id_unit'           => $randomString,
+
                 'nm_unit'           => $nm_unit,
                 'lat'           => $lat,
                 'long'           => $long,
-                'radius'           => $radius,
+                'jam_masuk'           => $jam_masuk,
+                'jam_pulang'           => $jam_pulang,
+                'hari_kerja'           => $hari_kerja,
+
                 'created_at'           => date('Y/m/d H:i:s'),
             ];
 
-            $data2 = [
-                'id_unit'           => $randomString,
 
-                'qr_time_in_start'           => date('08:00:00'),
-                'qr_time_in_end'           => date('12:00:00'),
-                'qr_time_out_start'           => date('15:30:00'),
-                'qr_time_out_end'           => date('16:30:00'),
-
-            ];
 
             $result = $model->add($data);
-            $result2 = $model->add_qr($data2);
+
 
             if ($result) {
                 $respond = [
@@ -192,6 +193,9 @@ class Pengaturan extends BaseController
             'nm_unit_edit'     => ['label' => 'Nama Unit', 'rules' => 'required'],
             'lat_edit'     => ['label' => 'Latitude', 'rules' => 'required|decimal'],
             'long_edit'     => ['label' => 'Longitude', 'rules' => 'required|decimal'],
+            'jam_masuk_edit'     => ['label' => 'Jam Masuk', 'rules' => 'required'],
+            'jam_pulang_edit'     => ['label' => 'jam Pulang', 'rules' => 'required'],
+            'h_kerja_edit'     => ['label' => 'Hari Kerja', 'rules' => 'required'],
 
         ])) {
 
@@ -200,23 +204,29 @@ class Pengaturan extends BaseController
                 'nm_unit_error' => \Config\Services::validation()->getError('nm_unit_edit'),
                 'lat_edit_error' => \Config\Services::validation()->getError('lat_edit'),
                 'long_edit_error' => \Config\Services::validation()->getError('long_edit'),
+                'jam_masuk_edit_error' => \Config\Services::validation()->getError('jam_masuk_edit'),
+                'jam_pulang_edit_error' => \Config\Services::validation()->getError('jam_pulang_edit'),
+                'h_kerja_edit_error' => \Config\Services::validation()->getError('h_kerja_edit'),
 
             ];
 
             return json_encode($respond);
         }
 
-        $id_unit = $this->request->getVar('id_unit');
+        $id = $this->request->getVar('id_unit_skpd_edit');
 
         $data = [
             'nm_unit'           => $this->request->getVar('nm_unit_edit'),
             'lat'           => $this->request->getVar('lat_edit'),
             'long'           => $this->request->getVar('long_edit'),
-            'radius'           => $this->request->getVar('radius_edit'),
+            'jam_masuk'           => $this->request->getVar('jam_masuk_edit'),
+            'jam_pulang'           => $this->request->getVar('jam_pulang_edit'),
+            'hari_kerja'           => $this->request->getVar('h_kerja_edit'),
+
 
 
         ];
-        $result = $model->update_unit($data, $id_unit);
+        $result = $model->update($id, $data);
         if ($result) {
             $respond = [
                 'success'   => true,
@@ -234,10 +244,10 @@ class Pengaturan extends BaseController
     public function del_unit($id_unit)
     {
         $model = new UnitModel();
-        $modelQr = new QrScanModel();
 
-        $data = $model->where('id_unit', $id_unit)->delete();
-        $data2 = $modelQr->where('id_unit', $id_unit)->delete();
+
+        $data = $model->where('id', $id_unit)->delete();
+
 
         return json_encode($data);
     }
@@ -320,7 +330,7 @@ class Pengaturan extends BaseController
 
             'id_akses'           => 2,
             'username'           => $username,
-            'password'           => password_hash('adminpresensi12345', PASSWORD_DEFAULT),
+            'password'           => password_hash('adminSKPD6213', PASSWORD_DEFAULT),
             'nama'           => $nama,
             'id_unit'           => $id_unit,
             'created_at'           => date('Y/m/d H:i:s'),
@@ -478,7 +488,7 @@ class Pengaturan extends BaseController
         $data = [
             'id_akses'           => 3,
             'username'           => $username,
-            'password'           => password_hash('operatorqr12345', PASSWORD_DEFAULT),
+            'password'           => password_hash('operatorQR6213', PASSWORD_DEFAULT),
             'nama'           => $nama,
             'id_unit'           => $id_unit,
             'created_at'           => date('Y/m/d H:i:s'),
