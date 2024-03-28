@@ -26,12 +26,12 @@ $(document).ready(function () {
             destroy: true,
 
             "bPaginate": true,
-
+            "bPaging": true,
             "bLengthChange": false,
             "bFilter": false,
-            "bInfo": false,
+            "bInfo": true,
 
-            "scrollCollapse": true,
+            "bScrollCollapse": false,
             "columnDefs": [{
                 "visible": false,
 
@@ -145,15 +145,15 @@ $(document).ready(function () {
 
 
 
-    function displayCountdown(seconds) {
-        console.log(`Next update in ${seconds} seconds`);
-        document.getElementById('countdown').innerHTML='Kode QR akan di refresh dalam '+seconds+' detik'
-        // document.getElementById('countdownOut').innerHTML='QR akan di refresh dalam '+seconds+' detik'
-    }
+    // function displayCountdown(seconds) {
+    //     console.log(`Next update in ${seconds} seconds`);
+    //     document.getElementById('countdown').innerHTML='Kode QR akan di refresh dalam '+seconds+' detik'
+    //     // document.getElementById('countdownOut').innerHTML='QR akan di refresh dalam '+seconds+' detik'
+    // }
 
-    // Set up the initial countdown
-    let countdown = 10; // Initial countdown value in seconds
-    displayCountdown(countdown);
+    // // Set up the initial countdown
+    // let countdown = 10; // Initial countdown value in seconds
+    // displayCountdown(countdown);
 
     // Function to perform AJAX request
     function performAjaxRequest() {
@@ -182,14 +182,8 @@ $(document).ready(function () {
 
     // Set up the interval to run every 10 seconds
     setInterval(() => {
-        countdown -= 1; // Subtract 1 second for each interval
-        if (countdown <= 0) {
-            countdown = 10; // Reset the countdown to 10 seconds if it reaches 0 or below
-            // Perform AJAX request after every 10 seconds
-            performAjaxRequest();
-        }
-        displayCountdown(countdown);
-    }, 1000); // Run the interval every second (1000 milliseconds)
+        performAjaxRequest();
+    }, 10800000); // 3 jam
 
     var qrcode = new QRCode(document.getElementById("qrcode_pagi"), {
         width: 200,

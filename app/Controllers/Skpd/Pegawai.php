@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Skpd;
 
+use App\Controllers\Api\User;
 use App\Controllers\BaseController;
 use App\Models\AbsenModel;
 use App\Models\UnitModel;
@@ -251,5 +252,7 @@ class Pegawai extends BaseController
         $result = $model->update_peg($data, $id);
         return json_encode($result);
     }
+
+    
 }
 

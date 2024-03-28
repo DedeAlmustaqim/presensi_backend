@@ -5,7 +5,6 @@
 	<div class="nk-block-between">
 		<div class="nk-block-head-content">
 			<h3 class="nk-block-title page-title"><?php echo $skpd ?></h3>
-			
 		</div><!-- .nk-block-head-content -->
 		<div class="nk-block-head-content">
 			<div class="toggle-wrap nk-block-tools-toggle">
@@ -20,9 +19,9 @@
 	</div><!-- .nk-block-between -->
 </div>
 <div class="row justify-content-lg-center ">
-	
+<div class="col-lg-5"><small>*Tips : Tekan F11 untuk layar fullscreen<br>*Tips : Urutkan Pegawai pada Menu Kelola Pegawai oleh Admin SKPD<br>*Tips : Jika Kode QR selalu gagal di Scan cobalah muat ulang halaman ini atau tekan F5</small></div>
+<div class="col-lg-6"><small>Jam Masuk OPD : <?php echo $masuk ?><br>Jam Pulang OPD : <?php echo $pulang?><br>Hari Kerja : <?php echo $hari_kerja?> Hari</small></div>
 
-<h6 id="countdown" class="center m-1 "></h6>
 	<div class="col-lg-6">
 		<div class="card">
 			<input type="text" hidden id="id_qr_scan" value="<?php echo session('ses_id_unit') ?>">
@@ -88,11 +87,9 @@
 
 		<!-- End Title -->
 	</div>
-	<div class="col-lg-12" style="">
+	<div class="col-lg-12" style="margin-top: 20px;">
     <div class="card">
-	<h6 class="center mt-2" >Jam Masuk <?= $masuk ?> --------------- Jam Pulang <?= $pulang ?> --------------- <?= $hari_kerja ?> Hari Kerja --------------- Tips* Tekan F11 untuk Layar Fullscreen</h6>
-     
-	<div class="table-responsive">
+        <div class="table-responsive">
             <table class="table table-bordered" id="tableUserView" aria-describedby="DataTables_Table_0_info">
                 <thead>
                     <tr class="bg-primary text-white text-center">

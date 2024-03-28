@@ -217,7 +217,7 @@ $(document).ready(function () {
                 "data": function (data,) {
                     return '<div class="text-center">' +
                         '<a  onclick="editAdm(this)" data-id="' + data[0] + '" class="btn  btn-primary">Edit</a>&nbsp;' +
-                        '<a  onclick="devPorgress(this)" data-id="' + data[0] + '" class="btn  btn-secondary">Reset Password</a>&nbsp;' +
+                        '<a  onclick="resetAdm(this)" data-id="' + data[0] + '" class="btn  btn-secondary">Reset Password</a>&nbsp;' +
                         '<a  onclick="devPorgress(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger">Hapus</a>&nbsp;' +
                         '</div>'
                 }
@@ -312,7 +312,7 @@ $(document).ready(function () {
                 "data": function (data,) {
                     return '<div class="text-center">' +
                         '<a  onclick="editOpQr(this)" data-id="' + data[0] + '" class="btn  btn-outline-primary" title="Edit"><em class="icon ni ni-edit-alt"></em></a>&nbsp;' +
-                        '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn  btn-outline-secondary" title="Reset Password"><em class="icon ni ni-lock"></em></a>&nbsp;' +
+                        '<a  onclick="resetOp(this)" data-id="' + data[0] + '" class="btn  btn-outline-secondary" title="Reset Password"><em class="icon ni ni-lock"></em></a>&nbsp;' +
                         '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em></a>&nbsp;' +
                         '</div>'
                 }
@@ -575,7 +575,7 @@ $(document).ready(function () {
                 "orderable": false,
                 "data": function (data,) {
                     return '<div class="text-center">' +
-                        '<a  onclick="editDatetoSkip(this)" data-id="' + data[0] + '" data-tlg='+data[1]+' data-ket='+data[2]+' class="btn btn-dim  btn-outline-primary" title="Hapus"><em class="icon ni ni-edit-alt"></em> Edit</a>&nbsp;' +
+                        '<a  onclick="editDatetoSkip(this)" data-id="' + data[0] + '" data-tlg=' + data[1] + ' data-ket=' + data[2] + ' class="btn btn-dim  btn-outline-primary" title="Hapus"><em class="icon ni ni-edit-alt"></em> Edit</a>&nbsp;' +
                         '<a  onclick="delDatetoSkip(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em> Hapus</a>&nbsp;' +
                         '</div>'
                 }
@@ -668,6 +668,7 @@ function show_tabel_user(id_unit) {
                 "orderable": false,
                 "data": function (data,) {
                     return '<div class="text-left">' + data[9] + '</div>'
+                    // return '<img src="' + data[12] + '" height="200">'
 
                 }
             },
@@ -828,7 +829,7 @@ $('#formEditUnit').on('submit', function (e) {
                 }
                 if (data.long_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.long_error + '</p>', 'error');
-                } 
+                }
                 if (data.jam_masuk_edit_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.jam_masuk_edit_error + '</p>', 'error');
                 }
@@ -882,6 +883,38 @@ function delUnit(elem) {
     });
 }
 
+
+function resetAdm(elem) {
+    var id = $(elem).data("id");
+    Swal.fire({
+        title: 'Apakah anda yakin??',
+        text: "Reset Password Admin SKPD menjadi default 'adminSKPD6213'",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Reset Password!'
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: BASE_URL + 'admin/reset_adm/' + id,
+                type: "POST",
+                data: {
+
+                    id: id,
+
+                },
+                success: function () {
+                    Swal.fire('Berhasil!', 'Password di reset "adminSKPD6213".', 'success');
+                    $('#TabelUnit').DataTable().ajax.reload(null, false);
+                },
+                error: function () {
+                    Swal.fire('Gagal!', '.', 'warning');
+
+                }
+            });
+
+        }
+    });
+}
 //Administrator
 function tambahAdminSkpd() {
     $('#modalTambahAdministrator').modal('show');
@@ -992,6 +1025,37 @@ function tambahOpQr() {
     $('#modalTambahOpQr').modal('show');
 }
 
+function resetOp(elem) {
+    var id = $(elem).data("id");
+    Swal.fire({
+        title: 'Apakah anda yakin??',
+        text: "Reset Password Admin SKPD menjadi default 'operatorQR6213'",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Reset Password!'
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: BASE_URL + 'admin/reset_op/' + id,
+                type: "POST",
+                data: {
+
+                    id: id,
+
+                },
+                success: function () {
+                    Swal.fire('Berhasil!', 'Password di reset "operatorQR6213".', 'success');
+                    $('#TabelUnit').DataTable().ajax.reload(null, false);
+                },
+                error: function () {
+                    Swal.fire('Gagal!', '.', 'warning');
+
+                }
+            });
+
+        }
+    });
+}
 $('#formTambahOpQr').on('submit', function (e) {
     var postData = new FormData($("#formTambahOpQr")[0]);
     $.ajax({
@@ -1525,7 +1589,7 @@ $('#formaddDateToSkip').on('submit', function (e) {
                         NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.ket_date_to_skip_error + '</p>', 'error');
                     }
                 }
-                
+
             } else if (data.success == true) {
 
                 Swal.fire({
@@ -1546,7 +1610,7 @@ $('#formaddDateToSkip').on('submit', function (e) {
     return false;
 });
 
-function editDatetoSkip(elem){
+function editDatetoSkip(elem) {
     var id = $(elem).data("id");
     var tgl = $(elem).data("tgl");
     var ket = $(elem).data("ket");

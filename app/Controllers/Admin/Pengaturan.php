@@ -412,6 +412,34 @@ class Pengaturan extends BaseController
         }
     }
 
+    public function reset_adm($id)
+    {
+        $model = new TblAdmin();
+        
+       
+
+
+        $data = [
+
+            'password'           => password_hash('adminSKPD6213', PASSWORD_DEFAULT),
+            'updated_at'           => date('Y/m/d H:i:s'),
+        ];
+
+        $result = $model->update_adm($data, $id);
+
+        if ($result) {
+            $respond = [
+                'success' => true,
+            ];
+            return json_encode($respond);
+        } else {
+            $respond = [
+                'success' => false,
+            ];
+            return json_encode($respond);
+        }
+    }
+
     public function op_qr()
     {
         if (($this->akses != '1')) {
@@ -570,6 +598,33 @@ class Pengaturan extends BaseController
         }
     }
 
+    public function reset_op($id)
+    {
+        $model = new TblAdmin();
+        
+       
+
+
+        $data = [
+
+            'password'           => password_hash('operatorQR6213', PASSWORD_DEFAULT),
+            'updated_at'           => date('Y/m/d H:i:s'),
+        ];
+
+        $result = $model->update_adm($data, $id);
+
+        if ($result) {
+            $respond = [
+                'success' => true,
+            ];
+            return json_encode($respond);
+        } else {
+            $respond = [
+                'success' => false,
+            ];
+            return json_encode($respond);
+        }
+    }
     public function config()
     {
         if (($this->akses != '1')) {

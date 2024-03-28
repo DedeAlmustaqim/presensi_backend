@@ -54,4 +54,22 @@ class TblAdmin extends Model
             ->where('id', $id_user)
             ->update($data);
     }
+
+    function pass_skpd($data, $id_unit)
+    {
+        return $this->db
+            ->table('tbl_admin')
+            ->where('id_unit', $id_unit)
+            ->where('id_akses', 2)
+            ->update($data);
+    }
+
+    function pass_qr($data, $id_unit)
+    {
+        return $this->db
+            ->table('tbl_admin')
+            ->where('id_unit', $id_unit)
+            ->where('id_akses', 3)
+            ->update($data);
+    }
 }

@@ -99,7 +99,7 @@
                     </div>
 
                     <dvi class="col-md-6">
-                    <label class="form-label" for="fv-email">Jam Kerja</label>
+                        <label class="form-label" for="fv-email">Jam Kerja</label>
                         <div class="row gy-4 align-center">
                             <div class="col-lg-4">
                                 <div class="form-control-wrap">
@@ -126,7 +126,7 @@
                                     <div class="input-group">
                                         <input type="text" readonly disabled id="h_kerja" name="h_kerja" class="form-control" placeholder="">
                                         <div class="input-group-append">
-                                            <span class="input-group-text"   >Hari Kerja</span>
+                                            <span class="input-group-text">Hari Kerja</span>
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +151,87 @@
                     </div>
                 </div>
             </form>
+            <hr>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <a class="btn btn-lg btn-secondary" onclick="changePassSkpd()">Ubah Password Admin SKPD</a>
+                    <a class="btn btn-lg btn-warning" onclick="changePassQR()">Ubah Password Operator QR</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalchangePassSkpd">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ubah Password Admin SKPD</h5>
+                <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <em class="icon ni ni-cross"></em>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form class="form-validate is-alter" id="formchangePassSkpd" method="post">
+                    <input hidden name="id_unit_res_skpd" id="id_unit_res_skpd" value="<?php echo session('ses_id_unit') ?>">
+                    <div class="form-group">
+                        <label class="form-label" for="full-name">Password Baru</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="pass_reset_skpd" name="pass_reset_skpd" minlength="6" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="full-name">Ulangi Password</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="pass_reset_skpd_repeat" name="pass_reset_skpd_repeat" minlength="6" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <button type="button" data-bs-dismiss="modal" class="btn btn-lg btn-danger">Batal</button>&nbsp;
+                        <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalchangePassQr">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ubah Password Operator QR</h5>
+                <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <em class="icon ni ni-cross"></em>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form class="form-validate is-alter" id="formchangePassQr" method="post">
+                    <input hidden name="id_unit_res_qr" id="id_unit_res_qr" value="<?php echo session('ses_id_unit') ?>">
+                    <div class="form-group">
+                        <label class="form-label" for="full-name">Password Baru</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="pass_reset_qr" name="pass_reset_qr" minlength="6" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="full-name">Ulangi Password</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="pass_reset_qr_repeat" name="pass_reset_qr_repeat" minlength="6" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <button type="button" data-bs-dismiss="modal" class="btn btn-lg btn-danger">Batal</button>&nbsp;
+                        <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <?= $this->endSection() ?>

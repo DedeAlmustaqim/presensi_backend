@@ -110,7 +110,7 @@ $(document).ready(function () {
                 "data": function (data,) {
                     return '<div class="text-center">' +
                         '<a title="Edit"  onclick="editPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-edit-alt"></em></a>&nbsp;' +
-                        '<a title="Reset Password" onclick="resPassPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-unlock-fill"></em></a>&nbsp;' +
+                        '<a title="Reset Password" onclick="resetPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-unlock-fill"></em></a>&nbsp;' +
                         '<a title="Urutkan" onclick="sortPeg(this)" data-id="' + data[6] + '"  data-sort="' + data[8] + '" class="btn btn-outline-primary"><em class="icon ni ni-sort-line"></em></a>&nbsp;' +
                         // '<a title="Laporan" onclick="lapPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-file-pdf"></em></a>&nbsp;' +
                         // '<a  onclick="delPeg(this)" data-id="' + data[6] + '" class="btn btn-dim btn-outline-danger"><em class="icon ni ni-trash"></em></a>&nbsp;' +
@@ -501,6 +501,38 @@ function sortPeg(elem) {
 
 }
 
+function resetPeg(elem) {
+    var id = $(elem).data("id");
+    Swal.fire({
+        title: 'Apakah anda yakin??',
+        text: "Reset Password Admin SKPD menjadi default 'baritotimurkab'",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Reset Password!'
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: BASE_URL + 'skpd/ress_pass/' + id,
+                type: "POST",
+                data: {
+
+                    id: id,
+
+                },
+                success: function () {
+                    Swal.fire('Berhasil!', 'Password di reset "baritotimurkab".', 'success');
+                    $('#TabelUnit').DataTable().ajax.reload(null, false);
+                },
+                error: function () {
+                    Swal.fire('Gagal!', '.', 'warning');
+
+                }
+            });
+
+        }
+    });
+}
+
 $('#formSortPeg').on('submit', function (e) {
 
     var postData = new FormData($("#formSortPeg")[0]);
@@ -573,3 +605,77 @@ function cetakRekapTPP() {
 function devPorgress(){
     Swal.fire('Lagi dalam pengembangan!', '.', 'warning');
 }
+
+function changePassSkpd() {
+    $('#modalchangePassSkpd').modal('show');
+}
+
+$('#formchangePassSkpd').on('submit', function (e) {
+  
+    var postData = new FormData($("#formchangePassSkpd")[0]);
+    $.ajax({
+        type: "POST",
+        "url": BASE_URL + "skpd/reset_pass_skpd",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                toastr.clear();
+                if (data.pass_reset_skpd_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.pass_reset_skpd_error + '</p>', 'error');
+                }
+                if (data.pass_reset_skpd_repeat_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.pass_reset_skpd_repeat_error + '</p>', 'error');
+                }
+                
+            } else if (data.success == true) {
+                Swal.fire('Berhasil Ubah Password!', 'Password telah diubah.', 'success');
+                $('#modalchangePassSkpd').modal('hide');
+            }
+
+        },
+
+    })
+    return false;
+});
+
+function changePassQR() {
+    $('#modalchangePassQr').modal('show');
+}
+
+$('#formchangePassQr').on('submit', function (e) {
+  
+    var postData = new FormData($("#formchangePassQr")[0]);
+    $.ajax({
+        type: "POST",
+        "url": BASE_URL + "skpd/reset_pass_qr",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                toastr.clear();
+                if (data.pass_reset_qr_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.pass_reset_qr_error + '</p>', 'error');
+                }
+                if (data.pass_reset_qr_repeat_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.pass_reset_qr_repeat_error + '</p>', 'error');
+                }
+                
+            } else if (data.success == true) {
+                Swal.fire('Berhasil Ubah Password!', 'Password telah diubah.', 'success');
+                $('#modalchangePassQr').modal('hide');
+            }
+
+        },
+
+    })
+    return false;
+});

@@ -1,0 +1,217 @@
+INFO - 2024-03-01 09:30:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-01 09:30:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-01 09:30:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-01 09:31:06 --> Call to undefined method App\Models\UnitModel::select()
+in APPPATH\Controllers\Qr_code_scan.php on line 64.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:31:30 --> Call to undefined method App\Models\UnitModel::select()
+in APPPATH\Controllers\Qr_code_scan.php on line 64.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:31:59 --> Call to undefined method App\Models\UnitModel::where()
+in APPPATH\Controllers\Qr_code_scan.php on line 64.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:32:01 --> Call to undefined method App\Models\UnitModel::where()
+in APPPATH\Controllers\Qr_code_scan.php on line 64.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:33:07 --> Non-static method CodeIgniter\BaseModel::first() cannot be called statically
+in APPPATH\Controllers\Qr_code_scan.php on line 66.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:33:50 --> Non-static method CodeIgniter\BaseModel::first() cannot be called statically
+in APPPATH\Controllers\Qr_code_scan.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:34:00 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$id
+in APPPATH\Controllers\Qr_code_scan.php on line 72.
+ 1 APPPATH\Controllers\Qr_code_scan.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\Database\\MySQLi\\Result::$id', 'APPPATH\\Controllers\\Qr_code_scan.php', 72)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:34:59 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getRow()
+in APPPATH\Controllers\Qr_code_scan.php on line 65.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:36:05 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 76.
+ 1 APPPATH\Controllers\Qr_code_scan.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 76)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:36:07 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 76.
+ 1 APPPATH\Controllers\Qr_code_scan.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 76)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:36:22 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 76.
+ 1 APPPATH\Controllers\Qr_code_scan.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 76)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:36:24 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 76.
+ 1 APPPATH\Controllers\Qr_code_scan.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 76)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:36:24 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 76.
+ 1 APPPATH\Controllers\Qr_code_scan.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 76)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:36:43 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 76.
+ 1 APPPATH\Controllers\Qr_code_scan.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 76)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:36:45 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 76.
+ 1 APPPATH\Controllers\Qr_code_scan.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 76)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:37:59 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Qr_code_scan.php on line 77.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:38:55 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Qr_code_scan.php on line 71.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:38:57 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Qr_code_scan.php on line 71.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:44 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:45 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:46 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:46 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:47 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:47 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:47 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:48 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:48 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:48 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:49 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:49 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:50 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-01 09:39:51 --> Undefined property: stdClass::$id_unit
+in APPPATH\Controllers\Qr_code_scan.php on line 78.
+ 1 APPPATH\Controllers\Qr_code_scan.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_unit', 'APPPATH\\Controllers\\Qr_code_scan.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->get_kode_qr('13')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

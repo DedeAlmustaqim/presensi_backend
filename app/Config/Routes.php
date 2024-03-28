@@ -32,6 +32,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/qrscan', 'Qr_code_scan::index');
 $routes->get('/get_user/(:alphanum)', 'Qr_code_scan::json_user/$1');
+$routes->get('/get_qr/(:alphanum)', 'Qr_code_scan::get_kode_qr/$1');
 $routes->get('/login', 'Login::index');
 $routes->get('/privacy_policy', 'Privacy::index');
 $routes->get('/privacypolicy', 'Privacy::index');
@@ -60,6 +61,8 @@ $routes->post('admin/tambah_unit','Admin\Pengaturan::tambah_unit');
 $routes->get('admin/get_unit/(:alphanum)','Admin\Pengaturan::get_unit/$1');
 $routes->post('admin/update_unit','Admin\Pengaturan::update_unit');
 $routes->post('admin/del_unit/(:alphanum)','Admin\Pengaturan::del_unit/$1');
+$routes->post('admin/reset_adm/(:alphanum)','Admin\Pengaturan::reset_adm/$1');
+$routes->post('admin/reset_op/(:alphanum)','Admin\Pengaturan::reset_op/$1');
 $routes->get('admin/get_adm/(:alphanum)','Admin\Pengaturan::get_adm/$1');
 $routes->get('admin/config','Admin\Pengaturan::config');
 $routes->get('admin/user','Admin\Pengaturan::user');
@@ -92,6 +95,8 @@ $routes->post('skpd/update_unit','Skpd\Pengaturan::update_unit');
 $routes->get('skpd/jadwal','Skpd\Pengaturan::jadwal');
 $routes->get('skpd/get_jadwal/(:alphanum)','Skpd\Pengaturan::get_jadwal/$1');
 $routes->post('skpd/update_jadwal','Skpd\Pengaturan::update_jadwal');
+$routes->post('skpd/reset_pass_skpd','Skpd\Pengaturan::reset_pass_skpd');
+$routes->post('skpd/reset_pass_qr','Skpd\Pengaturan::reset_pass_qr');
 
 //PEGAWAI
 $routes->get('skpd/pegawai','Skpd\Pegawai::index');

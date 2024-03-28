@@ -4,6 +4,7 @@ namespace App\Controllers\Skpd;
 
 use App\Controllers\BaseController;
 use App\Models\QrScanModel;
+use App\Models\TblAdmin;
 use App\Models\UnitModel;
 
 
@@ -77,6 +78,92 @@ class Pengaturan extends BaseController
 
         ];
         $result = $model->update_unit($data, $id_unit);
+        if ($result) {
+            $respond = [
+                'success'   => true,
+            ];
+            return json_encode($respond);
+        } else {
+            $respond = [
+                'success' => false,
+
+            ];
+            return json_encode($respond);
+        }
+    }
+
+    public function reset_pass_skpd()
+    {
+        $model = new TblAdmin();
+        if (!$this->validate([
+            'pass_reset_skpd' => ['label' => 'Password', 'rules' => 'required|min_length[6]'],
+            'pass_reset_skpd_repeat' => ['label' => 'Ulangi Password', 'rules' => 'required|matches[pass_reset_skpd]'],
+        ])) {
+
+            $respond = [
+                'success' => false,
+                'pass_reset_skpd_error' => \Config\Services::validation()->getError('pass_reset_skpd'),
+                'pass_reset_skpd_repeat_error' => \Config\Services::validation()->getError('pass_reset_skpd_repeat'),
+            ];
+
+            return json_encode($respond);
+        }
+
+        $pass = $this->request->getVar('pass_reset_skpd');
+        $id_unit = $this->request->getVar('id_unit_res_skpd');
+    
+
+        $data = [
+            'password'           => password_hash($pass, PASSWORD_DEFAULT),
+           
+            'updated_at'           => date('Y/m/d H:i:s'),
+
+
+        ];
+        $result = $model->pass_skpd($data, $id_unit);
+        if ($result) {
+            $respond = [
+                'success'   => true,
+            ];
+            return json_encode($respond);
+        } else {
+            $respond = [
+                'success' => false,
+
+            ];
+            return json_encode($respond);
+        }
+    }
+
+    public function reset_pass_qr()
+    {
+        $model = new TblAdmin();
+        if (!$this->validate([
+            'pass_reset_qr' => ['label' => 'Password', 'rules' => 'required|min_length[6]'],
+            'pass_reset_qr_repeat' => ['label' => 'Ulangi Password', 'rules' => 'required|matches[pass_reset_qr]'],
+        ])) {
+
+            $respond = [
+                'success' => false,
+                'pass_reset_qr_error' => \Config\Services::validation()->getError('pass_reset_qr'),
+                'pass_reset_qr_repeat_error' => \Config\Services::validation()->getError('pass_reset_qr_repeat'),
+            ];
+
+            return json_encode($respond);
+        }
+
+        $pass = $this->request->getVar('pass_reset_qr');
+        $id_unit = $this->request->getVar('id_unit_res_qr');
+    
+
+        $data = [
+            'password'           => password_hash($pass, PASSWORD_DEFAULT),
+           
+            'updated_at'           => date('Y/m/d H:i:s'),
+
+
+        ];
+        $result = $model->pass_qr($data, $id_unit);
         if ($result) {
             $respond = [
                 'success'   => true,

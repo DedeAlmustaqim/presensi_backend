@@ -1,0 +1,458 @@
+INFO - 2024-03-22 02:44:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:44:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:44:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:44:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:44:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:44:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:45:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:45:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:45:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:47:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:47:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:48:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:48:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:51:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:51:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-22 02:51:48 --> Call to undefined method App\Models\TblAdmin::update_unit
+in SYSTEMPATH\Model.php on line 840.
+ 1 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Model->__call('update_unit', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-22 02:51:51 --> Call to undefined method App\Models\TblAdmin::update_unit
+in SYSTEMPATH\Model.php on line 840.
+ 1 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Model->__call('update_unit', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-22 02:52:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:52:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-22 02:52:21 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(754): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Model->update([...], null)
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-22 02:52:24 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(754): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Model->update([...], null)
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-22 02:53:44 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(754): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-22 02:53:46 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(754): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-22 02:53:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:53:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-22 02:54:11 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(754): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-22 02:54:14 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(754): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-22 02:56:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-22 02:56:15 --> Undefined property: App\Controllers\Skpd\Pengaturan::$db
+in APPPATH\Controllers\Skpd\Pengaturan.php on line 123.
+ 1 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Skpd\\Pengaturan::$db', 'APPPATH\\Controllers\\Skpd\\Pengaturan.php', 123)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-22 02:56:17 --> Undefined property: App\Controllers\Skpd\Pengaturan::$db
+in APPPATH\Controllers\Skpd\Pengaturan.php on line 123.
+ 1 APPPATH\Controllers\Skpd\Pengaturan.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Skpd\\Pengaturan::$db', 'APPPATH\\Controllers\\Skpd\\Pengaturan.php', 123)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-22 02:57:24 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(754): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Skpd\Pengaturan.php(126): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-22 02:57:26 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(754): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Skpd\Pengaturan.php(126): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pengaturan->reset_pass_skpd()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pengaturan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-22 02:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 02:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:03:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:03:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:04:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:04:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:05:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:05:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:08:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:09:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:09:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:09:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:10:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:10:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 103.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(103): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-03-22 03:11:32 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 137.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(137): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(155): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('485', '2', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-22 03:11:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:11:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:12:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:13:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:13:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:13:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 03:13:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:33:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:34:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:34:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:34:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:34:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:34:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:34:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:49:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:49:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:58:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:58:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 21:58:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:00:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:00:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:00:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:01:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:01:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:01:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:02:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:02:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:03:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:03:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:05:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:06:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:06:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:06:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:08:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-22 22:08:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
