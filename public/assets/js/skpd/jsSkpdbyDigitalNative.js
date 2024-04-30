@@ -14,6 +14,39 @@ $(document).ready(function () {
     var id_unit_skpd = $('#id_unit_skpd').val()
     var id_unit_jadwal = $('#id_unit_jadwal').val()
 
+    $('#tahun_absen').change(function () {
+
+
+        showAbsensi()
+
+    });
+    $('#bulan_absen').change(function () {
+
+
+        showAbsensi()
+
+    });
+    $('#user_absen').change(function () {
+
+
+        showAbsensi()
+
+    });
+    $('#bulan_tpp').change(function () {
+
+
+        showRekap()
+
+    });
+    $('#tahun_tpp').change(function () {
+
+
+        showRekap()
+
+    });
+
+
+
     if (id_unit_skpd != null) {
         getSkpd(id_unit_skpd)
     }
@@ -22,6 +55,7 @@ $(document).ready(function () {
     if (id_unit_jadwal != null) {
         getJadwal(id_unit_jadwal)
     }
+
 
     $('.timepicker-digitalNative').timepicker({
         use24hours: true,
@@ -76,7 +110,7 @@ $(document).ready(function () {
 
                 }
             },
-            
+
             {
                 "orderable": false,
                 "data": function (data,) {
@@ -94,12 +128,12 @@ $(document).ready(function () {
             {
                 "orderable": false,
                 "data": function (data,) {
-                    if(data[8]==null){
+                    if (data[8] == null) {
                         return '<div class="text-center">-</div>'
-                    }else{
+                    } else {
                         return '<div class="text-center">' + data[8] + '</div>'
                     }
-                    
+
 
                 }
             },
@@ -177,7 +211,7 @@ $(document).ready(function () {
 
                 }
             },
-           
+
             {
                 "orderable": false,
                 "data": function (data,) {
@@ -192,7 +226,7 @@ $(document).ready(function () {
 
                 }
             },
-            
+
 
             {
 
@@ -220,6 +254,481 @@ $(document).ready(function () {
     });
 })
 
+function refreshAbsensi() {
+    showAbsensi()
+}
+function refreshRekap() {
+    showRekap()
+}
+function showAbsensi() {
+    var id_user_absen = $('#user_absen').val()
+    var id_unit = $('#unit_absen').val()
+    var tahun_absen = $('#tahun_absen').val()
+    var bulan_absen = $('#bulan_absen').val()
+
+    toastr.clear();
+    if (tahun_absen == "") {
+        NioApp.Toast('<h5>Tahun tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+    }
+    else if (bulan_absen == "") {
+        NioApp.Toast('<h5>Bulan tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+    }
+    else if (id_user_absen == "") {
+        NioApp.Toast('<h5>Pegawai tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+    } else {
+
+        $.ajax({
+            type: "GET",
+            "url": BASE_URL + "skpd/get_upacara/" + id_user_absen + "/" + bulan_absen + "/" + tahun_absen,
+            processData: false,
+            contentType: false,
+
+            dataType: "JSON",
+            success: function (data) {
+                $('#keg_upacara').val(data.keg)
+
+
+            },
+
+        })
+        $.ajax({
+            type: "GET",
+            "url": BASE_URL + "skpd/get_subtraction/" + id_user_absen,
+            processData: false,
+            contentType: false,
+
+            dataType: "JSON",
+            success: function (data) {
+                $('#lhkpn_lhasn').val(data.lhkpn_lhasn)
+                $('#tptgr').val(data.tptgr)
+
+
+            },
+
+        })
+        document.getElementById('btn_cetak_tpp').innerHTML = '<a  href="' + BASE_URL + 'skpd/rekap/view_absen_tpp/' + id_user_absen + '/' + bulan_absen + '/' + tahun_absen + '" class="btn btn-secondary">Lihat Skor Disiplin</a>'
+
+        $('#tabelAbsenPegawai').DataTable({
+            processing: true,
+            serverSide: true,
+
+            destroy: true,
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bInfo": false,
+            "bAutoWidth": true,
+            "columnDefs": [{
+                "visible": false,
+
+            }],
+            "order": [
+                [0, 'asc']
+            ],
+
+            "language": {
+                "lengthMenu": "Tampilkan _MENU_ item per halaman",
+                "zeroRecords": "Tidak ada data yang ditampilkan",
+                "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+                "infoEmpty": "Tidak ada data yang ditampilkan",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Cari",
+                "paginate": {
+                    "first": "Awal",
+                    "last": "Akhir",
+                    "next": "Selanjutnya",
+                    "previous": "Sebelumnya"
+                },
+            },
+            "displayLength": 100,
+            "ajax": {
+                "url": BASE_URL + "skpd/json_absensi/" + id_user_absen + "/" + id_unit + "/" + tahun_absen + "/" + bulan_absen,
+            },
+            "columns": [
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[0] + '</div>'
+
+                    }
+                },
+
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[3] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            // Tanggal dan waktu dalam format "YYYY-MM-DD HH:MM:SS"
+                            var dateTimeString = data[3];
+
+                            // Parse string tanggal dan waktu
+                            var dateTime = new Date(dateTimeString);
+
+                            // Fungsi untuk menambahkan nol di depan angka tunggal
+                            function addLeadingZero(number) {
+                                return number < 10 ? "0" + number : number;
+                            }
+
+                            // Format tanggal dalam format "DD-MM-YYYY HH:MM:SS"
+                            var formattedDateTime = addLeadingZero(dateTime.getDate()) + "-" +
+                                addLeadingZero(dateTime.getMonth() + 1) + "-" +
+                                dateTime.getFullYear();
+                            return '<div class="text-center">' + formattedDateTime + '</div>'
+                        }
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[4] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            return '<div class="text-center">' + data[4] + '</div>'
+                        }
+
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[5] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            return '<div class="text-center">' + data[5] + '</div>'
+                        }
+
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[6] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            // Tanggal dan waktu dalam format "YYYY-MM-DD HH:MM:SS"
+                            var dateTimeString = data[6];
+                            // Parse string tanggal dan waktu
+                            var dateTime = new Date(dateTimeString);
+
+                            // Fungsi untuk menambahkan nol di depan angka tunggal
+                            function addLeadingZero(number) {
+                                return number < 10 ? "0" + number : number;
+                            }
+
+                            // Format tanggal dalam format "DD-MM-YYYY HH:MM:SS"
+                            var formattedDateTime = addLeadingZero(dateTime.getDate()) + "-" +
+                                addLeadingZero(dateTime.getMonth() + 1) + "-" +
+                                dateTime.getFullYear();
+                            return '<div class="text-center">' + formattedDateTime + '</div>'
+
+                        }
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[7] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            return '<div class="text-center">' + data[7] + '</div>'
+                        }
+
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[8] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            return '<div class="text-center">' + data[8] + '</div>'
+                        }
+
+
+                    }
+                },
+
+                {
+
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="dropdown">'
+                            + '<a href="#" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false"><span>Aksi</span><em class="icon ni ni-chevron-down"></em></a>'
+                            + '<div class="dropdown-menu  mt-1" style="">'
+                            + '<ul class="link-list-plain">'
+                            + '<li><a style="cursor: pointer;" data-id="' + data[2] + '" data-date="' + data[9] + '" onclick="viewKeterangan(this)">Lihat Keterangan</a></li>'
+                            + '<li><a style="cursor: pointer;" data-id="' + data[0] + '" onclick="delCheckIn(this)">Hapus Data Check In</a></li>'
+                            + '<li><a style="cursor: pointer;" data-id="' + data[0] + '" onclick="delCheckOut(this)">Hapus Data Check Out</a></li>'
+                            + '<li><a style="cursor: pointer;" data-id="' + data[0] + '" onclick="delDataAbsen(this)">Hapus Data Absen</a></li>'
+                            + '</ul>'
+                            + '</div>'
+                            + '</div>'
+                    }
+                },
+
+
+            ],
+            rowCallback: function (row, data, iDisplayIndex) {
+                var info = this.fnPagingInfo();
+                var page = info.iPage;
+                var length = info.iLength;
+                var index = page * length + (iDisplayIndex + 1);
+                $('td:eq(0)', row).html(index);
+            },
+
+
+        });
+    }
+
+}
+
+function showRekap() {
+    var tahun_tpp = $('#tahun_tpp').val()
+    var bulan_tpp = $('#bulan_tpp').val()
+
+
+
+    toastr.clear();
+    if (tahun_tpp == "") {
+        NioApp.Toast('<h5>Tahun tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+    }
+    else if (bulan_tpp == "") {
+        NioApp.Toast('<h5>Bulan tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+
+    } else {
+
+        document.getElementById('btnCetak').innerHTML = ' <a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_tpp_asn_pdf/'+bulan_tpp+'/'+tahun_tpp+'" class="btn btn-outline-primary ">Cetak Rekap ASN</a>&nbsp;'
+            + '<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_absen_non_asn_tpp/'+bulan_tpp+'/'+tahun_tpp+'" class="btn btn-outline-primary ">Cetak Rekap NON ASN</a>&nbsp;'
+            + '<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_tpp_pdf/'+bulan_tpp+'/'+tahun_tpp+'" class="btn btn-outline-primary ">Cetak Rekap ASN & NON-ASN</a>&nbsp;'
+            + '<a onclick="refreshRekap()" class="btn btn-primary float-end">Refresh Data</a>&nbsp;'
+        $('#tabelTPP').DataTable({
+            processing: true,
+            serverSide: true,
+
+            destroy: true,
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bInfo": false,
+            "bAutoWidth": true,
+            "columnDefs": [{
+                "visible": false,
+
+            }],
+            "order": [
+                [0, 'asc']
+            ],
+
+            "language": {
+                "lengthMenu": "Tampilkan _MENU_ item per halaman",
+                "zeroRecords": "Tidak ada data yang ditampilkan",
+                "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+                "infoEmpty": "Tidak ada data yang ditampilkan",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Cari",
+                "paginate": {
+                    "first": "Awal",
+                    "last": "Akhir",
+                    "next": "Selanjutnya",
+                    "previous": "Sebelumnya"
+                },
+            },
+            "displayLength": 100,
+            "ajax": {
+                "url": BASE_URL + "skpd/rekap/json_rekap/" + bulan_tpp + "/" + tahun_tpp,
+            },
+            "columns": [
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[0] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[21] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[22] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[2] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[3] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[4] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[5] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[6] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[7] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[8] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[9] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[10] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[11] + '</div>'
+
+                    }
+                },
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[12] + '</div>'
+
+                    }
+                }, {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[13] + '</div>'
+
+                    }
+                },
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[14] + '</div>'
+
+                    }
+                }, {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[15] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[16] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[17] + '</div>'
+
+                    }
+                },
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        var date = data[23];
+                        var dateTime = new Date(date);
+                        var formattedDateTime = addLeadingZero(dateTime.getDate()) + "-" +
+                            addLeadingZero(dateTime.getMonth() + 1) + "-" +
+                            dateTime.getFullYear() + " " +
+                            addLeadingZero(dateTime.getHours()) + ":" +
+                            addLeadingZero(dateTime.getMinutes()) + ":" +
+                            addLeadingZero(dateTime.getSeconds());
+                        return '<div class="text-left">' + formattedDateTime + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[24] + '</div>'
+
+                    }
+                },
+                {
+
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-center">' +
+                            '<a target="_blank" href="' + BASE_URL + '/skpd/rekap/view_absen_tpp_pdf/' + data[1] + '/' + data[19] + '/' + data[20] + '" class="btn btn-secondary mb-1">Cetak Rincian Absensi </a>&nbsp;'
+                            +'<a target="_blank" href="' + BASE_URL + '/skpd/rekap/view_absen_tpp/' + data[1] + '/' + data[19] + '/' + data[20] + '" class="btn btn-primary mb-1">Cek Kesesuaian Rekap </a>'
+                    }
+                },
+
+
+            ],
+            rowCallback: function (row, data, iDisplayIndex) {
+                var info = this.fnPagingInfo();
+                var page = info.iPage;
+                var length = info.iLength;
+                var index = page * length + (iDisplayIndex + 1);
+                $('td:eq(0)', row).html(index);
+            },
+
+
+        });
+    }
+
+}
+
 function getSkpd(id_unit_skpd) {
     $.ajax({
         type: "get",
@@ -237,7 +746,9 @@ function getSkpd(id_unit_skpd) {
             $('#gol_skpd').val(data.gol)
             $('#radius_skpd').val(data.radius)
             $('#jabatan_skpd').val(data.jabatan)
-            $('#nip_skpd').val(data.nip)
+            $('#nip_pimpinan').val(data.nip_pimpinan)
+            $('#kasubbag').val(data.kasubbag)
+            $('#nip_kasubbag').val(data.nip_kasubbag)
             $('#jam_masuk_skpd').val(data.jam_masuk)
             $('#jam_pulang_skpd').val(data.jam_pulang)
             $('#h_kerja').val(data.hari_kerja)
@@ -370,6 +881,9 @@ $('#formTambahPeg').on('submit', function (e) {
                 if (data.nama_peg_error) {
                     NioApp.Toast('<h5>Gagal Tambah Data</h5><p class="text-danger">' + data.nama_peg_error + '</p>', 'error');
                 }
+                if (data.status_peg_error) {
+                    NioApp.Toast('<h5>Gagal Tambah Data</h5><p class="text-danger">' + data.status_peg_error + '</p>', 'error');
+                }
                 if (data.nip_peg_error) {
                     NioApp.Toast('<h5>Gagal Tambah Data</h5><p class="text-danger">' + data.nip_peg_error + '</p>', 'error');
                 }
@@ -443,6 +957,7 @@ function editPeg(elem) {
             $('#nip_peg_edit').val(data.nip)
             $('#email_peg_edit').val(data.email)
             $('#jabatan_peg_edit').val(data.jabatan)
+            $('#status_peg_edit').val(data.status_peg)
         },
     })
     return false;
@@ -468,6 +983,9 @@ $('#formEditPeg').on('submit', function (e) {
                 }
                 if (data.nama_peg_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.nama_peg_error + '</p>', 'error');
+                }
+                if (data.status_peg_edit_error) {
+                    NioApp.Toast('<h5>Gagal Tambah Data</h5><p class="text-danger">' + data.status_peg_edit_error + '</p>', 'error');
                 }
                 if (data.nip_peg_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.nip_peg_error + '</p>', 'error');
@@ -497,7 +1015,7 @@ function sortPeg(elem) {
     $('#modalSort').modal('show');
     $('#id_user_sort_peg').val(id)
     $('#sort_peg').val(sort)
-    
+
 
 }
 
@@ -505,7 +1023,7 @@ function resetPeg(elem) {
     var id = $(elem).data("id");
     Swal.fire({
         title: 'Apakah anda yakin??',
-        text: "Reset Password Admin SKPD menjadi default 'baritotimurkab'",
+        text: "Reset Password Pegawai menjadi default 'baritotimurkab'",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Ya, Reset Password!'
@@ -551,7 +1069,7 @@ $('#formSortPeg').on('submit', function (e) {
                 if (data.sort_peg_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.username_peg_error + '</p>', 'error');
                 }
-               
+
 
             } else if (data.success == true) {
                 Swal.fire('Berhasil Ubah Data!', 'Data telah diubah.', 'success');
@@ -570,7 +1088,7 @@ function lapRekapPeg(elem) {
     var id = $(elem).data("id");
 
     $('#id_user_lap_jam_kerja').val(id)
-    $('#modalRekapJamKerja').modal('show'); 
+    $('#modalRekapJamKerja').modal('show');
 
 }
 
@@ -578,7 +1096,7 @@ function lapPegTPP(elem) {
     var id = $(elem).data("id");
 
     $('#id_user_lap_tpp').val(id)
-    $('#modalRekapTPP').modal('show'); 
+    $('#modalRekapTPP').modal('show');
 
 }
 
@@ -589,7 +1107,7 @@ function cetakRekapPerPeg() {
     // Mendapatkan nilai dari input id_user_sort_peg
     var id = document.getElementById("id_user_lap_jam_kerja").value;
     // Membuka tautan baru dengan URL yang sesuai
-    window.open(BASE_URL + 'skpd/rekap/view_absen/'+ id + "/" + bulan + "/" + tahun);
+    window.open(BASE_URL + 'skpd/rekap/view_absen/' + id + "/" + bulan + "/" + tahun);
 }
 
 function cetakRekapTPP() {
@@ -599,10 +1117,10 @@ function cetakRekapTPP() {
     // Mendapatkan nilai dari input id_user_sort_peg
     var id = document.getElementById("id_user_lap_tpp").value;
     // Membuka tautan baru dengan URL yang sesuai
-    window.open(BASE_URL + 'skpd/rekap/view_absen_tpp/'+ id + "/" + bulan + "/" + tahun);
+    window.open(BASE_URL + 'skpd/rekap/view_absen_tpp/' + id + "/" + bulan + "/" + tahun);
 }
 
-function devPorgress(){
+function devPorgress() {
     Swal.fire('Lagi dalam pengembangan!', '.', 'warning');
 }
 
@@ -611,7 +1129,7 @@ function changePassSkpd() {
 }
 
 $('#formchangePassSkpd').on('submit', function (e) {
-  
+
     var postData = new FormData($("#formchangePassSkpd")[0]);
     $.ajax({
         type: "POST",
@@ -631,7 +1149,7 @@ $('#formchangePassSkpd').on('submit', function (e) {
                 if (data.pass_reset_skpd_repeat_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.pass_reset_skpd_repeat_error + '</p>', 'error');
                 }
-                
+
             } else if (data.success == true) {
                 Swal.fire('Berhasil Ubah Password!', 'Password telah diubah.', 'success');
                 $('#modalchangePassSkpd').modal('hide');
@@ -648,7 +1166,7 @@ function changePassQR() {
 }
 
 $('#formchangePassQr').on('submit', function (e) {
-  
+
     var postData = new FormData($("#formchangePassQr")[0]);
     $.ajax({
         type: "POST",
@@ -668,7 +1186,7 @@ $('#formchangePassQr').on('submit', function (e) {
                 if (data.pass_reset_qr_repeat_error) {
                     NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.pass_reset_qr_repeat_error + '</p>', 'error');
                 }
-                
+
             } else if (data.success == true) {
                 Swal.fire('Berhasil Ubah Password!', 'Password telah diubah.', 'success');
                 $('#modalchangePassQr').modal('hide');
@@ -679,3 +1197,207 @@ $('#formchangePassQr').on('submit', function (e) {
     })
     return false;
 });
+
+function delCheckIn(elem) {
+    var id = $(elem).data("id");
+    Swal.fire({
+        title: 'Hapus data Check In??',
+        text: "Anda tidak akan dapat mengembalikan ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Hapus!'
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: BASE_URL + 'skpd/del_check_in/' + id,
+                type: "POST",
+                data: {
+                    id: id,
+                },
+                success: function (data) {
+                    Swal.fire('Terhapus!', 'Data Anda telah dihapus.', 'success');
+                    showAbsensi();
+                },
+                error: function () {
+
+                    Swal.fire('Gagal!', 'Terjadi kesalahan .', 'error');
+                }
+            });
+
+        }
+    });
+}
+
+function delCheckOut(elem) {
+    var id = $(elem).data("id");
+    Swal.fire({
+        title: 'Hapus data Check Out??',
+        text: "Anda tidak akan dapat mengembalikan ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Hapus!'
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: BASE_URL + 'skpd/del_check_out/' + id,
+                type: "POST",
+                data: {
+                    id: id,
+                },
+                success: function (data) {
+                    Swal.fire('Terhapus!', 'Data Anda telah dihapus.', 'success');
+                    showAbsensi();
+                },
+                error: function () {
+
+                    Swal.fire('Gagal!', 'Terjadi kesalahan .', 'error');
+                }
+            });
+
+        }
+    });
+}
+function delDataAbsen(elem) {
+    var id = $(elem).data("id");
+    Swal.fire({
+        title: 'Hapus data Check In dan Check Out??',
+        text: "Anda tidak akan dapat mengembalikan ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Hapus!'
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: BASE_URL + 'skpd/del_absen/' + id,
+                type: "POST",
+                data: {
+                    id: id,
+                },
+                success: function (data) {
+                    Swal.fire('Terhapus!', 'Data Anda telah dihapus.', 'success');
+                    showAbsensi();
+                },
+                error: function () {
+
+                    Swal.fire('Gagal!', 'Terjadi kesalahan .', 'error');
+                }
+            });
+
+        }
+    });
+}
+
+$('#updateSubtraction').on('submit', function (e) {
+
+    var postData = new FormData($("#updateSubtraction")[0]);
+    $.ajax({
+        type: "POST",
+        "url": BASE_URL + "skpd/subtraction",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                toastr.clear();
+                if (data.user_absen_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.user_absen_error + '</p>', 'error');
+                }
+
+                if (data.bulan_absen_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.bulan_absen_error + '</p>', 'error');
+                }
+                if (data.tahun_absen_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.tahun_absen_error + '</p>', 'error');
+                }
+                if (data.keg_upacara_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.keg_upacara_error + '</p>', 'error');
+                }
+                if (data.lhkpn_lhasn_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.lhkpn_lhasn_error + '</p>', 'error');
+                }
+                if (data.tptgr_error) {
+                    NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger">' + data.tptgr_error + '</p>', 'error');
+                }
+
+
+
+            } else if (data.success == true) {
+                Swal.fire('Berhasil !', 'Data telah diupdate.', 'success');
+                showAbsensi();
+            }
+
+        },
+
+    })
+    return false;
+});
+
+$('#postTpp').on('submit', function (e) {
+
+    var postData = new FormData($("#postTpp")[0]);
+    $.ajax({
+        type: "POST",
+        "url": BASE_URL + "skpd/posted_tpp",
+        processData: false,
+        contentType: false,
+        data: postData,
+        dataType: "JSON",
+        success: function (data) {
+
+
+            if (data.success == false) {
+                toastr.clear();
+                NioApp.Toast('<h5>Gagal Simpan Data</h5><p class="text-danger"></p>', 'error');
+
+
+
+            } else if (data.success == true) {
+                Swal.fire('Berhasil !', 'Berhasil Simpan Data Perhitungan Skor Disiplin.', 'success');
+                location.reload();
+            }
+
+        },
+
+    })
+    return false;
+});
+
+function viewKeterangan(elem) {
+    var id = $(elem).data("id");
+    var date = $(elem).data("date");
+
+
+
+    console.log(id)
+    console.log(date)
+    $('#modalKet').modal('show');
+    $.ajax({
+        type: "POST",
+        "url": BASE_URL + "skpd/get_ket",
+
+        data: {
+            id: id,
+            date: date
+        },
+        dataType: "JSON",
+        success: function (data) {
+            document.getElementById('tgl_in_off').innerHTML = data.tgl_in_off
+            document.getElementById('no_surat_in').innerHTML = data.no_surat_in
+            document.getElementById('ket_in').innerHTML = data.ket_in
+            document.getElementById('tgl_out_off').innerHTML = data.tgl_out_off
+            document.getElementById('no_surat_out').innerHTML = data.no_surat_out
+            document.getElementById('ket_out').innerHTML = data.ket_out
+
+            console.log(data)
+        },
+
+    })
+    return false;
+}
+
+function addLeadingZero(number) {
+    return number < 10 ? "0" + number : number;
+}

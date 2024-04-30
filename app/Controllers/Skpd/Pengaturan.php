@@ -43,8 +43,9 @@ class Pengaturan extends BaseController
             'pimpinan_skpd'     => ['label' => 'Nama Pimpinan', 'rules' => 'required'],
             'gol_skpd'     => ['label' => 'Golongan', 'rules' => 'required'],
             'jabatan_skpd'     => ['label' => 'Jabatan', 'rules' => 'required'],
-            'nip_skpd'     => ['label' => 'NIP', 'rules' => 'required|numeric|exact_length[18]'],
-
+            'nip_pimpinan'     => ['label' => 'NIP Pimpinan', 'rules' => 'required|numeric|exact_length[18]'],
+            'kasubbag'     => ['label' => 'Nama Kasubbag', 'rules' => 'required'],
+            'nip_kasubbag'     => ['label' => 'NIP Kasubbag', 'rules' => 'required|numeric|exact_length[18]'],
 
 
         ])) {
@@ -56,7 +57,7 @@ class Pengaturan extends BaseController
                 'pimpinan_skpd_error' => \Config\Services::validation()->getError('pimpinan_skpd'),
                 'gol_skpd_error' => \Config\Services::validation()->getError('gol_skpd'),
                 'jabatan_skpd_error' => \Config\Services::validation()->getError('jabatan_skpd'),
-                'nip_skpd_error' => \Config\Services::validation()->getError('nip_skpd'),
+                'nip_pimpinan_error' => \Config\Services::validation()->getError('nip_skpd'),
 
 
 
@@ -72,7 +73,9 @@ class Pengaturan extends BaseController
             'pimpinan'           => $this->request->getVar('pimpinan_skpd'),
             'gol'           => $this->request->getVar('gol_skpd'),
             'jabatan'           => $this->request->getVar('jabatan_skpd'),
-            'nip'           => $this->request->getVar('nip_skpd'),
+            'nip_pimpinan'           => $this->request->getVar('nip_pimpinan'),
+            'kasubbag'           => $this->request->getVar('kasubbag'),
+            'nip_kasubbag'           => $this->request->getVar('nip_kasubbag'),
             'updated_at'           => date('Y/m/d H:i:s'),
 
 

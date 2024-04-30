@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
 
@@ -93,21 +92,28 @@ $(document).ready(function () {
                     "orderable": false,
                     "className": 'bg-success',
                     "data": function (data) {
-                        if (data[3] == null) {
-                            return '<div class="text-left">Belum Check IN</div>';
-                        } else {
+                        //6 id_ket_in
+                        if (data[6] == null) {
+                            return '<div class="text-left">' + data[3] + '</div>';
+                        } else if (data[6] != 1) {
+                            return '<div class="text-left">' + data[8] + '</div>';
+                        } else if (data[6] == 1) {
                             return '<div class="text-left">' + data[3] + '</div>';
                         }
+                                           
+
                     }
                 },
 
                 {
                     "orderable": false,
-                    "className": 'bg-orange',
+                    "className": 'bg-warning',
                     "data": function (data) {
-                        if (data[4] == null) {
-                            return '<div class="text-left ">Belum Check Out</div>';
-                        } else {
+                        if (data[7] == null) {
+                            return '<div class="text-left">' + data[4] + '</div>';
+                        } else if (data[7] != 1) {
+                            return '<div class="text-left">' + data[9] + '</div>';
+                        } else if (data[7] == 1) {
                             return '<div class="text-left">' + data[4] + '</div>';
                         }
                     }
@@ -135,7 +141,7 @@ $(document).ready(function () {
             if (currentPage === table.page.info().pages) {
                 currentPage = 0;
             }
-        }, 2500); // Adjust the interval as needed
+        }, 5000); // Adjust the interval as needed
 
         // Optional: Stop scrolling after a certain time or condition
 
@@ -145,21 +151,21 @@ $(document).ready(function () {
 
 
 
-    // function displayCountdown(seconds) {
-    //     console.log(`Next update in ${seconds} seconds`);
-    //     document.getElementById('countdown').innerHTML='Kode QR akan di refresh dalam '+seconds+' detik'
-    //     // document.getElementById('countdownOut').innerHTML='QR akan di refresh dalam '+seconds+' detik'
-    // }
+//     function displayCountdown(seconds) {
+//         console.log(`Next update in ${seconds} seconds`);
+//         document.getElementById('countdown').innerHTML='Kode QR akan di refresh dalam '+seconds+' detik'
+//         // document.getElementById('countdownOut').innerHTML='QR akan di refresh dalam '+seconds+' detik'
+//     }
 
-    // // Set up the initial countdown
-    // let countdown = 10; // Initial countdown value in seconds
-    // displayCountdown(countdown);
+//     // Set up the initial countdown
+//     let countdown = 10; // Initial countdown value in seconds
+//     displayCountdown(countdown);
 
     // Function to perform AJAX request
     function performAjaxRequest() {
         $.ajax({
             type: "get",
-            "url": "https://api-absen.baritotimurkab.go.id/public/api/scan/" + id,
+             "url": BASE_URL + "/get_qr/" + id,
             dataType: "JSON",
             success: function (data) {
                 console.log(data);
@@ -181,10 +187,20 @@ $(document).ready(function () {
     performAjaxRequest();
 
     // Set up the interval to run every 10 seconds
-    setInterval(() => {
-        performAjaxRequest();
-    }, 10800000); // 3 jam
+    // setInterval(() => {
+    //     countdown -= 1; // Subtract 1 second for each interval
+    //     if (countdown <= 0) {
+    //         countdown = 10; // Reset the countdown to 10 seconds if it reaches 0 or below
+    //         // Perform AJAX request after every 10 seconds
+    //         performAjaxRequest();
+    //     }
+    //     displayCountdown(countdown);
+    // }, 1000); // Run the interval every second (1000 milliseconds)
 
+setInterval(() => {
+      
+         performAjaxRequest();
+    }, 10800000); // Run 
     var qrcode = new QRCode(document.getElementById("qrcode_pagi"), {
         width: 200,
         height: 200

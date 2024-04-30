@@ -92,7 +92,7 @@
                             <label class="form-label" for="fv-email">NIP</label>
                             <div class="form-control-wrap">
 
-                                <input type="text" class="form-control" id="nip_skpd" name="nip_skpd" required="" maxlength="18" minlength="18">
+                                <input type="text" class="form-control" id="nip_pimpinan" name="nip_pimpinan" required="" maxlength="18" minlength="18">
                                 <small class="">* jangan gunakan spasi</small>
                             </div>
                         </div>
@@ -143,7 +143,36 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
 
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" for="fv-email">Nama Kasubbag Kepegawaian</label>
+                            <div class="form-control-wrap">
+
+                                <input type="text" class="form-control" id="kasubbag" name="kasubbag" required="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" for="fv-email">NIP Kasubbag Kepegawaian</label>
+                            <div class="form-control-wrap">
+
+                                <input type="text" class="form-control" id="nip_kasubbag" name="nip_kasubbag" required="" maxlength="18" minlength="18">
+                                <small class="">* jangan gunakan spasi</small>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <button type="submit" class="btn btn-lg btn-primary">Simpan</button>

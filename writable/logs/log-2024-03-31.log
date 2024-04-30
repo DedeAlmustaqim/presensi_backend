@@ -1,0 +1,429 @@
+INFO - 2024-03-31 14:21:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-03-31 14:21:25 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4 in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#6 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-03-31 14:21:25 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+JOIN `tbl_ket` as `ket_in` USING (`tbl_absen`.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE `users`.`id_unit` = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-31 14:21:27 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4 in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#6 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-03-31 14:21:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+JOIN `tbl_ket` as `ket_in` USING (`tbl_absen`.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE `users`.`id_unit` = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-31 14:21:30 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4 in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#6 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-03-31 14:21:30 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+JOIN `tbl_ket` as `ket_in` USING (`tbl_absen`.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE `users`.`id_unit` = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-31 14:21:33 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4 in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#6 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-03-31 14:21:33 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+JOIN `tbl_ket` as `ket_in` USING (`tbl_absen`.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE `users`.`id_unit` = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-31 14:21:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:21:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-03-31 14:21:44 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4 in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#6 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-03-31 14:21:44 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+JOIN `tbl_ket` as `ket_in` USING (`tbl_absen`.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE `users`.`id_unit` = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(61): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-31 14:23:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-03-31 14:25:12 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS jam_out, `users`.`img`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` =' at line 1 in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `users`....', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(63): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-31 14:25:12 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS jam_out, `users`.`img`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` =' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`id`, `users`.`name`, `users`.`jabatan`, COALESCE(tbl_absen.jam_in, "Belum Absen") AS jam_in, COALESCE(tbl_absen.jam_out, "Belum Absen") AS jam_out, `tbl_absen`.`id_ket_in`, "Belum Absen") AS jam_out, `users`.`img`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+WHERE `users`.`id_unit` = :users.id_unit:
+ORDER BY `users`.`sort` ASC, `id` ASC
+ LIMIT 15, 5', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 5 APPPATH\Controllers\Qr_code_scan.php(63): Hermawan\DataTables\DataTable->toJson()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-31 14:25:34 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+WHERE `users`.`id_unit` = '24'' at line 4 in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#6 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(64): Hermawan\DataTables\DataTable->toJson()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-03-31 14:25:34 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+WHERE `users`.`id_unit` = '24'' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+JOIN `tbl_ket` as `ket_in` USING (`tbl_absen`.`id_ket_in`)
+WHERE `users`.`id_unit` = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(64): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-31 14:27:30 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4 in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#6 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(65): Hermawan\DataTables\DataTable->toJson()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-03-31 14:27:30 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+JOIN `tbl_ket` as `ket_in` USING (`tbl_absen`.`id_ket_in`)
+JOIN `tbl_ket` as `ket_out` USING (`tbl_absen`.`id_ket_out`)
+WHERE `users`.`id_unit` = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(65): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-31 14:28:32 --> mysqli_sql_exception: Unknown column 'ket_in.id_ket_in' in 'field list' in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `users`....', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(65): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-31 14:28:32 --> Unknown column 'ket_in.id_ket_in' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`id`, `users`.`name`, `users`.`jabatan`, COALESCE(tbl_absen.jam_in, "Belum Absen") AS jam_in, COALESCE(tbl_absen.jam_out, "Belum Absen") AS jam_out, `ket_in`.`id_ket_in`, `users`.`img`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN `tbl_ket` as `ket_in` ON `tbl_absen`.`id_ket_in` = `ket_in`.`id`
+LEFT JOIN `tbl_ket` as `ket_out` ON `tbl_absen`.`id_ket_out` = `ket_out`.`id`
+WHERE `users`.`id_unit` = :users.id_unit:
+ORDER BY `users`.`sort` ASC, `id` ASC
+ LIMIT 5', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 5 APPPATH\Controllers\Qr_code_scan.php(65): Hermawan\DataTables\DataTable->toJson()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-31 14:29:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:29:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:33:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:34:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:34:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:36:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:37:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:37:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-03-31 14:38:14 --> mysqli_sql_exception: Unknown column 'ket_in.id_ket_in' in 'field list' in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `users`....', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(68): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-31 14:38:14 --> Unknown column 'ket_in.id_ket_in' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`id`, `users`.`name`, `users`.`jabatan`, COALESCE(tbl_absen.jam_in, "Belum Absen") AS jam_in, COALESCE(tbl_absen.jam_out, "Belum Absen") AS jam_out, `users`.`img`, `ket_in`.`ket` as `keterangan_in`, `ket_out`.`ket` as `keterangan_out`, `ket_in`.`id_ket_in` as `keterangan_in`, `ket_out`.`ket` as `keterangan_out`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN `tbl_ket` as `ket_in` ON `tbl_absen`.`id_ket_in` = `ket_in`.`id`
+LEFT JOIN `tbl_ket` as `ket_out` ON `tbl_absen`.`id_ket_out` = `ket_out`.`id`
+WHERE `users`.`id_unit` = :users.id_unit:
+ORDER BY `users`.`sort` ASC, `id` ASC
+ LIMIT 5, 5', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 5 APPPATH\Controllers\Qr_code_scan.php(68): Hermawan\DataTables\DataTable->toJson()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-31 14:38:29 --> mysqli_sql_exception: Unknown column 'ket_in.id_ket_in' in 'field list' in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `users`....', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(68): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-31 14:38:29 --> Unknown column 'ket_in.id_ket_in' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`id`, `users`.`name`, `users`.`jabatan`, COALESCE(tbl_absen.jam_in, "Belum Absen") AS jam_in, COALESCE(tbl_absen.jam_out, "Belum Absen") AS jam_out, `users`.`img`, `ket_in`.`ket` as `keterangan_in`, `ket_out`.`ket` as `keterangan_out`, `ket_in`.`id_ket_in` as `id_ket_in`, `ket_out`.`id_ket_out` as `id_ket_out`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN `tbl_ket` as `ket_in` ON `tbl_absen`.`id_ket_in` = `ket_in`.`id`
+LEFT JOIN `tbl_ket` as `ket_out` ON `tbl_absen`.`id_ket_out` = `ket_out`.`id`
+WHERE `users`.`id_unit` = :users.id_unit:
+ORDER BY `users`.`sort` ASC, `id` ASC
+ LIMIT 5', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 5 APPPATH\Controllers\Qr_code_scan.php(68): Hermawan\DataTables\DataTable->toJson()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-31 14:38:59 --> mysqli_sql_exception: Unknown column 'ket_in.id_ket_in' in 'field list' in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `users`....', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(68): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-31 14:38:59 --> Unknown column 'ket_in.id_ket_in' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`id`, `users`.`name`, `users`.`jabatan`, COALESCE(tbl_absen.jam_in, "Belum Absen") AS jam_in, COALESCE(tbl_absen.jam_out, "Belum Absen") AS jam_out, `users`.`img`, `ket_in`.`ket` as `keterangan_in`, `ket_out`.`ket` as `keterangan_out`, `ket_in`.`id_ket_in` as `id_in`, `ket_out`.`id_ket_out` as `id_out`
+FROM `users`
+LEFT JOIN `tbl_absen` ON `users`.`id` = `tbl_absen`.`id_user` AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN `tbl_ket` as `ket_in` ON `tbl_absen`.`id_ket_in` = `ket_in`.`id`
+LEFT JOIN `tbl_ket` as `ket_out` ON `tbl_absen`.`id_ket_out` = `ket_out`.`id`
+WHERE `users`.`id_unit` = :users.id_unit:
+ORDER BY `users`.`sort` ASC, `id` ASC
+ LIMIT 5', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 5 APPPATH\Controllers\Qr_code_scan.php(68): Hermawan\DataTables\DataTable->toJson()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-31 14:40:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:41:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:41:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:41:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:42:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:43:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:43:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:44:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:45:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:46:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:46:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:48:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:48:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:48:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:48:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:49:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:50:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-31 14:50:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

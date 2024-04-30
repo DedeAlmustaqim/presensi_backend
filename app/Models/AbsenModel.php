@@ -16,7 +16,15 @@ class AbsenModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
 
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['tbl_absen.id_absen, 
+	tbl_absen.id_user, 
+	tbl_absen.tgl_in, 
+	tbl_absen.id_ket_in, 
+	tbl_absen.jam_in, 
+	tbl_absen.tgl_out, 
+	tbl_absen.id_ket_out, 
+	tbl_absen.jam_out, 
+	tbl_absen.created_at'];
 
 
 
@@ -55,5 +63,13 @@ class AbsenModel extends Model
         // ->where('YEAR(tbl_absen.created_at)', "2024")
         // ->where('MONTH(tbl_absen.created_at)', "02")
         ->get();
+    }
+
+    function update_data($data, $id)
+    {
+        return $this->db
+            ->table('tbl_absen')
+            ->where('id_absen', $id)
+            ->update($data);
     }
 }

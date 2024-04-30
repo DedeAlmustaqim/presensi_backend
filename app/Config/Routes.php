@@ -108,15 +108,31 @@ $routes->get('skpd/get_peg/(:alphanum)','Skpd\Pegawai::get_peg/$1');
 $routes->post('skpd/update_peg','Skpd\Pegawai::update_peg');
 $routes->post('skpd/sort_peg','Skpd\Pegawai::sort_peg');
 $routes->post('skpd/ress_pass/(:alphanum)','Skpd\Pegawai::ress_pass/$1');
+$routes->post('skpd/del_check_in/(:alphanum)','Skpd\Pegawai::del_check_in/$1');
+$routes->post('skpd/del_check_out/(:alphanum)','Skpd\Pegawai::del_check_out/$1');
+$routes->post('skpd/del_absen/(:alphanum)','Skpd\Pegawai::del_absen/$1');
+
+//Absensi
+$routes->get('skpd/absensi','Skpd\Absensi::index');
+$routes->get('skpd/json_absensi/(:alphanum)/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Absensi::json_absensi/$1/$2/$3/$4');
+$routes->get('skpd/get_upacara/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Absensi::get_upacara/$1/$2/$3');
+$routes->get('skpd/get_subtraction/(:alphanum)','Skpd\Absensi::get_subtraction/$1');
+$routes->post('skpd/subtraction','Skpd\Absensi::subtraction');
+$routes->post('skpd/posted_tpp','Skpd\Absensi::posted_tpp');
+$routes->post('skpd/get_ket','Skpd\Absensi::get_ket');
+
 
 
 //Rekap
 
 $routes->get('skpd/rekap/pegawai','Skpd\Rekap::rekap_pegawai');
-$routes->get('skpd/rekap/json_pegawai','Skpd\Rekap::json_pegawai');
+$routes->get('skpd/rekap/json_rekap/(:alphanum)/(:alphanum)','Skpd\Rekap::json_rekap/$1/$2');
 $routes->get('skpd/rekap/view_absen/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen/$1/$2/$3');
 $routes->get('skpd/rekap/view_absen_tpp/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen_tpp/$1/$2/$3');
 $routes->get('skpd/rekap/view_absen_tpp_pdf/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen_tpp_pdf/$1/$2/$3');
+$routes->get('skpd/rekap/view_rekap_tpp_pdf/(:alphanum)/(:alphanum)','Skpd\Rekap::view_rekap_tpp_pdf/$1/$2');
+$routes->get('skpd/rekap/view_rekap_absen_non_asn_tpp/(:alphanum)/(:alphanum)','Skpd\Rekap::view_rekap_absen_non_asn_tpp/$1/$2');
+$routes->get('skpd/rekap/view_rekap_tpp_asn_pdf/(:alphanum)/(:alphanum)','Skpd\Rekap::view_rekap_tpp_asn_pdf/$1/$2');
 
 
 //API

@@ -19,8 +19,8 @@
 	</div><!-- .nk-block-between -->
 </div>
 <div class="row justify-content-lg-center ">
-<div class="col-lg-5"><small>*Tips : Tekan F11 untuk layar fullscreen<br>*Tips : Urutkan Pegawai pada Menu Kelola Pegawai oleh Admin SKPD<br>*Tips : Jika Kode QR selalu gagal di Scan cobalah muat ulang halaman ini atau tekan F5</small></div>
-<div class="col-lg-6"><small>Jam Masuk OPD : <?php echo $masuk ?><br>Jam Pulang OPD : <?php echo $pulang?><br>Hari Kerja : <?php echo $hari_kerja?> Hari</small></div>
+	<div class="col-lg-5"><small>*Tips : Tekan F11 untuk layar fullscreen<br>*Tips : Urutkan Pegawai pada Menu Kelola Pegawai oleh Admin SKPD<br>*Tips : Jika Kode QR selalu gagal di Scan cobalah muat ulang halaman ini atau tekan F5</small></div>
+	<div class="col-lg-6"><small>Jam Masuk OPD : <?php echo $masuk ?><br>Jam Pulang OPD : <?php echo $pulang ?><br>Hari Kerja : <?php echo $hari_kerja ?> Hari</small></div>
 
 	<div class="col-lg-6">
 		<div class="card">
@@ -28,9 +28,9 @@
 
 			<div class="row h-250px">
 				<div class="col-5">
-				
+
 					<div id="qrcode_pagi" class="m-4 center"></div>
-					
+
 				</div>
 				<div class="col-md-7 bg-primary h-250px">
 					<div class="card-body">
@@ -61,7 +61,7 @@
 
 			<div class="row h-250px">
 				<div class="col-5">
-				
+
 					<div id="qrcode_out" class="m-4"></div>
 				</div>
 				<div class="col-md-7 bg-warning h-250px">
@@ -87,24 +87,24 @@
 
 		<!-- End Title -->
 	</div>
-	<div class="col-lg-12" style="margin-top: 20px;">
-    <div class="card">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="tableUserView" aria-describedby="DataTables_Table_0_info">
-                <thead>
-                    <tr class="bg-primary text-white text-center">
-                        <th>Hari ini</th>
-                       
-                        <th width="35%">Nama</th>
-                        <th width="20%">Jabatan</th>
-                        <th>Check IN</th>
-                        <th>Check Out</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-</div>
+	<!-- <div class="col-lg-12" style="margin-top: 20px;">
+		<div class="card">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="tableUserView" aria-describedby="DataTables_Table_0_info">
+					<thead>
+						<tr class="bg-primary text-white text-center">
+							<th width="10%">Hari ini</th>
+
+							<th width="35%">Nama</th>
+							<th width="20%">Jabatan</th>
+							<th width="15%">Check IN</th>
+							<th width="15%">Check Out</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div> -->
 </div>
 <!-- End Row -->
 <?= $this->endSection() ?>

@@ -52,8 +52,18 @@ class Qr_code_scan extends BaseController
         $db = db_connect();
 
         $query = $db->table('users')
-            ->select('users.id, users.name, users.jabatan, COALESCE(tbl_absen.jam_in, "Belum Absen") AS jam_in, COALESCE(tbl_absen.jam_out, "Belum Absen") AS jam_out, users.img,')
+            ->select('users.id, users.name, users.jabatan, 
+            COALESCE(tbl_absen.jam_in, "Belum Absen") AS jam_in, 
+            COALESCE(tbl_absen.jam_out, "Belum Absen") AS jam_out, 
+            users.img,
+            tbl_absen.id_ket_in,
+            tbl_absen.id_ket_out,
+            ket_in.ket as keterangan_in,
+            ket_out.ket as keterangan_out,
+                     ')
             ->join('tbl_absen', 'users.id = tbl_absen.id_user AND DATE(tbl_absen.created_at) = CURDATE()', 'left')
+            ->join('tbl_ket as ket_in', 'tbl_absen.id_ket_in = ket_in.id', 'left')
+            ->join('tbl_ket as ket_out', 'tbl_absen.id_ket_out = ket_out.id', 'left')
             ->where('users.id_unit', $id)
             ->orderBy('users.sort', 'asc');
         return DataTable::of($query)->toJson();
@@ -65,9 +75,9 @@ class Qr_code_scan extends BaseController
         $data1 = $db->table('tbl_unit')->select('*')->where('id', $id)->get()->getFirstRow();
         $data2 = $db->table('tbl_config')->get()->getFirstRow();
 
-     
+
         if ($data1 && $data2) {
-          
+
             $result = [
                 'id' => $data1->id,
                 'id_unit' => $data1->id,
@@ -80,7 +90,7 @@ class Qr_code_scan extends BaseController
                 'qr_time_out_end' => $data2->qr_time_out_end,
                 'radius' => $data2->radius,
             ];
-    
+
 
             // Kembalikan data yang digabungkan sebagai JSON
             return $this->response->setJSON($result);

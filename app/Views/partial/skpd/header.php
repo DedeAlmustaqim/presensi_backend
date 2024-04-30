@@ -5,7 +5,7 @@
                 <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-menu"></em></a>
             </div>
             <div class="nk-header-brand">
-                <a href="<?php echo base_url()?>/skpd/dashboard" class="logo-link">
+                <a href="<?php echo base_url() ?>/skpd/dashboard" class="logo-link">
                     <img class="logo-light logo-img" src="<?php echo base_url() ?>/public/images/logo.png" srcset="<?php echo base_url() ?>/public/images/logo2x.png 2x" alt="logo">
                     <img class="logo-dark logo-img" src="<?php echo base_url() ?>/public/images/logo.png" srcset="<?php echo base_url() ?>/public/images/logo-dark2x.png 2x" alt="logo-dark">
                 </a>
@@ -13,7 +13,7 @@
             <div class="nk-header-menu" data-content="headerNav">
                 <div class="nk-header-mobile">
                     <div class="nk-header-brand">
-                        <a href="<?php echo base_url()?>/skpd/dashboard" class="logo-link">
+                        <a href="<?php echo base_url() ?>/skpd/dashboard" class="logo-link">
                             <img class="logo-light logo-img" src="<?php echo base_url() ?>/public/images/logo.png" srcset="<?php echo base_url() ?>/public/images/logo2x.png 2x" alt="logo">
                             <img class="logo-dark logo-img" src="<?php echo base_url() ?>/public/images/logo.png" srcset="<?php echo base_url() ?>/public/images/logo-dark2x.png 2x" alt="logo-dark">
                         </a>
@@ -29,8 +29,18 @@
                         </a>
 
                     </li>
+                    <li class="nk-menu-item has-sub">
+                        <a href="<?php echo base_url() ?>/skpd/absensi" class="nk-menu-link"><span class="nk-menu-text">Data Absensi Pegawai</span></a>
+
+                    </li>
 
                     <!-- .nk-menu-item -->
+                   
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="<?php echo base_url() ?>/skpd/rekap/pegawai" class="nk-menu-link"><span class="nk-menu-text">Rekapitulasi</span></a>
+
+                    </li>
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-text">Pengaturan</span>
@@ -40,26 +50,11 @@
                                 <a href="<?php echo base_url() ?>/skpd/unit" class="nk-menu-link"><span class="nk-menu-text">SKPD</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="<?php echo base_url()?>/skpd/pegawai" class="nk-menu-link"><span class="nk-menu-text">Pegawai</span></a>
+                                <a href="<?php echo base_url() ?>/skpd/pegawai" class="nk-menu-link"><span class="nk-menu-text">Pegawai</span></a>
                             </li>
-                            
+
+
                         </ul><!-- .nk-menu-sub -->
-                    </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item has-sub">
-                        <a href="#" class="nk-menu-link nk-menu-toggle">
-                            <span class="nk-menu-text">Rekapitulasi</span>
-                        </a>
-                        <ul class="nk-menu-sub">
-                            <li class="nk-menu-item">
-                                <a href="<?php echo base_url() ?>/skpd/rekap/pegawai" class="nk-menu-link"><span class="nk-menu-text">Per Pegawai</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a onclick="devPorgress()" class="nk-menu-link"><span class="nk-menu-text">Per SKPD</span></a>
-                            </li>
-                            
-                        </ul><!-- .nk-menu-sub -->
-                    </li><!-- .nk-menu-item -->
-                    
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-header-menu -->
             <div class="nk-header-tools">
@@ -93,7 +88,7 @@
                                 </div>
                             </div>
 
-                           
+
                             <div class="dropdown-inner">
                                 <ul class="link-list">
                                     <li><a href="<?php echo base_url() ?>/auth/logout"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>

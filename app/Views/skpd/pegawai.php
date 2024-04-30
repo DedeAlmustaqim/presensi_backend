@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <label class="form-label" for="full-name">NIK</label>
                         <div class="form-control-wrap">
-                            <input type="text" class="form-control" id="nik_peg" name="nik_peg" required>
+                            <input type="text" class="form-control" id="nik_peg" name="nik_peg" required maxlength="16" minlength="16">
                         </div>
                     </div>
                     <div class="form-group">
@@ -53,7 +53,19 @@
                     <div class="form-group">
                         <label class="form-label" for="full-name">Email</label>
                         <div class="form-control-wrap">
-                            <input type="email" class="form-control" id="email_peg" name="email_peg" required>
+                            <input type="email" class="form-control" id="email_peg" name="email_peg" required >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="full-name-1">Status Pegawai</label>
+                        <div class="form-control-wrap ">
+                            <div class="form-control-select">
+                                <select class="form-control" id="status_peg" name="status_peg">
+                                    <option value="">Pilih</option>
+                                    <option value="ASN">ASN</option>
+                                    <option value="NON-ASN">NON-ASN</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -103,7 +115,7 @@
                     <div class="form-group">
                         <label class="form-label" for="full-name">NIK</label>
                         <div class="form-control-wrap">
-                            <input type="text" class="form-control" id="username_peg_edit" name="username_peg_edit" required>
+                            <input type="text" class="form-control" id="username_peg_edit" name="username_peg_edit" required maxlength="16" minlength="16">
                         </div>
                     </div>
                     <div class="form-group">
@@ -119,9 +131,22 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="form-label" for="full-name-1">Status Pegawai</label>
+                        <div class="form-control-wrap ">
+                            <div class="form-control-select">
+                                <select class="form-control" id="status_peg_edit" name="status_peg_edit">
+                                    <option value="ASN">ASN</option>
+                                    <option value="NON-ASN">NON-ASN</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="form-label" for="full-name">NIP</label>
                         <div class="form-control-wrap">
-                            <input type="text" class="form-control" id="nip_peg_edit" name="nip_peg_edit" required maxlength="18" minlength="18">
+                            <input type="text" class="form-control" id="nip_peg_edit" name="nip_peg_edit" required maxlength="18" minlength="1">
+                            <small>* Jangan gunakan spasi</small><br>
+                            <small>* Gunakan " - " jika tidak ada NIP</small>
                         </div>
                     </div>
                     <div class="form-group">

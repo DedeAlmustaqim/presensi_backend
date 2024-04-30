@@ -1,0 +1,1408 @@
+ERROR - 2024-04-01 21:02:13 --> Error connecting to the database: Error: Call to undefined function CodeIgniter\Database\Postgre\pg_connect() in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:75
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\Postgre\Connection->connect(false)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#3 C:\laragon\www\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\laragon\www\presensi\app\Controllers\Auth.php(17): CodeIgniter\BaseModel->first()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Auth->login()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-04-01 21:02:14 --> Unable to connect to the database.
+Main connection [Postgre]: Call to undefined function CodeIgniter\Database\Postgre\pg_connect()
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "tbl_admin"
+LEFT JOIN "tbl_akses" ON "tbl_admin"."id_akses" = "tbl_akses"."id_akses"
+WHERE "username" IS NULL
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Auth.php(17): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Auth->login()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 21:04:15 --> Error connecting to the database: Error: Call to undefined function CodeIgniter\Database\Postgre\pg_connect() in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:75
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\Postgre\Connection->connect(false)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#3 C:\laragon\www\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\laragon\www\presensi\app\Controllers\Auth.php(17): CodeIgniter\BaseModel->first()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Auth->login()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-04-01 21:04:15 --> Unable to connect to the database.
+Main connection [Postgre]: Call to undefined function CodeIgniter\Database\Postgre\pg_connect()
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "tbl_admin"
+LEFT JOIN "tbl_akses" ON "tbl_admin"."id_akses" = "tbl_akses"."id_akses"
+WHERE "username" IS NULL
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Auth.php(17): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Auth->login()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 21:04:24 --> Error connecting to the database: Error: Call to undefined function CodeIgniter\Database\Postgre\pg_connect() in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:75
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\Postgre\Connection->connect(false)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#3 C:\laragon\www\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\laragon\www\presensi\app\Controllers\Auth.php(17): CodeIgniter\BaseModel->first()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Auth->login()
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-04-01 21:04:24 --> Unable to connect to the database.
+Main connection [Postgre]: Call to undefined function CodeIgniter\Database\Postgre\pg_connect()
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "tbl_admin"
+LEFT JOIN "tbl_akses" ON "tbl_admin"."id_akses" = "tbl_akses"."id_akses"
+WHERE "username" IS NULL
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Auth.php(17): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Auth->login()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 21:06:16 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused (0x0000274D/10061)
+	Is the server running on host &quot;localhost&quot; (::1) and accepting
+	TCP/IP connections on port 5433?
+could not connect to server: Connection refused (0x0000274D/10061)
+	Is the server running on host &quot;localhost&quot; (127.0.0.1) and accepting
+	TCP/IP connections on port 5433? in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:75
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'C:\\laragon\\www\\...', 75)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(75): pg_connect('host=localhost ...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#5 C:\laragon\www\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\laragon\www\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#7 C:\laragon\www\presensi\app\Controllers\Auth.php(17): CodeIgniter\BaseModel->first()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Auth->login()
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 21:06:16 --> Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused (0x0000274D/10061)
+	Is the server running on host &quot;localhost&quot; (::1) and accepting
+	TCP/IP connections on port 5433?
+could not connect to server: Connection refused (0x0000274D/10061)
+	Is the server running on host &quot;localhost&quot; (127.0.0.1) and accepting
+	TCP/IP connections on port 5433?
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "tbl_admin"
+LEFT JOIN "tbl_akses" ON "tbl_admin"."id_akses" = "tbl_akses"."id_akses"
+WHERE "username" IS NULL
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Auth.php(17): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Auth->login()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:50:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:50:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:50:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:50:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:50:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 21:50:45 --> ErrorException: pg_query(): Query failed: ERROR:  column tbl_unit.`long` does not exist
+LINE 1: ...t&quot;.&quot;gol&quot;, &quot;tbl_unit&quot;.&quot;jabatan&quot;, &quot;tbl_unit&quot;.&quot;lat&quot;, &quot;tbl_unit&quot;...
+                                                             ^
+HINT:  Perhaps you meant to reference the column &quot;tbl_unit.long&quot;. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT "tbl_uni...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_uni...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_uni...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_uni...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#7 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#8 C:\laragon\www\presensi\app\Controllers\Admin\Pengaturan.php(106): Hermawan\DataTables\DataTable->toJson()
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Admin\Pengaturan->json_unit()
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+#11 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-04-01 21:50:45 --> pg_query(): Query failed: ERROR:  column tbl_unit.`long` does not exist
+LINE 1: ...t&quot;.&quot;gol&quot;, &quot;tbl_unit&quot;.&quot;jabatan&quot;, &quot;tbl_unit&quot;.&quot;lat&quot;, &quot;tbl_unit&quot;...
+                                                             ^
+HINT:  Perhaps you meant to reference the column &quot;tbl_unit.long&quot;.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_unit"."id", "tbl_unit"."nm_unit", "tbl_unit"."pimpinan", "tbl_unit"."gol", "tbl_unit"."jabatan", "tbl_unit"."lat", "tbl_unit"."`long`", "tbl_unit"."radius", "tbl_unit"."jam_masuk", "tbl_unit"."jam_pulang", "tbl_unit"."hari_kerja", "tbl_unit"."created_at", "tbl_unit"."updated_at"
+FROM "tbl_unit"
+WHERE "tbl_unit"."id" NOT IN :tbl_unit.id:
+ORDER BY "created_at" ASC, "tbl_unit"."id" ASC
+ LIMIT 25', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 5 APPPATH\Controllers\Admin\Pengaturan.php(106): Hermawan\DataTables\DataTable->toJson()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Pengaturan->json_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:50:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:50:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:50:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:50:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 21:50:53 --> ErrorException: pg_query(): Query failed: ERROR:  column tbl_unit.`long` does not exist
+LINE 1: ...t&quot;.&quot;gol&quot;, &quot;tbl_unit&quot;.&quot;jabatan&quot;, &quot;tbl_unit&quot;.&quot;lat&quot;, &quot;tbl_unit&quot;...
+                                                             ^
+HINT:  Perhaps you meant to reference the column &quot;tbl_unit.long&quot;. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT "tbl_uni...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_uni...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_uni...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_uni...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#7 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#8 C:\laragon\www\presensi\app\Controllers\Admin\Pengaturan.php(106): Hermawan\DataTables\DataTable->toJson()
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Admin\Pengaturan->json_unit()
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+#11 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-04-01 21:50:53 --> pg_query(): Query failed: ERROR:  column tbl_unit.`long` does not exist
+LINE 1: ...t&quot;.&quot;gol&quot;, &quot;tbl_unit&quot;.&quot;jabatan&quot;, &quot;tbl_unit&quot;.&quot;lat&quot;, &quot;tbl_unit&quot;...
+                                                             ^
+HINT:  Perhaps you meant to reference the column &quot;tbl_unit.long&quot;.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_unit"."id", "tbl_unit"."nm_unit", "tbl_unit"."pimpinan", "tbl_unit"."gol", "tbl_unit"."jabatan", "tbl_unit"."lat", "tbl_unit"."`long`", "tbl_unit"."radius", "tbl_unit"."jam_masuk", "tbl_unit"."jam_pulang", "tbl_unit"."hari_kerja", "tbl_unit"."created_at", "tbl_unit"."updated_at"
+FROM "tbl_unit"
+WHERE "tbl_unit"."id" NOT IN :tbl_unit.id:
+ORDER BY "created_at" ASC, "tbl_unit"."id" ASC
+ LIMIT 25', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 5 APPPATH\Controllers\Admin\Pengaturan.php(106): Hermawan\DataTables\DataTable->toJson()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Pengaturan->json_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:50:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:51:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 21:51:02 --> ErrorException: pg_query(): Query failed: ERROR:  column tbl_unit.`long` does not exist
+LINE 1: ...t&quot;.&quot;gol&quot;, &quot;tbl_unit&quot;.&quot;jabatan&quot;, &quot;tbl_unit&quot;.&quot;lat&quot;, &quot;tbl_unit&quot;...
+                                                             ^
+HINT:  Perhaps you meant to reference the column &quot;tbl_unit.long&quot;. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT "tbl_uni...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_uni...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_uni...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_uni...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#7 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#8 C:\laragon\www\presensi\app\Controllers\Admin\Pengaturan.php(106): Hermawan\DataTables\DataTable->toJson()
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Admin\Pengaturan->json_unit()
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+#11 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-04-01 21:51:02 --> pg_query(): Query failed: ERROR:  column tbl_unit.`long` does not exist
+LINE 1: ...t&quot;.&quot;gol&quot;, &quot;tbl_unit&quot;.&quot;jabatan&quot;, &quot;tbl_unit&quot;.&quot;lat&quot;, &quot;tbl_unit&quot;...
+                                                             ^
+HINT:  Perhaps you meant to reference the column &quot;tbl_unit.long&quot;.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_unit"."id", "tbl_unit"."nm_unit", "tbl_unit"."pimpinan", "tbl_unit"."gol", "tbl_unit"."jabatan", "tbl_unit"."lat", "tbl_unit"."`long`", "tbl_unit"."radius", "tbl_unit"."jam_masuk", "tbl_unit"."jam_pulang", "tbl_unit"."hari_kerja", "tbl_unit"."created_at", "tbl_unit"."updated_at"
+FROM "tbl_unit"
+WHERE "tbl_unit"."id" NOT IN :tbl_unit.id:
+ORDER BY "created_at" ASC, "tbl_unit"."id" ASC
+ LIMIT 25', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 5 APPPATH\Controllers\Admin\Pengaturan.php(106): Hermawan\DataTables\DataTable->toJson()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Pengaturan->json_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:51:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:51:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:51:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:51:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 21:51:41 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 21:51:41 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 21:51:52 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 21:51:52 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 21:51:54 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 21:51:54 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 21:54:09 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 21:54:09 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 21:54:12 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 21:54:12 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 21:54:14 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 21:54:14 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 21:54:34 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 21:54:34 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:54:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 21:54:36 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 21:54:36 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:54:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:54:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:54:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:54:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:54:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:54:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 21:54:49 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:54:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 21:54:52 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:57:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:57:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 21:57:39 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:57:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 21:57:42 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:58:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 21:58:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 21:58:15 --> Undefined array key "no_quotes"
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php on line 261.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php(261): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "no_quotes"', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableColumnDefs.php', 261)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php(17): Hermawan\DataTables\DataTableColumnDefs->initFromBuilder(Object(CodeIgniter\Database\Postgre\Builder))
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(35): Hermawan\DataTables\DataTableColumnDefs->__construct(Object(CodeIgniter\Database\Postgre\Builder))
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(46): Hermawan\DataTables\DataTable->__construct(Object(CodeIgniter\Database\Postgre\Builder))
+ 5 APPPATH\Controllers\Skpd\Pegawai.php(44): Hermawan\DataTables\DataTable::of(Object(CodeIgniter\Database\Postgre\Builder))
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:58:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 21:58:18 --> Undefined array key "no_quotes"
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php on line 261.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php(261): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "no_quotes"', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableColumnDefs.php', 261)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php(17): Hermawan\DataTables\DataTableColumnDefs->initFromBuilder(Object(CodeIgniter\Database\Postgre\Builder))
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(35): Hermawan\DataTables\DataTableColumnDefs->__construct(Object(CodeIgniter\Database\Postgre\Builder))
+ 4 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(46): Hermawan\DataTables\DataTable->__construct(Object(CodeIgniter\Database\Postgre\Builder))
+ 5 APPPATH\Controllers\Skpd\Pegawai.php(44): Hermawan\DataTables\DataTable::of(Object(CodeIgniter\Database\Postgre\Builder))
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:58:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 21:58:30 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:58:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 21:58:50 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 21:59:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 21:59:25 --> Object of class CodeIgniter\Database\Postgre\Builder could not be converted to string
+in APPPATH\Controllers\Skpd\Pegawai.php on line 55.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:00:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:00:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:00:39 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(55): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:00:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:00:42 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(55): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:00:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:00:48 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(55): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:00:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:00:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:00:52 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(55): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:00:55 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(55): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:01:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:01:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:01:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:01:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:01:08 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(55): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:01:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:01:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:01:15 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(55): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:01:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:01:18 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(55): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:07:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:07:30 --> Undefined property: App\Controllers\Skpd\Pegawai::$DataTables
+in APPPATH\Controllers\Skpd\Pegawai.php on line 64.
+ 1 APPPATH\Controllers\Skpd\Pegawai.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Skpd\\Pegawai::$DataTables', 'APPPATH\\Controllers\\Skpd\\Pegawai.php', 64)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:07:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:07:33 --> Undefined property: App\Controllers\Skpd\Pegawai::$DataTables
+in APPPATH\Controllers\Skpd\Pegawai.php on line 64.
+ 1 APPPATH\Controllers\Skpd\Pegawai.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Skpd\\Pegawai::$DataTables', 'APPPATH\\Controllers\\Skpd\\Pegawai.php', 64)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:08:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:08:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:08:01 --> Undefined property: App\Controllers\Skpd\Pegawai::$DataTables
+in APPPATH\Controllers\Skpd\Pegawai.php on line 65.
+ 1 APPPATH\Controllers\Skpd\Pegawai.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Skpd\\Pegawai::$DataTables', 'APPPATH\\Controllers\\Skpd\\Pegawai.php', 65)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:08:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:08:03 --> Undefined property: App\Controllers\Skpd\Pegawai::$DataTables
+in APPPATH\Controllers\Skpd\Pegawai.php on line 65.
+ 1 APPPATH\Controllers\Skpd\Pegawai.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Skpd\\Pegawai::$DataTables', 'APPPATH\\Controllers\\Skpd\\Pegawai.php', 65)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:08:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:08:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:08:45 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(69): App\Libraries\DataTables->BuildDatatables(Object(CodeIgniter\Database\Postgre\Builder), null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:08:46 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(69): App\Libraries\DataTables->BuildDatatables(Object(CodeIgniter\Database\Postgre\Builder), null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:09:04 --> Undefined variable $search
+in APPPATH\Controllers\Skpd\Pegawai.php on line 69.
+ 1 APPPATH\Controllers\Skpd\Pegawai.php(69): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $search', 'APPPATH\\Controllers\\Skpd\\Pegawai.php', 69)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:09:15 --> Too few arguments to function App\Libraries\DataTables::BuildDatatables(), 3 passed in C:\laragon\www\presensi\app\Controllers\Skpd\Pegawai.php on line 69 and exactly 4 expected
+in APPPATH\Libraries\DataTables.php on line 24.
+ 1 APPPATH\Controllers\Skpd\Pegawai.php(69): App\Libraries\DataTables->BuildDatatables(Object(CodeIgniter\Database\Postgre\Builder), null, null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:11:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:11:02 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(83): App\Libraries\DataTables->BuildDatatables('SELECT users.id, 
+            users.nip, 
+            users.name, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.id, 
+            users.nik, 
+            users.sort, 
+            tbl_unit.nm_unit
+     FROM users
+     LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+     WHERE users.id_unit = <ses_id_unit>
+     ORDER BY users.sort ASC, users.nip ASC', null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:11:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:11:04 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(83): App\Libraries\DataTables->BuildDatatables('SELECT users.id, 
+            users.nip, 
+            users.name, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.id, 
+            users.nik, 
+            users.sort, 
+            tbl_unit.nm_unit
+     FROM users
+     LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+     WHERE users.id_unit = <ses_id_unit>
+     ORDER BY users.sort ASC, users.nip ASC', null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:11:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:11:06 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(83): App\Libraries\DataTables->BuildDatatables('SELECT users.id, 
+            users.nip, 
+            users.name, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.id, 
+            users.nik, 
+            users.sort, 
+            tbl_unit.nm_unit
+     FROM users
+     LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+     WHERE users.id_unit = <ses_id_unit>
+     ORDER BY users.sort ASC, users.nip ASC', null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:11:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:11:07 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(83): App\Libraries\DataTables->BuildDatatables('SELECT users.id, 
+            users.nip, 
+            users.name, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.id, 
+            users.nik, 
+            users.sort, 
+            tbl_unit.nm_unit
+     FROM users
+     LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+     WHERE users.id_unit = <ses_id_unit>
+     ORDER BY users.sort ASC, users.nip ASC', null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:11:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:11:08 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(83): App\Libraries\DataTables->BuildDatatables('SELECT users.id, 
+            users.nip, 
+            users.name, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.id, 
+            users.nik, 
+            users.sort, 
+            tbl_unit.nm_unit
+     FROM users
+     LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+     WHERE users.id_unit = <ses_id_unit>
+     ORDER BY users.sort ASC, users.nip ASC', null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:11:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:11:31 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(83): App\Libraries\DataTables->BuildDatatables('SELECT users.id, 
+            users.nip, 
+            users.name, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.id, 
+            users.nik, 
+            users.sort, 
+            tbl_unit.nm_unit
+     FROM users
+     LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+     WHERE users.id_unit = <ses_id_unit>
+     ORDER BY users.sort ASC, users.nip ASC', null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:11:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:11:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:11:42 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(83): App\Libraries\DataTables->BuildDatatables('SELECT users.id, 
+            users.nip, 
+            users.name, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.id, 
+            users.nik, 
+            users.sort, 
+            tbl_unit.nm_unit
+     FROM users
+     LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+     WHERE users.id_unit = <ses_id_unit>
+     ORDER BY users.sort ASC, users.nip ASC', null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:11:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:11:45 --> Undefined array key "search"
+in APPPATH\Libraries\DataTables.php on line 26.
+ 1 APPPATH\Libraries\DataTables.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "search"', 'APPPATH\\Libraries\\DataTables.php', 26)
+ 2 APPPATH\Controllers\Skpd\Pegawai.php(83): App\Libraries\DataTables->BuildDatatables('SELECT users.id, 
+            users.nip, 
+            users.name, 
+            users.id_unit, 
+            users.jabatan, 
+            users.img, 
+            users.id, 
+            users.nik, 
+            users.sort, 
+            tbl_unit.nm_unit
+     FROM users
+     LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+     WHERE users.id_unit = <ses_id_unit>
+     ORDER BY users.sort ASC, users.nip ASC', null, null, [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:12:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:12:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:12:51 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:12:54 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:15:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 22:15:41 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;:&quot;
+LINE 12:         WHERE users.id_unit = :ses_id_unit
+                                       ^ in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT users.id...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT users.id...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT users.id...')
+#4 C:\laragon\www\presensi\app\Controllers\Skpd\Pegawai.php(51): CodeIgniter\Database\BaseConnection->query('SELECT users.id...', Array)
+#5 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-01 22:15:41 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;:&quot;
+LINE 12:         WHERE users.id_unit = :ses_id_unit
+                                       ^
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 APPPATH\Controllers\Skpd\Pegawai.php(51): CodeIgniter\Database\BaseConnection->query('SELECT users.id, 
+               users.nip, 
+               users.name, 
+               users.id_unit, 
+               users.jabatan, 
+               users.img, 
+               users.nik, 
+               users.sort, 
+               tbl_unit.nm_unit
+        FROM users
+        LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+        WHERE users.id_unit = :ses_id_unit
+        ORDER BY COALESCE(users.sort, 1) ASC, users.nip ASC', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:17:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:17:30 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:17:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:17:41 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:17:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:17:42 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:18:14 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:18:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:18:16 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:18:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:18:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:18:21 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:18:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:18:23 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:18:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:18:43 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:18:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:18:43 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:18:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:18:44 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(54): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:19:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 22:19:12 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;:&quot;
+LINE 12:         WHERE users.id_unit = :ses_id_unit
+                                       ^ in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT users.id...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT users.id...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT users.id...')
+#4 C:\laragon\www\presensi\app\Controllers\Skpd\Pegawai.php(70): CodeIgniter\Database\BaseConnection->query('SELECT users.id...')
+#5 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-01 22:19:12 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;:&quot;
+LINE 12:         WHERE users.id_unit = :ses_id_unit
+                                       ^
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 APPPATH\Controllers\Skpd\Pegawai.php(70): CodeIgniter\Database\BaseConnection->query('SELECT users.id as id, 
+               users.nip, 
+               users.name, 
+               users.id_unit, 
+               users.jabatan, 
+               users.img, 
+               users.nik, 
+               users.sort, 
+               tbl_unit.nm_unit
+        FROM users
+        LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+        WHERE users.id_unit = :ses_id_unit
+        ORDER BY COALESCE(users.sort, 1) ASC, users.nip ASC')
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:20:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 22:20:21 --> ErrorException: pg_query(): Query failed: ERROR:  syntax error at or near &quot;:&quot;
+LINE 12:         WHERE users.id_unit = :id_unit
+                                       ^ in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT users.id...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT users.id...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT users.id...')
+#4 C:\laragon\www\presensi\app\Controllers\Skpd\Pegawai.php(71): CodeIgniter\Database\BaseConnection->query('SELECT users.id...', Array)
+#5 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-01 22:20:21 --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;:&quot;
+LINE 12:         WHERE users.id_unit = :id_unit
+                                       ^
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 APPPATH\Controllers\Skpd\Pegawai.php(71): CodeIgniter\Database\BaseConnection->query('SELECT users.id as id, 
+               users.nip, 
+               users.name, 
+               users.id_unit, 
+               users.jabatan, 
+               users.img, 
+               users.nik, 
+               users.sort, 
+               tbl_unit.nm_unit
+        FROM users
+        LEFT JOIN tbl_unit ON users.id_unit = tbl_unit.id
+        WHERE users.id_unit = :id_unit
+        ORDER BY COALESCE(users.sort, 1) ASC, users.nip ASC', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:20:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:20:35 --> __clone method called on non-object
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php on line 240.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php(17): Hermawan\DataTables\DataTableColumnDefs->initFromBuilder([...])
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(35): Hermawan\DataTables\DataTableColumnDefs->__construct([...])
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(46): Hermawan\DataTables\DataTable->__construct([...])
+ 4 APPPATH\Controllers\Skpd\Pegawai.php(74): Hermawan\DataTables\DataTable::of([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:21:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:21:08 --> __clone method called on non-object
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php on line 240.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableColumnDefs.php(17): Hermawan\DataTables\DataTableColumnDefs->initFromBuilder([...])
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(35): Hermawan\DataTables\DataTableColumnDefs->__construct([...])
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(46): Hermawan\DataTables\DataTable->__construct([...])
+ 4 APPPATH\Controllers\Skpd\Pegawai.php(74): Hermawan\DataTables\DataTable::of([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:23:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:23:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:23:13 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(56): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:23:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:23:15 --> Undefined property: stdClass::$users.id
+in APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php on line 105.
+ 1 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$users.id', 'APPPATH\\ThirdParty\\codeigniter4-datatables\\src\\DataTableQuery.php', 105)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+ 3 APPPATH\Controllers\Skpd\Pegawai.php(56): Hermawan\DataTables\DataTable->toJson()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->json_pegawai()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:23:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:23:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:24:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 22:24:35 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: received invalid response to SSL negotiation: J in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:75
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'C:\\laragon\\www\\...', 75)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(75): pg_connect('host=localhost ...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#5 C:\laragon\www\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\laragon\www\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#7 C:\laragon\www\presensi\app\Controllers\Skpd\Pegawai.php(18): CodeIgniter\BaseModel->first()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->index()
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 22:24:35 --> Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: received invalid response to SSL negotiation: J
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "tbl_unit"
+WHERE "id" = :id:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Skpd\Pegawai.php(18): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:24:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 22:24:37 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: received invalid response to SSL negotiation: J in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:75
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'C:\\laragon\\www\\...', 75)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(75): pg_connect('host=localhost ...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(391): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#5 C:\laragon\www\presensi\system\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\laragon\www\presensi\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#7 C:\laragon\www\presensi\app\Controllers\Skpd\Pegawai.php(18): CodeIgniter\BaseModel->first()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->index()
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 22:24:37 --> Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: received invalid response to SSL negotiation: J
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1601): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "tbl_unit"
+WHERE "id" = :id:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(267): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Skpd\Pegawai.php(18): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Pegawai->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Pegawai))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:35:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:35:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:35:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:35:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-01 22:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 22:42:33 --> Class "CodeIgniter\Database\Postge\Connection" not found
+in SYSTEMPATH\Database\Database.php on line 138.
+ 1 SYSTEMPATH\Database\Database.php(56): CodeIgniter\Database\Database->initDriver('Postge', 'CodeIgniter\\Database\\Postge\\Connection', [...])
+ 2 SYSTEMPATH\Database\Config.php(82): CodeIgniter\Database\Database->load([...], 'default')
+ 3 SYSTEMPATH\Common.php(352): CodeIgniter\Database\Config::connect('default', true)
+ 4 APPPATH\Controllers\Qr_code_scan.php(52): db_connect()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:43:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-01 22:43:19 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 22:43:19 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-04-01 22:43:24 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in C:\laragon\www\presensi\system\Database\Postgre\Connection.php:147
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'C:\\laragon\\www\\...', 147)
+#1 C:\laragon\www\presensi\system\Database\Postgre\Connection.php(147): pg_query(Object(PgSql\Connection), 'SELECT COUNT(*)...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\Postgre\Connection->execute('SELECT COUNT(*)...')
+#3 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#4 C:\laragon\www\presensi\system\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#5 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+#6 C:\laragon\www\presensi\app\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+#7 C:\laragon\www\presensi\app\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+#9 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+#10 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-01 22:43:24 --> pg_query(): Query failed: ERROR:  operator does not exist: numeric = character varying
+LINE 3: LEFT JOIN &quot;tbl_absen&quot; ON &quot;users&quot;.&quot;id&quot; = &quot;tbl_absen&quot;.&quot;id_user...
+                                              ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1685): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS "numrows"
+FROM "users"
+LEFT JOIN "tbl_absen" ON "users"."id" = "tbl_absen"."id_user" AND DATE(tbl_absen.created_at) = CURDATE()
+LEFT JOIN "tbl_ket" as "ket_in" ON "tbl_absen"."id_ket_in" = "ket_in"."id"
+LEFT JOIN "tbl_ket" as "ket_out" ON "tbl_absen"."id_ket_out" = "ket_out"."id"
+WHERE "users"."id_unit" = :users.id_unit:', [...], false)
+ 2 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTableQuery.php(53): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\ThirdParty\codeigniter4-datatables\src\DataTable.php(174): Hermawan\DataTables\DataTableQuery->countAll()
+ 4 APPPATH\Controllers\Qr_code_scan.php(69): Hermawan\DataTables\DataTable->toJson()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Qr_code_scan->json_user('24')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qr_code_scan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-01 22:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

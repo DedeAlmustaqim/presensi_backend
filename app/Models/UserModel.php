@@ -14,7 +14,7 @@ class UserModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = ['password'];
-    protected $allowedFields    = ['id', 'nip', 'name', 'id_unit', 'jabatan', 'email', 'nik'];
+    protected $allowedFields    = [];
 
     // Dates
     protected $useTimestamps = false;
@@ -97,5 +97,22 @@ class UserModel extends Model
             ->table('users')
             ->where('id', $id)
             ->update($data);
+    }
+
+    function update_keg($data, $id, $month, $year)
+    {
+        return $this->db
+            ->table('tbl_subtraction')
+            ->where('id_user', $id)
+            ->where('month', $month)
+            ->where('year', $year)
+            ->update($data);
+    }
+
+    function add_keg($data)
+    {
+        return $this->db
+            ->table('tbl_subtraction')
+            ->insert($data);
     }
 }
