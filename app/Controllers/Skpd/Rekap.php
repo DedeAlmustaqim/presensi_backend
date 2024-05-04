@@ -281,6 +281,7 @@ class Rekap extends BaseController
         $dompdf->stream($user->name . '_' . bulan($month) . '_' . $year . '.pdf', [
             'Attachment' => false
         ]);
+        exit();
     }
 
     public function view_rekap_tpp_pdf($month, $year)

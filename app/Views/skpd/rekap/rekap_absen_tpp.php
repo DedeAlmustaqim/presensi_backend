@@ -618,7 +618,7 @@
         <hr>
 
         <form id="postTpp" method="POST">
-            <input  type="text" name="id_tpp" id="id_tpp" value="<?php echo $user->id ?>">
+            <input hidden type="text" name="id_tpp" id="id_tpp" value="<?php echo $user->id ?>">
             <input hidden type="text" name="tl1" id="tl1" value="<?php echo $TL1 * 0.5 ?>">
             <input hidden type="text" name="tl2" id="tl2" value="<?php echo $TL2 * 1 ?>">
             <input hidden type="text" name="tl3" id="tl3" value="<?php echo $TL3 * 1.25 ?>">
