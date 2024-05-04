@@ -2,7 +2,9 @@
 <html>
 
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><?= $unit . '_' . $bulan . '_' . $tahun ?></title>
+
     <style>
         /** Define the margins of your page **/
         @page {
@@ -10,6 +12,10 @@
             margin-left: 30px;
             margin-right: 30px;
             margin-bottom: 30px;
+        }
+
+        body {
+            font-family: DejaVu Sans, sans-serif;
         }
 
         header {
@@ -86,7 +92,6 @@
         }
 
         .text_td {
-            font-family: Tahoma, Geneva, sans-serif;
             font-size: 8px;
             font-style: normal;
             font-weight: normal;
@@ -95,7 +100,6 @@
         }
 
         .text_utama {
-            font-family: "Times New Roman", Times, serif;
             font-size: 12px;
             font-style: normal;
             font-weight: normal;

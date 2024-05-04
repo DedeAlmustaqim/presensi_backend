@@ -8,10 +8,10 @@ class Dashboard extends BaseController
 {
     public function index()
     {
+      
         $data = array(
-            'judul' => 'Dashboard Admin',
+            'judul' => 'Dashboard ',
             'sub_judul' => 'Selamat Datang! ' . session('ses_nm'),
-            'judul' => 'Dashboard Admin',
         );
         return view('admin/dashboard', $data);
     }

@@ -1,6 +1,20 @@
-<?= $this->extend('layout/template_skpd') ?>
+<?php if (session('akses') == 2) {
 
-<?= $this->section('content_skpd') ?>
+    echo $this->extend('layout/template_skpd');
+} else {
+    echo $this->extend('layout/template_admin');
+} ?>
+
+
+<?php if (session('akses') == 2) {
+
+
+    echo $this->section('content_skpd');
+} else {
+    echo $this->section('content_admin');
+} ?>
+
+
 
 <!-- Memuat helper Time -->
 <?= helper('time'); ?>
@@ -12,7 +26,6 @@
 
 <div class="card card-bordered card-preview">
     <div class="card-inner">
-
         <table width="100%" border="0" class="mb-2">
             <tr>
                 <td width="10%">Nama</td>
@@ -36,6 +49,8 @@
             </tr>
         </table>
         <hr>
+        <a target="_blank" href="<?php echo base_url()?>/skpd/rekap/view_absen_tpp_pdf/<?php echo $id ?>/<?php echo $bulan ?>/<?php echo $tahun ?>" class="btn btn-sm btn-secondary mb-1">Cetak Rincian Absensi </a>
+
         <h6 class="mt-2">Rekapitulasi Absensi</h6>
         <div class="row-12">
             <table class="table table-bordered table-striped">
@@ -449,6 +464,7 @@
                         <td><?php echo "1.55%" ?></td>
                         <td><?php echo $PSW4 * 1.55; ?>%</td>
                         <td><?php if ($psw4_rekap  != $PSW4 * 1.55) {
+                                $totalPsw4 = $PSW4 * 1.55;
                                 echo "<p class='text-danger'>Tidak Sesuai</p>";
                             } else {
                                 echo "<p class='text-primary'>Sesuai</p>";
@@ -526,7 +542,7 @@
                                 $LHKPN = 5;
                                 echo "5%";
                             }  ?></td>
-                            <td><?php if ($lhkpn_rekap  != $LHKPN) {
+                        <td><?php if ($lhkpn_rekap  != $LHKPN) {
                                 echo "<p class='text-danger'>Tidak Sesuai</p>";
                             } else {
                                 echo "<p class='text-primary'>Sesuai</p>";
@@ -547,7 +563,7 @@
                                 $TPTGR = 5;
                                 echo "5%";
                             }  ?></td>
-                            <td><?php if ($tptgr_rekap  != $TPTGR) {
+                        <td><?php if ($tptgr_rekap  != $TPTGR) {
                                 echo "<p class='text-danger'>Tidak Sesuai</p>";
                             } else {
                                 echo "<p class='text-primary'>Sesuai</p>";
@@ -602,7 +618,7 @@
         <hr>
 
         <form id="postTpp" method="POST">
-            <input hidden type="text" name="id_tpp" id="id_tpp" value="<?php echo $user->id ?>">
+            <input  type="text" name="id_tpp" id="id_tpp" value="<?php echo $user->id ?>">
             <input hidden type="text" name="tl1" id="tl1" value="<?php echo $TL1 * 0.5 ?>">
             <input hidden type="text" name="tl2" id="tl2" value="<?php echo $TL2 * 1 ?>">
             <input hidden type="text" name="tl3" id="tl3" value="<?php echo $TL3 * 1.25 ?>">
@@ -624,8 +640,13 @@
             <input hidden type="text" name="year_tpp" id="year_tpp" value="<?php echo $tahun ?>">
 
             <div class="col-12">
+                <?php if (session('akses') == 2) {
 
-                <button type="submit" class="btn btn-primary mb-1">Terbitkan Perhitungan Skor Disiplin</button>&nbsp;<a href="<?php echo base_url() ?>/skpd/rekap/pegawai" class="btn btn-secondary mb-1">Rekapitulasi</a><br>
+                ?>
+                    <button type="submit" class="btn btn-primary mb-1">Terbitkan Perhitungan Skor Disiplin</button>&nbsp;<a href="<?php echo base_url() ?>/skpd/rekap/pegawai" class="btn btn-secondary mb-1">Rekapitulasi</a><br>
+                <?php
+                } ?>
+
                 <small>Jika ada perubahan anda bisa terbitkan ulang perhitungan skor disiplin, klik kembali Terbitkan Perhitungan Skor Disiplin untuk update data pada Rekapitulasi Bulanan</small>
 
             </div>

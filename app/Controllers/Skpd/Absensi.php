@@ -13,8 +13,7 @@ class Absensi extends BaseController
 {
     public function index()
     {
-        if (session('akses') == 2) {
-            $modelUnit = new UnitModel();
+        $modelUnit = new UnitModel();
             $unit = $modelUnit->where('id', session('ses_id_unit'))->first();
 
 
@@ -26,54 +25,38 @@ class Absensi extends BaseController
                 'user' => $user,
             );
             return view('skpd/absensi', $data);
-        } else {
-            return redirect('login');
-        }
     }
 
     public function json_absensi($id, $unit, $year, $month)
     {
-        if ((session('akses') != '2')) {
-            return redirect('login');
-        } else {
-
-            $db = db_connect();
-            $builder = $db->table('tbl_absen')
-                ->select(
-                    'tbl_absen.id_absen, 
-                users.name,
-                tbl_absen.id_user, 
-                tbl_absen.tgl_in, 
-                tbl_absen.jam_in, 
-                ket_in.ket AS keterangan_in, 
-                tbl_absen.tgl_out, 
-                tbl_absen.jam_out, 
-                ket_out.ket AS keterangan_out,
-                tbl_absen.created_at,'
-                )
-
-                ->join('tbl_ket as ket_in', 'tbl_absen.id_ket_in = ket_in.id', 'left')
-                ->join('tbl_ket as ket_out', 'tbl_absen.id_ket_out = ket_out.id', 'left')
-                ->join('users', 'tbl_absen.id_user = users.id', 'left')
-                ->join('tbl_unit', 'users.id_unit = tbl_unit.id', 'left')
-                ->where('tbl_absen.id_user', $id)
-                ->where('users.id_unit', $unit)
-                ->where('YEAR(tbl_absen.created_at)', $year)
-                ->where('MONTH(tbl_absen.created_at)', $month)
-                ->orderBy('tbl_absen.created_at', 'ASC');
-
-
-
-
-            return DataTable::of($builder)->toJson();
-        }
+        $db = db_connect();
+        $builder = $db->table('tbl_absen')
+            ->select(
+                'tbl_absen.id_absen, 
+            users.name,
+            tbl_absen.id_user, 
+            tbl_absen.tgl_in, 
+            tbl_absen.jam_in, 
+            ket_in.ket AS keterangan_in, 
+            tbl_absen.tgl_out, 
+            tbl_absen.jam_out, 
+            ket_out.ket AS keterangan_out,
+            tbl_absen.created_at,'
+            )
+            ->join('tbl_ket as ket_in', 'tbl_absen.id_ket_in = ket_in.id', 'left')
+            ->join('tbl_ket as ket_out', 'tbl_absen.id_ket_out = ket_out.id', 'left')
+            ->join('users', 'tbl_absen.id_user = users.id', 'left')
+            ->join('tbl_unit', 'users.id_unit = tbl_unit.id', 'left')
+            ->where('tbl_absen.id_user', $id)
+            ->where('users.id_unit', $unit)
+            ->where('YEAR(tbl_absen.created_at)', $year)
+            ->where('MONTH(tbl_absen.created_at)', $month)
+            ->orderBy('tbl_absen.created_at', 'ASC');
+        return DataTable::of($builder)->toJson();
     }
 
     public function get_upacara($id, $month, $year)
     {
-        if ((session('akses') != '2')) {
-            return redirect('login');
-        }
         $db = db_connect();
         $upacara = $db->table('tbl_subtraction')->where('id_user', $id)->where('year', $year)->where('month', $month)->get()->getRow();
 
@@ -89,12 +72,10 @@ class Absensi extends BaseController
             ];
             return json_encode($response);
         }
+        
     }
     public function get_subtraction($id)
     {
-        if ((session('akses') != '2')) {
-            return redirect('login');
-        }
         $db = db_connect();
         $user = $db->table('users')->where('id', $id)->get()->getRow();
         if ($user) {
@@ -112,14 +93,12 @@ class Absensi extends BaseController
         }
     }
 
+    
+
     public function subtraction()
     {
-        if ((session('akses') != '2')) {
-            return redirect('login');
-        }
-
+       
         $db = db_connect();
-
 
         $user = new UserModel();
         if (!$this->validate([
@@ -191,9 +170,7 @@ class Absensi extends BaseController
 
     public function posted_tpp()
     {
-        if ((session('akses') != '2')) {
-            return redirect('login');
-        }
+        
         $db = db_connect();
         $id_tpp = $this->request->getVar('id_tpp');
         $tl1 = $this->request->getVar('tl1');
@@ -275,9 +252,7 @@ class Absensi extends BaseController
     }
 
     public function get_ket(){
-        if ((session('akses') != '2')) {
-            return redirect('login');
-        }
+       
         $db = db_connect();
 
         $id = $this->request->getVar('id');
@@ -317,6 +292,54 @@ class Absensi extends BaseController
                 'ket_out' => "-",
             ];
             return $this->response->setJSON($result);
+        }else if($data1 && $data2){
+            $result = [
+                'tgl_in_off' => date('d-m-Y', strtotime($data1->tgl_in_off)),
+                'no_surat_in' => $data1->no_surat_in,
+                'ket_in' => $data1->ket_in,
+                'tgl_out_off' => date('d-m-Y', strtotime($data2->tgl_out_off)),
+                'no_surat_out' => $data2->no_surat_out,
+                'ket_out' => $data2->ket_out,
+            ];
+            return $this->response->setJSON($result);
         }
+    }
+
+    public function get_tpp_by_id($id){
+        $db = db_connect();
+        $data = $db->table('tpp')
+        ->select('tpp.id, 
+        tpp.id_user, 
+        tpp.tl1, 
+        tpp.tl2, 
+        tpp.tl3, 
+        tpp.tl4, 
+        tpp.psw1, 
+        tpp.psw2, 
+        tpp.psw3, 
+        tpp.psw4, 
+        tpp.thck1, 
+        tpp.thck2, 
+        tpp.thck3, 
+        tpp.tk, 
+        tpp.tu, 
+        tpp.lhkpn, 
+        tpp.tptgr, 
+        tpp.dk, 
+        tpp.subtraction, 
+        tpp.`month`, 
+        tpp.`year`, 
+        tpp.updated_at, 
+        tpp.updated_by, 
+        users.`name`, 
+        users.nip')
+        ->join('users', 'tpp.id_user = users.id', 'left')
+        ->where('tpp.id',$id)
+        ->get()->getFirstRow();
+        return $this->response->setJSON($data);
+    }
+
+    public function get_count_peg(){
+        
     }
 }

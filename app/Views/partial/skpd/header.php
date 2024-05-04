@@ -35,8 +35,8 @@
                     </li>
 
                     <!-- .nk-menu-item -->
-                   
-                    </li><!-- .nk-menu-item -->
+
+
                     <li class="nk-menu-item has-sub">
                         <a href="<?php echo base_url() ?>/skpd/rekap/pegawai" class="nk-menu-link"><span class="nk-menu-text">Rekapitulasi</span></a>
 

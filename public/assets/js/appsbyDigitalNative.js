@@ -12,3 +12,13 @@ $(document).ready(function(){
 function devProgress(){
     Swal.fire('Lagi dalam pengembangan!', '.', 'warning');
 }
+
+var namaBulan = [
+    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+];
+
+// Fungsi untuk mengonversi angka menjadi nama bulan
+function konversiBulan(angkaBulan) {
+    return namaBulan[angkaBulan - 1];
+}

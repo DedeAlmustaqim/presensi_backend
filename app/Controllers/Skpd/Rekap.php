@@ -15,8 +15,7 @@ class Rekap extends BaseController
 
     public function rekap_pegawai()
     {
-        if (session('akses') == 2) {
-            $modelUnit = new UnitModel();
+        $modelUnit = new UnitModel();
             $unit = $modelUnit->where('id', session('ses_id_unit'))->first();
 
             $data = array(
@@ -25,9 +24,6 @@ class Rekap extends BaseController
                 'unit' => $unit['nm_unit'],
             );
             return view('skpd/rekap/pegawai', $data);
-        } else {
-            return redirect('login');
-        }
     }
 
     public function json_rekap($month, $year)
@@ -155,9 +151,7 @@ class Rekap extends BaseController
 
     public function view_absen($id, $month, $year)
     {
-        if ((session('akses') != '2')) {
-            return redirect('login');
-        }
+       
         helper(['time']);
         helper('tanggal_indo_helper');
         $user = new UserModel();
@@ -175,9 +169,7 @@ class Rekap extends BaseController
 
     public function view_absen_tpp($id, $month, $year)
     {
-        if ((session('akses') != '2')) {
-            return redirect('login');
-        }
+     
         $db = db_connect();
         helper(['time']);
         helper('tanggal_indo_helper');
@@ -325,9 +317,11 @@ class Rekap extends BaseController
             ->join('users', 'tpp.id_user = users.id', 'left')
             ->where('tpp.month', $month)
             ->where('tpp.year', $year)
+            ->where('users.id_unit', session('ses_id_unit'))
             ->orderBy('users.sort', 'ASC')
             ->get()
             ->getResult();
+
         $unit = $db->table('tbl_unit')->where('id', session('ses_id_unit'))->get()->getRow();
 
         $dataPrint = [
@@ -401,6 +395,7 @@ class Rekap extends BaseController
             ->join('users', 'tpp.id_user = users.id', 'left')
             ->where('tpp.month', $month)
             ->where('tpp.year', $year)
+            ->where('users.id_unit', session('ses_id_unit'))
             ->where('users.status_peg', 'ASN')
             ->orderBy('users.sort', 'ASC')
             ->get()
@@ -477,6 +472,7 @@ class Rekap extends BaseController
 	users.nip')
             ->join('users', 'tpp.id_user = users.id', 'left')
             ->where('tpp.month', $month)
+            ->where('users.id_unit', session('ses_id_unit'))
             ->where('tpp.year', $year)
             ->where('users.status_peg', 'NON-ASN')
             ->orderBy('users.sort', 'ASC')

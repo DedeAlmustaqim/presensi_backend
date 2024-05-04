@@ -7,6 +7,7 @@ use App\Models\ConfigModel;
 use App\Models\QrScanModel;
 use App\Models\TblAdmin;
 use App\Models\UnitModel;
+use App\Models\UserModel;
 use \Hermawan\DataTables\DataTable;
 
 class Pengaturan extends BaseController
@@ -19,41 +20,30 @@ class Pengaturan extends BaseController
 
     public function unit()
     {
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
-            $data = array(
-                'judul' => 'Pengaturan - Admin SKPD',
-                'sub_judul' => session('ses_nm'),
-            );
-            return view('admin/unit', $data);
-        }
+        $data = array(
+            'judul' => 'Pengaturan - Admin SKPD',
+            'sub_judul' => session('ses_nm'),
+        );
+        return view('admin/unit', $data);
     }
 
     public function user()
     {
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
-            $model = new UnitModel();
-            $skpd = $model->whereNotIn('id', [1])->findAll();
+        $model = new UnitModel();
+        $skpd = $model->whereNotIn('id', [1])->findAll();
 
-            $data = array(
-                'judul' => 'Pengaturan - Pengguna',
-                'sub_judul' => session('ses_nm'),
-                'skpd' => $skpd
-            );
-            return view('admin/user', $data);
-        }
+        $data = array(
+            'judul' => 'Pengaturan - Pengguna',
+            'sub_judul' => session('ses_nm'),
+            'skpd' => $skpd
+        );
+        return view('admin/user', $data);
     }
     public function json_user($id)
     {
 
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
-            $db = db_connect();
-            $builder = $db->table('users')->select('users.id, 
+        $db = db_connect();
+        $builder = $db->table('users')->select('users.id, 
             users.`name`, 
             users.email, 
             users.email_verified_at, 
@@ -70,110 +60,100 @@ class Pengaturan extends BaseController
             users.current_login, 
             users.sort, 
             tbl_unit.nm_unit')
-                ->join('tbl_unit', 'users.id_unit = tbl_unit.id', 'left')
-                ->where('tbl_unit.id', $id)
-                ->whereNotIn('users.id', [1])
-                ->orderBy('tbl_unit.id', 'asc')
-                ->orderBy('users.sort', 'asc');
+            ->join('tbl_unit', 'users.id_unit = tbl_unit.id', 'left')
+            ->where('tbl_unit.id', $id)
+            ->whereNotIn('users.id', [1])
+            ->orderBy('tbl_unit.id', 'asc')
+            ->orderBy('users.sort', 'asc');
 
-            return DataTable::of($builder)->toJson();
-        }
+        return DataTable::of($builder)->toJson();
     }
 
     public function json_unit()
     {
 
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
-            $db = db_connect();
-            $builder = $db->table('tbl_unit')->select('tbl_unit.id, 
-            tbl_unit.nm_unit, 
-            tbl_unit.pimpinan, 
-            tbl_unit.gol, 
-            tbl_unit.jabatan, 
-            tbl_unit.lat, 
-            tbl_unit.`long`, 
-            tbl_unit.radius, 
-            tbl_unit.jam_masuk, 
-            tbl_unit.jam_pulang, 
-            tbl_unit.hari_kerja, 
-            tbl_unit.created_at, 
-            tbl_unit.updated_at')
-                ->whereNotIn('tbl_unit.id', [1])
-                ->orderBy('created_at', 'asc');
+        $db = db_connect();
+        $builder = $db->table('tbl_unit')->select('tbl_unit.id, 
+        tbl_unit.nm_unit, 
+        tbl_unit.pimpinan, 
+        tbl_unit.gol, 
+        tbl_unit.jabatan, 
+        tbl_unit.lat, 
+        tbl_unit.`long`, 
+        tbl_unit.radius, 
+        tbl_unit.jam_masuk, 
+        tbl_unit.jam_pulang, 
+        tbl_unit.hari_kerja, 
+        tbl_unit.created_at, 
+        tbl_unit.updated_at')
+            ->whereNotIn('tbl_unit.id', [1])
+            ->orderBy('created_at', 'asc');
 
-            return DataTable::of($builder)->toJson();
-        }
+        return DataTable::of($builder)->toJson();
     }
 
     public function tambah_unit()
     {
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
+        $model = new UnitModel();
+        if (!$this->validate([
+            'nm_unit'     => ['label' => 'Nama Unit', 'rules' => 'required'],
+            'lat'     => ['label' => 'Latitude', 'rules' => 'required|decimal'],
+            'long'     => ['label' => 'Longitude', 'rules' => 'required|decimal'],
+            'jam_masuk'     => ['label' => 'Jam Masuk', 'rules' => 'required'],
+            'jam_pulang'     => ['label' => 'Jam Pulang', 'rules' => 'required'],
+            'h_kerja'     => ['label' => 'Hari Kerja', 'rules' => 'required'],
 
-            $model = new UnitModel();
-            if (!$this->validate([
-                'nm_unit'     => ['label' => 'Nama Unit', 'rules' => 'required'],
-                'lat'     => ['label' => 'Latitude', 'rules' => 'required|decimal'],
-                'long'     => ['label' => 'Longitude', 'rules' => 'required|decimal'],
-                'jam_masuk'     => ['label' => 'Jam Masuk', 'rules' => 'required'],
-                'jam_pulang'     => ['label' => 'Jam Pulang', 'rules' => 'required'],
-                'h_kerja'     => ['label' => 'Hari Kerja', 'rules' => 'required'],
+        ])) {
 
-            ])) {
+            $respond = [
+                'success' => false,
+                'nm_unit_error' => \Config\Services::validation()->getError('nm_unit'),
+                'lat_error' => \Config\Services::validation()->getError('lat'),
+                'long_error' => \Config\Services::validation()->getError('long'),
+                'jam_masuk_error' => \Config\Services::validation()->getError('jam_masuk'),
+                'jam_pulang_error' => \Config\Services::validation()->getError('jam_pulang'),
+                'h_kerja_error' => \Config\Services::validation()->getError('h_kerja'),
 
-                $respond = [
-                    'success' => false,
-                    'nm_unit_error' => \Config\Services::validation()->getError('nm_unit'),
-                    'lat_error' => \Config\Services::validation()->getError('lat'),
-                    'long_error' => \Config\Services::validation()->getError('long'),
-                    'jam_masuk_error' => \Config\Services::validation()->getError('jam_masuk'),
-                    'jam_pulang_error' => \Config\Services::validation()->getError('jam_pulang'),
-                    'h_kerja_error' => \Config\Services::validation()->getError('h_kerja'),
-
-                ];
-
-                return json_encode($respond);
-            }
-
-            $nm_unit = $this->request->getVar('nm_unit');
-            $lat = $this->request->getVar('lat');
-            $long = $this->request->getVar('long');
-            $jam_masuk = $this->request->getVar('jam_masuk');
-            $jam_pulang = $this->request->getVar('jam_pulang');
-            $hari_kerja = $this->request->getVar('hari_kerja');
-
-
-            $data = [
-
-                'nm_unit'           => $nm_unit,
-                'lat'           => $lat,
-                'long'           => $long,
-                'jam_masuk'           => $jam_masuk,
-                'jam_pulang'           => $jam_pulang,
-                'hari_kerja'           => $hari_kerja,
-
-                'created_at'           => date('Y/m/d H:i:s'),
             ];
 
+            return json_encode($respond);
+        }
+
+        $nm_unit = $this->request->getVar('nm_unit');
+        $lat = $this->request->getVar('lat');
+        $long = $this->request->getVar('long');
+        $jam_masuk = $this->request->getVar('jam_masuk');
+        $jam_pulang = $this->request->getVar('jam_pulang');
+        $hari_kerja = $this->request->getVar('hari_kerja');
 
 
-            $result = $model->add($data);
+        $data = [
+
+            'nm_unit'           => $nm_unit,
+            'lat'           => $lat,
+            'long'           => $long,
+            'jam_masuk'           => $jam_masuk,
+            'jam_pulang'           => $jam_pulang,
+            'hari_kerja'           => $hari_kerja,
+
+            'created_at'           => date('Y/m/d H:i:s'),
+        ];
 
 
-            if ($result) {
-                $respond = [
-                    'success' => true,
-                ];
-                return json_encode($respond);
-            } else {
-                $respond = [
-                    'success' => false,
-                ];
-                return json_encode($respond);
-            }
+
+        $result = $model->add($data);
+
+
+        if ($result) {
+            $respond = [
+                'success' => true,
+            ];
+            return json_encode($respond);
+        } else {
+            $respond = [
+                'success' => false,
+            ];
+            return json_encode($respond);
         }
     }
 
@@ -254,29 +234,22 @@ class Pengaturan extends BaseController
 
     public function administrator()
     {
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
-            $model = new UnitModel();
-            $skpd = $model->findAll();
+        $model = new UnitModel();
+        $skpd = $model->findAll();
 
-            $data = array(
-                'judul' => 'Pengaturan - Administrator',
-                'sub_judul' => session('ses_nm'),
-                'skpd' => $skpd,
+        $data = array(
+            'judul' => 'Pengaturan - Administrator',
+            'sub_judul' => session('ses_nm'),
+            'skpd' => $skpd,
 
-            );
-            return view('admin/administrator', $data);
-        }
+        );
+        return view('admin/administrator', $data);
     }
 
     public function json_administrator()
     {
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
-            $db = db_connect();
-            $builder = $db->table('tbl_admin')->select('tbl_admin.id, 
+        $db = db_connect();
+        $builder = $db->table('tbl_admin')->select('tbl_admin.id, 
             tbl_admin.username, 
             tbl_admin.nama, 
             tbl_admin.nip, 
@@ -288,13 +261,12 @@ class Pengaturan extends BaseController
             
             tbl_unit.id as id_unit,
             tbl_unit.nm_unit',)
-                ->join('tbl_akses', 'tbl_admin.id_akses = tbl_akses.id_akses', 'left')
-                ->join('tbl_unit', 'tbl_admin.id_unit = tbl_unit.id', 'left')
-                ->where('tbl_admin.id_akses', 2)
-                ->orderBy('created_at', 'asc');
+            ->join('tbl_akses', 'tbl_admin.id_akses = tbl_akses.id_akses', 'left')
+            ->join('tbl_unit', 'tbl_admin.id_unit = tbl_unit.id', 'left')
+            ->where('tbl_admin.id_akses', 2)
+            ->orderBy('created_at', 'asc');
 
-            return DataTable::of($builder)->toJson();;
-        }
+        return DataTable::of($builder)->toJson();
     }
 
     public function tambah_adm()
@@ -415,8 +387,8 @@ class Pengaturan extends BaseController
     public function reset_adm($id)
     {
         $model = new TblAdmin();
-        
-       
+
+
 
 
         $data = [
@@ -442,28 +414,21 @@ class Pengaturan extends BaseController
 
     public function op_qr()
     {
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
-            $model = new UnitModel();
-            $skpd = $model->findAll();
+        $model = new UnitModel();
+        $skpd = $model->findAll();
 
-            $data = array(
-                'judul' => 'Pengaturan - Operator Kode QR',
-                'sub_judul' => session('ses_nm'),
-                'skpd' => $skpd,
+        $data = array(
+            'judul' => 'Pengaturan - Operator Kode QR',
+            'sub_judul' => session('ses_nm'),
+            'skpd' => $skpd,
 
-            );
-            return view('admin/op_qr', $data);
-        }
+        );
+        return view('admin/op_qr', $data);
     }
     public function json_op_qr()
     {
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
-            $db = db_connect();
-            $builder = $db->table('tbl_admin')->select('tbl_admin.id, 
+        $db = db_connect();
+        $builder = $db->table('tbl_admin')->select('tbl_admin.id, 
             tbl_admin.username, 
             tbl_admin.nama, 
             tbl_admin.nip, 
@@ -475,13 +440,12 @@ class Pengaturan extends BaseController
             
             tbl_unit.id as id_unit,
             tbl_unit.nm_unit',)
-                ->join('tbl_akses', 'tbl_admin.id_akses = tbl_akses.id_akses', 'left')
-                ->join('tbl_unit', 'tbl_admin.id_unit = tbl_unit.id', 'left')
-                ->where('tbl_admin.id_akses', 3)
-                ->orderBy('tbl_unit.id', 'asc');
+            ->join('tbl_akses', 'tbl_admin.id_akses = tbl_akses.id_akses', 'left')
+            ->join('tbl_unit', 'tbl_admin.id_unit = tbl_unit.id', 'left')
+            ->where('tbl_admin.id_akses', 3)
+            ->orderBy('tbl_unit.id', 'asc');
 
-            return DataTable::of($builder)->toJson();;
-        }
+        return DataTable::of($builder)->toJson();;
     }
 
     public function tambah_op_qr()
@@ -601,8 +565,8 @@ class Pengaturan extends BaseController
     public function reset_op($id)
     {
         $model = new TblAdmin();
-        
-       
+
+
 
 
         $data = [
@@ -627,31 +591,29 @@ class Pengaturan extends BaseController
     }
     public function config()
     {
-        if (($this->akses != '1')) {
-            return redirect('login');
-        } else {
+        $data = array(
+            'judul' => 'Pengaturan - Umum',
+            'sub_judul' => session('ses_nm'),
 
 
-
-            $data = array(
-                'judul' => 'Pengaturan - Umum',
-                'sub_judul' => session('ses_nm'),
-
-
-            );
-            return view('admin/config', $data);
-        }
+        );
+        return view('admin/config', $data);
     }
 
     public function get_config()
     {
-        if (session('akses') == '1') {
-            $db = db_connect();
-            $data = $db->table('tbl_config')->get()->getRowArray();
-            return json_encode($data);
-        } else {
-            return redirect('login');
-        }
+        $db = db_connect();
+        $data = $db->table('tbl_config')->get()->getRowArray();
+        return json_encode($data);
+    }
+
+    public function get_peg($id)
+    {
+        $model = new UserModel();
+        $data = $model->where('id', $id)
+            ->first();
+
+        return json_encode($data);
     }
 
     public function update_config()

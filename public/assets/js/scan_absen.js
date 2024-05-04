@@ -2,130 +2,130 @@ $(document).ready(function () {
 
 
     
-    var table;
-    $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
-        return {
-            "iStart": oSettings._iDisplayStart,
-            "iEnd": oSettings.fnDisplayEnd(),
-            "iLength": oSettings._iDisplayLength,
-            "iTotal": oSettings.fnRecordsTotal(),
-            "iFilteredTotal": oSettings.fnRecordsDisplay(),
-            "iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
-            "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
-        };
-    };
-    var id = $('#id_qr_scan').val()
-    table = initDatatable();
-    scrollDataTable();
-    function initDatatable() {
-        return $('#tableUserView').DataTable({
-            processing: true,
-            serverSide: true,
+    // var table;
+    // $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
+    //     return {
+    //         "iStart": oSettings._iDisplayStart,
+    //         "iEnd": oSettings.fnDisplayEnd(),
+    //         "iLength": oSettings._iDisplayLength,
+    //         "iTotal": oSettings.fnRecordsTotal(),
+    //         "iFilteredTotal": oSettings.fnRecordsDisplay(),
+    //         "iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+    //         "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+    //     };
+    // };
+    // var id = $('#id_qr_scan').val()
+    // table = initDatatable();
+    // scrollDataTable();
+    // function initDatatable() {
+    //     return $('#tableUserView').DataTable({
+    //         processing: true,
+    //         serverSide: true,
 
-            destroy: true,
+    //         destroy: true,
 
-            "bPaginate": true,
-            "bPaging": true,
-            "bLengthChange": false,
-            "bFilter": false,
-            "bInfo": true,
+    //         "bPaginate": true,
+    //         "bPaging": true,
+    //         "bLengthChange": false,
+    //         "bFilter": false,
+    //         "bInfo": true,
 
-            "bScrollCollapse": false,
-            "columnDefs": [{
-                "visible": false,
+    //         "bScrollCollapse": false,
+    //         "columnDefs": [{
+    //             "visible": false,
 
-            }],
-            "order": [
-                [0, 'asc']
-            ],
+    //         }],
+    //         "order": [
+    //             [0, 'asc']
+    //         ],
 
 
 
-            "displayLength": 5,
-            "ajax": {
-                "url": BASE_URL + "/get_user/" + id,
-            },
-            "columns": [
+    //         "displayLength": 5,
+    //         "ajax": {
+    //             "url": BASE_URL + "/get_user/" + id,
+    //         },
+    //         "columns": [
 
-                {
-                    "orderable": false,
-                    "data": function (data) {
-                        // Get current date
-                        var currentDate = new Date();
+    //             {
+    //                 "orderable": false,
+    //                 "data": function (data) {
+    //                     // Get current date
+    //                     var currentDate = new Date();
 
-                        // Format the date as needed (you can customize this part)
-                        var formattedDate = currentDate.toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: '2-digit',
-                            day: '2-digit',
-                        });
+    //                     // Format the date as needed (you can customize this part)
+    //                     var formattedDate = currentDate.toLocaleDateString('en-US', {
+    //                         year: 'numeric',
+    //                         month: '2-digit',
+    //                         day: '2-digit',
+    //                     });
 
-                        // Return the formatted date
-                        return '<div class="text-left">' + formattedDate + '</div>';
-                    }
-                },
+    //                     // Return the formatted date
+    //                     return '<div class="text-left">' + formattedDate + '</div>';
+    //                 }
+    //             },
 
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="user-card user-card-s1">' +
-                            '<div class="user-avatar md bg-primary">' +
-                            '<img height="55" width="55" src="' + data[5] + '" alt="">' +
+    //             {
+    //                 "orderable": false,
+    //                 "data": function (data,) {
+    //                     return '<div class="user-card user-card-s1">' +
+    //                         '<div class="user-avatar md bg-primary">' +
+    //                         '<img height="55" width="55" src="' + data[5] + '" alt="">' +
 
-                            '</div>' +
-                            '<div class="user-info">' +
-                            '<h6>' + data[1] + '</h6>' +
+    //                         '</div>' +
+    //                         '<div class="user-info">' +
+    //                         '<h6>' + data[1] + '</h6>' +
 
-                            '</div>' +
-                            '</div>'
+    //                         '</div>' +
+    //                         '</div>'
 
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[2] + '</div>'
+    //                 }
+    //             },
+    //             {
+    //                 "orderable": false,
+    //                 "data": function (data,) {
+    //                     return '<div class="text-left">' + data[2] + '</div>'
 
-                    }
-                },
-                {
-                    "orderable": false,
-                    "className": 'bg-success',
-                    "data": function (data) {
-                        //6 id_ket_in
-                        if (data[6] == null) {
-                            return '<div class="text-left">' + data[3] + '</div>';
-                        } else if (data[6] != 1) {
-                            return '<div class="text-left">' + data[8] + '</div>';
-                        } else if (data[6] == 1) {
-                            return '<div class="text-left">' + data[3] + '</div>';
-                        }
+    //                 }
+    //             },
+    //             {
+    //                 "orderable": false,
+    //                 "className": 'bg-success',
+    //                 "data": function (data) {
+    //                     //6 id_ket_in
+    //                     if (data[6] == null) {
+    //                         return '<div class="text-left">' + data[3] + '</div>';
+    //                     } else if (data[6] != 1) {
+    //                         return '<div class="text-left">' + data[8] + '</div>';
+    //                     } else if (data[6] == 1) {
+    //                         return '<div class="text-left">' + data[3] + '</div>';
+    //                     }
                                            
 
-                    }
-                },
+    //                 }
+    //             },
 
-                {
-                    "orderable": false,
-                    "className": 'bg-warning',
-                    "data": function (data) {
-                        if (data[7] == null) {
-                            return '<div class="text-left">' + data[4] + '</div>';
-                        } else if (data[7] != 1) {
-                            return '<div class="text-left">' + data[9] + '</div>';
-                        } else if (data[7] == 1) {
-                            return '<div class="text-left">' + data[4] + '</div>';
-                        }
-                    }
-                },
+    //             {
+    //                 "orderable": false,
+    //                 "className": 'bg-warning',
+    //                 "data": function (data) {
+    //                     if (data[7] == null) {
+    //                         return '<div class="text-left">' + data[4] + '</div>';
+    //                     } else if (data[7] != 1) {
+    //                         return '<div class="text-left">' + data[9] + '</div>';
+    //                     } else if (data[7] == 1) {
+    //                         return '<div class="text-left">' + data[4] + '</div>';
+    //                     }
+    //                 }
+    //             },
 
-            ],
-
-
+    //         ],
 
 
-        });
-    }
+
+
+    //     });
+    // }
 
     
 

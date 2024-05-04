@@ -4,8 +4,15 @@
 <div class="card card-bordered">
 
     <div class="card-inner">
-        <a onclick="addDateToSkip()" class="btn btn-primary mb-1">Tambah hari Libur</a><br>
-        <span>Memambahkan hari libur akan mengecualikan tanggal libur pada Rekap Laporan</span>
+        <?php if (session('akses') == 1) {
+
+        ?>
+            <a onclick="addDateToSkip()" class="btn btn-primary mb-1">Tambah hari Libur</a><br>
+            <span>Memambahkan hari libur akan mengecualikan tanggal libur pada Rekap Laporan</span>
+        <?php
+        } ?>
+
+        
         <!-- <span>Jika data tidak tampil di dashboard Aplikasi ATEI mungkin belum dikirim ke Rest API ATEI</span> -->
         <hr>
         <div class="table-responsive">
@@ -16,6 +23,7 @@
                         <th width="30%">Tanggal</th>
                         <th>Keterangan</th>
 
+                        
                         <th width="30%"></th>
                     </tr>
                 </thead>
@@ -76,7 +84,7 @@
             </div>
             <div class="modal-body">
                 <form class="form-validate is-alter" id="formaddDateToSkip" method="post">
-                    <input type="text" id="id_date" name="id_date">
+                    <input type="text" id="id_date" hidden name="id_date">
                     <div class="form-group">
                         <label class="form-label" for="full-name">Tanggal</label>
                         <div class="form-control-wrap">

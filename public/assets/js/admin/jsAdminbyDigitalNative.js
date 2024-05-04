@@ -1,5 +1,42 @@
 $(document).ready(function () {
 
+    $('#skpd_adm').change(function () {
+        var id = $(this).val();
+        
+        $.ajax({
+            type: "get",
+            "url": BASE_URL + "admin/get_user_dropdwon/" + id,
+            processData: false,
+            contentType: false,
+
+            dataType: "JSON",
+            success: function (data) {
+                $('#user_adm').empty(); // Mengosongkan opsi sebelum menambahkan opsi baru
+                $.each(data, function(key, value) {
+                    $('#user_adm').append('<option value="' + value.id + '">' + value.name + '</option>'); // Menambahkan opsi baru
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText); // Menampilkan pesan error jika terjadi kesalahan
+            }
+
+        })
+        showAbsensi()
+    });
+
+
+    $('#tahun_adm').change(function () {
+        showAbsensi()
+    });
+    $('#bulan_adm').change(function () {
+        showAbsensi()
+    });
+    $('#user_adm').change(function () {
+        showAbsensi()
+
+    });
+
+
     getConfig()
 
 
@@ -574,10 +611,17 @@ $(document).ready(function () {
 
                 "orderable": false,
                 "data": function (data,) {
-                    return '<div class="text-center">' +
-                        '<a  onclick="editDatetoSkip(this)" data-id="' + data[0] + '" data-tlg=' + data[1] + ' data-ket=' + data[2] + ' class="btn btn-dim  btn-outline-primary" title="Hapus"><em class="icon ni ni-edit-alt"></em> Edit</a>&nbsp;' +
-                        '<a  onclick="delDatetoSkip(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em> Hapus</a>&nbsp;' +
+                    if (akses == 1) {
+                        return '<div class="text-center">' +
+                            '<a  onclick="editDatetoSkip(this)" data-id="' + data[0] + '" data-tlg=' + data[1] + ' data-ket=' + data[2] + ' class="btn btn-dim  btn-outline-primary" title="Hapus"><em class="icon ni ni-edit-alt"></em> Edit</a>&nbsp;' +
+                            '<a  onclick="delDatetoSkip(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em> Hapus</a>&nbsp;' +
+                            '</div>'
+                    } else {
+                        return '<div class="text-center">' +
+                            '-'
                         '</div>'
+                    }
+
                 }
             },
 
@@ -595,6 +639,236 @@ $(document).ready(function () {
     });
 
 })
+
+function showAbsensi() {
+    var id_unit = $('#skpd_adm').val()
+    var id_user_absen = $('#user_adm').val()
+    var tahun_absen = $('#tahun_adm').val()
+    var bulan_absen = $('#bulan_adm').val()
+
+    toastr.clear();
+    if (id_unit == "") {
+        NioApp.Toast('<h5>SKPD tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+    }
+    if (tahun_absen == "") {
+        NioApp.Toast('<h5>Tahun tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+    }
+    else if (bulan_absen == "") {
+        NioApp.Toast('<h5>Bulan tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+    }
+    else if (id_user_absen == "") {
+        NioApp.Toast('<h5>Pegawai tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+    } else {
+
+        $.ajax({
+            type: "GET",
+            "url": BASE_URL + "admin/get_upacara/" + id_user_absen + "/" + bulan_absen + "/" + tahun_absen,
+            processData: false,
+            contentType: false,
+
+            dataType: "JSON",
+            success: function (data) {
+                $('#keg_upacara_adm').val(data.keg)
+
+
+            },
+
+        })
+        $.ajax({
+            type: "GET",
+            "url": BASE_URL + "admin/get_subtraction/" + id_user_absen,
+            processData: false,
+            contentType: false,
+
+            dataType: "JSON",
+            success: function (data) {
+                $('#lhkpn_lhasn_adm').val(data.lhkpn_lhasn)
+                $('#tptgr_adm').val(data.tptgr)
+
+
+            },
+
+        })
+        document.getElementById('btn_cetak_tpp').innerHTML = '<a target="_blank"  href="' + BASE_URL + 'skpd/rekap/view_absen_tpp/' + id_user_absen + '/' + bulan_absen + '/' + tahun_absen + '" class="btn btn-secondary">Lihat Skor Disiplin</a>'
+
+        $('#tabelAbsenPegawaiAdmin').DataTable({
+            processing: true,
+            serverSide: true,
+
+            destroy: true,
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bInfo": false,
+            "bAutoWidth": true,
+            "columnDefs": [{
+                "visible": false,
+
+            }],
+            "order": [
+                [0, 'asc']
+            ],
+
+            "language": {
+                "lengthMenu": "Tampilkan _MENU_ item per halaman",
+                "zeroRecords": "Tidak ada data yang ditampilkan",
+                "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+                "infoEmpty": "Tidak ada data yang ditampilkan",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Cari",
+                "paginate": {
+                    "first": "Awal",
+                    "last": "Akhir",
+                    "next": "Selanjutnya",
+                    "previous": "Sebelumnya"
+                },
+            },
+            "displayLength": 100,
+            "ajax": {
+                "url": BASE_URL + "admin/json_absensi/" + id_user_absen + "/" + id_unit + "/" + tahun_absen + "/" + bulan_absen,
+            },
+            "columns": [
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[0] + '</div>'
+
+                    }
+                },
+
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[3] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            // Tanggal dan waktu dalam format "YYYY-MM-DD HH:MM:SS"
+                            var dateTimeString = data[3];
+
+                            // Parse string tanggal dan waktu
+                            var dateTime = new Date(dateTimeString);
+
+                            // Fungsi untuk menambahkan nol di depan angka tunggal
+                            function addLeadingZero(number) {
+                                return number < 10 ? "0" + number : number;
+                            }
+
+                            // Format tanggal dalam format "DD-MM-YYYY HH:MM:SS"
+                            var formattedDateTime = addLeadingZero(dateTime.getDate()) + "-" +
+                                addLeadingZero(dateTime.getMonth() + 1) + "-" +
+                                dateTime.getFullYear();
+                            return '<div class="text-center">' + formattedDateTime + '</div>'
+                        }
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[4] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            return '<div class="text-center">' + data[4] + '</div>'
+                        }
+
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[5] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            return '<div class="text-center">' + data[5] + '</div>'
+                        }
+
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[6] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            // Tanggal dan waktu dalam format "YYYY-MM-DD HH:MM:SS"
+                            var dateTimeString = data[6];
+                            // Parse string tanggal dan waktu
+                            var dateTime = new Date(dateTimeString);
+
+                            // Fungsi untuk menambahkan nol di depan angka tunggal
+                            function addLeadingZero(number) {
+                                return number < 10 ? "0" + number : number;
+                            }
+
+                            // Format tanggal dalam format "DD-MM-YYYY HH:MM:SS"
+                            var formattedDateTime = addLeadingZero(dateTime.getDate()) + "-" +
+                                addLeadingZero(dateTime.getMonth() + 1) + "-" +
+                                dateTime.getFullYear();
+                            return '<div class="text-center">' + formattedDateTime + '</div>'
+
+                        }
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[7] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            return '<div class="text-center">' + data[7] + '</div>'
+                        }
+
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        if (data[8] == null) {
+                            return '<div class="text-center">-</div>'
+                        } else {
+                            return '<div class="text-center">' + data[8] + '</div>'
+                        }
+
+
+                    }
+                },
+
+                {
+
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="dropdown">'
+                            + '<a href="#" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false"><span>Aksi</span><em class="icon ni ni-chevron-down"></em></a>'
+                            + '<div class="dropdown-menu  mt-1" style="">'
+                            + '<ul class="link-list-plain">'
+                            + '<li><a style="cursor: pointer;" data-id="' + data[2] + '" data-date="' + data[9] + '" onclick="viewKeterangan(this)">Lihat Keterangan</a></li>'
+                            + '</ul>'
+                            + '</div>'
+                            + '</div>'
+                    }
+                },
+
+
+            ],
+            rowCallback: function (row, data, iDisplayIndex) {
+                var info = this.fnPagingInfo();
+                var page = info.iPage;
+                var length = info.iLength;
+                var index = page * length + (iDisplayIndex + 1);
+                $('td:eq(0)', row).html(index);
+            },
+
+
+        });
+    }
+
+}
 
 function show_tabel_user(id_unit) {
     $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
@@ -614,11 +888,12 @@ function show_tabel_user(id_unit) {
 
         destroy: true,
         "bPaginate": true,
-        "bLengthChange": false,
+        "bLengthChange": true,
         "bFilter": true,
         "bInfo": true,
         "bAutoWidth": true,
         "columnDefs": [{
+
             "visible": false,
 
         }],
@@ -640,7 +915,7 @@ function show_tabel_user(id_unit) {
                 "previous": "Sebelumnya"
             },
         },
-        "displayLength": 25,
+        "displayLength": 100,
         "ajax": {
 
             "url": BASE_URL + "admin/json_user/" + id_unit,
@@ -684,11 +959,18 @@ function show_tabel_user(id_unit) {
 
                 "orderable": false,
                 "data": function (data,) {
-                    return '<div class="text-center">' +
-                        '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn  btn-outline-primary" title="Edit"><em class="icon ni ni-edit-alt"></em></a>&nbsp;' +
-                        '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn  btn-outline-primary" title="Detail"><em class="icon ni ni-eye"></em></a>&nbsp;' +
-                        '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em></a>&nbsp;' +
-                        '</div>'
+                    if (akses == 1) {
+                        return '<div class="text-center">' +
+                            '<a  onclick="detailPeg(this)" data-id="' + data[0] + '" class="btn  btn-outline-primary" title="Detail"><em class="icon ni ni-eye"></em></a>&nbsp;' +
+                            '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn  btn-outline-primary" title="Edit"><em class="icon ni ni-edit-alt"></em></a>&nbsp;' +
+                            '<a  onclick="devProgress(this)" data-id="' + data[0] + '" class="btn btn-dim  btn-outline-danger" title="Hapus"><em class="icon ni ni-trash"></em></a>&nbsp;' +
+                            '</div>'
+                    } else {
+                        return '<div class="text-center">' +
+                            '<a  onclick="detailPeg(this)" data-id="' + data[0] + '" class="btn  btn-outline-primary" title="Detail"><em class="icon ni ni-eye"></em></a>&nbsp;' +
+                            '</div>'
+                    }
+
                 }
             },
 
@@ -1669,4 +1951,101 @@ $('#formEditNotif').on('submit', function (e) {
 
     })
     return false;
+});
+
+function detailPeg(elem) {
+    var id = $(elem).data("id");
+
+
+    $.ajax({
+        type: "get",
+        "url": BASE_URL + "admin/get_peg/" + id,
+        contentType: false,
+        dataType: "JSON",
+        async: true,
+        success: function (data) {
+            $('#ModalPegDetail').modal('show');
+            document.getElementById('showDetailPegAdmin').innerHTML = ' <div class="row">' +
+                '<div class="row">' +
+                '<div class="col-6">' +
+                '<div class="card-inner-group">' +
+                '<div class="card-inner">' +
+                '<div class="user-card user-card-s2">' +
+                '<img src="' + data.img + '" alt="" height="300">' +
+                '<div class="user-info">' +
+                '<h5>' + data.name + '</h5>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-6  bg-blue-dim">' +
+                '<div class="card-inner">' +
+                '<h6 class="overline-title mb-2">Detail</h6>' +
+                '<div class="row g-3">' +
+                '<div class="col-sm-6 col-md-4 col-lg-12">' +
+                '<span class="sub-text">NIP :</span>' +
+                '<span>' + data.nip + '</span>' +
+                '</div>' +
+                '<div class="col-sm-6 col-md-4 col-lg-12">' +
+                '<span class="sub-text">Status Pegawai :</span>' +
+                '<span>' + data.status_peg + '</span>' +
+                '</div>' +
+                '<div class="col-sm-6 col-md-4 col-lg-12">' +
+                '<span class="sub-text">Jabatan :</span>' +
+                '<span>' + data.jabatan + '</span>' +
+                '</div>' +
+                '<div class="col-sm-6 col-md-4 col-lg-12">' +
+                '<span class="sub-text">Email:</span>' +
+                '<span>' + data.email + '</span>' +
+                '</div>' +
+
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>'
+        },
+    })
+}
+
+function viewKeterangan(elem) {
+    var id = $(elem).data("id");
+    var date = $(elem).data("date");
+
+
+
+    console.log(id)
+    console.log(date)
+    $('#modalKet').modal('show');
+    $.ajax({
+        type: "POST",
+        "url": BASE_URL + "skpd/get_ket",
+
+        data: {
+            id: id,
+            date: date
+        },
+        dataType: "JSON",
+        success: function (data) {
+            document.getElementById('tgl_in_off').innerHTML = data.tgl_in_off
+            document.getElementById('no_surat_in').innerHTML = data.no_surat_in
+            document.getElementById('ket_in').innerHTML = data.ket_in
+            document.getElementById('tgl_out_off').innerHTML = data.tgl_out_off
+            document.getElementById('no_surat_out').innerHTML = data.no_surat_out
+            document.getElementById('ket_out').innerHTML = data.ket_out
+
+            console.log(data)
+        },
+
+    })
+
+}
+$("#modalKet").on('hide.bs.modal', function (e) {
+    document.getElementById('tgl_in_off').innerHTML = '';
+    document.getElementById('no_surat_in').innerHTML = '';
+    document.getElementById('ket_in').innerHTML = '';
+    document.getElementById('tgl_out_off').innerHTML = '';
+    document.getElementById('no_surat_out').innerHTML = '';
+    document.getElementById('ket_out').innerHTML = '';
 });

@@ -71,7 +71,7 @@ $(document).ready(function () {
 
         destroy: true,
         "bPaginate": true,
-        "bLengthChange": false,
+        "bLengthChange": true,
         "bFilter": true,
         "bInfo": true,
         "bAutoWidth": true,
@@ -97,7 +97,7 @@ $(document).ready(function () {
                 "previous": "Sebelumnya"
             },
         },
-        "displayLength": 25,
+        "displayLength": 100,
         "ajax": {
             "url": BASE_URL + "skpd/json_pegawai",
         },
@@ -143,6 +143,7 @@ $(document).ready(function () {
                 "orderable": false,
                 "data": function (data,) {
                     return '<div class="text-center">' +
+                        '<a title="Detail"  onclick="detailPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-eye"></em></a>&nbsp;' +
                         '<a title="Edit"  onclick="editPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-edit-alt"></em></a>&nbsp;' +
                         '<a title="Reset Password" onclick="resetPeg(this)" data-id="' + data[6] + '" class="btn btn-outline-primary"><em class="icon ni ni-unlock-fill"></em></a>&nbsp;' +
                         '<a title="Urutkan" onclick="sortPeg(this)" data-id="' + data[6] + '"  data-sort="' + data[8] + '" class="btn btn-outline-primary"><em class="icon ni ni-sort-line"></em></a>&nbsp;' +
@@ -306,7 +307,7 @@ function showAbsensi() {
             },
 
         })
-        document.getElementById('btn_cetak_tpp').innerHTML = '<a  href="' + BASE_URL + 'skpd/rekap/view_absen_tpp/' + id_user_absen + '/' + bulan_absen + '/' + tahun_absen + '" class="btn btn-secondary">Lihat Skor Disiplin</a>'
+        document.getElementById('btn_cetak_tpp').innerHTML = '<a  target="_blank" href="' + BASE_URL + 'skpd/rekap/view_absen_tpp/' + id_user_absen + '/' + bulan_absen + '/' + tahun_absen + '" class="btn btn-secondary">Lihat Skor Disiplin</a>'
 
         $('#tabelAbsenPegawai').DataTable({
             processing: true,
@@ -505,19 +506,19 @@ function showRekap() {
 
     } else {
 
-        document.getElementById('btnCetak').innerHTML = ' <a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_tpp_asn_pdf/'+bulan_tpp+'/'+tahun_tpp+'" class="btn btn-outline-primary ">Cetak Rekap ASN</a>&nbsp;'
-            + '<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_absen_non_asn_tpp/'+bulan_tpp+'/'+tahun_tpp+'" class="btn btn-outline-primary ">Cetak Rekap NON ASN</a>&nbsp;'
-            + '<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_tpp_pdf/'+bulan_tpp+'/'+tahun_tpp+'" class="btn btn-outline-primary ">Cetak Rekap ASN & NON-ASN</a>&nbsp;'
+        document.getElementById('btnCetak').innerHTML = ' <a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_tpp_asn_pdf/' + bulan_tpp + '/' + tahun_tpp + '" class="btn btn-outline-primary ">Cetak Rekap ASN</a>&nbsp;'
+            + '<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_absen_non_asn_tpp/' + bulan_tpp + '/' + tahun_tpp + '" class="btn btn-outline-primary ">Cetak Rekap NON ASN</a>&nbsp;'
+            + '<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_tpp_pdf/' + bulan_tpp + '/' + tahun_tpp + '" class="btn btn-outline-primary ">Cetak Rekap ASN & NON-ASN</a>&nbsp;'
             + '<a onclick="refreshRekap()" class="btn btn-primary float-end">Refresh Data</a>&nbsp;'
         $('#tabelTPP').DataTable({
             processing: true,
             serverSide: true,
 
             destroy: true,
-            "bPaginate": false,
-            "bLengthChange": false,
-            "bFilter": false,
-            "bInfo": false,
+            "bPaginate": true,
+            "bLengthChange": true,
+            "bFilter": true,
+            "bInfo": true,
             "bAutoWidth": true,
             "columnDefs": [{
                 "visible": false,
@@ -568,151 +569,169 @@ function showRekap() {
 
                     }
                 },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[2] + '</div>'
+
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[3] + '</div>'
+
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[4] + '</div>'
+
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[5] + '</div>'
+
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[6] + '</div>'
+
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[7] + '</div>'
+
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[8] + '</div>'
+
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[9] + '</div>'
+
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[10] + '</div>'
+
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[11] + '</div>'
+
+                //     }
+                // },
+
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[12] + '</div>'
+
+                //     }
+                // }, {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[13] + '</div>'
+
+                //     }
+                // },
+
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[14] + '</div>'
+
+                //     }
+                // }, {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[15] + '</div>'
+
+                //     }
+                // },
                 {
                     "orderable": false,
                     "data": function (data,) {
-                        return '<div class="text-left">' + data[2] + '</div>'
+                        return '<div ><h5 class="text-danger text-center">' + data[18] + '</h5></div>'
 
                     }
                 },
                 {
                     "orderable": false,
                     "data": function (data,) {
-                        return '<div class="text-left">' + data[3] + '</div>'
+                        return '<div ><h5 class="text-success text-center">' + data[17] + '</h5></div>'
 
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[4] + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[5] + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[6] + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[7] + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[8] + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[9] + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[10] + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[11] + '</div>'
 
                     }
                 },
 
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[12] + '</div>'
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         var date = data[23];
+                //         var dateTime = new Date(date);
+                //         var formattedDateTime = addLeadingZero(dateTime.getDate()) + "-" +
+                //             addLeadingZero(dateTime.getMonth() + 1) + "-" +
+                //             dateTime.getFullYear() + " " +
+                //             addLeadingZero(dateTime.getHours()) + ":" +
+                //             addLeadingZero(dateTime.getMinutes()) + ":" +
+                //             addLeadingZero(dateTime.getSeconds());
+                //         return '<div class="text-left">' + formattedDateTime + '</div>'
 
-                    }
-                }, {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[13] + '</div>'
+                //     }
+                // },
+                // {
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-left">' + data[24] + '</div>'
 
-                    }
-                },
+                //     }
+                // },
+                // {
 
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[14] + '</div>'
+                //     "orderable": false,
+                //     "data": function (data,) {
+                //         return '<div class="text-center">' +
+                //             '<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_absen_tpp_pdf/' + data[1] + '/' + data[19] + '/' + data[20] + '" class="btn btn-sm btn-secondary mb-1">Detail </a>'
+                //             +'<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_absen_tpp_pdf/' + data[1] + '/' + data[19] + '/' + data[20] + '" class="btn btn-sm btn-secondary mb-1">Cetak Rincian Absensi </a>'
+                //             +'<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_absen_tpp/' + data[1] + '/' + data[19] + '/' + data[20] + '" class="btn btn-sm btn-primary mb-1">Cek Kesesuaian Rekap </a>'
+                //     }
+                // },
 
-                    }
-                }, {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[15] + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[16] + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[17] + '</div>'
-
-                    }
-                },
-
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        var date = data[23];
-                        var dateTime = new Date(date);
-                        var formattedDateTime = addLeadingZero(dateTime.getDate()) + "-" +
-                            addLeadingZero(dateTime.getMonth() + 1) + "-" +
-                            dateTime.getFullYear() + " " +
-                            addLeadingZero(dateTime.getHours()) + ":" +
-                            addLeadingZero(dateTime.getMinutes()) + ":" +
-                            addLeadingZero(dateTime.getSeconds());
-                        return '<div class="text-left">' + formattedDateTime + '</div>'
-
-                    }
-                },
-                {
-                    "orderable": false,
-                    "data": function (data,) {
-                        return '<div class="text-left">' + data[24] + '</div>'
-
-                    }
-                },
                 {
 
                     "orderable": false,
                     "data": function (data,) {
-                        return '<div class="text-center">' +
-                            '<a target="_blank" href="' + BASE_URL + '/skpd/rekap/view_absen_tpp_pdf/' + data[1] + '/' + data[19] + '/' + data[20] + '" class="btn btn-secondary mb-1">Cetak Rincian Absensi </a>&nbsp;'
-                            +'<a target="_blank" href="' + BASE_URL + '/skpd/rekap/view_absen_tpp/' + data[1] + '/' + data[19] + '/' + data[20] + '" class="btn btn-primary mb-1">Cek Kesesuaian Rekap </a>'
+                        return '<div class="dropdown center">'
+                            + '<a href="#" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false"><span>Aksi</span><em class="icon ni ni-chevron-down"></em></a>'
+                            + '<div class="dropdown-menu  mt-1" style="">'
+                            + '<ul class="link-list-plain">'
+                            + '<li><a style="cursor: pointer;" data-id="' + data[0] + '"  onclick="detailRekap(this)">Detail</a></li>'
+                            + '<li><a style="cursor: pointer;" target="_blank" href="' + BASE_URL + 'skpd/rekap/view_absen_tpp_pdf/' + data[1] + '/' + data[19] + '/' + data[20] + '">Cetak Rincian Absensi</a></li>'
+                            + '<li><a style="cursor: pointer;" target="_blank" href="' + BASE_URL + 'skpd/rekap/view_absen_tpp/' + data[1] + '/' + data[19] + '/' + data[20] + '">Cek Kesesuaian Rekap</a></li>'
+                            + '</ul>'
+                            + '</div>'
+                            + '</div>'
                     }
                 },
-
 
             ],
             rowCallback: function (row, data, iDisplayIndex) {
@@ -855,6 +874,158 @@ $('#formEditJadwalQr').on('submit', function (e) {
 
 function tambahPeg() {
     $('#modalTambahPeg').modal('show');
+}
+
+function detailRekap(elem) {
+    var id = $(elem).data("id");
+    $.ajax({
+        type: "get",
+        "url": BASE_URL + "skpd/get_tpp_by_id/" + id,
+        contentType: false,
+        dataType: "JSON",
+        async: true,
+        success: function (data) {
+            $('#detailRekap').modal('show');
+            document.getElementById('showTpp').innerHTML = ' <div class="row">' +
+                '<div class="col-6">' +
+                '<h4>' + data.name + '</h4>' +
+                '</div>' +
+                '<div class="col-6">' +
+                '<h4 class="float-end">' + konversiBulan(data.month) + ' ' + data.year + '</h4>' +
+                '</div>' +
+                '</div>' +
+                '<hr>' +
+                '<table class="table table-bordered table-striped">' +
+                '<tr>' +
+                '<td>' +
+                '<h6>TL 1 (' + data.tl1 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TL 2 (' + data.tl2 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TL 3 (' + data.tl3 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TL 4 (' + data.tl4 + '%)</h6>' +
+                '</td>' +
+                '</tr>' +
+
+                '<tr>' +
+                '<td>' +
+                '<h6>PSW 1 (' + data.psw1 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>PSW 2 (' + data.psw2 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>PSW 3 (' + data.psw3 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>PSW 4 (' + data.psw4 + '%)</h6>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>' +
+                '<h6>THKC 1 (' + data.thck1 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>THKC 2 (' + data.thck2 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>THKC 3 (' + data.thck3 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TK 4 (' + data.tk + '%)</h6>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>' +
+                '<h6>Tidak Upacara (' + data.tu + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>LHKPN/ LHKASN (' + data.lhkpn + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TPTGR (' + data.tptgr + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6 class="text-danger">PD (' + data.subtraction + '%)</h6>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td colspan="2" class="bg-dark">' +
+                '<h4 class="text-white">Total Skor DK (' + data.dk + '%)</h4>' +
+                '</td>' +
+                '<td>' +
+                '<h6>Terakhir update</h6> ' + konversiFormatTanggal(data.updated_at) + ' ' +
+                '</td>' +
+                '<td>' +
+                '<h6>Diupdate oleh<br></h6>' + data.updated_by + ' ' +
+                '</td>' +
+
+                '</tr>' +
+
+
+                '</table>'
+        },
+    })
+}
+
+function detailPeg(elem) {
+    var id = $(elem).data("id");
+
+
+    $.ajax({
+        type: "get",
+        "url": BASE_URL + "skpd/get_peg/" + id,
+        contentType: false,
+        dataType: "JSON",
+        async: true,
+        success: function (data) {
+            $('#pegDetail').modal('show');
+            document.getElementById('showDetailPeg').innerHTML = ' <div class="row">' +
+                '<div class="row">' +
+                '<div class="col-6">' +
+                '<div class="card-inner-group">' +
+                '<div class="card-inner">' +
+                '<div class="user-card user-card-s2">' +
+                '<img src="' + data.img + '" alt="" height="300">' +
+                '<div class="user-info">' +
+                '<h5>' + data.name + '</h5>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-6  bg-blue-dim">' +
+                '<div class="card-inner">' +
+                '<h6 class="overline-title mb-2">Detail</h6>' +
+                '<div class="row g-3">' +
+                '<div class="col-sm-6 col-md-4 col-lg-12">' +
+                '<span class="sub-text">NIP :</span>' +
+                '<span>' + data.nip + '</span>' +
+                '</div>' +
+                '<div class="col-sm-6 col-md-4 col-lg-12">' +
+                '<span class="sub-text">Status Pegawai :</span>' +
+                '<span>' + data.status_peg + '</span>' +
+                '</div>' +
+                '<div class="col-sm-6 col-md-4 col-lg-12">' +
+                '<span class="sub-text">Jabatan :</span>' +
+                '<span>' + data.jabatan + '</span>' +
+                '</div>' +
+                '<div class="col-sm-6 col-md-4 col-lg-12">' +
+                '<span class="sub-text">Email:</span>' +
+                '<span>' + data.email + '</span>' +
+                '</div>' +
+
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>'
+        },
+    })
 }
 
 $('#formTambahPeg').on('submit', function (e) {
@@ -1395,9 +1566,47 @@ function viewKeterangan(elem) {
         },
 
     })
-    return false;
+
 }
+$("#modalKet").on('hide.bs.modal', function (e) {
+    document.getElementById('tgl_in_off').innerHTML = '';
+    document.getElementById('no_surat_in').innerHTML = '';
+    document.getElementById('ket_in').innerHTML = '';
+    document.getElementById('tgl_out_off').innerHTML = '';
+    document.getElementById('no_surat_out').innerHTML = '';
+    document.getElementById('ket_out').innerHTML = '';
+});
+
 
 function addLeadingZero(number) {
     return number < 10 ? "0" + number : number;
+}
+
+var namaBulan = [
+    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+];
+
+// Fungsi untuk mengonversi angka menjadi nama bulan
+function konversiBulan(angkaBulan) {
+    return namaBulan[angkaBulan - 1];
+}
+
+function konversiFormatTanggal(tanggal) {
+    var tanggalObj = new Date(tanggal);
+
+    // Mendapatkan tanggal, bulan, dan tahun
+    var tanggalStr = ("0" + tanggalObj.getDate()).slice(-2);
+    var bulanStr = ("0" + (tanggalObj.getMonth() + 1)).slice(-2);
+    var tahunStr = tanggalObj.getFullYear();
+
+    // Mendapatkan jam, menit, dan detik
+    var jamStr = ("0" + tanggalObj.getHours()).slice(-2);
+    var menitStr = ("0" + tanggalObj.getMinutes()).slice(-2);
+    var detikStr = ("0" + tanggalObj.getSeconds()).slice(-2);
+
+    // Menggabungkan dalam format yang diinginkan
+    var formatTanggal = tanggalStr + "-" + bulanStr + "-" + tahunStr + " " + jamStr + ":" + menitStr + ":" + detikStr;
+
+    return formatTanggal;
 }

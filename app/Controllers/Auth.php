@@ -51,6 +51,17 @@ class Auth extends BaseController
                     session()->set('ses_id_unit', $user['id_unit']);
 
                     return redirect('qrscan');
+                } else if ($user['id_akses'] == '4') { //
+                    session()->set('login', true);
+
+                    session()->set('akses', '4');
+                    session()->set('hak_akses', $user['hak_akses']);
+                    session()->set('ses_id', $user['id']);
+                    session()->set('ses_user', $user['username']);
+                    session()->set('ses_nm', $user['nama']);
+                    session()->set('ses_id_unit', $user['id_unit']);
+
+                    return redirect('admin/dashboard');
                 }
             } else {
                 return redirect('login');

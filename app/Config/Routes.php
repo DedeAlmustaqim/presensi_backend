@@ -42,115 +42,137 @@ $routes->get('/auth/logout', 'Auth::logout');
 $routes->get('/', 'Auth::login');
 
 //Admin 
-$routes->get('admin/dashboard','Admin\Dashboard::index');
-$routes->get('admin/administrator','Admin\Pengaturan::administrator');
-$routes->get('admin/op_qr','Admin\Pengaturan::op_qr');
-$routes->get('admin/json_administrator','Admin\Pengaturan::json_administrator');
-$routes->get('admin/json_op_qr','Admin\Pengaturan::json_op_qr');
-$routes->post('admin/tambah_adm','Admin\Pengaturan::tambah_adm');
-$routes->post('admin/tambah_op_qr','Admin\Pengaturan::tambah_op_qr');
-$routes->get('admin/get_adm/(:alphanum)','Admin\Pengaturan::get_adm/$1');
-$routes->get('admin/get_op_qr/(:alphanum)','Admin\Pengaturan::get_op_qr/$1');
-$routes->post('admin/update_adm','Admin\Pengaturan::update_adm');
-$routes->post('admin/update_op_qr','Admin\Pengaturan::update_op_qr');
-$routes->post('admin/del_unit/(:alphanum)','Admin\Pengaturan::del_unit/$1');
-$routes->get('admin/unit','Admin\Pengaturan::unit');
-$routes->get('admin/json_unit','Admin\Pengaturan::json_unit');
-$routes->get('admin/json_user/(:alphanum)','Admin\Pengaturan::json_user/$1');
-$routes->post('admin/tambah_unit','Admin\Pengaturan::tambah_unit');
-$routes->get('admin/get_unit/(:alphanum)','Admin\Pengaturan::get_unit/$1');
-$routes->post('admin/update_unit','Admin\Pengaturan::update_unit');
-$routes->post('admin/del_unit/(:alphanum)','Admin\Pengaturan::del_unit/$1');
-$routes->post('admin/reset_adm/(:alphanum)','Admin\Pengaturan::reset_adm/$1');
-$routes->post('admin/reset_op/(:alphanum)','Admin\Pengaturan::reset_op/$1');
-$routes->get('admin/get_adm/(:alphanum)','Admin\Pengaturan::get_adm/$1');
-$routes->get('admin/config','Admin\Pengaturan::config');
-$routes->get('admin/user','Admin\Pengaturan::user');
-$routes->post('admin/update_config','Admin\Pengaturan::update_config');
-$routes->get('admin/get_config','Admin\Pengaturan::get_config');
+$routes->group('admin',  function ($routes) {
+    $routes->get('dashboard', 'Admin\Dashboard::index', ['filter' => 'checkaccessadminviewer']);
+    $routes->get('administrator', 'Admin\Pengaturan::administrator', ['filter' => 'checkaccessadmin']);
+    $routes->get('op_qr', 'Admin\Pengaturan::op_qr', ['filter' => 'checkaccessadmin']);
+    $routes->get('json_administrator', 'Admin\Pengaturan::json_administrator', ['filter' => 'checkaccessadmin']);
+    $routes->get('json_op_qr', 'Admin\Pengaturan::json_op_qr', ['filter' => 'checkaccessadmin']);
+    $routes->post('tambah_adm', 'Admin\Pengaturan::tambah_adm', ['filter' => 'checkaccessadmin']);
+    $routes->post('tambah_op_qr', 'Admin\Pengaturan::tambah_op_qr', ['filter' => 'checkaccessadmin']);
+    $routes->get('get_adm/(:alphanum)', 'Admin\Pengaturan::get_adm/$1', ['filter' => 'checkaccessadmin']);
+    $routes->get('get_op_qr/(:alphanum)', 'Admin\Pengaturan::get_op_qr/$1', ['filter' => 'checkaccessadmin']);
+    $routes->post('update_adm', 'Admin\Pengaturan::update_adm', ['filter' => 'checkaccessadmin']);
+    $routes->post('update_op_qr', 'Admin\Pengaturan::update_op_qr', ['filter' => 'checkaccessadmin']);
+    $routes->post('del_unit/(:alphanum)', 'Admin\Pengaturan::del_unit/$1', ['filter' => 'checkaccessadmin']);
+    $routes->get('unit', 'Admin\Pengaturan::unit', ['filter' => 'checkaccessadmin']);
+    $routes->get('json_unit', 'Admin\Pengaturan::json_unit', ['filter' => 'checkaccessadmin']);
+    $routes->get('json_user/(:alphanum)', 'Admin\Pengaturan::json_user/$1', ['filter' => 'checkaccessadminviewer']);
+    $routes->post('tambah_unit', 'Admin\Pengaturan::tambah_unit', ['filter' => 'checkaccessadmin']);
+    $routes->get('get_unit/(:alphanum)', 'Admin\Pengaturan::get_unit/$1', ['filter' => 'checkaccessadmin']);
+    $routes->post('update_unit', 'Admin\Pengaturan::update_unit', ['filter' => 'checkaccessadmin']);
+    $routes->post('del_unit/(:alphanum)', 'Admin\Pengaturan::del_unit/$1', ['filter' => 'checkaccessadmin']);
+    $routes->post('reset_adm/(:alphanum)', 'Admin\Pengaturan::reset_adm/$1', ['filter' => 'checkaccessadmin']);
+    $routes->post('reset_op/(:alphanum)', 'Admin\Pengaturan::reset_op/$1', ['filter' => 'checkaccessadmin']);
+    $routes->get('config', 'Admin\Pengaturan::config', ['filter' => 'checkaccessadmin']);
+    $routes->get('user', 'Admin\Pengaturan::user', ['filter' => 'checkaccessadminviewer']);
+    $routes->post('update_config', 'Admin\Pengaturan::update_config');
+    $routes->get('get_config', 'Admin\Pengaturan::get_config', ['filter' => 'checkaccessadmin']);
+    $routes->get('date_to_skip', 'Admin\DatetoSkipController::index', ['filter' => 'checkaccessadminviewer']);
+    $routes->get('json_date_to_skip', 'Admin\DatetoSkipController::json_date_to_skip', ['filter' => 'checkaccessadminviewer']);
+    $routes->post('add_date_to_skip', 'Admin\DatetoSkipController::add_date_to_skip', ['filter' => 'checkaccessadmin']);
+    $routes->get('get_peg/(:alphanum)', 'Admin\Pengaturan::get_peg/$1', ['filter' => 'checkaccessadminviewer']);
 
-//Banner
-$routes->get('admin/banner','Admin\Banner::index');
-$routes->get('admin/json_banner','Admin\Banner::json_banner');
-$routes->post('admin/add_banner','Admin\Banner::add_banner');
-$routes->post('admin/del_banner/(:alphanum)','Admin\Banner::del_banner/$1');
+    //Banner
+    $routes->get('banner', 'Admin\Banner::index', ['filter' => 'checkaccessadmin']);
+    $routes->get('json_banner', 'Admin\Banner::json_banner', ['filter' => 'checkaccessadmin']);
+    $routes->post('add_banner', 'Admin\Banner::add_banner', ['filter' => 'checkaccessadmin']);
+    $routes->post('del_banner/(:alphanum)', 'Admin\Banner::del_banner/$1', ['filter' => 'checkaccessadmin']);
 
-//Banner
-$routes->get('admin/notif','Admin\NotifController::index');
-$routes->get('admin/json_notif','Admin\NotifController::json_notif');
-$routes->post('admin/add_notif','Admin\NotifController::add_notif');
-$routes->post('admin/update_notif','Admin\NotifController::update_notif');
-$routes->get('admin/get_notif/(:alphanum)','Admin\NotifController::get_notif/$1');
-$routes->post('admin/del_notif/(:alphanum)','Admin\NotifController::del_notif/$1');
+    //Notif
+    $routes->get('notif', 'Admin\NotifController::index', ['filter' => 'checkaccessadmin']);
+    $routes->get('json_notif', 'Admin\NotifController::json_notif', ['filter' => 'checkaccessadmin']);
+    $routes->post('add_notif', 'Admin\NotifController::add_notif', ['filter' => 'checkaccessadmin']);
+    $routes->post('update_notif', 'Admin\NotifController::update_notif', ['filter' => 'checkaccessadmin']);
+    $routes->get('get_notif/(:alphanum)', 'Admin\NotifController::get_notif/$1', ['filter' => 'checkaccessadmin']);
+    $routes->post('del_notif/(:alphanum)', 'Admin\NotifController::del_notif/$1', ['filter' => 'checkaccessadmin']);
 
-//Date to Skip
-$routes->get('admin/date_to_skip','Admin\DatetoSkipController::index');
-$routes->get('admin/json_date_to_skip','Admin\DatetoSkipController::json_date_to_skip');
-$routes->post('admin/add_date_to_skip','Admin\DatetoSkipController::add_date_to_skip');
-//SKPD
-$routes->get('skpd/dashboard','Skpd\Dashboard::index');
-$routes->get('skpd/unit','Skpd\Pengaturan::unit');
-$routes->get('skpd/get_unit/(:alphanum)','Skpd\Pengaturan::get_unit/$1');
-$routes->post('skpd/update_unit','Skpd\Pengaturan::update_unit');
-$routes->get('skpd/jadwal','Skpd\Pengaturan::jadwal');
-$routes->get('skpd/get_jadwal/(:alphanum)','Skpd\Pengaturan::get_jadwal/$1');
-$routes->post('skpd/update_jadwal','Skpd\Pengaturan::update_jadwal');
-$routes->post('skpd/reset_pass_skpd','Skpd\Pengaturan::reset_pass_skpd');
-$routes->post('skpd/reset_pass_qr','Skpd\Pengaturan::reset_pass_qr');
-
-//PEGAWAI
-$routes->get('skpd/pegawai','Skpd\Pegawai::index');
-$routes->get('skpd/json_pegawai','Skpd\Pegawai::json_pegawai');
-$routes->post('skpd/show_user_report','Skpd\Pegawai::show_user_report');
-$routes->post('skpd/tambah_peg','Skpd\Pegawai::tambah_peg');
-$routes->post('skpd/del_peg/(:alphanum)','Skpd\Pegawai::del_peg/$1');
-$routes->get('skpd/get_peg/(:alphanum)','Skpd\Pegawai::get_peg/$1');
-$routes->post('skpd/update_peg','Skpd\Pegawai::update_peg');
-$routes->post('skpd/sort_peg','Skpd\Pegawai::sort_peg');
-$routes->post('skpd/ress_pass/(:alphanum)','Skpd\Pegawai::ress_pass/$1');
-$routes->post('skpd/del_check_in/(:alphanum)','Skpd\Pegawai::del_check_in/$1');
-$routes->post('skpd/del_check_out/(:alphanum)','Skpd\Pegawai::del_check_out/$1');
-$routes->post('skpd/del_absen/(:alphanum)','Skpd\Pegawai::del_absen/$1');
-
-//Absensi
-$routes->get('skpd/absensi','Skpd\Absensi::index');
-$routes->get('skpd/json_absensi/(:alphanum)/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Absensi::json_absensi/$1/$2/$3/$4');
-$routes->get('skpd/get_upacara/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Absensi::get_upacara/$1/$2/$3');
-$routes->get('skpd/get_subtraction/(:alphanum)','Skpd\Absensi::get_subtraction/$1');
-$routes->post('skpd/subtraction','Skpd\Absensi::subtraction');
-$routes->post('skpd/posted_tpp','Skpd\Absensi::posted_tpp');
-$routes->post('skpd/get_ket','Skpd\Absensi::get_ket');
+    $routes->get('absensi', 'Admin\Absensi::index', ['filter' => 'checkaccessadminviewer']);
+    $routes->get('get_user_dropdwon/(:alphanum)', 'Admin\Absensi::get_user/$1', ['filter' => 'checkaccessadminviewer']);
+    $routes->get('json_absensi/(:alphanum)/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Absensi::json_absensi/$1/$2/$3/$4', ['filter' => 'checkaccessadminviewer']);
+    $routes->get('get_upacara/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Absensi::get_upacara/$1/$2/$3');
+    $routes->get('get_subtraction/(:alphanum)', 'Admin\Absensi::get_subtraction/$1');
+    $routes->post('subtraction', 'Admin\Absensi::subtraction');
+    $routes->post('posted_tpp', 'Admin\Absensi::posted_tpp');
+    $routes->post('get_ket', 'Admin\Absensi::get_ket');
+    $routes->get('get_tpp_by_id/(:alphanum)', 'Admin\Absensi::get_tpp_by_id/$1');
+});
 
 
 
-//Rekap
 
-$routes->get('skpd/rekap/pegawai','Skpd\Rekap::rekap_pegawai');
-$routes->get('skpd/rekap/json_rekap/(:alphanum)/(:alphanum)','Skpd\Rekap::json_rekap/$1/$2');
-$routes->get('skpd/rekap/view_absen/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen/$1/$2/$3');
-$routes->get('skpd/rekap/view_absen_tpp/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen_tpp/$1/$2/$3');
-$routes->get('skpd/rekap/view_absen_tpp_pdf/(:alphanum)/(:alphanum)/(:alphanum)','Skpd\Rekap::view_absen_tpp_pdf/$1/$2/$3');
-$routes->get('skpd/rekap/view_rekap_tpp_pdf/(:alphanum)/(:alphanum)','Skpd\Rekap::view_rekap_tpp_pdf/$1/$2');
-$routes->get('skpd/rekap/view_rekap_absen_non_asn_tpp/(:alphanum)/(:alphanum)','Skpd\Rekap::view_rekap_absen_non_asn_tpp/$1/$2');
-$routes->get('skpd/rekap/view_rekap_tpp_asn_pdf/(:alphanum)/(:alphanum)','Skpd\Rekap::view_rekap_tpp_asn_pdf/$1/$2');
 
+
+
+// SKPD
+$routes->group('skpd',  ['filter' => 'checkaccessskpd'], function($routes) {
+    $routes->get('dashboard', 'Skpd\Dashboard::index');
+    $routes->get('unit', 'Skpd\Pengaturan::unit');
+    $routes->get('get_unit/(:alphanum)', 'Skpd\Pengaturan::get_unit/$1');
+    $routes->post('update_unit', 'Skpd\Pengaturan::update_unit');
+    $routes->get('jadwal', 'Skpd\Pengaturan::jadwal');
+    $routes->get('get_jadwal/(:alphanum)', 'Skpd\Pengaturan::get_jadwal/$1');
+    $routes->post('update_jadwal', 'Skpd\Pengaturan::update_jadwal');
+    $routes->post('reset_pass_skpd', 'Skpd\Pengaturan::reset_pass_skpd');
+    $routes->post('reset_pass_qr', 'Skpd\Pengaturan::reset_pass_qr');
+
+    // PEGAWAI
+    $routes->get('pegawai', 'Skpd\Pegawai::index');
+    $routes->get('json_pegawai', 'Skpd\Pegawai::json_pegawai');
+    $routes->post('show_user_report', 'Skpd\Pegawai::show_user_report');
+    $routes->post('tambah_peg', 'Skpd\Pegawai::tambah_peg');
+    $routes->post('del_peg/(:alphanum)', 'Skpd\Pegawai::del_peg/$1');
+    $routes->get('get_peg/(:alphanum)', 'Skpd\Pegawai::get_peg/$1');
+    $routes->post('update_peg', 'Skpd\Pegawai::update_peg');
+    $routes->post('sort_peg', 'Skpd\Pegawai::sort_peg');
+    $routes->post('ress_pass/(:alphanum)', 'Skpd\Pegawai::ress_pass/$1');
+    $routes->post('del_check_in/(:alphanum)', 'Skpd\Pegawai::del_check_in/$1');
+    $routes->post('del_check_out/(:alphanum)', 'Skpd\Pegawai::del_check_out/$1');
+    $routes->post('del_absen/(:alphanum)', 'Skpd\Pegawai::del_absen/$1');
+
+    // ABSENSI
+    $routes->get('absensi', 'Skpd\Absensi::index');
+    $routes->get('json_absensi/(:alphanum)/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Absensi::json_absensi/$1/$2/$3/$4');
+    $routes->get('get_upacara/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Absensi::get_upacara/$1/$2/$3');
+    $routes->get('get_subtraction/(:alphanum)', 'Skpd\Absensi::get_subtraction/$1');
+    $routes->post('subtraction', 'Skpd\Absensi::subtraction');
+    $routes->post('posted_tpp', 'Skpd\Absensi::posted_tpp');
+   
+    $routes->get('get_tpp_by_id/(:alphanum)', 'Skpd\Absensi::get_tpp_by_id/$1');
+
+    // REKAP
+    
+});
+
+$routes->post('skpd/get_ket', 'Skpd\Absensi::get_ket', ['filter' => 'checkaccessadminskpdviewer']);
+
+$routes->group('skpd/rekap', function($routes) {
+    $routes->get('pegawai', 'Skpd\Rekap::rekap_pegawai', ['filter' => 'checkaccessadminskpdviewer']);
+    $routes->get('json_rekap/(:alphanum)/(:alphanum)', 'Skpd\Rekap::json_rekap/$1/$2', ['filter' => 'checkaccessadminskpdviewer']);
+    $routes->get('view_absen/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_absen/$1/$2/$3', ['filter' => 'checkaccessadminskpdviewer']);
+    $routes->get('view_absen_tpp/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_absen_tpp/$1/$2/$3', ['filter' => 'checkaccessadminskpdviewer']);
+    $routes->get('view_absen_tpp_pdf/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_absen_tpp_pdf/$1/$2/$3', ['filter' => 'checkaccessadminskpdviewer']);
+    $routes->get('view_rekap_tpp_pdf/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_rekap_tpp_pdf/$1/$2', ['filter' => 'checkaccessadminskpdviewer']);
+    $routes->get('view_rekap_absen_non_asn_tpp/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_rekap_absen_non_asn_tpp/$1/$2', ['filter' => 'checkaccessadminskpdviewer']);
+    $routes->get('view_rekap_tpp_asn_pdf/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_rekap_tpp_asn_pdf/$1/$2', ['filter' => 'checkaccessadminskpdviewer']);
+});
 
 //API
-$routes->get('api/getqr/(:alphanum)','Api\Qrscan::GetQr/$1');
-$routes->get('api/banner','Api\Resource::banner_promo');
-$routes->post('api/post_qr','Api\QrScan::post_qr');
-$routes->post('api/cek_qr','Api\QrScan::cek_qr');
-$routes->post('api/post_qr_out','Api\QrScan::post_qr_out');
-$routes->post('api/get_user','Api\User::get_user');
-$routes->post('api/get_rekap','Api\User::get_rekap');
-$routes->post('api/get_ijin','Api\User::get_ijin');
-$routes->post('api/post_ijin','Api\User::post_ijin');
-$routes->post('api/jadwal','Api\Resource::jadwal');
-$routes->post('api/get_pagi','Api\Resource::get_pagi_absen');
-$routes->post('api/get_unit','Api\Resource::get_unit');
-$routes->post('api/login', 'Api\AuthController::login',['filter'=>'cors']);
+$routes->get('api/getqr/(:alphanum)', 'Api\Qrscan::GetQr/$1');
+$routes->get('api/banner', 'Api\Resource::banner_promo');
+$routes->post('api/post_qr', 'Api\QrScan::post_qr');
+$routes->post('api/cek_qr', 'Api\QrScan::cek_qr');
+$routes->post('api/post_qr_out', 'Api\QrScan::post_qr_out');
+$routes->post('api/get_user', 'Api\User::get_user');
+$routes->post('api/get_rekap', 'Api\User::get_rekap');
+$routes->post('api/get_ijin', 'Api\User::get_ijin');
+$routes->post('api/post_ijin', 'Api\User::post_ijin');
+$routes->post('api/jadwal', 'Api\Resource::jadwal');
+$routes->post('api/get_pagi', 'Api\Resource::get_pagi_absen');
+$routes->post('api/get_unit', 'Api\Resource::get_unit');
+$routes->post('api/login', 'Api\AuthController::login', ['filter' => 'cors']);
 
-$routes->get('api/broadcast','Api\Broadcast::index');
+$routes->get('api/broadcast', 'Api\Broadcast::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

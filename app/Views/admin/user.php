@@ -144,4 +144,22 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="ModalPegDetail">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detail Pegawai</h5>
+                <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <em class="icon ni ni-cross"></em>
+                </a>
+            </div>
+            <div class="modal-body">
+                
+                <div id="showDetailPegAdmin"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <?= $this->endSection() ?>

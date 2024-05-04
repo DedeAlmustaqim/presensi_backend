@@ -23,6 +23,10 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
 
         'cors' => \App\Filters\CorsFilter::class,
+        'checkaccessadmin' => \App\Filters\CheckAccessAdmin::class,
+        'checkaccessadminviewer' => \App\Filters\CheckAccessAdminViewer::class,
+        'checkaccessskpd' => \App\Filters\CheckAccessSkpd::class,
+        'checkaccessadminskpdviewer' => \App\Filters\CheckAccessAdminSkpdViewer::class,
     ];
 
     /**

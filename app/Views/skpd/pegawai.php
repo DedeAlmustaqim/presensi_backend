@@ -4,8 +4,7 @@
 <div class="card card-bordered">
 
     <div class="card-inner">
-        <a onclick="tambahPeg()" class="btn btn-primary mb-1">Tambah Pegawai</a>
-        <hr>
+
 
         <div class="table-responsive">
             <table class="table table-bordered" id="tabelPegawai" aria-describedby="DataTables_Table_0_info">
@@ -53,7 +52,7 @@
                     <div class="form-group">
                         <label class="form-label" for="full-name">Email</label>
                         <div class="form-control-wrap">
-                            <input type="email" class="form-control" id="email_peg" name="email_peg" required >
+                            <input type="email" class="form-control" id="email_peg" name="email_peg" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -216,5 +215,22 @@
     </div>
 </div>
 
+<!-- Modal Form -->
+<div class="modal fade" id="pegDetail">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detail Pegawai</h5>
+                <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <em class="icon ni ni-cross"></em>
+                </a>
+            </div>
+            <div class="modal-body">
+                
+                <div id="showDetailPeg"></div>
+            </div>
 
+        </div>
+    </div>
+</div>
 <?= $this->endSection() ?>

@@ -30,17 +30,27 @@
                         </a>
 
                     </li>
+                    <li class="nk-menu-item has-sub">
+                        <a href="<?php echo base_url() ?>/admin/absensi" class="nk-menu-link"><span class="nk-menu-text">Data Absensi Pegawai</span></a>
 
+                    </li>
+                    <li class="nk-menu-item has-sub">
+                        <a href="<?php echo base_url() ?>/admin/rekap/pegawai" class="nk-menu-link"><span class="nk-menu-text">Rekapitulasi</span></a>
+
+                    </li>
                     <!-- .nk-menu-item -->
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-text">Pengaturan</span>
                         </a>
                         <ul class="nk-menu-sub">
-
+                        <?php if (session('akses') == 1) {
+                                        ?>
                             <li class="nk-menu-item">
+                                
                                 <a href="<?php echo base_url() ?>/admin/unit" class="nk-menu-link"><span class="nk-menu-text">SKPD</span></a>
                             </li>
+                            <?php } ?>
 
                             <li class="nk-menu-item has-sub">
                                 <a href="#" class="nk-menu-link nk-menu-toggle">
@@ -49,16 +59,27 @@
                                 <ul class="nk-menu-sub">
                                     <li class="nk-menu-item">
                                         <a href="<?php echo base_url() ?>/admin/user" class="nk-menu-link"><span class="nk-menu-text">Pegawai</span></a>
-                                        <a href="<?php echo base_url() ?>/admin/administrator" class="nk-menu-link"><span class="nk-menu-text">Admin SKPD</span></a>
-                                        <a href="<?php echo base_url() ?>/admin/op_qr" class="nk-menu-link"><span class="nk-menu-text">Operator Kode QR</span></a>
+
+                                        <?php if (session('akses') == 1) {
+                                        ?>
+                                            <a href="<?php echo base_url() ?>/admin/administrator" class="nk-menu-link"><span class="nk-menu-text">Admin SKPD</span></a>
+                                            <a href="<?php echo base_url() ?>/admin/op_qr" class="nk-menu-link"><span class="nk-menu-text">Operator Kode QR</span></a>
+
+                                        <?php
+                                        } ?>
 
                                     </li>
                                 </ul><!-- .nk-menu-sub -->
 
                             </li>
-                            <li class="nk-menu-item">
-                                <a href="<?php echo base_url() ?>/admin/config" class="nk-menu-link"><span class="nk-menu-text">Umum</span></a>
-                            </li>
+                            
+                            <?php if (session('akses') == 1) {
+                            ?>
+                                <li class="nk-menu-item">
+                                    <a href="<?php echo base_url() ?>/admin/config" class="nk-menu-link"><span class="nk-menu-text">Umum</span></a>
+                                </li>
+                            <?php
+                            } ?>
                             <li class="nk-menu-item">
                                 <a href="<?php echo base_url() ?>/admin/date_to_skip" class="nk-menu-link"><span class="nk-menu-text">Hari Libur</span></a>
                             </li>
@@ -66,9 +87,10 @@
                         </ul><!-- .nk-menu-sub -->
 
                     </li><!-- .nk-menu-item -->
-
-
-                    <li class="nk-menu-item has-sub">
+                    
+                    <?php if (session('akses') == 1) {
+                            ?>
+                                <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-text">ATEI Utility</span>
                         </a>
@@ -87,6 +109,10 @@
                         </ul><!-- .nk-menu-sub -->
 
                     </li><!-- .nk-menu-item -->
+                            <?php
+                            } ?>
+
+                    
 
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-header-menu -->
