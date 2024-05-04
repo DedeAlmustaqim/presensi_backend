@@ -359,6 +359,7 @@ class Rekap extends BaseController
         $dompdf->stream($unit->nm_unit .'Rekap ASN & NON-ASN'. '_' . bulan($month) . '_' . $year . '.pdf', [
             'Attachment' => false
         ]);
+        exit();
     }
 
     public function view_rekap_tpp_asn_pdf($month, $year)
@@ -437,6 +438,7 @@ class Rekap extends BaseController
         $dompdf->stream($unit->nm_unit .'Rekap ASN'. '_' . bulan($month) . '_' . $year . '.pdf', [
             'Attachment' => false
         ]);
+        exit();
     }
 
     public function view_rekap_absen_non_asn_tpp($month, $year)
@@ -515,5 +517,6 @@ class Rekap extends BaseController
         $dompdf->stream($unit->nm_unit . '_' . bulan($month) . '_' . $year . '.pdf', [
             'Attachment' => false
         ]);
+        exit();
     }
 }
