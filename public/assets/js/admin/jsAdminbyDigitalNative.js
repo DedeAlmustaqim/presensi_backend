@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $('#skpd_adm').change(function () {
         var id = $(this).val();
-        
+
         $.ajax({
             type: "get",
             "url": BASE_URL + "admin/get_user_dropdwon/" + id,
@@ -12,7 +12,7 @@ $(document).ready(function () {
             dataType: "JSON",
             success: function (data) {
                 $('#user_adm').empty(); // Mengosongkan opsi sebelum menambahkan opsi baru
-                $.each(data, function(key, value) {
+                $.each(data, function (key, value) {
                     $('#user_adm').append('<option value="' + value.id + '">' + value.name + '</option>'); // Menambahkan opsi baru
                 });
             },
@@ -33,6 +33,26 @@ $(document).ready(function () {
     });
     $('#user_adm').change(function () {
         showAbsensi()
+
+    });
+
+
+    $('#id_unit_rekap_adm').change(function () {
+
+
+        showRekap()
+
+    });
+    $('#tahun_tpp_adm').change(function () {
+
+
+        showRekap()
+
+    });
+    $('#bulan_tpp_adm').change(function () {
+
+
+        showRekap()
 
     });
 
@@ -638,6 +658,98 @@ $(document).ready(function () {
 
     });
 
+    $('#TabelLogger').DataTable({
+        processing: true,
+        serverSide: true,
+
+        destroy: true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bInfo": true,
+        "bAutoWidth": true,
+        "columnDefs": [{
+            "visible": false,
+
+        }],
+        "order": [
+            [0, 'asc']
+        ],
+
+        "language": {
+            "lengthMenu": "Tampilkan _MENU_ item per halaman",
+            "zeroRecords": "Tidak ada data yang ditampilkan",
+            "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Tidak ada data yang ditampilkan",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "search": "Cari ",
+            "paginate": {
+                "first": "Awal",
+                "last": "Akhir",
+                "next": "Selanjutnya",
+                "previous": "Sebelumnya"
+            },
+        },
+        "displayLength": 25,
+        "ajax": {
+
+            "url": BASE_URL + "admin/json_logger",
+            // "dataSrc": "data",
+            // "dataType": "json",
+        },
+        "columns": [
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[0] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[1] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[2] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[3] + '</div>'
+
+                }
+            },
+            {
+                "orderable": false,
+                "data": function (data,) {
+                    return '<div class="text-left">' + data[4] + '</div>'
+
+                }
+            },
+
+
+            
+
+
+        ],
+        rowCallback: function (row, data, iDisplayIndex) {
+            var info = this.fnPagingInfo();
+            var page = info.iPage;
+            var length = info.iLength;
+            var index = page * length + (iDisplayIndex + 1);
+            $('td:eq(0)', row).html(index);
+        },
+
+
+    });
+
 })
 
 function showAbsensi() {
@@ -689,7 +801,7 @@ function showAbsensi() {
             },
 
         })
-        document.getElementById('btn_cetak_tpp').innerHTML = '<a target="_blank"  href="' + BASE_URL + 'skpd/rekap/view_absen_tpp/' + id_user_absen + '/' + bulan_absen + '/' + tahun_absen + '" class="btn btn-secondary">Lihat Skor Disiplin</a>'
+        document.getElementById('btn_cetak_tpp').innerHTML = '<a target="_blank"  href="' + BASE_URL + 'rekapitulasi/view_absen_tpp/' + id_user_absen + '/' + bulan_absen + '/' + tahun_absen + '" class="btn btn-secondary">Lihat Skor Disiplin</a>'
 
         $('#tabelAbsenPegawaiAdmin').DataTable({
             processing: true,
@@ -2049,3 +2161,308 @@ $("#modalKet").on('hide.bs.modal', function (e) {
     document.getElementById('no_surat_out').innerHTML = '';
     document.getElementById('ket_out').innerHTML = '';
 });
+
+$('#tahun_absen').change(function () {
+
+
+    showAbsensi()
+
+});
+
+
+
+function showRekap() {
+    var id = $('#id_unit_rekap_adm').val()
+    var tahun_tpp = $('#tahun_tpp_adm').val()
+    var bulan_tpp = $('#bulan_tpp_adm').val()
+
+    console.log(id)
+
+    toastr.clear();
+    if (id == "") {
+        NioApp.Toast('<h5>SKPD tidak boleh Kosong</h5><p class="text-danger"></p>', 'error');
+    }
+    if (tahun_tpp == "") {
+        NioApp.Toast('<h5>Tahun tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+    }
+    else if (bulan_tpp == "") {
+        NioApp.Toast('<h5>Bulan tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
+
+    } else {
+
+        $.ajax({
+            type: "get",
+            "url": BASE_URL + "rekapitulasi/get_count_peg/" + id + "/" + bulan_tpp + "/" + tahun_tpp,
+
+            contentType: false,
+            dataType: "JSON",
+            async: true,
+            processData: false,
+            contentType: false,
+            data: {
+                month: bulan_tpp,
+                year: tahun_tpp,
+            },
+
+            success: function (data) {
+                document.getElementById('showCountAdm').innerHTML = '<div class="user-activity-group g-4">' +
+                    '<div class="user-activity">' +
+                    '<em class="icon ni ni-users"></em>' +
+                    '<div class="info">' +
+                    '<span class="amount">' + data.user_skpd + '</span>' +
+                    '<span class="title">Total Pegawai</span>' +
+                    '</div>' +
+
+                    '</div>' +
+                    '<div class="user-activity">' +
+                    '<em class="icon ni ni-users"></em>' +
+                    '<div class="info">' +
+                    '<span class="amount text-success">' + data.user_tpp + '</span>' +
+                    '<span class="title">Diterbitkan</span>' +
+                    '</div>' +
+
+                    '</div>' +
+                    '<div class="user-activity">' +
+                    '<em class="icon ni ni-users"></em>' +
+                    '<div class="info">' +
+                    '<span class="amount text-danger">' + data.user_tpp_unpublish + '</span>' +
+                    '<span class="title">Belum Terbit</span>' +
+                    '</div>' +
+
+                    '</div>' +
+                    '</div>'
+            },
+        })
+
+        document.getElementById('btnCetak').innerHTML = ' <a target="_blank" href="' + BASE_URL + 'rekapitulasi/view_rekap_tpp_asn_pdf/' + bulan_tpp + '/' + tahun_tpp + '/' + id + '" class="btn btn-outline-primary ">Cetak Rekap ASN</a>&nbsp;'
+            + '<a target="_blank" href="' + BASE_URL + 'rekapitulasi/view_rekap_absen_non_asn_tpp/' + bulan_tpp + '/' + tahun_tpp + '/' + id + '" class="btn btn-outline-primary ">Cetak Rekap NON ASN</a>&nbsp;'
+            + '<a target="_blank" href="' + BASE_URL + 'rekapitulasi/view_rekap_tpp_pdf/' + bulan_tpp + '/' + tahun_tpp + '/' + id + '" class="btn btn-outline-primary ">Cetak Rekap ASN & NON-ASN</a>&nbsp;'
+            + '<a onclick="refreshRekap()" class="btn btn-primary float-end">Refresh Data</a>&nbsp;'
+        $('#tabelTPPAdmin').DataTable({
+            processing: true,
+            serverSide: true,
+
+            destroy: true,
+            "bPaginate": true,
+            "bLengthChange": true,
+            "bFilter": true,
+            "bInfo": true,
+            "bAutoWidth": true,
+            "columnDefs": [{
+                "visible": false,
+
+            }],
+            "order": [
+                [0, 'asc']
+            ],
+
+            "language": {
+                "lengthMenu": "Tampilkan _MENU_ item per halaman",
+                "zeroRecords": "Tidak ada data yang ditampilkan",
+                "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+                "infoEmpty": "Tidak ada data yang ditampilkan",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Cari",
+                "paginate": {
+                    "first": "Awal",
+                    "last": "Akhir",
+                    "next": "Selanjutnya",
+                    "previous": "Sebelumnya"
+                },
+            },
+            "displayLength": 100,
+            "ajax": {
+                "url": BASE_URL + "rekapitulasi/json_rekap/" + bulan_tpp + "/" + tahun_tpp + "/" + id,
+            },
+            "columns": [
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[0] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[21] + '</div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="text-left">' + data[22] + '</div>'
+
+                    }
+                },
+
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div ><h5 class="text-danger text-center">' + data[18] + '</h5></div>'
+
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div ><h5 class="text-success text-center">' + data[17] + '</h5></div>'
+
+
+                    }
+                },
+
+
+
+                {
+
+                    "orderable": false,
+                    "data": function (data,) {
+                        return '<div class="dropdown center">'
+                            + '<a href="#" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false"><span>Aksi</span><em class="icon ni ni-chevron-down"></em></a>'
+                            + '<div class="dropdown-menu  mt-1" style="">'
+                            + '<ul class="link-list-plain">'
+                            + '<li><a style="cursor: pointer;" data-id="' + data[0] + '"  onclick="detailRekap(this)">Detail</a></li>'
+                            + '<li><a style="cursor: pointer;" target="_blank" href="' + BASE_URL + 'rekapitulasi/view_absen_tpp_pdf/' + data[1] + '/' + data[19] + '/' + data[20] + '">Cetak Rincian Absensi</a></li>'
+                            + '<li><a style="cursor: pointer;" target="_blank" href="' + BASE_URL + 'rekapitulasi/view_absen_tpp/' + data[1] + '/' + data[19] + '/' + data[20] + '">Cek Kesesuaian Rekap</a></li>'
+                            + '</ul>'
+                            + '</div>'
+                            + '</div>'
+                    }
+                },
+
+            ],
+            rowCallback: function (row, data, iDisplayIndex) {
+                var info = this.fnPagingInfo();
+                var page = info.iPage;
+                var length = info.iLength;
+                var index = page * length + (iDisplayIndex + 1);
+                $('td:eq(0)', row).html(index);
+            },
+
+
+        });
+    }
+
+}
+
+function refreshAbsensi() {
+    showAbsensi()
+}
+
+function konversiFormatTanggal(tanggal) {
+    var tanggalObj = new Date(tanggal);
+
+    // Mendapatkan tanggal, bulan, dan tahun
+    var tanggalStr = ("0" + tanggalObj.getDate()).slice(-2);
+    var bulanStr = ("0" + (tanggalObj.getMonth() + 1)).slice(-2);
+    var tahunStr = tanggalObj.getFullYear();
+
+    // Mendapatkan jam, menit, dan detik
+    var jamStr = ("0" + tanggalObj.getHours()).slice(-2);
+    var menitStr = ("0" + tanggalObj.getMinutes()).slice(-2);
+    var detikStr = ("0" + tanggalObj.getSeconds()).slice(-2);
+
+    // Menggabungkan dalam format yang diinginkan
+    var formatTanggal = tanggalStr + "-" + bulanStr + "-" + tahunStr + " " + jamStr + ":" + menitStr + ":" + detikStr;
+
+    return formatTanggal;
+}
+
+function detailRekap(elem) {
+    var id = $(elem).data("id");
+    $.ajax({
+        type: "get",
+        "url": BASE_URL + "admin/get_tpp_by_id/" + id,
+        contentType: false,
+        dataType: "JSON",
+        async: true,
+        success: function (data) {
+            $('#detailRekapAdmin').modal('show');
+            document.getElementById('showTpp').innerHTML = ' <div class="row">' +
+                '<div class="col-6">' +
+                '<h4>' + data.name + '</h4>' +
+                '</div>' +
+                '<div class="col-6">' +
+                '<h4 class="float-end">' + konversiBulan(data.month) + ' ' + data.year + '</h4>' +
+                '</div>' +
+                '</div>' +
+                '<hr>' +
+                '<table class="table table-bordered table-striped">' +
+                '<tr>' +
+                '<td>' +
+                '<h6>TL 1 (' + data.tl1 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TL 2 (' + data.tl2 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TL 3 (' + data.tl3 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TL 4 (' + data.tl4 + '%)</h6>' +
+                '</td>' +
+                '</tr>' +
+
+                '<tr>' +
+                '<td>' +
+                '<h6>PSW 1 (' + data.psw1 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>PSW 2 (' + data.psw2 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>PSW 3 (' + data.psw3 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>PSW 4 (' + data.psw4 + '%)</h6>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>' +
+                '<h6>THKC 1 (' + data.thck1 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>THKC 2 (' + data.thck2 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>THKC 3 (' + data.thck3 + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TK 4 (' + data.tk + '%)</h6>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>' +
+                '<h6>Tidak Upacara (' + data.tu + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>LHKPN/ LHKASN (' + data.lhkpn + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6>TPTGR (' + data.tptgr + '%)</h6>' +
+                '</td>' +
+                '<td>' +
+                '<h6 class="text-danger">PD (' + data.subtraction + '%)</h6>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td colspan="2" class="bg-dark">' +
+                '<h4 class="text-white">Total Skor DK (' + data.dk + '%)</h4>' +
+                '</td>' +
+                '<td>' +
+                '<h6>Terakhir update</h6> ' + konversiFormatTanggal(data.updated_at) + ' ' +
+                '</td>' +
+                '<td>' +
+                '<h6>Diupdate oleh<br></h6>' + data.updated_by + ' ' +
+                '</td>' +
+
+                '</tr>' +
+
+
+                '</table>'
+        },
+    })
+}

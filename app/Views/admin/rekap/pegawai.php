@@ -1,17 +1,30 @@
-<?= $this->extend('layout/template_skpd') ?>
-<?= $this->section('content_skpd') ?>
+<?= $this->extend('layout/template_admin') ?>
+<?= $this->section('content_admin') ?>
 <div class="card card-bordered">
     <div class="card-inner">
 
         <div class="row g-4">
-            <input hidden id="id_unit_rekap" name="id_unit_rekap" value="<?php echo session('ses_id_unit') ?>">
-
-            <div class="col-lg-3">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-label" for="full-name-1">SKPD</label>
+                    <div class="form-control-wrap ">
+                        <div class="form-control-select">
+                            <select class="form-control" id="id_unit_rekap_adm" name="id_unit_rekap_adm">
+                                <option value="">-</option>
+                                <?php foreach ($unit as $u) {
+                                    echo "<option value='" . $u["id"] . "'>" . $u["nm_unit"] . "</option>";
+                                } ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
                 <div class="form-group">
                     <label class="form-label" for="full-name-1">Pilih Tahun</label>
                     <div class="form-control-wrap ">
                         <div class="form-control-select">
-                            <select class="form-control" id="tahun_tpp" name="tahun_tpp">
+                            <select class="form-control" id="tahun_tpp_adm" name="tahun_tpp_adm">
                                 <option value="">-</option>
                                 <option value="2024">2024</option>
                             </select>
@@ -19,12 +32,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-2">
                 <div class="form-group">
                     <label class="form-label" for="email-address-1">Pilih Bulan</label>
                     <div class="form-control-wrap">
                         <div class="form-control-select">
-                            <select class="form-control" id="bulan_tpp" name="bulan_tpp">
+                            <select class="form-control" id="bulan_tpp_adm" name="bulan_tpp_adm">
                                 <option value="">-</option>
                                 <?php
                                 $bulan = array(
@@ -51,8 +64,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div id="showCount"></div>
+            <div class="col-lg-4">
+                <div id="showCountAdm"></div>
             </div>
             <div class="col-12" id="btnCetak">
 
@@ -65,7 +78,7 @@
         <hr>
 
         <div class="table-responsive">
-            <table class="table table-bordered " id="tabelTPP">
+            <table class="table table-bordered " id="tabelTPPAdmin">
                 <thead>
                     <tr class="bg-primary text-white text-center">
 
@@ -86,7 +99,7 @@
 </div>
 
 <!-- Modal Form -->
-<div class="modal fade zoom" id="detailRekap">
+<div class="modal fade zoom" id="detailRekapAdmin">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">

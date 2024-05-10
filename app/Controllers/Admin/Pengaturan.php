@@ -4,7 +4,6 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\ConfigModel;
-use App\Models\QrScanModel;
 use App\Models\TblAdmin;
 use App\Models\UnitModel;
 use App\Models\UserModel;
@@ -190,6 +189,8 @@ class Pengaturan extends BaseController
 
             ];
 
+            
+
             return json_encode($respond);
         }
 
@@ -206,6 +207,7 @@ class Pengaturan extends BaseController
 
 
         ];
+      
         $result = $model->update($id, $data);
         if ($result) {
             $respond = [

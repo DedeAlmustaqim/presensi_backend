@@ -35,7 +35,7 @@
 
                     </li>
                     <li class="nk-menu-item has-sub">
-                        <a href="<?php echo base_url() ?>/admin/rekap/pegawai" class="nk-menu-link"><span class="nk-menu-text">Rekapitulasi</span></a>
+                        <a href="<?php echo base_url() ?>/rekapitulasi" class="nk-menu-link"><span class="nk-menu-text">Rekapitulasi</span></a>
 
                     </li>
                     <!-- .nk-menu-item -->
@@ -44,12 +44,12 @@
                             <span class="nk-menu-text">Pengaturan</span>
                         </a>
                         <ul class="nk-menu-sub">
-                        <?php if (session('akses') == 1) {
-                                        ?>
-                            <li class="nk-menu-item">
-                                
-                                <a href="<?php echo base_url() ?>/admin/unit" class="nk-menu-link"><span class="nk-menu-text">SKPD</span></a>
-                            </li>
+                            <?php if (session('akses') == 1) {
+                            ?>
+                                <li class="nk-menu-item">
+
+                                    <a href="<?php echo base_url() ?>/admin/unit" class="nk-menu-link"><span class="nk-menu-text">SKPD</span></a>
+                                </li>
                             <?php } ?>
 
                             <li class="nk-menu-item has-sub">
@@ -72,7 +72,7 @@
                                 </ul><!-- .nk-menu-sub -->
 
                             </li>
-                            
+
                             <?php if (session('akses') == 1) {
                             ?>
                                 <li class="nk-menu-item">
@@ -87,32 +87,40 @@
                         </ul><!-- .nk-menu-sub -->
 
                     </li><!-- .nk-menu-item -->
-                    
+
                     <?php if (session('akses') == 1) {
-                            ?>
-                                <li class="nk-menu-item has-sub">
-                        <a href="#" class="nk-menu-link nk-menu-toggle">
-                            <span class="nk-menu-text">ATEI Utility</span>
-                        </a>
-                        <ul class="nk-menu-sub">
+                    ?>
+                        <li class="nk-menu-item has-sub">
+                            <a href="#" class="nk-menu-link nk-menu-toggle">
+                                <span class="nk-menu-text">ATEI Utility</span>
+                            </a>
+                            <ul class="nk-menu-sub">
 
-                            <li class="nk-menu-item">
-                                <a href="<?php echo base_url() ?>/admin/banner" class="nk-menu-link"><span class="nk-menu-text">Banner</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="<?php echo base_url() ?>/admin/notif" class="nk-menu-link"><span class="nk-menu-text">Pengumuman</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="<?php echo base_url() ?>/admin/news" class="nk-menu-link"><span class="nk-menu-text">Berita</span></a>
-                            </li>
+                                <li class="nk-menu-item">
+                                    <a href="<?php echo base_url() ?>/admin/banner" class="nk-menu-link"><span class="nk-menu-text">Banner</span></a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="<?php echo base_url() ?>/admin/notif" class="nk-menu-link"><span class="nk-menu-text">Pengumuman</span></a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="<?php echo base_url() ?>/admin/news" class="nk-menu-link"><span class="nk-menu-text">Berita</span></a>
+                                </li>
 
-                        </ul><!-- .nk-menu-sub -->
+                            </ul><!-- .nk-menu-sub -->
 
-                    </li><!-- .nk-menu-item -->
-                            <?php
-                            } ?>
+                        </li><!-- .nk-menu-item -->
+                    <?php
+                    } ?>
 
-                    
+                    <?php if (session('akses') == 1) {
+                    ?>
+                        <li class="nk-menu-item has-sub">
+                        <a href="<?php echo base_url() ?>/admin/logger" class="nk-menu-link"><span class="nk-menu-text">Log Admin</span></a>
+
+                    </li>
+                    <?php
+                    } ?>
+
 
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-header-menu -->

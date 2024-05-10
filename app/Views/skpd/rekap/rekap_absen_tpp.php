@@ -49,7 +49,18 @@
             </tr>
         </table>
         <hr>
-        <a target="_blank" href="<?php echo base_url()?>/skpd/rekap/view_absen_tpp_pdf/<?php echo $id ?>/<?php echo $bulan ?>/<?php echo $tahun ?>" class="btn btn-sm btn-secondary mb-1">Cetak Rincian Absensi </a>
+
+<?php if (session('akses')==2){
+?> 
+
+<a target="_blank" href="<?php echo base_url()?>/skpd/rekap/view_absen_tpp_pdf/<?php echo $id ?>/<?php echo $bulan ?>/<?php echo $tahun ?>" class="btn btn-sm btn-secondary mb-1">Cetak Rincian Absensi </a>
+
+<?php
+} else { ?> 
+<a target="_blank" href="<?php echo base_url()?>/rekapitulasi/view_absen_tpp_pdf/<?php echo $id ?>/<?php echo $bulan ?>/<?php echo $tahun ?>" class="btn btn-sm btn-secondary mb-1">Cetak Rincian Absensi </a>
+
+<?php } ?>
+
 
         <h6 class="mt-2">Rekapitulasi Absensi</h6>
         <div class="row-12">

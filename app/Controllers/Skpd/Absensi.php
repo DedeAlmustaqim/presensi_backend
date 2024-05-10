@@ -4,13 +4,19 @@ namespace App\Controllers\Skpd;
 
 use App\Controllers\Api\User;
 use App\Controllers\BaseController;
-use App\Models\AbsenModel;
+use App\Controllers\Service\UserActivityLogger;
 use App\Models\UnitModel;
 use App\Models\UserModel;
+use CodeIgniter\Model;
 use \Hermawan\DataTables\DataTable;
 
 class Absensi extends BaseController
 {
+    protected $userActivityLogger;
+    public function __construct()
+    {
+        $this->userActivityLogger = new UserActivityLogger(new \App\Models\UserActivityModel());
+    }
     public function index()
     {
         $modelUnit = new UnitModel();
@@ -148,6 +154,9 @@ class Absensi extends BaseController
         ];
 
         if ($upacara) {
+            $userData = $user->where('id', $id)->first();
+            $this->userActivityLogger->logActivity(session('ses_nm'), 'Update Data Skor Disiplin','Pegawai yang diupdate ' . $userData['name']);
+
             $result2 = $user->update_keg($data2, $id, $month, $year);
         } else {
             $result2 = $user->add_keg($data2);
@@ -223,6 +232,9 @@ class Absensi extends BaseController
         if ($tpp) {
             $result = $db->table('tpp')->where('id_user', $id_tpp)->where('month', $month_tpp)->where('year', $year_tpp)->update($data);
             if ($result) {
+                $user = New UserModel();
+                $userData = $user->where('id', $id_tpp)->first();
+            $this->userActivityLogger->logActivity(session('ses_nm'), 'Menerbitkan Skor','Pegawai yang diterbitkan ' . $userData['name']);
                 $respond = [
                     'success'   => true,
                 ];

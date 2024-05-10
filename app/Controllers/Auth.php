@@ -3,10 +3,17 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Controllers\Service\UserActivityLogger;
 use App\Models\TblAdmin;
 
 class Auth extends BaseController
 {
+    protected $userActivityLogger;
+    public function __construct()
+    {
+        $this->userActivityLogger = new UserActivityLogger(new \App\Models\UserActivityModel());
+    }
+
     public function login()
     {
         $userModel = new TblAdmin();
@@ -26,7 +33,7 @@ class Auth extends BaseController
                     session()->set('ses_id', $user['id']);
                     session()->set('ses_user', $user['username']);
                     session()->set('ses_nm', $user['nama']);
-
+                    $this->userActivityLogger->logActivity($user['nama'], 'Login','Hak Akses ' . $user['hak_akses']);
 
                     return redirect('admin/dashboard');
                 } else if ($user['id_akses'] == '2') { //
@@ -38,6 +45,7 @@ class Auth extends BaseController
                     session()->set('ses_user', $user['username']);
                     session()->set('ses_nm', $user['nama']);
                     session()->set('ses_id_unit', $user['id_unit']);
+                    $this->userActivityLogger->logActivity($user['nama'], 'Login',' Hak Akses ' . $user['hak_akses']);
 
                     return redirect('skpd/dashboard');
                 } else if ($user['id_akses'] == '3') { //
@@ -49,10 +57,12 @@ class Auth extends BaseController
                     session()->set('ses_user', $user['username']);
                     session()->set('ses_nm', $user['nama']);
                     session()->set('ses_id_unit', $user['id_unit']);
+                    $this->userActivityLogger->logActivity($user['nama'], 'Login', ' Hak Akses ' . $user['hak_akses']);
 
                     return redirect('qrscan');
                 } else if ($user['id_akses'] == '4') { //
                     session()->set('login', true);
+                    $this->userActivityLogger->logActivity($user['nama'], 'Login', ' Hak Akses ' . $user['hak_akses']);
 
                     session()->set('akses', '4');
                     session()->set('hak_akses', $user['hak_akses']);

@@ -12,7 +12,7 @@ class Absensi extends BaseController
     public function index()
     {
         $modelUnit = new UnitModel();
-        $unit = $modelUnit->findAll();
+        $unit = $modelUnit->whereNotIn('id', [1])->findAll();
         $data = array(
             'judul' => 'Kelola Data Absensi Pegawai',
             'sub_judul' => '',
@@ -173,88 +173,7 @@ class Absensi extends BaseController
         }
     }
 
-    public function posted_tpp()
-    {
-
-        $db = db_connect();
-        $id_tpp = $this->request->getVar('id_tpp');
-        $tl1 = $this->request->getVar('tl1');
-        $tl2 = $this->request->getVar('tl2');
-        $tl3 = $this->request->getVar('tl3');
-        $tl4 = $this->request->getVar('tl4');
-        $psw1 = $this->request->getVar('psw1');
-        $psw2 = $this->request->getVar('psw2');
-        $psw3 = $this->request->getVar('psw3');
-        $psw4 = $this->request->getVar('psw4');
-        $thck1 = $this->request->getVar('thck1');
-        $thck2 = $this->request->getVar('thck2');
-        $thck3 = $this->request->getVar('thck3');
-        $tk = $this->request->getVar('tk');
-        $tu = $this->request->getVar('tu');
-        $lhkpn = $this->request->getVar('lhkpn');
-        $tptgr = $this->request->getVar('tptgr');
-        $subtraction = $this->request->getVar('subtraction');
-        $dk = $this->request->getVar('dk');
-        $month_tpp = $this->request->getVar('month_tpp');
-        $year_tpp = $this->request->getVar('year_tpp');
-
-        $tpp = $db->table('tpp')->where('id_user', $id_tpp)->where('month', $month_tpp)->where('year', $year_tpp)->get()->getRow();
-
-        $data = [
-            'id_user' => $id_tpp,
-            'tl1' => $tl1,
-            'tl2' => $tl2,
-            'tl3' => $tl3,
-            'tl4' => $tl4,
-            'psw1' => $psw1,
-            'psw2' => $psw2,
-            'psw3' => $psw3,
-            'psw4' => $psw4,
-            'thck1' => $thck1,
-            'thck2' => $thck2,
-            'thck3' => $thck3,
-            'tk' => $tk,
-            'tu' => $tu,
-            'lhkpn' => $lhkpn,
-            'tptgr' => $tptgr,
-            'dk' => $dk,
-            'subtraction' => $subtraction,
-            'month' => $month_tpp,
-            'year' => $year_tpp,
-            'updated_at' => date("Y-m-d H:i:s"),
-            'updated_by' => session('ses_nm'),
-        ];
-
-        if ($tpp) {
-            $result = $db->table('tpp')->where('id_user', $id_tpp)->where('month', $month_tpp)->where('year', $year_tpp)->update($data);
-            if ($result) {
-                $respond = [
-                    'success'   => true,
-                ];
-                return json_encode($respond);
-            } else {
-                $respond = [
-                    'success' => false,
-
-                ];
-                return json_encode($respond);
-            }
-        } else {
-            $result = $db->table('tpp')->insert($data);
-            if ($result) {
-                $respond = [
-                    'success'   => true,
-                ];
-                return json_encode($respond);
-            } else {
-                $respond = [
-                    'success' => false,
-
-                ];
-                return json_encode($respond);
-            }
-        }
-    }
+   
 
     public function get_ket()
     {

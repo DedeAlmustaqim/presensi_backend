@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-
+    var id = $('#id_qr_scan').val()
     
     // var table;
     // $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {

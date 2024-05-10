@@ -66,12 +66,14 @@ $routes->group('admin',  function ($routes) {
     $routes->post('reset_op/(:alphanum)', 'Admin\Pengaturan::reset_op/$1', ['filter' => 'checkaccessadmin']);
     $routes->get('config', 'Admin\Pengaturan::config', ['filter' => 'checkaccessadmin']);
     $routes->get('user', 'Admin\Pengaturan::user', ['filter' => 'checkaccessadminviewer']);
-    $routes->post('update_config', 'Admin\Pengaturan::update_config');
+    $routes->post('update_config', 'Admin\Pengaturan::update_config', ['filter' => 'checkaccessadmin']);
     $routes->get('get_config', 'Admin\Pengaturan::get_config', ['filter' => 'checkaccessadmin']);
     $routes->get('date_to_skip', 'Admin\DatetoSkipController::index', ['filter' => 'checkaccessadminviewer']);
     $routes->get('json_date_to_skip', 'Admin\DatetoSkipController::json_date_to_skip', ['filter' => 'checkaccessadminviewer']);
     $routes->post('add_date_to_skip', 'Admin\DatetoSkipController::add_date_to_skip', ['filter' => 'checkaccessadmin']);
     $routes->get('get_peg/(:alphanum)', 'Admin\Pengaturan::get_peg/$1', ['filter' => 'checkaccessadminviewer']);
+    $routes->get('logger', 'Admin\Logger::index', ['filter' => 'checkaccessadmin']);
+    $routes->get('json_logger', 'Admin\Logger::json_logger', ['filter' => 'checkaccessadmin']);
 
     //Banner
     $routes->get('banner', 'Admin\Banner::index', ['filter' => 'checkaccessadmin']);
@@ -92,10 +94,10 @@ $routes->group('admin',  function ($routes) {
     $routes->get('json_absensi/(:alphanum)/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Absensi::json_absensi/$1/$2/$3/$4', ['filter' => 'checkaccessadminviewer']);
     $routes->get('get_upacara/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Absensi::get_upacara/$1/$2/$3');
     $routes->get('get_subtraction/(:alphanum)', 'Admin\Absensi::get_subtraction/$1');
-    $routes->post('subtraction', 'Admin\Absensi::subtraction');
-    $routes->post('posted_tpp', 'Admin\Absensi::posted_tpp');
-    $routes->post('get_ket', 'Admin\Absensi::get_ket');
-    $routes->get('get_tpp_by_id/(:alphanum)', 'Admin\Absensi::get_tpp_by_id/$1');
+    $routes->post('subtraction', 'Admin\Absensi::subtraction', ['filter' => 'checkaccessadminviewer']);
+    $routes->post('posted_tpp', 'Admin\Absensi::posted_tpp', ['filter' => 'checkaccessadminviewer']);
+    $routes->post('get_ket', 'Admin\Absensi::get_ket', ['filter' => 'checkaccessadminviewer']);
+    $routes->get('get_tpp_by_id/(:alphanum)', 'Admin\Absensi::get_tpp_by_id/$1', ['filter' => 'checkaccessadminviewer']);
 });
 
 
@@ -146,16 +148,32 @@ $routes->group('skpd',  ['filter' => 'checkaccessskpd'], function($routes) {
 
 $routes->post('skpd/get_ket', 'Skpd\Absensi::get_ket', ['filter' => 'checkaccessadminskpdviewer']);
 
-$routes->group('skpd/rekap', function($routes) {
-    $routes->get('pegawai', 'Skpd\Rekap::rekap_pegawai', ['filter' => 'checkaccessadminskpdviewer']);
-    $routes->get('json_rekap/(:alphanum)/(:alphanum)', 'Skpd\Rekap::json_rekap/$1/$2', ['filter' => 'checkaccessadminskpdviewer']);
-    $routes->get('view_absen/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_absen/$1/$2/$3', ['filter' => 'checkaccessadminskpdviewer']);
-    $routes->get('view_absen_tpp/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_absen_tpp/$1/$2/$3', ['filter' => 'checkaccessadminskpdviewer']);
-    $routes->get('view_absen_tpp_pdf/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_absen_tpp_pdf/$1/$2/$3', ['filter' => 'checkaccessadminskpdviewer']);
-    $routes->get('view_rekap_tpp_pdf/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_rekap_tpp_pdf/$1/$2', ['filter' => 'checkaccessadminskpdviewer']);
-    $routes->get('view_rekap_absen_non_asn_tpp/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_rekap_absen_non_asn_tpp/$1/$2', ['filter' => 'checkaccessadminskpdviewer']);
-    $routes->get('view_rekap_tpp_asn_pdf/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_rekap_tpp_asn_pdf/$1/$2', ['filter' => 'checkaccessadminskpdviewer']);
+$routes->group('skpd/rekap', ['filter' => 'checkaccessskpd'], function($routes) {
+    $routes->get('pegawai', 'Skpd\Rekap::rekap_pegawai');
+    $routes->get('json_rekap/(:alphanum)/(:alphanum)', 'Skpd\Rekap::json_rekap/$1/$2');
+    $routes->get('view_absen/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_absen/$1/$2/$3');
+    $routes->get('view_absen_tpp/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_absen_tpp/$1/$2/$3');
+    $routes->get('view_absen_tpp_pdf/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_absen_tpp_pdf/$1/$2/$3');
+    $routes->get('view_rekap_tpp_pdf/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_rekap_tpp_pdf/$1/$2');
+    $routes->get('view_rekap_absen_non_asn_tpp/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_rekap_absen_non_asn_tpp/$1/$2');
+    $routes->get('view_rekap_tpp_asn_pdf/(:alphanum)/(:alphanum)', 'Skpd\Rekap::view_rekap_tpp_asn_pdf/$1/$2');
+    $routes->get('get_count_peg/(:alphanum)/(:alphanum)/(:alphanum)', 'Skpd\Rekap::get_count_peg/$1/$2/$3');
+
 });
+
+$routes->group('rekapitulasi', ['filter' => 'checkaccessadminviewer'], function($routes) {
+    $routes->get('/', 'Admin\Rekap::rekap_pegawai');
+    $routes->get('json_rekap/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Rekap::json_rekap/$1/$2/$3');
+    $routes->get('view_absen/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Rekap::view_absen/$1/$2/$3');
+    $routes->get('view_absen_tpp/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Rekap::view_absen_tpp/$1/$2/$3');
+    $routes->get('view_absen_tpp_pdf/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Rekap::view_absen_tpp_pdf/$1/$2/$3');
+    $routes->get('view_rekap_tpp_pdf/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Rekap::view_rekap_tpp_pdf/$1/$2/$3');
+    $routes->get('view_rekap_absen_non_asn_tpp/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Rekap::view_rekap_absen_non_asn_tpp/$1/$2/$3');
+    $routes->get('view_rekap_tpp_asn_pdf/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Rekap::view_rekap_tpp_asn_pdf/$1/$2/$3');
+    $routes->get('get_count_peg/(:alphanum)/(:alphanum)/(:alphanum)', 'Admin\Rekap::get_count_peg/$1/$2/$3');
+
+});
+
 
 //API
 $routes->get('api/getqr/(:alphanum)', 'Api\Qrscan::GetQr/$1');

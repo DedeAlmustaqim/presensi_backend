@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Skpd;
+namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\AbsenModel;
@@ -16,73 +16,69 @@ class Rekap extends BaseController
     public function rekap_pegawai()
     {
         $modelUnit = new UnitModel();
-        $unit = $modelUnit->where('id', session('ses_id_unit'))->first();
+        $unit = $modelUnit->whereNotIn('id', [1])->findAll();
 
         $data = array(
             'judul' => 'Rekap Absensi Pegawai',
-            'sub_judul' => $unit['nm_unit'],
-            'unit' => $unit['nm_unit'],
+            'sub_judul' => ' ',
+            'unit' => $unit,
+
         );
-        return view('skpd/rekap/pegawai', $data);
+        return view('admin/rekap/pegawai', $data);
     }
 
-    public function json_rekap($month, $year)
+    public function json_rekap($month, $year, $id)
     {
-        if ((session('akses') != '2')) {
-            return redirect('login');
-        } else {
+        $db = db_connect();
+        $builder = $db->table('tpp')->select('tpp.id, 
+        tpp.id_user, 
+        tpp.tl1, 
+        tpp.tl2, 
+        tpp.tl3, 
+        tpp.tl4, 
+        tpp.psw1, 
+        tpp.psw2, 
+        tpp.psw3, 
+        tpp.psw4, 
+        tpp.thck1, 
+        tpp.thck2, 
+        tpp.thck3, 
+        tpp.tk, 
+        tpp.tu, 
+        tpp.lhkpn, 
+        tpp.tptgr, 
+        tpp.dk, 
+        tpp.subtraction, 
+        tpp.`month`, 
+        tpp.`year`, 
+        users.`name`, 
+        users.nip,tpp.updated_at,tpp.updated_by')
+            ->join('users', 'tpp.id_user = users.id', 'left')
+            ->where('users.id_unit', $id)
+            ->where('tpp.month', $month)
+            ->where('tpp.year', $year)
 
-            $db = db_connect();
-            $builder = $db->table('tpp')->select('tpp.id, 
-            tpp.id_user, 
-            tpp.tl1, 
-            tpp.tl2, 
-            tpp.tl3, 
-            tpp.tl4, 
-            tpp.psw1, 
-            tpp.psw2, 
-            tpp.psw3, 
-            tpp.psw4, 
-            tpp.thck1, 
-            tpp.thck2, 
-            tpp.thck3, 
-            tpp.tk, 
-            tpp.tu, 
-            tpp.lhkpn, 
-            tpp.tptgr, 
-            tpp.dk, 
-            tpp.subtraction, 
-            tpp.`month`, 
-            tpp.`year`, 
-            users.`name`, 
-            users.nip,tpp.updated_at,tpp.updated_by')
-                ->join('users', 'tpp.id_user = users.id', 'left')
-                ->where('users.id_unit', session('ses_id_unit'))
-                ->where('tpp.month', $month)
-                ->where('tpp.year', $year)
-
-                ->orderBy('users.sort', 'asc')
-                ->orderBy('users.nip', 'asc');
+            ->orderBy('users.sort', 'asc')
+            ->orderBy('users.nip', 'asc');
 
 
-            return DataTable::of($builder)->toJson();;
-        }
+        return DataTable::of($builder)->toJson();
     }
 
     public function get_count_peg($id, $month, $year)
     {
-      
-        
+
+
         $db = db_connect();
-        $id = session('ses_id_unit');
+
         $userSkpd = $db->table('users')->where('id_unit', $id)->countAllResults();
         $userTpp = $db->table('users')
-        ->join('tpp', 'users.id = tpp.id_user', 'inner')
-        ->where('id_unit', $id)
-        ->where('month', $month)
-        ->where('year', $year)
+            ->join('tpp', 'users.id = tpp.id_user', 'inner')
+            ->where('id_unit', $id)
+            ->where('month', $month)
+            ->where('year', $year)
 
-        ->countAllResults();
+            ->countAllResults();
 
         $data = [
             'user_skpd' => $userSkpd,
@@ -307,7 +303,7 @@ class Rekap extends BaseController
         exit();
     }
 
-    public function view_rekap_tpp_pdf($month, $year)
+    public function view_rekap_tpp_pdf($month, $year, $id)
     {
         $db = db_connect();
         helper(['time']);
@@ -341,12 +337,12 @@ class Rekap extends BaseController
             ->join('users', 'tpp.id_user = users.id', 'left')
             ->where('tpp.month', $month)
             ->where('tpp.year', $year)
-            ->where('users.id_unit', session('ses_id_unit'))
+            ->where('users.id_unit', $id)
             ->orderBy('users.sort', 'ASC')
             ->get()
             ->getResult();
 
-        $unit = $db->table('tbl_unit')->where('id', session('ses_id_unit'))->get()->getRow();
+        $unit = $db->table('tbl_unit')->where('id', $id)->get()->getRow();
 
         $dataPrint = [
             'unit' => $unit->nm_unit,
@@ -386,7 +382,7 @@ class Rekap extends BaseController
         exit();
     }
 
-    public function view_rekap_tpp_asn_pdf($month, $year)
+    public function view_rekap_tpp_asn_pdf($month, $year, $id)
     {
         $db = db_connect();
         helper(['time']);
@@ -420,12 +416,12 @@ class Rekap extends BaseController
             ->join('users', 'tpp.id_user = users.id', 'left')
             ->where('tpp.month', $month)
             ->where('tpp.year', $year)
-            ->where('users.id_unit', session('ses_id_unit'))
+            ->where('users.id_unit', $id)
             ->where('users.status_peg', 'ASN')
             ->orderBy('users.sort', 'ASC')
             ->get()
             ->getResult();
-        $unit = $db->table('tbl_unit')->where('id', session('ses_id_unit'))->get()->getRow();
+        $unit = $db->table('tbl_unit')->where('id', $id)->get()->getRow();
 
         $dataPrint = [
             'unit' => $unit->nm_unit,
@@ -465,7 +461,7 @@ class Rekap extends BaseController
         exit();
     }
 
-    public function view_rekap_absen_non_asn_tpp($month, $year)
+    public function view_rekap_absen_non_asn_tpp($month, $year, $id)
     {
         $db = db_connect();
         helper(['time']);
@@ -498,13 +494,13 @@ class Rekap extends BaseController
 	users.nip')
             ->join('users', 'tpp.id_user = users.id', 'left')
             ->where('tpp.month', $month)
-            ->where('users.id_unit', session('ses_id_unit'))
+            ->where('users.id_unit', $id)
             ->where('tpp.year', $year)
             ->where('users.status_peg', 'NON-ASN')
             ->orderBy('users.sort', 'ASC')
             ->get()
             ->getResult();
-        $unit = $db->table('tbl_unit')->where('id', session('ses_id_unit'))->get()->getRow();
+        $unit = $db->table('tbl_unit')->where('id', $id)->get()->getRow();
 
         $dataPrint = [
             'unit' => $unit->nm_unit,

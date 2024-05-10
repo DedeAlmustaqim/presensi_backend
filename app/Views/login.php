@@ -44,6 +44,7 @@
                                         </div>
                                     </div>
                                 </div><!-- .nk-block-head -->
+                               
                                 <form action="<?php echo base_url() ?>/auth/login" class="form-validate is-alter" autocomplete="off" method="POST">
                                     <div class="form-group">
                                         <div class="form-label-group">

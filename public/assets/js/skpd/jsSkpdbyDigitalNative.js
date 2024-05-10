@@ -492,6 +492,7 @@ function showAbsensi() {
 }
 
 function showRekap() {
+    var id = $('#id_unit_rekap').val()
     var tahun_tpp = $('#tahun_tpp').val()
     var bulan_tpp = $('#bulan_tpp').val()
 
@@ -505,6 +506,50 @@ function showRekap() {
         NioApp.Toast('<h5>Bulan tidak boleh kosong</h5><p class="text-danger"></p>', 'error');
 
     } else {
+
+        $.ajax({
+            type: "get",
+            "url": BASE_URL + "skpd/rekap/get_count_peg/" + id + "/" + bulan_tpp + "/" + tahun_tpp,
+
+            contentType: false,
+            dataType: "JSON",
+            async: true,
+            processData: false,
+            contentType: false,
+            data: {
+                month: bulan_tpp,
+                year: tahun_tpp,
+            },
+
+            success: function (data) {
+                document.getElementById('showCount').innerHTML = '<div class="user-activity-group g-4">' +
+                    '<div class="user-activity">' +
+                    '<em class="icon ni ni-users"></em>' +
+                    '<div class="info">' +
+                    '<span class="amount">'+data.user_skpd+'</span>' +
+                    '<span class="title">Total Pegawai</span>' +
+                    '</div>' +
+
+                    '</div>' +
+                    '<div class="user-activity">' +
+                    '<em class="icon ni ni-users"></em>' +
+                    '<div class="info">' +
+                    '<span class="amount text-success">'+data.user_tpp+'</span>' +
+                    '<span class="title">Diterbitkan</span>' +
+                    '</div>' +
+
+                    '</div>' +
+                    '<div class="user-activity">' +
+                    '<em class="icon ni ni-users"></em>' +
+                    '<div class="info">' +
+                    '<span class="amount text-danger">'+data.user_tpp_unpublish+'</span>' +
+                    '<span class="title">Belum Terbit</span>' +
+                    '</div>' +
+
+                    '</div>' +
+                    '</div>'
+            },
+        })
 
         document.getElementById('btnCetak').innerHTML = ' <a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_tpp_asn_pdf/' + bulan_tpp + '/' + tahun_tpp + '" class="btn btn-outline-primary ">Cetak Rekap ASN</a>&nbsp;'
             + '<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_absen_non_asn_tpp/' + bulan_tpp + '/' + tahun_tpp + '" class="btn btn-outline-primary ">Cetak Rekap NON ASN</a>&nbsp;'
