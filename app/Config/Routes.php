@@ -39,6 +39,7 @@ $routes->get('/privacypolicy', 'Privacy::index');
 $routes->get('/delete_account', 'DeleteAccount::index');
 $routes->post('/auth/login', 'Auth::login');
 $routes->get('/auth/logout', 'Auth::logout');
+$routes->get('/view_absen_tpp_pdf/(:alphanum)/(:alphanum)/(:alphanum)', 'Rekap::view_absen_tpp_pdf/$1/$2/$3');
 $routes->get('/', 'Auth::login');
 
 //Admin 
