@@ -167,211 +167,222 @@
         </tr>
 
         <?php
-        $today = date('Y-m-d'); // Tanggal hari ini
-        $TL1 = 0;
-        $TL2 = 0;
-        $TL3 = 0;
-        $TL4 = 0;
-        $PSW1 = 0;
-        $PSW2 = 0;
-        $PSW3 = 0;
-        $PSW4 = 0;
-        $TK = 0;
-        $THKC1 = 0;
-        $THKC2 = 0;
-        $THKC3 = 0;
-        $LHKPN = 0;
-        $TPTGR = 0;
+                        $today = date('Y-m-d'); // Tanggal hari ini
+                        $TL1 = 0;
+                        $TL2 = 0;
+                        $TL3 = 0;
+                        $TL4 = 0;
+                        $PSW1 = 0;
+                        $PSW2 = 0;
+                        $PSW3 = 0;
+                        $PSW4 = 0;
+                        $TK = 0;
+                        $THKC1 = 0;
+                        $THKC2 = 0;
+                        $THKC3 = 0;
+                        $LHKPN = 0;
+                        $TPTGR = 0;
+                        $IZIN_IN = 0;
+                        $IZIN_OUT = 0;
 
 
-        foreach ($data as $date => $absenData) :
-            if ($date > $today) {
-                continue;
-            }
-        ?>
-            <?php foreach ($absenData as $absen) : ?>
-                <?php
-                if ($absen['id_ket_in'] == 7 && $absen['id_ket_out'] == 7) {
-                    $THKC1++;
-                }
-                if ($absen['id_ket_in'] == 8 && $absen['id_ket_out'] == 8) {
-                    $THKC2++;
-                }
-                if ($absen['id_ket_in'] == 9 && $absen['id_ket_out'] == 9) {
-                    $THKC3++;
-                }
-                ?>
-                <tr>
-                    <td>
-                        <?php
-                        // Array nama-nama hari dalam bahasa Indonesia
-                        $dayNames = array(
-                            'Minggu', 'Senin', 'Selasa', 'Rabu',
-                            'Kamis', 'Jumat', 'Sabtu'
-                        );
-
-                        // Tanggal yang ingin dikonversi
-                        $dateConvert = $date;
-
-                        // Mengonversi tanggal menjadi nama hari
-                        $dayOfWeek = date('w', strtotime($dateConvert));
-                        $dayName = $dayNames[$dayOfWeek];
-
-                        // Output nama hari
-                        echo $dayName; // Output: Jumat
-                        ?>
-                    </td>
-                    <td class="text-center">
-                        <?= $date ?>
-                    </td>
-                    <td class="text-center">
-                        <?php
-                        if ($absen['id_ket_in'] == 1) {
-                            echo  $absen['jam_in'];
-                        } else if ($absen['id_ket_in'] == 2) {
-                            echo  "Tugas Dinas";
-                        } else if ($absen['id_ket_in'] == 3) {
-                            echo  "Dinas Dalam Daerah";
-                        } else if ($absen['id_ket_in'] == 4) {
-                            echo  "Dinas Luar Daerah";
-                        } else if ($absen['id_ket_in'] == 5) {
-                            echo  "Izin Alasan Tertentu";
-                        } else if ($absen['id_ket_in'] == 6) {
-                            echo  "Izin Sakit";
-                        } else if ($absen['id_ket_in'] == 7) {
-                            echo  "Cuti Besar <br> (THCK 1)";
-                        } else if ($absen['id_ket_in'] == 8) {
-                            echo  "Cuti Sakit <br> (THCK 2)";
-                        } else if ($absen['id_ket_in'] == 9) {
-                            echo  "Cuti Tahunan <br> (THCK 3)";
-                        } else {
-
-                            echo "<p class='text-danger'>Belum Absen</p>";
-                        }
-                        ?>
-
-                    </td>
-                    <td class="text-center">
-                        <?php
-                        if ($absen['id_ket_out'] == 1) {
-                            echo  $absen['jam_out'];
-                        } else if ($absen['id_ket_out'] == 2) {
-                            echo  "Tugas Dinas";
-                        } else if ($absen['id_ket_out'] == 3) {
-                            echo  "Dinas Dalam Daerah";
-                        } else if ($absen['id_ket_out'] == 4) {
-                            echo  "Dinas Luar Daerah";
-                        } else if ($absen['id_ket_out'] == 5) {
-                            echo  "Izin Alasan Tertentu";
-                        } else if ($absen['id_ket_out'] == 6) {
-                            echo  "Izin Sakit";
-                        } else if ($absen['id_ket_in'] == 7) {
-                            echo  "Cuti Besar <br> (THCK 1)";
-                        } else if ($absen['id_ket_in'] == 8) {
-                            echo  "Cuti Sakit <br> (THCK 2)";
-                        } else if ($absen['id_ket_in'] == 9) {
-                            echo  "Cuti Tahunan <br> (THCK 3)";
-                        } else {
-                            echo "<p class='text-danger'>Belum Absen</p>";
-                        }
-                        ?>
-                    </td>
-                    <td class="text-center">
-                        <?php
-                        // Cek apakah jam masuk tidak ada (null)
-                        if ($absen['jam_in'] === null) {
-                            if ($absen['id_ket_in'] == null && $absen['id_ket_out'] != null) {
-                                $TL4++;
-                                echo "<p class='text-danger'>TL 4</p>"; // Pengguna belum pulang
-                            } else {
-                                echo "-";
+                        foreach ($data as $date => $absenData) :
+                            if ($date > $today) {
+                                continue;
                             }
-                        } else {
-                            if ($absen['id_ket_in'] == 1) {
-                                // Hitung selisih waktu dari jam masuk dengan jam 08:00
-                                $jamMasuk = strtotime($absen['jam_in']);
-                                $jamTepat = strtotime($jam_masuk);
-                                $selisih = $jamMasuk - $jamTepat;
+                        ?>
+                            <?php foreach ($absenData as $absen) : ?>
+                                <?php
 
-                                // Hitung dalam menit
-                                $selisihMenit = round($selisih / 60);
-
-                                // Tentukan status keterlambatan
-                                if ($selisihMenit >= 1 && $selisihMenit <= 29) {
-                                    $TL1++;
-                                    echo 'TL1 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
-                                } elseif ($selisihMenit >= 30 && $selisihMenit <= 59) {
-                                    $TL2++;
-                                    echo 'TL2 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
-                                } elseif ($selisihMenit >= 60 && $selisihMenit <= 89) {
-                                    $TL3++;
-                                    echo 'TL3 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
-                                } elseif ($selisihMenit > 89) {
-                                    $TL4++;
-                                    echo 'TL4 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
-                                } else {
-                                    // Tidak terlambat
-                                    echo '-';
+                                if ($absen['id_ket_in'] == 5) {
+                                    $IZIN_IN++;
                                 }
-                            } else {
-                                echo '-';
-                            }
-                        }
-                        ?>
-                    </td>
-                    <td class="text-center">
-                        <?php
-                        // Cek apakah jam pulang tidak ada (null)
-                        if ($absen['jam_out'] === null) {
-                            if ($absen['id_ket_in'] != null && $absen['id_ket_out'] == null) {
-                                $PSW4++;
-                                echo "<p class='text-danger'>PSW4 </p>"; // Pengguna belum pulang
-                            } else {
-                                echo "-";
-                            }
-                        } else {
-                            if ($absen['id_ket_out'] == 1) {
-                                // Hitung selisih waktu dari jam pulang dengan jam 16:00
-                                $jamPulang = strtotime($absen['jam_out']);
-                                $jamTepatPulang = strtotime($jam_pulang);
-                                $selisihPulang = $jamTepatPulang - $jamPulang;
-
-                                // Hitung dalam menit
-                                $selisihMenitPulang = round($selisihPulang / 60);
-
-                                // Tentukan status pulang lebih cepat
-                                if ($selisihMenitPulang >= 1 && $selisihMenitPulang <= 29) {
-                                    $PSW1++;
-                                    echo 'PSW1<br><span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
-                                } elseif ($selisihMenitPulang >= 30 && $selisihMenitPulang <= 59) {
-                                    $PSW2++;
-                                    echo 'PSW2<br><span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
-                                } elseif ($selisihMenitPulang >= 60 && $selisihMenitPulang <= 89) {
-                                    $PSW3++;
-                                    echo 'PSW3<br><span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
-                                } elseif ($selisihMenitPulang > 89) {
-                                    $PSW4++;
-                                    echo 'PSW4<br> <span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
-                                } else {
-                                    // Tidak pulang lebih cepat
-                                    echo '-';
+                                if ($absen['id_ket_out'] == 5) {
+                                    $IZIN_OUT++;
                                 }
-                            } else {
-                                // Tidak pulang lebih cepat
-                                echo '-';
-                            }
-                        }
-                        ?>
-                    </td>
-                    <td class="text-center"><?php if (($absen['jam_in'] == null  && ($absen['jam_out'] == null))) {
-                                                if ($absen['id_ket_in'] == null && $absen['id_ket_out'] == null) {
-                                                    $TK++;
-                                                    echo '<span class="text-danger">TK</span>';
+                                // if ($absen['id_ket_in'] == 7 && $absen['id_ket_out'] == 7) {
+                                //     $THKC1++;
+                                // }
+                                // if ($absen['id_ket_in'] == 8 && $absen['id_ket_out'] == 8) {
+                                //     $THKC2++;
+                                // }
+                                // if ($absen['id_ket_in'] == 9 && $absen['id_ket_out'] == 9) {
+                                //     $THKC3++;
+                                // }
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?php
+                                        // Array nama-nama hari dalam bahasa Indonesia
+                                        $dayNames = array(
+                                            'Minggu', 'Senin', 'Selasa', 'Rabu',
+                                            'Kamis', 'Jumat', 'Sabtu'
+                                        );
+
+                                        // Tanggal yang ingin dikonversi
+                                        $dateConvert = $date;
+
+                                        // Mengonversi tanggal menjadi nama hari
+                                        $dayOfWeek = date('w', strtotime($dateConvert));
+                                        $dayName = $dayNames[$dayOfWeek];
+
+                                        // Output nama hari
+                                        echo $dayName; // Output: Jumat
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?= date('d-m-Y', strtotime($date)) ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <?php
+                                        if ($absen['id_ket_in'] == 1) {
+                                            echo  $absen['jam_in'];
+                                        } else if ($absen['id_ket_in'] == 2) {
+                                            echo  "Tugas Dinas";
+                                        } else if ($absen['id_ket_in'] == 3) {
+                                            echo  "Dinas Dalam Daerah";
+                                        } else if ($absen['id_ket_in'] == 4) {
+                                            echo  "Dinas Luar Daerah";
+                                        } else if ($absen['id_ket_in'] == 5) {
+
+                                            echo  "Izin Alasan Tertentu";
+                                        } else if ($absen['id_ket_in'] == 6) {
+                                            echo  "Izin Sakit";
+                                        } else if ($absen['id_ket_in'] == 7) {
+                                            echo  "Cuti Besar <br> (THKC 1)";
+                                        } else if ($absen['id_ket_in'] == 8) {
+                                            echo  "Cuti Sakit <br> (THKC 2)";
+                                        } else if ($absen['id_ket_in'] == 9) {
+                                            echo  "Cuti Tahunan <br> (THKC 3)";
+                                        } else {
+
+                                            echo "<p class='text-danger'>Belum Absen</p>";
+                                        }
+                                        ?>
+
+                                    </td>
+                                    <td class="text-center">
+                                        <?php
+                                        if ($absen['id_ket_out'] == 1) {
+                                            echo  $absen['jam_out'];
+                                        } else if ($absen['id_ket_out'] == 2) {
+                                            echo  "Tugas Dinas";
+                                        } else if ($absen['id_ket_out'] == 3) {
+                                            echo  "Dinas Dalam Daerah";
+                                        } else if ($absen['id_ket_out'] == 4) {
+                                            echo  "Dinas Luar Daerah";
+                                        } else if ($absen['id_ket_out'] == 5) {
+
+                                            echo  "Izin Alasan Tertentu";
+                                        } else if ($absen['id_ket_out'] == 6) {
+                                            echo  "Izin Sakit";
+                                        } else if ($absen['id_ket_in'] == 7) {
+                                            echo  "Cuti Besar <br> (THCK 1)";
+                                        } else if ($absen['id_ket_in'] == 8) {
+                                            echo  "Cuti Sakit <br> (THCK 2)";
+                                        } else if ($absen['id_ket_in'] == 9) {
+                                            echo  "Cuti Tahunan <br> (THCK 3)";
+                                        } else {
+                                            echo "<p class='text-danger'>Belum Absen</p>";
+                                        }
+                                        ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <?php
+                                        // Cek apakah jam masuk tidak ada (null)
+                                        if ($absen['jam_in'] === null) {
+                                            if ($absen['id_ket_in'] == null && $absen['id_ket_out'] != null) {
+                                                $TL4++;
+                                                echo "<p class='text-danger'>TL 4</p>"; // Pengguna belum pulang
+                                            } else {
+                                                echo "-";
+                                            }
+                                        } else {
+                                            if ($absen['id_ket_in'] == 1) {
+                                                // Hitung selisih waktu dari jam masuk dengan jam 08:00
+                                                $jamMasuk = strtotime($absen['jam_in']);
+                                                $jamTepat = strtotime($jam_masuk);
+                                                $selisih = $jamMasuk - $jamTepat;
+
+                                                // Hitung dalam menit
+                                                $selisihMenit = round($selisih / 60);
+
+                                                // Tentukan status keterlambatan
+                                                if ($selisihMenit >= 1 && $selisihMenit <= 29) {
+                                                    $TL1++;
+                                                    echo 'TL1 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
+                                                } elseif ($selisihMenit >= 30 && $selisihMenit <= 59) {
+                                                    $TL2++;
+                                                    echo 'TL2 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
+                                                } elseif ($selisihMenit >= 60 && $selisihMenit <= 89) {
+                                                    $TL3++;
+                                                    echo 'TL3 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
+                                                } elseif ($selisihMenit > 89) {
+                                                    $TL4++;
+                                                    echo 'TL4 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
+                                                } else {
+                                                    // Tidak terlambat
+                                                    echo '-';
                                                 }
-                                            } ?></td>
+                                            } else {
+                                                echo '-';
+                                            }
+                                        }
+                                        ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <?php
+                                        // Cek apakah jam pulang tidak ada (null)
+                                        if ($absen['jam_out'] === null) {
+                                            if ($absen['id_ket_in'] != null && $absen['id_ket_out'] == null) {
+                                                $PSW4++;
+                                                echo "<p class='text-danger'>PSW4 </p>"; // Pengguna belum pulang
+                                            } else {
+                                                echo "-";
+                                            }
+                                        } else {
+                                            if ($absen['id_ket_out'] == 1) {
+                                                // Hitung selisih waktu dari jam pulang dengan jam 16:00
+                                                $jamPulang = strtotime($absen['jam_out']);
+                                                $jamTepatPulang = strtotime($jam_pulang);
+                                                $selisihPulang = $jamTepatPulang - $jamPulang;
+
+                                                // Hitung dalam menit
+                                                $selisihMenitPulang = round($selisihPulang / 60);
+
+                                                // Tentukan status pulang lebih cepat
+                                                if ($selisihMenitPulang >= 1 && $selisihMenitPulang <= 29) {
+                                                    $PSW1++;
+                                                    echo 'PSW1<br><span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
+                                                } elseif ($selisihMenitPulang >= 30 && $selisihMenitPulang <= 59) {
+                                                    $PSW2++;
+                                                    echo 'PSW2<br><span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
+                                                } elseif ($selisihMenitPulang >= 60 && $selisihMenitPulang <= 89) {
+                                                    $PSW3++;
+                                                    echo 'PSW3<br><span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
+                                                } elseif ($selisihMenitPulang > 89) {
+                                                    $PSW4++;
+                                                    echo 'PSW4<br> <span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
+                                                } else {
+                                                    // Tidak pulang lebih cepat
+                                                    echo '-';
+                                                }
+                                            } else {
+                                                // Tidak pulang lebih cepat
+                                                echo '-';
+                                            }
+                                        }
+                                        ?>
+                                    </td>
+                                    <td class="text-center"><?php if (($absen['jam_in'] == null  && ($absen['jam_out'] == null))) {
+                                                                if ($absen['id_ket_in'] == null && $absen['id_ket_out'] == null) {
+                                                                    $TK++;
+                                                                    echo '<span class="text-danger">TK</span>';
+                                                                }
+                                                            } ?></td>
 
 
-                    <!-- <td class="text-center">
+                                    <!-- <td class="text-center">
                                 <?php
                                 // Waktu awal (dalam format H:i:s)
                                 $time1 = '12:00:00';
@@ -455,10 +466,10 @@
                                 ?>
                             </td> -->
 
-                    <!-- Tambahkan kolom lain sesuai kebutuhan -->
-                </tr>
-            <?php endforeach; ?>
-        <?php endforeach; ?>
+                                    <!-- Tambahkan kolom lain sesuai kebutuhan -->
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
 
     </table>
@@ -474,171 +485,192 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>TL1</td>
-                <td class="text-right"><?php echo $TL1 ?></td>
-                <td class="text-right"><?php echo "0.5%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $TL1 * 0.5; ?>%</td>
-            </tr>
-            <tr>
-                <td>TL2</td>
-                <td class="text-right"><?php echo $TL2 ?></td>
-                <td class="text-right"><?php echo "1%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $TL2 * 1; ?>%</td>
-            </tr>
-            <tr>
-                <td>TL3</td>
-                <td class="text-right"><?php echo $TL3 ?></td>
-                <td class="text-right"><?php echo "1.25%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $TL3 * 1.25; ?>%</td>
-            </tr>
-            <tr>
-                <td>TL4</td>
-                <td class="text-right"><?php echo $TL4 ?></td>
-                <td class="text-right"><?php echo "1.5%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;" ><?php echo $TL4 * 1.5; ?>%</td>
-            </tr>
-            <tr>
-                <td>PSW1</td>
-                <td class="text-right"><?php echo $PSW1 ?></td>
-                <td class="text-right"><?php echo "0.5%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $PSW1 * 0.5; ?>%</td>
-            </tr>
-            <tr>
-                <td>PSW2</td>
-                <td class="text-right"><?php echo $PSW2 ?></td>
-                <td class="text-right"><?php echo "1%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $PSW2 * 1; ?>%</td>
-            </tr>
-            <tr>
-                <td>PSW3</td>
-                <td class="text-right"><?php echo $PSW3 ?></td>
-                <td class="text-right"><?php echo "1.25%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $PSW3 * 1.25; ?>%</td>
-            </tr>
-            <tr>
-                <td>PSW4</td>
-                <td class="text-right"><?php echo $PSW4 ?></td>
-                <td class="text-right"><?php echo "1.55%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $PSW4 * 1.55; ?>%</td>
-            </tr>
-            <tr>
-                <td>TK</td>
-                <td class="text-right"><?php echo $TK ?></td>
-                <td class="text-right"><?php echo "3%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $TK * 3; ?>%</td>
-            </tr>
-            <tr>
-                <td>THKC 1</td>
-                <td class="text-right"><?php echo $THKC1 ?></td>
-                <td class="text-right"><?php echo "1%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $THKC1 * 1 ?>%</td>
-            </tr>
-            <tr>
-                <td>THKC 2</td>
-                <td class="text-right"><?php echo $THKC2 ?></td>
-                <td class="text-right"><?php echo "2%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $THKC2 * 2 ?>%</td>
-            </tr>
-            <tr>
-                <td>THKC 3</td>
-                <td class="text-right"><?php echo $THKC3 ?></td>
-                <td class="text-right"><?php echo "3%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $THKC3 * 3 ?>%</td>
-            </tr>
-            <tr>
-                <td>Tidak Upacara</td>
-                <td class="text-right"><?php echo $keg; ?></td>
-                <td class="text-right"><?php echo "3%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php echo $keg * 3 ?>%</td>
-            </tr>
-            <tr>
-                <td>LHKPN/ LHKASN </td>
-                <td class="text-right"><?php if ($user->lhkpn_lhasn == "true") {
-                        echo "Sudah";
-                    } else {
+        <tr>
+                            <td>TL1</td>
+                            <td><?php echo $TL1 ?></td>
+                            <td><?php echo "0.5%" ?></td>
+                            <td><?php echo $TL1 * 0.5; ?>%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>TL2</td>
+                            <td><?php echo $TL2 ?></td>
+                            <td><?php echo "1%" ?></td>
+                            <td><?php echo $TL2 * 1; ?>%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>TL3</td>
+                            <td><?php echo $TL3 ?></td>
+                            <td><?php echo "1.25%" ?></td>
+                            <td><?php echo $TL3 * 1.25; ?>%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>TL4</td>
+                            <td><?php echo $TL4 ?></td>
+                            <td><?php echo "1.5%" ?></td>
+                            <td><?php echo $TL4 * 1.5; ?>%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>PSW1</td>
+                            <td><?php echo $PSW1 ?></td>
+                            <td><?php echo "0.5%" ?></td>
+                            <td><?php echo $PSW1 * 0.5; ?>%</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>PSW2</td>
+                            <td><?php echo $PSW2 ?></td>
+                            <td><?php echo "1%" ?></td>
+                            <td><?php echo $PSW2 * 1; ?>%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>PSW3</td>
+                            <td><?php echo $PSW3 ?></td>
+                            <td><?php echo "1.25%" ?></td>
+                            <td><?php echo $PSW3 * 1.25; ?>%</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>PSW4</td>
+                            <td><?php echo $PSW4 ?></td>
+                            <td><?php echo "1.55%" ?></td>
+                            <td><?php echo $PSW4 * 1.55; ?>%</td>
+                           
+                        </tr>
 
-                        echo "Belum";
-                    }  ?></td>
-                <!-- <td><?php echo $user->lhkpn_lhasn; ?></td> -->
-                <td class="text-right"><?php echo "5%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php if ($user->lhkpn_lhasn == "true") {
+                        <tr>
+                            <td>Izin pada Jam Masuk</td>
+                            <td><?php echo $IZIN_IN ?></td>
+                            <td><?php echo "0,5%" ?></td>
+                            <td><?php echo $IZIN_IN * 0.5; ?>%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Izin pada Jam Pulang</td>
+                            <td><?php echo $IZIN_OUT ?></td>
+                            <td><?php echo "0,5%" ?></td>
+                            <td><?php echo $IZIN_OUT * 0.5; ?>%</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>THKC 1</td>
+                            <td><?= $countCutiBesar->jumlah_baris ?></td>
+                            <td><?php echo "1%" ?></td>
+                            <td><?= $countCutiBesar->total_subtraction ?? 0 ?>%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>THKC 2</td>
+                            <td><?= $countCutiSakit->jumlah_baris ?></td>
+                            <td><?php echo "2%" ?></td>
+                            <td><?= $countCutiSakit->total_subtraction ?? 0 ?>%</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>THKC 3</td>
+                            <td><?= $countCutiTahunan->jumlah_baris ?></td>
+                            <td><?php echo "3%" ?></td>
+                            <td><?php echo $countCutiTahunan->total_subtraction ?? 0?>%</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>TK</td>
+                            <td><?php echo $TK ?></td>
+                            <td><?php echo "3%" ?></td>
+                            <td><?php echo $TK * 3; ?>%</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>Tidak Upacara</td>
+                            <td><?php echo $keg; ?></td>
+                            <td><?php echo "3%" ?></td>
+                            <td><?php echo $keg * 3 ?>%</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>LHKPN/ LHKASN </td>
+                            <td><?php if ($user->lhkpn_lhasn == "true") {
+                                    echo "Sudah";
+                                } else {
 
-                        echo "0%";
-                    } else {
-                        $LHKPN = 5;
-                        echo "5%";
-                    }  ?></td>
+                                    echo "Belum";
+                                }  ?></td>
+                            <!-- <td><?php echo $user->lhkpn_lhasn; ?></td> -->
+                            <td><?php echo "5%" ?></td>
+                            <td><?php if ($user->lhkpn_lhasn == "true") {
 
-            </tr>
-            <tr>
-                <td>TPTGR </td>
-                <td class="text-right"><?php if ($user->tptgr == "true") {
-                        echo "Sudah";
-                    } else {
-                        echo "Belum";
-                    }  ?></td>
-                <td class="text-right"><?php echo "5%" ?></td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?php if ($user->tptgr == "true") {
-                        echo "0%";
-                    } else {
-                        $TPTGR = 5;
-                        echo "5%";
-                    }  ?></td>
+                                    echo "0%";
+                                } else {
+                                    $LHKPN = 5;
+                                    echo "5%";
+                                }  ?></td>
+                            
 
-            </tr>
-            <?php
-            // Menghitung jumlah total potongan untuk setiap kategori
-            $total_potongan = ($TL1 * 0.5) +
-                ($TL2 * 1) +
-                ($TL3 * 1.25) +
-                ($TL4 * 1.5) +
-                ($PSW1 * 0.5) +
-                ($PSW2 * 1) +
-                ($PSW3 * 1.25) +
-                ($PSW4 * 1.55) +
-                ($THKC1 * 1) +
-                ($THKC2 * 2) +
-                ($THKC3 * 3) +
-                ($TK * 3) +
-                ($keg * 3) +
-                $LHKPN +
-                $TPTGR;
+                        </tr>
+                        <tr>
+                            <td>TPTGR </td>
+                            <td><?php if ($user->tptgr == "true") {
+                                    echo "Sudah";
+                                } else {
+                                    echo "Belum";
+                                }  ?></td>
+                            <td><?php echo "5%" ?></td>
+                            <td><?php if ($user->tptgr == "true") {
+                                    echo "0%";
+                                } else {
+                                    $TPTGR = 5;
+                                    echo "5%";
+                                }  ?></td>
+                            
 
-            // Menghitung jumlah total dari semua kategori
+                        </tr>
+                        <?php
+                        // Menghitung jumlah total potongan untuk setiap kategori
+                        $total_potongan = ($TL1 * 0.5) +
+                            ($TL2 * 1) +
+                            ($TL3 * 1.25) +
+                            ($TL4 * 1.5) +
+                            ($PSW1 * 0.5) +
+                            ($PSW2 * 1) +
+                            ($PSW3 * 1.25) +
+                            ($PSW4 * 1.55) +
+                            ($IZIN_IN * 0.5) +
+                            ($IZIN_OUT * 0.5) +
+                            ($PSW4 * 1.55) +
+                            ($countCutiBesar->total_subtraction ?? 0) +
+                            ($countCutiSakit->total_subtraction ?? 0 ) +
+                            ($countCutiTahunan->total_subtraction ?? 0) +
+                            ($TK * 3) +
+                            ($keg * 3) +
+                            $LHKPN +
+                            $TPTGR;
+
+                        // Menghitung jumlah total dari semua kategori
 
 
-            // Menghitung jumlah total persen
+                        // Menghitung jumlah total persen
 
-            ?>
-            <tr>
-                <td colspan="3">Total Pengurangan</td>
-                <td class="text-right" style="background-color: #f2f2f2;"><?= $total_potongan ?>%</td>
-            </tr>
-            <tr>
-                <td colspan="3">Total Skor Disiplin Kerja <br>(100% - Total Pengurangan %) </td>
-                <td class="text-right" style="background-color: #f2f2f2;"><b><?= 100 - $total_potongan ?>%</b></td>
-            </tr>
+                        ?>
+                        <tr>
+                            <td colspan="3">Total Pengurangan</td>
+                            <td><?= $total_potongan ?>%</td>
+                           
+                        </tr>
+                        <tr>
+                            <td colspan="3">Total Skor DK (Disiplin Kerja) <br>(100% - Total Pengurangan %) </td>
+                            <td><?= 100 - $total_potongan ?>%</td>
+                            
+                        </tr>
         </tbody>
     </table>
 
 
 
-    <footer>
-        <table width="100%">
-            <tr>
-                <td width="85%">
-                    <i><u>
-                            <font size="10px">Printed by SIAMEL <?php echo date("d-m-Y") ?> <?php echo date("H:i:s") ?> WIB</font>
-                        </u></i>
-                </td>
-                <td>
-                    <i><u>
-                            <font size="10px"><?php echo base_url() ?></font>
-                        </u></i>
-                </td>
-            </tr>
-    </footer>
+   
 </body>
 
 </html>

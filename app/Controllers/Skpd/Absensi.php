@@ -193,6 +193,8 @@ class Absensi extends BaseController
         $thck1 = $this->request->getVar('thck1');
         $thck2 = $this->request->getVar('thck2');
         $thck3 = $this->request->getVar('thck3');
+        $ijm = $this->request->getVar('ijm');
+        $ijp = $this->request->getVar('ijp');
         $tk = $this->request->getVar('tk');
         $tu = $this->request->getVar('tu');
         $lhkpn = $this->request->getVar('lhkpn');
@@ -217,6 +219,8 @@ class Absensi extends BaseController
             'thck1' => $thck1,
             'thck2' => $thck2,
             'thck3' => $thck3,
+            'ijm' => $ijm,
+            'ijp' => $ijp,
             'tk' => $tk,
             'tu' => $tu,
             'lhkpn' => $lhkpn,

@@ -307,6 +307,7 @@ function showAbsensi() {
             },
 
         })
+        
         document.getElementById('btn_cetak_tpp').innerHTML = '<a  target="_blank" href="' + BASE_URL + 'skpd/rekap/view_absen_tpp/' + id_user_absen + '/' + bulan_absen + '/' + tahun_absen + '" class="btn btn-secondary">Lihat Skor Disiplin</a>'
 
         $('#tabelAbsenPegawai').DataTable({
@@ -550,6 +551,8 @@ function showRekap() {
                     '</div>'
             },
         })
+
+        
 
         document.getElementById('btnCetak').innerHTML = ' <a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_tpp_asn_pdf/' + bulan_tpp + '/' + tahun_tpp + '" class="btn btn-outline-primary ">Cetak Rekap ASN</a>&nbsp;'
             + '<a target="_blank" href="' + BASE_URL + 'skpd/rekap/view_rekap_absen_non_asn_tpp/' + bulan_tpp + '/' + tahun_tpp + '" class="btn btn-outline-primary ">Cetak Rekap NON ASN</a>&nbsp;'

@@ -17,7 +17,8 @@ class Auth extends BaseController
     public function login()
     {
         $userModel = new TblAdmin();
-
+        $request = service('request');
+        $ip = $request->getIPAddress();
         $user = $userModel->table('tbl_admin')
             ->where('username', $this->request->getVar('username'))
             ->join('tbl_akses', 'tbl_admin.id_akses = tbl_akses.id_akses', 'left')
@@ -33,7 +34,7 @@ class Auth extends BaseController
                     session()->set('ses_id', $user['id']);
                     session()->set('ses_user', $user['username']);
                     session()->set('ses_nm', $user['nama']);
-                    $this->userActivityLogger->logActivity($user['nama'], 'Login','Hak Akses ' . $user['hak_akses']);
+                    $this->userActivityLogger->logActivity($user['nama'], 'Login IP Address '.$ip,'Hak Akses ' . $user['hak_akses']);
 
                     return redirect('admin/dashboard');
                 } else if ($user['id_akses'] == '2') { //
@@ -45,7 +46,7 @@ class Auth extends BaseController
                     session()->set('ses_user', $user['username']);
                     session()->set('ses_nm', $user['nama']);
                     session()->set('ses_id_unit', $user['id_unit']);
-                    $this->userActivityLogger->logActivity($user['nama'], 'Login',' Hak Akses ' . $user['hak_akses']);
+                    $this->userActivityLogger->logActivity($user['nama'], 'Login IP Address '.$ip,'Hak Akses ' . $user['hak_akses']);
 
                     return redirect('skpd/dashboard');
                 } else if ($user['id_akses'] == '3') { //
@@ -57,12 +58,12 @@ class Auth extends BaseController
                     session()->set('ses_user', $user['username']);
                     session()->set('ses_nm', $user['nama']);
                     session()->set('ses_id_unit', $user['id_unit']);
-                    $this->userActivityLogger->logActivity($user['nama'], 'Login', ' Hak Akses ' . $user['hak_akses']);
+                    $this->userActivityLogger->logActivity($user['nama'], 'Login IP Address '.$ip,'Hak Akses ' . $user['hak_akses']);
 
                     return redirect('qrscan');
                 } else if ($user['id_akses'] == '4') { //
                     session()->set('login', true);
-                    $this->userActivityLogger->logActivity($user['nama'], 'Login', ' Hak Akses ' . $user['hak_akses']);
+                    $this->userActivityLogger->logActivity($user['nama'], 'Login IP Address '.$ip,'Hak Akses ' . $user['hak_akses']);
 
                     session()->set('akses', '4');
                     session()->set('hak_akses', $user['hak_akses']);

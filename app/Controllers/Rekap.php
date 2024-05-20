@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\AbsenModel;
+use App\Models\CutiModel;
 use App\Models\UnitModel;
 use App\Models\UserModel;
 use \Hermawan\DataTables\DataTable;
@@ -107,12 +108,15 @@ class Rekap extends BaseController
         $db = db_connect();
         helper(['time']);
         helper('tanggal_indo_helper');
-
+        $cutiModel = new CutiModel();
         // Panggil fungsi untuk mendapatkan data absen
         $data = $this->get_absen_user($id, $month, $year);
         $user = $db->table('users')->where('users.id', $id)->get()->getRow();
         $upacara = $db->table('tbl_subtraction')->where('id_user', $id)->where('year', $year)->where('month', $month)->get()->getRow();
         $unit = $db->table('tbl_unit')->where('id', $user->id_unit)->get()->getRow();
+        $countCutiBesar = $cutiModel->countCutiByMonth($id, $month, 7);
+        $countCutiSakit = $cutiModel->countCutiByMonth($id, $month, 8);
+        $countCutiTahunan = $cutiModel->countCutiByMonth($id,$month, 9);
         // Load view dan kirimkan data absen ke dalam view
         if (!$upacara) {
             $keg = '0';
@@ -121,6 +125,9 @@ class Rekap extends BaseController
         }
         // Load view dan kirimkan data absen ke dalam view
         $dataPrint = [
+            'countCutiBesar' => $countCutiBesar,
+            'countCutiSakit' => $countCutiSakit,
+            'countCutiTahunan' => $countCutiTahunan,
             'user' => $user,
             'unit' => $unit->nm_unit,
             'data' => $data,

@@ -55,7 +55,7 @@ class Banner extends BaseController
             'banner' => [
                 'uploaded[banner]',
                 'mime_in[banner, image/png, image/jpg,image/jpeg, image/gif]',
-                'max_size[banner, 700]',
+                'max_size[banner, 2048]',
             ],
         ]);
 

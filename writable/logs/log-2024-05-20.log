@@ -1,0 +1,253 @@
+CRITICAL - 2024-05-20 20:13:50 --> syntax error, unexpected single-quoted string "dataCuti", expecting "]"
+in APPPATH\Controllers\Skpd\Rekap.php on line 218.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Skpd\\Rekap.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Skpd\\Rekap')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Skpd\\Rekap')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Skpd\\Rekap', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:14:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-20 20:14:06 --> syntax error, unexpected single-quoted string "dataCuti", expecting "]"
+in APPPATH\Controllers\Skpd\Rekap.php on line 218.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Skpd\\Rekap.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Skpd\\Rekap')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Skpd\\Rekap')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Skpd\\Rekap', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:14:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:15:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:18:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:18:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:23:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:24:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:24:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:25:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:25:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:26:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:26:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:28:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-20 20:28:13 --> Undefined property: stdClass::$subtraction
+in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 535.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(535): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$subtraction', 'APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php', 535)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(255): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp('940', '4', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:28:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-20 20:28:39 --> mysqli_sql_exception: Unknown column 'ijm' in 'field list' in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `tpp` SE...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tpp` SE...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tpp` SE...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(2461): CodeIgniter\Database\BaseConnection->query('UPDATE `tpp` SE...', Array, false)
+#4 C:\laragon\www\presensi\app\Controllers\Skpd\Absensi.php(237): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Skpd\Absensi->posted_tpp()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Absensi))
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 20:28:39 --> Unknown column 'ijm' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2461): CodeIgniter\Database\BaseConnection->query('UPDATE `tpp` SET `id_user` = :id_user.1:, `tl1` = :tl1:, `tl2` = :tl2:, `tl3` = :tl3:, `tl4` = :tl4:, `psw1` = :psw1:, `psw2` = :psw2:, `psw3` = :psw3:, `psw4` = :psw4:, `thck1` = :thck1:, `thck2` = :thck2:, `thck3` = :thck3:, `ijm` = :ijm:, `ijp` = :ijp:, `tk` = :tk:, `tu` = :tu:, `lhkpn` = :lhkpn:, `tptgr` = :tptgr:, `dk` = :dk:, `subtraction` = :subtraction:, `month` = :month.1:, `year` = :year.1:, `updated_at` = :updated_at:, `updated_by` = :updated_by:
+WHERE `id_user` = :id_user:
+AND `month` = :month:
+AND `year` = :year:', [...], false)
+ 2 APPPATH\Controllers\Skpd\Absensi.php(237): CodeIgniter\Database\BaseBuilder->update([...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Absensi->posted_tpp()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Absensi))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:29:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:29:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:29:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:29:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-20 20:29:57 --> mysqli_sql_exception: Unknown column 'ijm' in 'field list' in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tp...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tp...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tp...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tp...', Array, false)
+#4 C:\laragon\www\presensi\app\Controllers\Skpd\Absensi.php(254): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Skpd\Absensi->posted_tpp()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Absensi))
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 20:29:57 --> Unknown column 'ijm' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tpp` (`id_user`, `tl1`, `tl2`, `tl3`, `tl4`, `psw1`, `psw2`, `psw3`, `psw4`, `thck1`, `thck2`, `thck3`, `ijm`, `ijp`, `tk`, `tu`, `lhkpn`, `tptgr`, `dk`, `subtraction`, `month`, `year`, `updated_at`, `updated_by`) VALUES (:id_user:, :tl1:, :tl2:, :tl3:, :tl4:, :psw1:, :psw2:, :psw3:, :psw4:, :thck1:, :thck2:, :thck3:, :ijm:, :ijp:, :tk:, :tu:, :lhkpn:, :tptgr:, :dk:, :subtraction:, :month:, :year:, :updated_at:, :updated_by:)', [...], false)
+ 2 APPPATH\Controllers\Skpd\Absensi.php(254): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Absensi->posted_tpp()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Absensi))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:30:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-20 20:30:01 --> mysqli_sql_exception: Unknown column 'ijm' in 'field list' in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tp...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tp...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tp...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tp...', Array, false)
+#4 C:\laragon\www\presensi\app\Controllers\Skpd\Absensi.php(254): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Skpd\Absensi->posted_tpp()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Absensi))
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 20:30:01 --> Unknown column 'ijm' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tpp` (`id_user`, `tl1`, `tl2`, `tl3`, `tl4`, `psw1`, `psw2`, `psw3`, `psw4`, `thck1`, `thck2`, `thck3`, `ijm`, `ijp`, `tk`, `tu`, `lhkpn`, `tptgr`, `dk`, `subtraction`, `month`, `year`, `updated_at`, `updated_by`) VALUES (:id_user:, :tl1:, :tl2:, :tl3:, :tl4:, :psw1:, :psw2:, :psw3:, :psw4:, :thck1:, :thck2:, :thck3:, :ijm:, :ijp:, :tk:, :tu:, :lhkpn:, :tptgr:, :dk:, :subtraction:, :month:, :year:, :updated_at:, :updated_by:)', [...], false)
+ 2 APPPATH\Controllers\Skpd\Absensi.php(254): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Absensi->posted_tpp()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Absensi))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:30:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:30:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-20 20:30:10 --> mysqli_sql_exception: Unknown column 'ijm' in 'field list' in C:\laragon\www\presensi\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\laragon\www\presensi\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tp...', 0)
+#1 C:\laragon\www\presensi\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tp...')
+#2 C:\laragon\www\presensi\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tp...')
+#3 C:\laragon\www\presensi\system\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tp...', Array, false)
+#4 C:\laragon\www\presensi\app\Controllers\Skpd\Absensi.php(254): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\laragon\www\presensi\system\CodeIgniter.php(934): App\Controllers\Skpd\Absensi->posted_tpp()
+#6 C:\laragon\www\presensi\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Absensi))
+#7 C:\laragon\www\presensi\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\presensi\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 20:30:10 --> Unknown column 'ijm' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2294): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tpp` (`id_user`, `tl1`, `tl2`, `tl3`, `tl4`, `psw1`, `psw2`, `psw3`, `psw4`, `thck1`, `thck2`, `thck3`, `ijm`, `ijp`, `tk`, `tu`, `lhkpn`, `tptgr`, `dk`, `subtraction`, `month`, `year`, `updated_at`, `updated_by`) VALUES (:id_user:, :tl1:, :tl2:, :tl3:, :tl4:, :psw1:, :psw2:, :psw3:, :psw4:, :thck1:, :thck2:, :thck3:, :ijm:, :ijp:, :tk:, :tu:, :lhkpn:, :tptgr:, :dk:, :subtraction:, :month:, :year:, :updated_at:, :updated_by:)', [...], false)
+ 2 APPPATH\Controllers\Skpd\Absensi.php(254): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Absensi->posted_tpp()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Absensi))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:31:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:31:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:34:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:34:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:34:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:34:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:37:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:37:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:37:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:37:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:38:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:38:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:38:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:39:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:42:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-20 20:42:44 --> Undefined variable $tl1_rekap
+in APPPATH\Views\skpd\rekap\rekap_absen_tpp_pdf.php on line 493.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp_pdf.php(493): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tl1_rekap', 'APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp_pdf.php', 493)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp_pdf.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp_pdf', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(303): view('skpd/rekap/rekap_absen_tpp_pdf', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp_pdf('940', '5', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:43:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-20 20:43:50 --> Undefined variable $countCutiBesar
+in APPPATH\Views\skpd\rekap\rekap_absen_tpp_pdf.php on line 561.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp_pdf.php(561): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $countCutiBesar', 'APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp_pdf.php', 561)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp_pdf.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp_pdf', [], true)
+ 5 APPPATH\Controllers\Skpd\Rekap.php(303): view('skpd/rekap/rekap_absen_tpp_pdf', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Skpd\Rekap->view_absen_tpp_pdf('940', '5', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Skpd\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:45:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:46:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:46:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:46:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:46:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:47:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:47:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:47:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:47:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:47:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:49:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:49:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:49:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:50:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:50:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:50:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:50:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:50:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-20 20:50:33 --> Undefined variable $ijm_rekap
+in APPPATH\Views\skpd\rekap\rekap_absen_tpp.php on line 504.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp.php(504): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ijm_rekap', 'APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php', 504)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp', [], true)
+ 5 APPPATH\Controllers\Admin\Rekap.php(240): view('skpd/rekap/rekap_absen_tpp', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Rekap->view_absen_tpp('940', '4', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:52:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:52:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:53:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:53:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-20 20:53:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-20 20:53:21 --> Undefined variable $countCutiBesar
+in APPPATH\Views\skpd\rekap\rekap_absen_tpp_pdf.php on line 561.
+ 1 APPPATH\Views\skpd\rekap\rekap_absen_tpp_pdf.php(561): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $countCutiBesar', 'APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp_pdf.php', 561)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\skpd\\rekap\\rekap_absen_tpp_pdf.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('skpd/rekap/rekap_absen_tpp_pdf', [], true)
+ 5 APPPATH\Controllers\Admin\Rekap.php(299): view('skpd/rekap/rekap_absen_tpp_pdf', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Rekap->view_absen_tpp_pdf('940', '4', '2024')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Rekap))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-20 20:54:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
