@@ -20,7 +20,28 @@
 </div>
 <div class="row justify-content-lg-center ">
 	<div class="col-lg-5"><small>*Tips : Tekan F11 untuk layar fullscreen<br>*Tips : Urutkan Pegawai pada Menu Kelola Pegawai oleh Admin SKPD<br>*Tips : Jika Kode QR selalu gagal di Scan cobalah muat ulang halaman ini atau tekan F5</small></div>
-	<div class="col-lg-6"><small>Jam Masuk OPD : <?php echo $masuk ?><br>Jam Pulang OPD : <?php echo $pulang ?><br>Hari Kerja : <?php echo $hari_kerja ?> Hari</small></div>
+		
+<?php
+// Misalnya, variabel $masuk berisi waktu dalam format string
+// $masuk = '08:00:00';
+
+// Periksa apakah variabel $masuk berisi waktu yang valid
+if (DateTime::createFromFormat('H:i:s', $masuk) !== false) {
+    // Membuat objek DateTime dari variabel $masuk
+    $time = new DateTime($masuk);
+
+    // Mengurangi 30 menit dari waktu tersebut
+    $time->modify('-30 minutes');
+
+    // Menampilkan waktu yang baru
+    // echo $time->format('H:i:s');
+?>
+<div class="col-lg-6"><small>Jam Masuk OPD : <?php echo $time->format('H:i:s') ?><br>Jam Pulang OPD : <?php echo $pulang ?><br>Hari Kerja : <?php echo $hari_kerja ?> Hari</small></div>
+<?php
+} else {
+    echo 'Format waktu tidak valid';
+}
+?>
 
 	<div class="col-lg-6">
 		<div class="card">

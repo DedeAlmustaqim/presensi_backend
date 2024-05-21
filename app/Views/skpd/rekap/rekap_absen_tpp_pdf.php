@@ -308,16 +308,16 @@
                                                 $selisihMenit = round($selisih / 60);
 
                                                 // Tentukan status keterlambatan
-                                                if ($selisihMenit >= 1 && $selisihMenit <= 29) {
+                                                if ($selisihMenit >= 1 && $selisihMenit <= 30) {
                                                     $TL1++;
                                                     echo 'TL1 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
-                                                } elseif ($selisihMenit >= 30 && $selisihMenit <= 59) {
+                                                } elseif ($selisihMenit >= 31 && $selisihMenit <= 60) {
                                                     $TL2++;
                                                     echo 'TL2 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
-                                                } elseif ($selisihMenit >= 60 && $selisihMenit <= 89) {
+                                                } elseif ($selisihMenit >= 61 && $selisihMenit <= 90) {
                                                     $TL3++;
                                                     echo 'TL3 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
-                                                } elseif ($selisihMenit > 89) {
+                                                } elseif ($selisihMenit > 90) {
                                                     $TL4++;
                                                     echo 'TL4 <br><span class="text-danger">(terlambat ' . $selisihMenit . ' menit)</span>';
                                                 } else {
@@ -351,16 +351,16 @@
                                                 $selisihMenitPulang = round($selisihPulang / 60);
 
                                                 // Tentukan status pulang lebih cepat
-                                                if ($selisihMenitPulang >= 1 && $selisihMenitPulang <= 29) {
+                                                if ($selisihMenitPulang >= 1 && $selisihMenitPulang <= 30) {
                                                     $PSW1++;
                                                     echo 'PSW1<br><span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
-                                                } elseif ($selisihMenitPulang >= 30 && $selisihMenitPulang <= 59) {
+                                                } elseif ($selisihMenitPulang >= 31 && $selisihMenitPulang <= 60) {
                                                     $PSW2++;
                                                     echo 'PSW2<br><span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
-                                                } elseif ($selisihMenitPulang >= 60 && $selisihMenitPulang <= 89) {
+                                                } elseif ($selisihMenitPulang >= 61 && $selisihMenitPulang <= 90) {
                                                     $PSW3++;
                                                     echo 'PSW3<br><span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
-                                                } elseif ($selisihMenitPulang > 89) {
+                                                } elseif ($selisihMenitPulang > 90) {
                                                     $PSW4++;
                                                     echo 'PSW4<br> <span class="text-danger"> (' . abs($selisihMenitPulang) . ' menit lebih cepat)</span>';
                                                 } else {

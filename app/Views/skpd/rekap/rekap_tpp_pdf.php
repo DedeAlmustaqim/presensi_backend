@@ -144,6 +144,8 @@
             <td colspan="4">Keterlambatan (%)</td>
             <td colspan="4">Pulang Sebelum Waktu (%)</td>
             <td colspan="3">Cuti (%)</td>
+            <td rowspan="2">Izin pada <br> Jam Masuk<br> (%)</td>
+            <td rowspan="2">Izin pada <br> Jam Pulang<br> (%)</td>
             <td rowspan="2">TK (Tanpa <br> Keterangan)<br> (%)</td>
             <td rowspan="2">Tidak <br> Upacara<br> (%)</td>
             <td rowspan="2">LHKPN/ <br> LHKASN<br> (%)</td>
@@ -185,6 +187,8 @@
             <td>18</td>
             <td>19</td>
             <td>20</td>
+            <td>21</td>
+            <td>22</td>
         </tr>
         <?php
         $no = 1;
@@ -205,6 +209,8 @@
                 <td class="text-right"><?php echo $d->thck1; ?></td>
                 <td class="text-right"><?php echo $d->thck2; ?></td>
                 <td class="text-right"><?php echo $d->thck3; ?></td>
+                <td class="text-right"><?php echo $d->ijm; ?></td>
+                <td class="text-right"><?php echo $d->ijp; ?></td>
                 <td class="text-right"><?php echo $d->tk; ?></td>
                 <td class="text-right"><?php echo $d->tu; ?></td>
                 <td class="text-right"><?php echo $d->lhkpn; ?></td>
@@ -216,10 +222,10 @@
         } ?>
     </table>
     <br>
-    <i class="text_utama">* Penilaian Disiplin (PD) pada kolom 20 adalah penjumlahan hasil dari kolom 4 s/d 18 (dihitung berdasarkan jumlah hari kerja dalam bulan berjalan)</i><br>
-    <i class="text_utama">* Total Skor Dk (Disiplin Kerja) pada kolom 20 = (100% - PD)</i><br>
+    <i class="text_utama">* Penilaian Disiplin (PD) pada kolom 22 adalah penjumlahan hasil dari kolom 4 s/d 20 (dihitung berdasarkan jumlah hari kerja dalam bulan berjalan)</i><br>
+    <i class="text_utama">* Total Skor Dk (Disiplin Kerja) pada kolom 22 = (100% - PD)</i><br>
     <i class="text_utama">* Rekapitulasi Kehadiran pada bulan berjalan ditandatangani oleh Kasubbag Kepegawaian / yang membidangi</i>
-    <table width="100%">
+       <table width="100%">
         <tr>
             <td width="75%" class="text_utama"></td>
             <td>Kasubbag Kepegawaian / yang <br>membidangi, <br><br><br><br><br><br><b><?= $kasubbag ?></b><br>NIP. <?= $nip_kasubbag ?></td>
